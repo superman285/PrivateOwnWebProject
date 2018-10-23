@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>农场备忘录</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+    <link rel="stylesheet" href="todolist.css">
+    <link rel="stylesheet" href="cssStyle/buttons.css">
+    <link rel="stylesheet" href="cssStyle/font-awesome.min.css">
+
+    <!--jqueryUI-->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.structure.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.theme.min.css">
+    <script src="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+</head>
+<body>
+    <!--样式选择，按钮用buttons库，弹窗用jqueryUI，其他控件再到UI框架找去-->
+    <button class="change button button-glow button-rounded button-raised button-primary">换背景</button>
+    <div class="content">
+        <div class="leftPart">
+            <img src="img/logo.svg" alt="farmerIcon" class="icon">
+            <button class="delAll button button-3d button-royal">清空所有</button>
+        </div>
+        <div class="rightPart">
+            <input type="text" class="todoInput" placeholder="请在这儿输入备忘事项"
+                   autocomplete="off" value=""><!--hint浅色字提示，autocomplete刷新后不自动记录上次输入框内容-->
+            <!--<button class="button button-large button-plain button-border button-square"><i class="fa fa-trash-o"></i></button>-->
+            <button class="todoAdd button button-3d button-action button-pill">加入待办</button>
+
+            <ul class="todoUL">
+
+            </ul>
+            <!--<li data-num="0">11<button class="delete">我的天</button></li>-->
+        </div>
+        <!--jqUI弹窗提示，需要默认隐藏(设置display)-->
+        <div id="dialog-confirm" title="提示" style="display:none">
+            <p>确定吗？</p>
+        </div>
+        <!--jqUI的alert框-->
+        <div id="dialog-alert" title="提示" style="display: none;">
+            <p>
+                提示内容
+            </p>
+        </div>
+
+    </div>
+
+    <script src="todoLocalStorage.js"></script>
+    <script>
+
+    </script>
+</body>
+</html>

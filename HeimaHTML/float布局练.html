@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>float布局</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+    <style>
+        .header{
+            width: 700px;
+            height: 50px;
+            background-color: red;
+        }
+        .menu{
+            width: 400px;
+            height: 50px;
+            background-color: black;
+            float:left;
+        }
+        .content{
+            width: 300px;
+            padding:10px;
+            /*-webkit-box-sizing: border-box;*/
+            /*-moz-box-sizing: border-box;*/
+            box-sizing: border-box;
+            margin-left:5px;
+            height: 50px;
+            background-color: lightpink;
+            float: left;
+        }
+        .footer{
+            width: 700px;
+            height: 50px;
+            background-color: blue;
+        }
+
+
+
+        /*.clearfix{
+            clear:both;
+            width: 600px;
+            height: 50px;
+            border:1px solid orangered;
+            text-align: center;
+            line-height: 50px;
+        }*/
+
+        /*.clearfix{
+            clear:both;
+        }*/
+
+        body{
+            zoom:1;
+        }
+
+        body::after{
+            content: "";
+            display: block;
+            clear: both;
+
+        }
+
+
+
+        span{
+            width: 600px;
+            height: 100px;
+            background-color: greenyellow;
+            border: 3px solid black;
+        }
+        .span-div{
+            width: 100px;
+            height: 50px;
+            background-color: pink;
+        }
+        #id{
+            color:blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <div class="header"></div>
+
+
+    <div class="menu"></div>
+    <!--<div class="content">Lorem ipsum dolor sit amet, consectetur ecing elit. Officia, pariatur.</div>-->
+    <!--<div class="clearfix"></div>-->
+
+    <div class="footer"></div>
+
+    <hr>
+
+    <!--虽然可以运行，但是万万不推荐，因为id代表唯一标识-->
+    <div id="id">不唯一的标识1</div>
+    <div id="id">不唯一的标识2</div>
+
+    <!--<hr>
+    <hr>
+
+    <span>
+        <div class="span-div"></div>
+    </span>-->
+
+    <script>
+        console.log(document.getElementById("id"));
+        console.log('分隔线1');
+        console.log(document.querySelector("#id"));
+        console.log('分隔线2');
+        console.log(document.querySelectorAll("#id"));
+
+    </script>
+</body>
+</html>

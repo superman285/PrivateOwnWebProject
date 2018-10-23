@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js">
+    </script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.structure.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.theme.min.css">
+    <style>
+        #hex-btn{
+            border: 2px solid deepskyblue;
+            color:teal;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 6px;
+        }
+    </style>
+
+</head>
+<body>
+<h1 id="h">Eva</h1>
+<hr>
+<em>I'm learning to build dynamic web pages with JavaScript and HTML</em>
+<p id="p">Here are some of the things I like to do:</p>
+<ul>
+    <li>White</li>
+    <li>Dance</li>
+    <li>Travel</li>
+</ul>
+<button id="jqhello1">jQuery方式1</button>
+<button id="jqhello2">jQuery方式2</button><br><br>
+<button id="jshello1">JS原生方式1</button>
+<button id="jshello2">JS原生方式2</button>
+<hr>
+<input id="hex-btn" type="button" value="点击事件">
+
+<script>
+    $(function(){
+
+        //jquery绑定事件方式两种，而且事件都不会覆盖
+        /*
+        1.eventName/有提示更方便，没实现好的js事件无法添加
+        2.on/所有js事件都可添加，不管实现完毕没
+        */
+        //方法1~~~~~~~
+        $('#jqhello1').click(function(){
+            alert("jq方式1绑定hello")
+        })
+
+        //用有名函数作为参数传入
+        function event_click(){
+            alert("jq方式1绑定hello world")
+        }
+        $('#jqhello1').click(event_click)
+
+        $('#jqhello1').mouseenter(function(){
+            alert("jq方式1鼠标进入")
+        })
+        $('#jqhello1').mouseleave(function(){
+            alert("jq方式1鼠标离开")
+        })
+
+        //方法2~~~~~~~~类似js的addEventListener
+        $('#jqhello2').on("click",function(){
+            alert("jq方式2绑定")
+        });
+
+        //移除jq两个按钮的所有事件
+        //$("#jqhello1,#jqhello2").off();
+
+        /*带参数的移除，注：无法单独移除匿名事件
+        移除所有click事件
+        $("#jqhello1").off("click");
+        移除名为event_click的click事件
+        $("#jqhello1").off("click",event_click);
+        */
+
+    });
+
+
+
+    var jbtn1 = document.getElementById("jshello1");
+    jbtn1.onclick = function(){
+        alert("js方式1绑定hello")
+    };
+
+    function sayHi(){
+        alert("命名函数js方式1绑定hello")
+    }
+    jbtn1.onclick = sayHi;
+
+    //注意@@注意@@，是同名事件被覆盖，不同名事件不会覆盖
+    jbtn1.onclick = function(event){
+        console.log(event);
+        console.log("onClick事件传入参数："+ event);
+        alert("第一次绑定被覆盖了！js方式1绑定hello world")
+    };
+
+    var jbtn2 = document.getElementById("jshello2");
+    jbtn2.addEventListener("click",function (eve) {
+        console.log("完整事件:"+eve);
+        console.log("按钮："+eve.buttons);
+        console.log("目标："+eve.target);
+        console.log("clientX："+eve.clientX);
+        console.log("clientY："+eve.clientY);
+        console.log("layerX："+eve.layerX);
+        console.log("layerY："+eve.layerY);
+
+        alert("js方式2绑定hello")
+    },false);
+
+    function jsevent(jse){                                      //即使定义时不知道jse是什么参数，但在addEventListener走过之后就知道jse是事件参数了
+        console.log("自定义的："+jse);
+        alert("看好了！绑定不会被覆盖可叠加！js方式2绑定hello world")
+    };
+    jbtn2.addEventListener("click",jsevent);
+
+
+    function sayHi(){
+        alert("厉害！命名函数js方式2绑定hello")
+    }
+    /*此方式结果与上面方式是相同的，差别就在sayHi函数不会被hoisting提升，而上面直接function声明会提升
+    var sayHi = function sayHi(){
+        alert("厉害！命名函数js方式2绑定hello")
+    }*/
+    jbtn2.onclick = sayHi;
+
+    //移除js事件
+    /*错误用法（匿名事件是无法移除的)
+        jbtn2.removeEventListerner("click",function () {
+        alert("js方式2绑定hello")
+    });
+    *正确用法(移除有名事件)
+        jbtn2.removeEventListener("click",jsevent);
+    *
+    *
+    */
+
+</script>
+
+</body>
+</html>

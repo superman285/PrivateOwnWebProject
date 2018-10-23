@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Change Event</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+</head>
+<body>
+
+<!--下拉列表、单选框、复选框 均可以使用change事件！-->
+    //下拉列表选框
+    <br>
+    <span>请问你的答案是?</span>
+    <select id="dropdown">
+        <option value="A">选项1</option>
+        <option value="B" selected>选项2</option>
+        <option value="C">选项3</option>
+        <option value="D">选项4</option>
+    </select>
+    <hr>
+
+    //单选框
+    <form action="" id="radio">
+        请问你的性别是？<br>
+        <input type="radio" name="性别" value="male" checked>男性 <br>
+        <input type="radio" name="性别" value="female">女性 <br>
+    </form>
+    <hr>
+
+    //复选框
+    <form action="" id="checkbox">
+        请问你的座驾是？<br>
+        <input type="checkbox" name="" value="bmw">宝马 <br>
+        <input type="checkbox" name="" value="benz" checked>奔驰 <br>
+        <input type="checkbox" name="" value="qq" checked>奇瑞QQ <br>
+    </form>
+
+    <hr>
+
+    <!--非常用-->
+    <form action="">
+        <input type="radio" name="性别" value="男">男人<br>
+        <input type="radio" name="性别" value="女">女人<br>
+        <!--多选框	-->
+        <input type="checkbox" name="车辆" value="车">宝马<br>
+        <input type="checkbox" name="车辆" value="车">梅赛德斯奔驰<br>
+        <hr>
+        <!-- 按钮 -->
+        <input type="button" value="您好！">
+        <hr>
+        <!--下拉框设置	-->
+        <select name="cars">
+            <option value="bk">别克</option>
+            <option value="xfl" selected>雪佛兰</option>
+            //预选设置
+            <option value="dz">大众</option>
+            <option value="fute">福特</option>
+        </select>
+        <hr>
+        <!--//文本输入框	-->
+        <textarea rows="10" cols="30">说点什么吧。。。</textarea>
+    </form>
+
+
+    <script>
+        var dropdown = document.querySelector("#dropdown");
+        var radio = document.querySelector("#radio");
+        var checkbox = document.querySelector("#checkbox");
+        dropdown.onchange = function (event) {
+            console.log(event.target.value);
+        }
+        radio.onchange = function (event) {
+            console.log(event.target.value);
+        }
+        checkbox.onchange = function (event) {
+            //判断该复选框的选中状态有值才打印，若是取消选择则不打印
+            if(event.target.checked) {
+                console.log(event.target.value);
+            }
+        }
+
+
+
+    </script>
+
+</body>
+</html>

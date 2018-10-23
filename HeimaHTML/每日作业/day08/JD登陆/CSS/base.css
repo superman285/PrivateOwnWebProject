@@ -1,0 +1,48 @@
+/*
+* @Author: dhl
+* @Date:   2016-08-03 14:40:36
+* @Last Modified by:   dhl
+* @Last Modified time: 2016-08-03 15:12:48
+*/
+
+
+body,h1,h2,h3,h4,h5,h6,ul,dl,ol,dt,dd,li,p,div {
+	 margin:  0;
+	 padding:  0;
+	 font-size: 12px;
+	 font-family: 宋体;
+	 color: #666;
+}
+
+a {
+	 text-decoration: none;
+	 color: #666;
+}
+a:hover {
+
+	 color: #C81623;
+}
+
+.w {
+	 width: 990px;
+	 margin: 0 auto;
+}
+
+.clearfix:after{
+	 content: " ";
+	 height: 0;
+	 line-height: 0;
+	 clear: both;
+	 display: block;
+	 visibility: hidden;
+}
+.clearfix{
+	 zoom: 1;
+}
+
+input,img {
+	 margin:  0;
+	 padding:  0;
+	 border:  0 none;
+	 outline-style: none;
+}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+    <style>
+
+        /*body,div{*/
+            /*margin: 0;*/
+            /*padding: 0;*/
+        /*}*/
+
+        .box1{
+            width: 150px;
+            height: 100px;
+            background: #000;
+            position: relative;
+            /*z-index:5;*/
+        }
+        .box2{
+            width: 150px;
+            height: 100px;
+            background: pink;
+            position: relative;
+            /*z-index:10;*/
+            /*float:left;*/
+        }
+        .outer{
+            height: 110px;
+        }
+        .box3{
+            width: 160px;
+            height: 100px;
+            background: lightskyblue;
+            margin-bottom:10px;
+        }
+        .box4{
+            width: 160px;
+            height: 100px;
+            background: red;
+            margin-top: 10px;
+            position: absolute;
+            left:8px;
+        }
+        /*.clearfix{
+            clear:both;
+        }*/
+
+        .box2::after{
+            content:"你好";
+        }
+
+        .outer:after{
+            content:"终于明白了";
+        }
+
+        /*伪类写法得用于父亲上，::after*/
+
+
+        .testline{
+            /*vertical-align: baseline;*/
+            display:block;
+            /*margin-top:20px;*/
+            /*padding-top:20px;*/
+            background-color: yellowgreen;
+            font-size: 14px;
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            /*left:8px;*/
+        }
+
+        .bigout{
+            background-color: pink;
+            width: 400px;
+            height: 400px;
+            margin-left:200px;
+            /*position: absolute;*/
+        }
+        .smallout{
+            background-color: lightskyblue;
+            width: 200px;
+            height: 200px;
+        }
+
+        .outInline{
+            background-color: greenyellow;
+            height: 400px;
+            width: 500px;
+            line-height: 400px;
+
+        }
+        .outInline img{
+            /*vertical-align: middle;*/
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+
+    <div class="outer">
+        <div class="box2">内容2</div>
+    </div>
+
+    <!--<div class="clearfix"></div>-->
+
+    <hr>
+    <hr>
+    <div class="box3">内容3</div>
+
+    <div class="box4">内容4</div>
+
+
+    <div class="bigout">
+        <div class="smallout">
+    <span class="testline">送到房阿三</span>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="outInline">
+        <img src="images/logo.jpg" alt="">
+    </div>
+    <!--<hr>-->
+    <!--<img class="imgline" src="images/logo.jpg" alt="">-->
+    <!--<div class="testline"></div>-->
+
+</body>
+</html>

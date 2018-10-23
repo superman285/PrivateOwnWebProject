@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择器&优先级</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+    <style>
+        body{
+            /*display:inline-block;;*/
+            /*text-align: center;*/
+            /*width: 1000px;*/
+        }
+        p.first{
+            color:blue;
+        }
+        p:first-child{
+            color: red;
+        }
+
+        strong{
+            color:red;
+        }
+
+        .center{
+            width: 250px;
+            height: 250px;
+            background-color: violet;
+            display: inline;
+        }
+
+        :checked{
+             zoom:4;
+         }
+
+        .check{
+            zoom:1;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="center">居中框框</div>
+
+    <p class="first">我是P，测试伪类与类优先级</p>
+
+    <span>
+        <strong>
+            我是span，测试伪元素与标签(元素)优先级
+        </strong>
+    </span>
+
+    <hr>
+
+    <input class="check" type="checkbox" checked value="测试">复选框框1
+
+</body>
+</html>

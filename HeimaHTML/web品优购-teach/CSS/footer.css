@@ -1,0 +1,77 @@
+/*
+* @Author: dhl
+* @Date:   2018-08-16 15:41:15
+* @Last Modified by:   dhl
+* @Last Modified time: 2018-08-17 16:58:27
+*/
+
+.footer {
+	background-color: #e0dedb;
+}
+
+.top_footer {
+	height: 112px;
+	border-bottom: 1px solid #ccc;
+}
+
+.top_footer li {
+	float: left;
+	margin-top: 40px;
+	margin-right: 82px;
+}
+.top_footer li:last-child {
+	margin-right: 0;
+}
+
+.top_footer  .footer_bg {
+	width: 56px;
+	height: 52px;
+	display: block;
+	float: left;
+	background: url("../img/icons.png") no-repeat  -252px top;
+}
+
+.top_footer p {
+	line-height: 25px;
+}
+
+.top_footer p:first-child {
+	font-size: 18px;
+	font-weight: 700;
+}
+
+.middl_footer {
+	height: 169px;
+	border-bottom: 1px solid #ccc;
+}
+.middl_footer dl {
+	float: left;
+	width: 200px;
+	margin-top: 20px;
+}
+.middl_footer dt {
+	height: 25px;
+	font-size: 16px;
+	font-weight: 700;
+}
+.middl_footer dd {
+	height: 20px;
+}
+
+.middl_footer dl:first-child{
+	margin-left: 40px;
+}
+.middl_footer dl:last-child {
+	width: 95px;
+	text-align: center;
+}
+
+.bot_footer {
+	height: 80px;
+	text-align: center;
+	line-height: 40px;
+}
+
+.bot_footer  span {
+	margin: 0 5px;
+}

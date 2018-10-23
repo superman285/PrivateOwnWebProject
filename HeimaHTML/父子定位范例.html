@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>父子定位</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+    <style>
+        body{
+            margin:0;
+        }
+        .fa{
+            width: 200px;
+            height: 200px;
+            background: violet;
+            position: fixed;
+            bottom: 20px;
+            right:20px;
+            border: 1px solid grey;
+        }
+        .son{
+            width: 70px;
+            height: 70px;
+            background: lightskyblue;
+            border: 1px dotted darkgreen;
+            position: absolute;
+            top: -10px;
+            right:-10px;
+        }
+        .long{
+            width: 120px;
+            height: 1200px;
+            background: lightyellow;
+            position: absolute;
+
+        }
+    </style>
+</head>
+<body>
+        <!--若儿子为relative，不管父亲是啥都只管自己相对自己原始位置来偏移-->
+        <!--若儿子为absolute，父亲有position则把父亲视为参照，父亲没有position则把body视为参照-->
+<div class="fa">
+    <div class="son">我是儿子</div>
+
+</div>
+
+        <div class="long">超长框</div>
+</body>
+</html>

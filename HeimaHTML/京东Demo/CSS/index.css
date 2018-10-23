@@ -1,0 +1,97 @@
+body{
+    background-color: #f0f3ef;
+}
+
+.main{
+    background-color: #f0f3ef;
+}
+
+/*grid此处用布局命名法,
+不用对单独元素设置行列法*/
+.sumContainer{
+    height: 475px;
+    display:grid;
+    grid-template-columns: 19fr 59fr 19fr 19fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+    "sM aB ava1 aI"
+    "sM aB ava2 aI"
+    "sM aB ava3 aI";
+    grid-gap:10px;
+}
+.sumContainer>div{
+    background-color: #c2ecff;
+}
+.sumMenu{
+    grid-area:sM;
+}
+.adBanner{
+    grid-area: aB;
+}
+.avater-1{
+     grid-area: ava1;
+}
+.avater-2{
+    grid-area: ava2;
+}
+.avater-3{
+    grid-area: ava3;
+}
+.asideInfo{
+    grid-area: aI;
+}
+.asideInfo{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    background-color: white;
+}
+.asideInfo>div{
+    width: 165px;
+}
+.aside-welcome{
+    flex:155;
+    border-bottom: 1px solid white;
+}
+.aside-notice{
+    flex:130;
+    border-bottom: 1px solid #cccccc;
+}
+.aside-funitems{
+    flex:190;
+}
+
+/*秒杀区*/
+.seckillContainer{
+    height: 275px;
+    margin-top: 30px !important;
+    display:flex;
+    background-color: white;
+}
+.seckillContainer>div{
+    flex:1;
+}
+.secKill-flag{
+    background-color: #e83632;
+}
+.seckillContainer>div.border-r{
+    border-right:0.6px solid #cccccc;
+}
+
+/*5商品展示*/
+.showGoods{
+
+    margin-top: 30px !important;
+}
+.showGoods>div{
+    width: 230px;
+    height: 310px;
+    background-color: #fff;
+}
+
+
+
+
+
+
+

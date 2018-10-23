@@ -1,0 +1,219 @@
+/*
+* @Author: dhl
+* @Date:   2018-08-16 15:41:04
+* @Last Modified by:   dhl
+* @Last Modified time: 2018-08-17 17:01:28
+*/
+
+.top_banner {
+
+	height: 80px;
+
+	background-color: #000;
+}
+
+/* 实现点击隐藏 */
+.top_banner:target {
+	display: none;
+}
+
+.top_banner .w {
+	position: relative;
+}
+
+.top_banner .close {
+	width: 20px;
+	height: 20px;
+	display: block;
+	text-align: center;
+	line-height: 20px;
+	background-color: rgba(255,255,255,.4);
+	color: #fff;
+	position: absolute;
+	right: 0;
+	top: 10px;
+	cursor: pointer;
+}
+
+/* 顶部导航 */
+.top_nav {
+	height: 30px;
+	border-bottom: 1px solid #ccc;
+	background-color: #e5e5e3;
+	line-height: 30px;
+}
+
+.right_nav li {
+	float: left;
+}
+
+.right_nav .line  {
+	width: 1px;
+	height: 12px;
+	background-color: #ccc;
+	margin: 9px 10px;
+}
+
+
+/* 主体logo区域开始 */
+.m_logo {
+	height: 105px;
+}
+
+.logo {
+	margin-top: 25px;
+}
+
+.search_box {
+	margin-top: 25px;
+	margin-left: 210px;
+	border: 1px solid red;
+	position: relative;
+}
+
+.search_box  input:nth-child(1){
+	 width: 440px;
+	 height: 32px;
+	 padding-left: 5px;
+	 float: left;
+}
+
+.search_box input:nth-child(2) {
+	height: 32px;
+	width: 60px;
+	background-color: red;
+	float: left;
+}
+
+.icon-sousuo {
+	position: absolute;
+	top: 50%;
+	right: 22px;
+	margin-top: -8px;
+
+	color: #fff;
+}
+
+.cart {
+	width: 188px;
+	height: 33px;
+	text-align: center;
+	line-height: 33px;
+	border: 1px solid #ccc;
+	margin-top: 25px;
+	margin-right: 20px;
+	position: relative;
+}
+
+.icon-gouwuchetianjia {
+	color: red;
+}
+
+.cart i {
+	font-style: normal;
+	width: 15px;
+	height: 15px;
+	text-align: center;
+	line-height: 15px;
+	color: #fff;
+	background-color: red;
+	display: block;
+	position: absolute;
+	top: -7px;
+	right: 30px;
+
+	border-radius: 7px 7px 7px 0px;
+}
+
+
+/* 关键字 */
+.keywords {
+	margin-left: 210px;
+	margin-top: 5px;
+}
+.keywords li {
+	float: left;
+	font-size: 12px;
+	margin-right: 10px;
+}
+
+.keywords li:last-child {
+	margin-right: 0;
+}
+
+
+/* 主体导航开始 */
+.main_nav {
+	height: 46px;
+	border-bottom: 2px solid #ca0000;
+}
+
+
+.product {
+	width: 210px;
+	height: 46px;
+	background-color: #ca0000;
+	float: left;
+	
+	/* 目的： 提供元素层级 */
+	position: relative;
+	z-index: 16;
+}
+
+.p_title {
+	width: 100%;
+	height: 100%;
+	line-height: 46px;
+	text-align: center;
+	color: #fff;
+	font-size: 18px;
+	font-weight: 700;
+}
+
+.p_list {
+	width: 100%;
+	height: 470px;
+	background-color: #e20000;
+}
+
+.p_list li {
+	height: 31px;
+	line-height: 31px;
+	padding: 0 10px;
+}
+.p_list li a {
+	float: left;
+	color: #fff;
+}
+
+.p_list li span  {
+	float: right;
+	font-family: "宋体";
+	color: #fff;
+}
+
+.p_list li:hover {
+	background-color: #fff;
+}
+
+.p_list li:hover a,
+.p_list li:hover span {
+	color: red;
+}
+
+
+/* 主体导航 */
+.nav_item {
+	margin-left: 60px;
+	margin-top: 22px;
+}
+
+.nav_item li {
+	float: left;
+	font-size: 16px;
+	font-weight: 700;
+	margin-right: 40px;
+}
+.nav_item li:last-child{
+	margin-right: 0;
+}

@@ -1,0 +1,113 @@
+
+
+.main-topInfo{
+    height: 520px;
+}
+
+.info-left{
+    height: 520px;
+    width: 405px;
+}
+.info-left>div:first-child{
+    height: 35px;
+    line-height: 35px;
+}
+
+.info-right{
+    height: 520px;
+    width: 720px;
+}
+.phoneBox{
+    height: 404px;
+    border:1px solid #ccc;
+    background: url("../uploads/s1.png") no-repeat center;
+}
+
+.phoneList{
+    height: 85px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.phoneList>span.f20{
+    font-size: 30px !important;
+    font-weight: bold;
+    color:#ccc;
+}
+
+/*右侧区*/
+.priceBar{
+    height: 60px;
+    background-color: #ffc0cb;
+}
+.hr-line{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.phonecolor-grid{
+    width: 450px;
+    height: 200px;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    grid-template-rows: repeat(4,1fr);
+    grid-gap: 5px;
+
+}
+
+.phonecolor-grid{
+    text-align: center;
+    line-height: 45px;
+}
+
+.gold{
+    border: 1px solid #ccc;
+}
+
+.priceBar{
+    display:flex;
+    align-items:center;
+}
+.priceBar>span:not(:last-child){
+    margin-left: 20px;
+}
+.priceBar>span:last-child{
+    margin-left:auto;
+    margin-right:20px;
+}
+
+.centerInfo-left{
+    height: 1595px;
+    width: 210px;
+    border:1px solid #cccccc;
+    border-top: none;
+}
+
+.centerInfo-left-title{
+    width: 210px;
+    display:flex;
+}
+.centerInfo-left-title div:first-child{
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+}
+.centerInfo-left-title>div{
+    height: 35px;
+    flex:1;
+    text-align: center;
+    line-height: 35px;
+}
+.centerInfo-left-title>div:last-child{
+    border: 1px solid #ccc;
+    /*border-bottom: 1px solid #ccc;*/
+    background-color: #f2f1ef;
+}
+
+
+
+
+
+
+
+
+

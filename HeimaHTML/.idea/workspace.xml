@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b403748e-4639-4ad9-80dc-6e92efa035bb" name="默认的" comment="" />
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="HeimaHTML" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/大项目-品优购Demo/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="215">
+              <caret line="91" column="31" selection-start-line="91" selection-start-column="31" selection-end-line="91" selection-end-column="31" />
+              <folding>
+                <element signature="n#style#0;n#svg#0;n#a#0;n#div#2;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#3307#3313#0" expanded="true" />
+                <element signature="e#3324#3328#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="shopping-common.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/大项目-品优购Demo/CSS/shopping-common.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="37" column="21" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="iconfont.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/大项目-品优购Demo/iconfont2/iconfont.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="24" column="43" lean-forward="true" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>code-bottom</find>
+      <find>machineLearning</find>
+      <find>sup</find>
+      <find>supermanContent</find>
+      <find>aside</find>
+      <find>searchbox</find>
+      <find>main-container</find>
+      <find>main-content</find>
+      <find>.main-content</find>
+      <find>footer</find>
+      <find>banner</find>
+      <find>40px</find>
+      <find>40</find>
+      <find>margin</find>
+      <find>hotecommentcontent</find>
+      <find>centerCotainer</find>
+      <find>1350</find>
+      <find>simPa</find>
+      <find>category</find>
+      <find>iconfont</find>
+      <find>JDD</find>
+      <find>header</find>
+      <find>button</find>
+      <find>i</find>
+      <find>progress</find>
+      <find>line_box</find>
+      <find>top-category</find>
+      <find>:after</find>
+      <find>.icon</find>
+      <find>gouwuche</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/大项目-品优购Demo/CSS/index.css" />
+        <option value="$PROJECT_DIR$/大项目-品优购Demo/CSS/footer.css" />
+        <option value="$PROJECT_DIR$/大项目-品优购Demo/CSS/header.css" />
+        <option value="$PROJECT_DIR$/web/index.html" />
+        <option value="$PROJECT_DIR$/京东Demo/CSS/JD-common.css" />
+        <option value="$PROJECT_DIR$/京东Demo/CSS/index.css" />
+        <option value="$PROJECT_DIR$/京东Demo/CSS/footer.css" />
+        <option value="$PROJECT_DIR$/消除行内元素间空白方法.html" />
+        <option value="$PROJECT_DIR$/京东Demo/index.html" />
+        <option value="$PROJECT_DIR$/京东Demo/CSS/header.css" />
+        <option value="$PROJECT_DIR$/京东Demo/flex导航.html" />
+        <option value="$PROJECT_DIR$/京东Demo/flex-header.css" />
+        <option value="$PROJECT_DIR$/Grid布局&amp;Flex/flex-页脚.html" />
+        <option value="$PROJECT_DIR$/大项目-品优购Demo/list.html" />
+        <option value="$PROJECT_DIR$/过渡动画.html" />
+        <option value="$PROJECT_DIR$/考试-梅兰商城/CSS/indx.css" />
+        <option value="$PROJECT_DIR$/考试-梅兰商城/CSS/common.css" />
+        <option value="$PROJECT_DIR$/考试-梅兰商城/index.html" />
+        <option value="$PROJECT_DIR$/考试-梅兰商城/CSS/index.css" />
+        <option value="$PROJECT_DIR$/大项目-品优购Demo/CSS/register.css" />
+        <option value="$PROJECT_DIR$/大项目-品优购Demo/register.html" />
+        <option value="$PROJECT_DIR$/CSS3动画.html" />
+        <option value="$PROJECT_DIR$/大项目-品优购Demo/CSS/list.css" />
+        <option value="$PROJECT_DIR$/CSS泡泡动画.css" />
+        <option value="$PROJECT_DIR$/CSS泡泡动画.html" />
+        <option value="$PROJECT_DIR$/垂直居中.html" />
+        <option value="$PROJECT_DIR$/大项目-品优购Demo/CSS/detail.css" />
+        <option value="$PROJECT_DIR$/大项目-品优购Demo/detail.html" />
+        <option value="$PROJECT_DIR$/练手静态网页/learn-200/CSS/common.css" />
+        <option value="$PROJECT_DIR$/立体动画导航.html" />
+        <option value="$PROJECT_DIR$/动画animation.html" />
+        <option value="$PROJECT_DIR$/动画效果/时钟动画.html" />
+        <option value="$PROJECT_DIR$/升级考试Final/index.html" />
+        <option value="$PROJECT_DIR$/练手静态网页/learn-200/index.html" />
+        <option value="$PROJECT_DIR$/练手静态网页/learn-200/CSS/index.css" />
+        <option value="$PROJECT_DIR$/练手静态网页/learn-38/css/common.css" />
+        <option value="$PROJECT_DIR$/升级考试Final/CSS/exam-common.css" />
+        <option value="$PROJECT_DIR$/练手静态网页/learn-38/index.html" />
+        <option value="$PROJECT_DIR$/练手静态网页/learn-38/css/index.css" />
+        <option value="$PROJECT_DIR$/浮动失效.html" />
+        <option value="$PROJECT_DIR$/69吴智翀/CSS/index.css" />
+        <option value="$PROJECT_DIR$/响应式布局典范/index.html" />
+        <option value="$PROJECT_DIR$/Grid布局&amp;Flex/akb.js" />
+        <option value="$PROJECT_DIR$/CSS/ddd.js" />
+        <option value="$PROJECT_DIR$/69吴智翀/CSS/exam-common.css" />
+        <option value="$PROJECT_DIR$/CSS/common.css" />
+        <option value="$PROJECT_DIR$/CSS/global_common.css" />
+        <option value="$PROJECT_DIR$/69吴智翀/index.html" />
+        <option value="$PROJECT_DIR$/tryyou.js" />
+        <option value="$PROJECT_DIR$/大项目-品优购Demo/CSS/shopping-common.css" />
+        <option value="$PROJECT_DIR$/大项目-品优购Demo/index.html" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="70" />
+    <option name="y" value="75" />
+    <option name="width" value="1605" />
+    <option name="height" value="894" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="HeimaHTML" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HeimaHTML" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HeimaHTML" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HeimaHTML" type="462c0819:PsiDirectoryNode" />
+              <item name="大项目-品优购Demo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HeimaHTML" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HeimaHTML" type="462c0819:PsiDirectoryNode" />
+              <item name="大项目-品优购Demo" type="462c0819:PsiDirectoryNode" />
+              <item name="CSS" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HeimaHTML" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HeimaHTML" type="462c0819:PsiDirectoryNode" />
+              <item name="大项目-品优购Demo" type="462c0819:PsiDirectoryNode" />
+              <item name="iconfont2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HeimaHTML" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HeimaHTML" type="462c0819:PsiDirectoryNode" />
+              <item name="大项目-品优购Demo" type="462c0819:PsiDirectoryNode" />
+              <item name="iconfont-large" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://R:/Web Projectd/HeimaHTML/学成在线Demo/img/banner4.png" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.jscs" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.jscs" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.selected.package.eslint" value="" />
+    <property name="node.js.selected.package.jscs" value="" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="Settings.JavaScript.Linters.JSHint" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="R:\Web Projectd\HeimaHTML\响应式布局典范" />
+      <recent name="R:\Web Projectd\HeimaHTML\69吴智翀" />
+      <recent name="R:\Web Projectd\HeimaHTML\69吴智翀\img" />
+      <recent name="R:\Web Projectd\HeimaHTML\练手静态网页\learn-38\css" />
+      <recent name="R:\Web Projectd\HeimaHTML\练手静态网页\learn-38" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="R:\Web Projectd\HeimaHTML\动画效果" />
+      <recent name="R:\Web Projectd\HeimaHTML\每日作业\day03\HomeWork" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="akb.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="akb.js" working-dir="$PROJECT_DIR$/Grid布局&amp;Flex" />
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.akb.js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b403748e-4639-4ad9-80dc-6e92efa035bb" name="默认的" comment="" />
+      <created>1532935311083</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1532935311083</updated>
+      <workItem from="1532935312434" duration="406000" />
+      <workItem from="1533026642446" duration="6006000" />
+      <workItem from="1533171231235" duration="17778000" />
+      <workItem from="1533283878867" duration="6296000" />
+      <workItem from="1533296629773" duration="5989000" />
+      <workItem from="1533373418029" duration="25374000" />
+      <workItem from="1533468261490" duration="5913000" />
+      <workItem from="1533479854401" duration="3591000" />
+      <workItem from="1533514659887" duration="30046000" />
+      <workItem from="1533608701340" duration="19165000" />
+      <workItem from="1533690549651" duration="35745000" />
+      <workItem from="1533796753601" duration="12350000" />
+      <workItem from="1533865403945" duration="22477000" />
+      <workItem from="1533914762792" duration="11946000" />
+      <workItem from="1533944763014" duration="763000" />
+      <workItem from="1533945560811" duration="17637000" />
+      <workItem from="1534040871383" duration="21479000" />
+      <workItem from="1534123757946" duration="14447000" />
+      <workItem from="1534160596527" duration="44228000" />
+      <workItem from="1534270431507" duration="18000000" />
+      <workItem from="1534339521141" duration="10293000" />
+      <workItem from="1534377768386" duration="1661000" />
+      <workItem from="1534380022931" duration="36852000" />
+      <workItem from="1534464216179" duration="32734000" />
+      <workItem from="1534517417217" duration="2850000" />
+      <workItem from="1534520548294" duration="2601000" />
+      <workItem from="1534558978776" duration="21102000" />
+      <workItem from="1534647477933" duration="23120000" />
+      <workItem from="1534695108225" duration="4874000" />
+      <workItem from="1534724879742" duration="9817000" />
+      <workItem from="1534747310238" duration="4696000" />
+      <workItem from="1534754832310" duration="29097000" />
+      <workItem from="1534856095418" duration="9795000" />
+      <workItem from="1534950389528" duration="5092000" />
+      <workItem from="1534983349961" duration="9744000" />
+      <workItem from="1535020717740" duration="3446000" />
+      <workItem from="1535025996604" duration="196000" />
+      <workItem from="1535026213995" duration="703000" />
+      <workItem from="1535191481565" duration="2310000" />
+      <workItem from="1535330797810" duration="1763000" />
+      <workItem from="1535358546440" duration="1444000" />
+      <workItem from="1535369827526" duration="27000" />
+      <workItem from="1536636112659" duration="1641000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="535494000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="47" y="50" width="1070" height="596" extended-state="1" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49876237" visible="true" weight="0.26136363" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="调试" order="14" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32822758" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="运行" order="7" weight="0.14928426" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info id="Favorites" order="2" sideWeight="0.50123763" side_tool="true" weight="0.1403302" />
+      <window_info anchor="bottom" id="找到" order="13" weight="0.32822758" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="检验" order="12" weight="0.32830188" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/垂直居中.html" />
+    <entry file="file://$PROJECT_DIR$/垂直居中ss.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-349" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/大项目-品优购Demo/detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="159" column="46" selection-start-line="159" selection-start-column="46" selection-end-line="159" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/大项目-品优购Demo/CSS/detail.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="90" column="30" lean-forward="true" selection-start-line="90" selection-start-column="30" selection-end-line="90" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/动画效果/动画animation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/立体动画导航.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/动画效果/时钟动画.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="98" column="8" selection-start-line="98" selection-start-column="8" selection-end-line="98" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/大项目-品优购Demo/iconfont/demo_fontclass.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/小米首页Demo/iconfont/demo_fontclass.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/京东Demo/iconfont/demo_fontclass.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="43" lean-forward="true" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/京东Demo/iconfont-large/demo_fontclass.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/69吴智翀/iconfont-mobiletb/demo.css" />
+    <entry file="file://$PROJECT_DIR$/69吴智翀/iconfont-mobiletb/demo_fontclass.html" />
+    <entry file="file://$PROJECT_DIR$/京东Demo/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web品优购-teach/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="7" column="121" selection-start-line="5" selection-start-column="4" selection-end-line="7" selection-end-column="121" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/69吴智翀/iconfont-mobiletb/iconfont.eot" />
+    <entry file="file://$PROJECT_DIR$/69吴智翀/iconfont-mobiletb/iconfont.js" />
+    <entry file="file://$PROJECT_DIR$/69吴智翀/iconfont-mobiletb/iconfont.svg" />
+    <entry file="file://$PROJECT_DIR$/练手静态网页/learn-200/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="916">
+          <caret line="101" column="38" selection-start-line="101" selection-start-column="38" selection-end-line="101" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/练手静态网页/learn-200/CSS/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="147" column="11" selection-start-line="147" selection-start-column="11" selection-end-line="147" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/练手静态网页/learn-200/CSS/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-880">
+          <caret line="19" column="18" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/练手静态网页/learn-38/css/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1160">
+          <caret line="118" column="17" selection-start-line="118" selection-start-column="17" selection-end-line="118" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/练手静态网页/learn-38/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1156">
+          <caret line="174" column="30" selection-start-line="174" selection-start-column="30" selection-end-line="174" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/练手静态网页/learn-38/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1520">
+          <caret line="71" column="46" selection-start-line="71" selection-start-column="46" selection-end-line="71" selection-end-column="46" />
+          <caret line="72" column="46" selection-start-line="72" selection-start-column="46" selection-end-line="72" selection-end-column="46" />
+          <caret line="73" column="46" selection-start-line="73" selection-start-column="46" selection-end-line="73" selection-end-column="46" />
+          <caret line="74" column="46" selection-start-line="74" selection-start-column="46" selection-end-line="74" selection-end-column="46" />
+          <caret line="75" column="46" selection-start-line="75" selection-start-column="46" selection-end-line="75" selection-end-column="46" />
+          <caret line="76" column="46" selection-start-line="76" selection-start-column="46" selection-end-line="76" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/69吴智翀/iconfont-mobiletb/iconfont.css" />
+    <entry file="file://$PROJECT_DIR$/精灵图demo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-60" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/浮动失效.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="41" column="30" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/69吴智翀/文字.txt" />
+    <entry file="file://$PROJECT_DIR$/69吴智翀/CSS/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="191" column="19" selection-start-line="191" selection-start-column="19" selection-end-line="191" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/响应式布局典范/css/color.css" />
+    <entry file="file://$PROJECT_DIR$/响应式布局典范/home-2.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/响应式布局典范/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2620">
+          <caret line="1655" column="50" selection-start-line="1655" selection-start-column="50" selection-end-line="1655" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/响应式布局典范/blog-main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-180" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Grid布局&amp;Flex/ll-grid.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Grid布局&amp;Flex/flex-页脚.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Grid布局&amp;Flex/akb.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CSS/ddd.js" />
+    <entry file="file://$PROJECT_DIR$/69吴智翀/CSS/exam-common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" selection-start-line="3" selection-end-line="6" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CSS/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="6" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CSS/global_common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tryyou.js" />
+    <entry file="file://$PROJECT_DIR$/69吴智翀/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-940">
+          <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+          <folding>
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/大项目-品优购Demo/iconfont/demo_symbol.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/小米首页Demo/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="26" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/大项目-品优购Demo/iconfont-large/demo_symbol.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="43" lean-forward="true" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/大项目-品优购Demo/iconfont2/iconfont.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="24" column="43" lean-forward="true" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/大项目-品优购Demo/iconfont2/demo_unicode.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="44" lean-forward="true" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/大项目-品优购Demo/iconfont2/demo_symbol.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-540" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/大项目-品优购Demo/iconfont2/demo_fontclass.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="27" lean-forward="true" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/大项目-品优购Demo/CSS/shopping-common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="37" column="21" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/大项目-品优购Demo/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="91" column="31" selection-start-line="91" selection-start-column="31" selection-end-line="91" selection-end-column="31" />
+          <folding>
+            <element signature="n#style#0;n#svg#0;n#a#0;n#div#2;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#3307#3313#0" expanded="true" />
+            <element signature="e#3324#3328#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

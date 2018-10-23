@@ -1,0 +1,78 @@
+/*
+* @Author: dhl
+* @Date:   2018-08-19 14:49:53
+* @Last Modified by:   dhl
+* @Last Modified time: 2018-08-19 15:34:51
+*/
+.nav_item {
+	margin-left: 0px;
+}
+
+.list_body {
+
+}
+
+.list_top_banner {
+	margin-bottom: 20px;
+}
+
+.list_content li {
+	float: left;
+	width: 283px;
+	height: 460px;
+	border: 1px solid #ccc;
+	margin-right: 20px;
+	margin-bottom: 10px;
+}
+
+.list_content li p {
+	padding: 0 20px;
+	margin-bottom: 15px;
+}
+
+.list_content p:nth-child(3) span {
+	 font-size: 20px;
+	 color: red;
+	 font-weight: 700;
+	 margin-right: 20px;
+}
+
+.progress {
+	padding: 0 20px;
+}
+
+.line_box {
+	width: 80px;
+	height: 14px;
+	border: 1px solid red;
+	border-radius: 7px;
+	margin-top: 2px;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+.line_box::before {
+	content: "";
+	width: 40px;
+	height: 12px;
+	display: block;
+	background-color: pink;
+	border-radius: 6px;
+	margin-top: 1px;
+}
+
+.list_content li a:last-child {
+	display: block;
+	height: 52px;
+	line-height: 52px;
+	text-align: center;
+	color: #fff;
+	background-color: red;
+	font-size: 20px;
+	font-weight: 700;
+	margin-top: 5px;
+}
+
+.list_content li:nth-child(4n) {
+	 margin-right: 0;
+}

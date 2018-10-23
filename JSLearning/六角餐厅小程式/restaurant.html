@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>六角西餐厅</title>
+    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js">
+    </script>
+    <style>
+        div {
+            text-align: center;
+            background: darkgray;
+            opacity: 0.75;
+        }
+
+        button {
+            border: 4px solid dodgerblue;
+            color: mediumseagreen;
+            font-weight: bold;
+            width: 100px;
+            height: 40px;
+            font-size: 16px;
+        }
+
+        h1 {
+            color: darkred;
+        }
+
+        input {
+            width: 40px;
+        }
+
+        em {
+            color: orangered;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+<div>
+    <h1>六角西餐厅-顾客点餐篇</h1>
+    <p>服务生：你好，请问需要什么帮助</p>
+    <p>我需要 <input type="text" id="hamNum"> 个汉堡, <input type="text" id="cocaNum"> 杯可乐</p>
+    <button id="cal_btn">计算价格</button>
+    <p>一共需要: <em id="line">____</em><em id="price"></em> 元</p>
+</div>
+
+<script>
+    var hamNum, cocaNum;
+    var totalPrice;
+    const hamPrice = 20;
+    const cocaPrice = 8;
+
+
+    var cal_btn = document.getElementById("cal_btn");
+
+    cal_btn.addEventListener("click", function () {
+        alert("结账啦！")
+        hamNum = document.getElementById("hamNum").value;
+        cocaNum = document.getElementById("cocaNum").value;
+        if (hamNum == "" && cocaNum == "") {
+            alert("请输入你要点的餐！")
+        } else {
+            console.log(hamNum)
+            console.log(cocaNum)
+            totalPrice = cal(hamNum, cocaNum);
+            document.getElementById("line").textContent = ""
+            console.log(document.getElementById("line").textContent)
+            document.getElementById("price").textContent = totalPrice
+        }
+    });
+
+    function cal(hamNum, cocaNum) {
+        return hamPrice * hamNum + cocaPrice * cocaNum;
+    }
+
+
+</script>
+
+</body>
+</html>

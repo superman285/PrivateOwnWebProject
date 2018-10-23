@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单练习1</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+    <!--设置浏览器页签图标-->
+    <link rel="icon" href="config.ico">
+    <style>
+        .title{
+            text-align: center;
+            color:lightpink;
+        }
+        form{
+            margin-left: 300px;
+
+        }
+        div{
+            margin-bottom: 25px;
+            border:1px solid pink;
+
+        }
+        span{
+            width: 100px;
+            display:inline-block;
+            text-align: left;
+        }
+        #chosefile{
+            margin-left:105px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<h2 class="title">青春不常在，抓紧谈恋爱</h2>
+<form action="表单小练习" method="get/post" name="调查问卷">
+    <div>
+        <span>所在地区</span>
+        <input type="text" placeholder="北京">
+    </div>
+    <div>
+        <span>用户名</span>
+        <input type="text" value="andy">
+    </div>
+    <div>
+        <span>所在地区</span>
+        <input type="password" placeholder="请输入密码">
+    </div>
+    <div>
+        <span>出生年月</span>
+        <select name="年份">
+            <option value="" style="display: none;">选择年份</option>
+            <option value="2011">2011</option>
+            <option value="2012">2012</option>
+            <option value="2013">2013</option>
+            <option value="2014">2014</option>
+        </select>
+        <select name="月份">
+            <option value="" style="display: none;">选择月份</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+    </div>
+    <div>
+        <span>年龄</span>
+        <select name="年龄">
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+        </select>
+    </div>
+    <div>
+        <span>性别</span>
+        <!--同一名字的只能单选，若无此限制，则可多选，切记加上-->
+        <font color="blue">男</font><input type="radio" name="sex" value="男">
+        <!--空格&nbsp;-->
+        <font color="blue">&nbsp;&nbsp;女</font><input type="radio" name="sex" value="女" checked="true">
+        <font color="blue">&nbsp;&nbsp;人妖</font><input type="radio" name="sex" value="人妖">
+    </div>
+    <div>
+        <span>喜欢的类型</span>
+        妩媚<input type="checkbox" value="妩媚">
+        &nbsp;气质<input type="checkbox" value="气质">
+        &nbsp;小鲜肉<input type="checkbox" value="小鲜肉">
+        &nbsp;鹿晗<input type="checkbox" value="鹿晗" checked="true">
+    </div>
+    <div>
+        <span>上传头像</span>
+        <input type="button" value="注册">
+        <input type="submit">
+        <input type="reset">
+        <input type="image" id="pink_btn" src="btn.png">
+        <input type="file" id="chosefile">
+    </div>
+    <div>
+        <span>给我留言</span>
+        <textarea name="" id="" cols="50" rows="15"></textarea>
+    </div>
+    
+</form>
+</body>
+</html>

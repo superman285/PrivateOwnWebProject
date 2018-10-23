@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+    <style>
+        .blue {
+            color: deepskyblue;
+        }
+    </style>
+</head>
+<body>
+<h4 class="titleClass" id="1">helloJS</h4>
+<a href="www.baidu.com">点我跳转百度</a>
+<div id="hexSchool">六角學院</div>
+<ul id="studentList"></ul>
+
+<script>
+
+    var el = document.getElementById("1");
+    var link = 'http://www.baidu.com';
+    el.innerText = "foolishJS"
+    el.innerHTML = '<h1 class="blue">helloJS</h1>'      //样式没变，还是h4标题的样式字体大小
+    el.innerHTML = '<a href="' + link + '">点我跳转百度</a>';
+
+    var addstr = document.createElement("em");
+
+    var hexSchoolSite = document.querySelector("#hexSchool");
+    hexSchoolSite.setAttribute('id','hexSchool233');                    //此处可用变量.setAttribute
+    var hsite = hexSchoolSite.innerHTML;
+    hsite = '<a href="http://www.hexschool.com/">Go to Hexschool</a>'; //此处不可用变量= "innerHTML值"
+
+    var students = [
+        {
+            name: "小明",
+            age: "18",
+            phone: "0912345678"
+        },
+        {
+            name: "小美",
+            age: "17",
+            phone: "0923456789"
+        },
+        {
+            name: "小菜",
+            age: "19",
+            phone: "0934567891"
+        }
+    ];
+
+    var studentList = document.querySelector("#studentList");
+
+    for (let i = 0; i < students.length; i++) {
+        var studentNode = document.createElement("li");
+
+        studentNode.textContent = students[i].name + "，" + students[i].age + "歲，手機號碼是" + students[i].phone;
+        studentList.appendChild(studentNode);
+
+
+        //innerHTML写法
+        //studentList.innerHTML += "<li>" + students[i].name + students[i].age + "歲,手機號碼" + students[i].phone + "</li>";
+
+    }
+
+
+</script>
+</body>
+</html>

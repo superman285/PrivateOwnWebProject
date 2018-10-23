@@ -1,0 +1,204 @@
+/*中间主内容区域*/
+.maincontentWrap{
+    position: relative;
+}
+.maincontent{
+    /*border:1px dashed dimgrey;*/
+    /*height: 1000px;*/
+}
+.asideAD{
+    width: 100%;
+    height: 470px;
+    background: url("../img/jd-ad.png") no-repeat center;
+    position: absolute;
+    top:0;
+    z-index:-1;
+}
+
+/*主要内容上部分banner区域*/
+
+
+.main-bannerContainer{
+    display:flex;
+    justify-content: space-between;
+}
+.banner-blank{
+    width: 210px;
+    height: 450px;
+}
+.banner-center{
+    width: 720px;
+    height: 450px;
+    background:url("../uploads/banner.jpg") no-repeat;
+    background-size: cover;
+}
+.banner-right{
+    width: 250px;
+    height: 450px;
+    /*border:1px solid #cccccc;*/
+    /*border-left:none;*/
+    /*border-right:none;*/
+}
+
+.br-title{
+    height: 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 15px;
+    border:1px solid #cccccc;
+    border-bottom: 1px dashed #cccccc;
+}
+.br-content{
+    height: 130px;
+    border-bottom:1px solid #cccccc;
+}
+.br-content ul{
+    height: 100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-evenly;
+    padding-left:15px;
+    border-left:1px solid #cccccc;
+    border-right:1px solid #cccccc;
+}
+.br-fee{
+    height: 210px;
+    border:none;
+    display:grid;
+    grid-template-columns: repeat(4,25%);
+    grid-template-rows: repeat(4,25%);
+}
+.br-fee>div{
+    box-sizing: border-box;
+    border:1px solid #ccc;
+    border-top:none;
+    border-left:none;
+    background: url("../img/icons.png") no-repeat 0px -10px;
+    text-align: center;
+    line-height: 80px;
+}
+.br-fee>div:nth-child(1),.br-fee>div:nth-child(5),.br-fee>div:nth-child(9),.br-fee>div:nth-child(13){
+    border-left:1px solid #cccccc;
+}
+.br-starSZJ{
+    height: 80px;
+    border:1px solid #cccccc;
+    border-top: none;
+    background: url("../uploads/ad.jpg") no-repeat center;
+    background-size:contain;
+}
+
+/*中间今日推荐展示*/
+.recommendContainer{
+    margin-top: 20px;
+    display:flex;
+    align-items:center;
+    background-color: #ebebeb;
+}
+.recommend-today{
+    height: 165px;
+    line-height: 240px;
+    flex:1;
+    background: url("../img/clock.png") no-repeat center 30px;
+    background-color: #604f4d;
+    text-align:center;
+    color: #ffffff;
+}
+.recommend-product{
+    height: 145px;
+    flex:1;
+    border-right:1px solid lightgrey;
+    background:url("../uploads/re-img1.jpg") no-repeat center;
+}
+.recommend-product:last-child{
+    border-right:none;
+}
+
+
+/*家电组容器*/
+.HA-Container{
+    margin-top: 10px;
+}
+.HA-title .line{
+    margin-left:7px;
+    margin-right:2px;
+}
+.HA-title{
+    border-bottom: 2.5px solid #e70012;
+    line-height: 40px;
+}
+/*grid布局来了!!!!!*/
+.HA-content{
+
+    height: 360px;
+    display: grid;
+    grid-template-columns: 2fr 3fr 2fr 2fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    /*grid-gap:5px;*/
+}
+
+.HA-content .row2{
+    grid-row:1/span 2;
+}
+.HA-content .i3{
+    grid-row:1/2;
+    grid-column:3/4;
+    border-bottom:1px solid red;
+}
+.HA-content .i4{
+    border-left:1px solid red;
+    border-right: 1px solid red;
+}
+.HA-content .i6{
+    grid-row:2/3;
+    grid-column:3/4;
+    border-bottom:1px solid red;
+}
+.HA-content .i5,.HA-content .i7{
+    border-bottom:1px solid red;
+}
+/*给几个格子加上背景图了*/
+.i1{
+    
+}
+.i2{
+    background: url("../uploads/floor-1-b01.png");
+}
+.i3{
+    background: url("../uploads/floor-1-2.png");
+
+}
+.i4{
+    background: url("../uploads/floor-1-4.png");
+}
+.i5{
+    background: url("../uploads/floor-1-6.png");
+}
+.i6{
+    background: url("../uploads/floor-1-3.png");
+}
+.i7{
+    background: url("../uploads/floor-1-6.png");
+}
+
+.TVdiscount{
+    width: 160px;
+    height: 80px;
+    display:grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+    margin:20px auto;
+}
+
+.TVdiscount>div{
+
+    line-height: 25px;
+    /*padding-top:4px;*/
+    text-align: center;
+    border-bottom:1px solid #cccccc;
+}
+
+
+

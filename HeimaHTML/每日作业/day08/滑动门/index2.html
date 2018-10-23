@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.nav {
+			 margin-left: 200px;
+			 margin-top: 200px;
+		}
+		li {
+			 list-style: none;
+			 float: left;
+		}
+
+		li a {
+			 height: 35px;
+			 display: block;
+			 background: url("bg_r1_c1.png") no-repeat;
+			 padding-left: 7px;
+			 text-decoration: none;
+		}
+		a {
+			height: 35px;
+			display: block;
+			background: url("bg_r1_c1.png") no-repeat;
+			padding-left: 7px;
+			text-decoration: none;
+			width: 120px;
+		}
+
+		li span {
+			height: 35px;
+			display: block;
+			background: url("bg_r1_c2.png") no-repeat right;
+			padding-right: 30px;
+		}
+		span {
+			height: 35px;
+			display: block;
+			background: url("bg_r1_c2.png") no-repeat right;
+			padding-right: 30px;
+		}
+
+		li a:hover {
+			background-image: url("blue_r1_c1.png");
+		}
+
+		/*li span:hover {
+			background-image: url("blue_r1_c2.png");
+			background-repeat: no-repeat;
+			background-position: right;
+		}*/
+
+		li a:hover span {
+			background-image: url("blue_r1_c2.png");
+			background-repeat: no-repeat;
+			background-position: right;
+		}
+		.clearfix{
+			clear:both;
+			height: 10px;
+			width: 100%;
+		}
+
+	</style>
+</head>
+<body>
+	   <div class="nav">
+	   	  <ul>
+	   	  	 <li>
+	   	  	 	 <a href="#">
+	   	  	 	 	 <span>文字12312</span>
+	   	  	 	 </a>
+	   	  	 </li>
+	   	  	 <li>
+	   	  	 	 <a href="#">
+	   	  	 	 	 <span>文字12313</span>
+	   	  	 	 </a>
+	   	  	 </li>
+	   	  	 <li>
+	   	  	 	 <a href="#">
+	   	  	 	 	 <span>文字1231</span>
+	   	  	 	 </a>
+	   	  	 </li>
+	   	  </ul>
+	   </div>
+
+	   <div class="clearfix"></div>
+	   <hr>
+	   <a href="#">
+		   <span>文字1231</span>
+	   </a>
+</body>
+</html>

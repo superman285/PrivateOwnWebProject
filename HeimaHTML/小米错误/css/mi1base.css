@@ -1,0 +1,45 @@
+/*
+* @Author: Administrator
+* @Date:   2018-08-12 13:40:49
+* @Last Modified by:   Administrator
+* @Last Modified time: 2018-08-12 16:17:20
+*/
+/*
+* @Author: Administrator
+* @Date:   2018-08-11 21:00:36
+* @Last Modified by:   Administrator
+* @Last Modified time: 2018-08-11 23:23:57
+*/
+body,p,dl,dt,dd,li,ul,input,button,h1,h2,h3,h4,h5,h6,img {
+	margin: 0;
+	padding: 0;
+}
+li {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+	color: #000;
+}
+.w {
+	width: 1226px;
+	margin: 0 auto;
+}
+.fl {
+	float: left;
+}
+.fr {
+	float: right;
+}
+/* 清除浮动 */
+.clearfix::after {
+	content: "";
+	display: block;
+	clear: both;
+	height: 0px;
+	line-height: 0px;
+	visibility: hidden;
+}
+.clearfix {
+	zoom: 1;
+}

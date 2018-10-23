@@ -1,0 +1,492 @@
+.beautyblue{
+    color:#00a4ff;
+}
+
+body{
+    background-color: #f3f5f7;
+}
+
+/*头部区域*/
+.header{
+    width: 1600px;
+    height: 100px;
+    background-color: #f3f5f7;
+    position: sticky;
+    top:0;
+    z-index:99;
+}
+.nav{
+    height: 100px;
+    width: 1600px;
+    margin:0 auto;
+    display: flex;
+    justify-content:space-evenly;
+    align-items:center;
+
+}
+/*导航菜单*/
+.nav-bar>ul{
+    display: flex;
+    margin-left:-150px;
+}
+.nav-bar>ul>li{
+    font-size: 18px;
+    margin:0 10px;
+    padding:5px;
+}
+.nav-bar li{
+    border-bottom:2px solid #00a4ff;
+}
+/*搜索框*/
+.searchBox{
+    border:1px solid #00a4ff;
+    /*想行内块元素真正对齐，给父元素加上这个属性*/
+    font-size: 0px;
+    margin-right:-150px;
+}
+.searchTxt{
+    height: 40px;
+    width: 370px;
+    padding:0 10px;
+}
+.searchIcon{
+    display:inline-block;
+    width: 40px;
+    height: 40px;
+    background: url("../img/search.png") no-repeat center;
+    background-color: #00a4ff;
+    vertical-align:middle;
+}
+/*右侧四个信息*/
+.nav-info>*{
+    vertical-align:middle;
+}
+.nav-info>:nth-child(1),.nav-info>:nth-child(2){
+    margin-right:25px;
+}
+.nav-info>:nth-child(3){
+    margin-right: 5px;
+}
+
+/*主区域容器*/
+.main-container{
+    /*min-width: 1600px;*/
+    /*max-width: 1920px;*/
+    width: 1600px;
+    background-color: #f3f5f7;
+}
+
+/*banner广告区*/
+.banner{
+    width:100%;
+    height: 420px;
+    background:#1c036c;
+}
+@media only screen and (max-width: 1200px){
+        .banSchedule{
+            position: absolute;
+            right:0px;
+            top:160px;
+        }
+
+}
+.bannerWrap{
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+    height: 100%;
+    background:url(../img/banner.png) no-repeat center;
+}
+/*左侧垂直菜单*/
+.banMenu{
+    background-color: rgba(0,0,0,0.4);
+    width: 200px;
+    align-self:stretch;
+}
+.banMenu>ul{
+    height: 390px;
+    margin-top:15px;
+    display: flex;
+    flex-direction:column;
+    justify-content:center;
+}
+.banMenu li{
+    color: white;
+    flex:1;
+    padding:0 20px;
+    position: relative;
+    display:flex;
+    align-items:center;
+}
+.banMenu li>span{
+    position: absolute;
+    right:20px;
+}
+.banMenu li:hover{
+    background-color: #00a4ff;
+    cursor:pointer;
+}
+/*课程表*/
+.banSchedule{
+    width: 230px;
+    height: 300px;
+    background-color: white;
+}
+.sch-center{
+    width: 200px;
+    margin:0 auto;
+}
+.schTitle{
+    height: 50px;
+    line-height: 50px;
+    text-align:center;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: #9bceea;
+    color:white;
+}
+.banSchedule>div:not(:first-child){
+    height: 50px;
+    margin-top: 10px;
+}
+.sch-center:not(:last-child){
+    border-bottom:1px solid #efefef;
+}
+button.sch-center{
+    display: block;
+    background-color: white;
+    height: 40px;
+    border:1px solid #00a4ff;
+    font-size: 19px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+/*主内容区*/
+.main-content{
+    min-height: 2000px;
+    background-color: #f3f5f7;
+    margin-top: 10px;
+    position: relative;
+    /*border:1px solid lightskyblue;*/
+}
+ul.aside-fixedBar{
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:flex-start;
+    padding-left:25px;
+    width: 180px;
+    height: 420px;
+    position: absolute;
+    left:-210px;
+    top:300px;
+    background-color: white;
+    box-shadow:0 2px 3px dimgrey;
+}
+ul.aside-fixedBar>li{
+    margin:10px 0;
+}
+ul.aside-fixedBar>li:hover{
+    color:#00a4ff;
+    cursor:pointer;
+}
+
+/*统一增大一些margin-top，除了导航*/
+.main-content>div:not(:first-child){
+    margin-top: 30px;
+}
+
+/*主区域导航*/
+.mainBar{
+    height: 60px;
+    box-shadow: 0 4px 6px #cccccc;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.mainBar ul{
+    display: flex;
+    flex-direction:row;
+}
+.mainBar li{
+    padding:0 30px;
+    font-size: 16px;
+    border-right:1px solid darkgrey;
+}
+.mainBar>div{
+    margin-right: 20px;
+    font-size: 15px;
+}
+.mainBar li:first-child,.mainBar li:hover{
+    color:#00a4ff;
+}
+
+/*精品推荐*/
+.recommendBox{
+    height: 600px;
+}
+.recommendTitle{
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    position: relative;
+}
+.recommendTitle span{
+    font-size: 13px;
+    color:darkgrey;
+    position: absolute;
+    right:10px;
+}
+.recommendContent{
+    display: grid;
+    grid-template-columns: 228px 228px 228px 228px 228px;
+    grid-template-rows:270px 270px;
+    grid-gap:15px 15px;
+}
+.contentBox{
+    background-color: #fff;
+}
+
+.contentBox{
+    box-shadow:0 4px 5px #ccc;
+    position: relative;
+}
+.contentBox img{
+    display:block;
+    width: 228px;
+    height: 155px;
+}
+.contentxt{
+    width: 190px;
+    height: 75px;
+    margin-top: 25px;
+    margin-left: 25px;
+
+    color:darkgrey;
+    font-size: 12px;
+}
+.contentxt p{
+    color: #000;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+.contentxt span{
+    color:orange;
+    font-size: 12px;
+}
+
+div.hot:after{
+    content:"HOT";
+    display: block;
+    width: 40px;
+    height: 20px;
+    position: absolute;
+    right:-10px;
+    top:10px;
+    color:orange;
+    font-weight: bold;
+    background-color: white;
+    border:1px solid orangered;
+    text-align:center;
+}
+div.new:after{
+    content:"NEW";
+    display: block;
+    width: 40px;
+    height: 20px;
+    position: absolute;
+    right:-10px;
+    top:10px;
+    color:orange;
+    font-weight: bold;
+    background-color: white;
+    border:1px solid orangered;
+    text-align:center;
+}
+
+/*编程入门区域*/
+.codelearnBox{
+    height: 440px;
+}
+.codelearnTitle{
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.codelearnTitle>ul{
+    display: flex;
+}
+.codelearnTitle li{
+    padding:0 35px;
+    font-size: 16px;
+}
+.codelearnTitle span:last-child{
+    font-size: 13px;
+    color: darkgrey;
+    margin-right:20px;
+}
+.codelearnContent{
+    height: 390px;
+    display: flex;
+    justify-content:space-between;
+}
+.code-aside{
+    width: 230px;
+    height: 390px;
+    background: url("../img/aside.png") no-repeat;
+    box-shadow:0 4px 5px #ccc;
+}
+.code-mainRight{
+    width: 960px;
+    height: 390px;
+    display: flex;
+                                   flex-wrap:wrap;
+    justify-content: space-between;
+
+}
+.code-mainRight .code-top{
+    width: 960px;
+    height: 100px;
+    background: url("../img/banner4.png");
+}
+.code-mainRight .code-bottom{
+    width: 230px;
+    height: 270px;
+    align-self: flex-end;
+}
+.code-mainRight>div{
+    background-color: #fff;
+}
+.code-bottom img{
+    width: 230px;
+    height: 155px;
+}
+
+
+/*机器学习和前端模块*/
+
+.machineLearningBox,.frontendBox{
+    height: 320px;
+}
+.codelearnTitle.ml,.codelearnTitle.web{
+    height: 50px;
+    line-height: 50px;
+}
+.mlContent,.frontendContent{
+    height: 270px;
+    display: flex;
+    justify-content:space-between;
+}
+.mlContent>.ml,.frontendContent>.web{
+    width: 230px;
+}
+.mlContent img,.frontendContent img{
+    width: 230px;
+    height: 155px;
+}
+
+
+/*牛人*/
+.supermanBox{
+    height: 725px;
+}
+.supermanTitle{
+    height: 50px;
+    line-height:50px;
+    font-size: 20px;
+}
+.supermanContent{
+    height: 675px;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+}
+
+.supermanContent>div:not(:nth-child(6)){
+    /*width: 230px;*/
+    width: 19%;
+    background-color: #fff;
+}
+.supermanContent>div:first-child,.supermanContent>div:nth-child(6){
+    margin-left:0;
+}
+.supermanContent>div:nth-child(5),.supermanContent>div:last-child{
+    margin-right: 0;
+}
+.supermanContent>div:nth-child(6){
+    /*width: 474px;*/
+    width: 39.33%;
+    background-color: #fff;
+}
+.supermanContent>div{
+    margin:5px auto;
+    background: url(../img/qfinal.png);
+    background-size:cover;"
+}
+.supermanContent>.big{
+    background: url(../img/yellow.png);
+    background-size: cover;
+}
+
+
+
+/*尾部区域*/
+.footer{
+    width: 1600px;
+    height: 270px;
+    margin-top: 100px;
+    background-color: #fff;
+}
+.bottomWrap{
+    height: 100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.bottom-asideLeft{
+    height: 200px;
+    width: 440px;
+}
+.bottom-asideLeft>*{
+    display:block;
+    font-size: 12px;
+    color:dimgrey;
+}
+.bottom-asideLeft>*:not(:nth-child(2)){
+    margin-bottom:20px;
+}
+.bottom-asideLeft>button{
+    width: 120px;
+    height: 35px;
+    border: 1px solid #00a4ff;
+    background: white;
+    font-size: 16px;
+    font-weight: bold;
+    color:#00a4ff;
+}
+.bottom-asideRight{
+    height: 200px;
+    width: 540px;
+    display: flex;
+    justify-content:space-around;
+}
+.bottom-asideRight dt{
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.bottom-asideRight dd{
+    color:dimgrey;
+    margin-bottom: 5px;
+}
+.bottom-asideRight>dl:last-child{
+    margin-left: -30px;
+}
+
+
+
+

@@ -1,0 +1,41 @@
+.footer{
+    background-color: #f0f3ef;
+    border-top: 1px dashed violet;
+}
+.footer-banner{
+    height: 100px;
+    /*border-bottom: 1px solid #cccccc;*/
+}
+hr.line-row{
+    height: 0.5px !important;
+    border:0.3px solid #cccccc;
+
+}
+.bottomContainer{
+    margin-top: 10px !important;
+    height: 470px;
+    background-color: #f0f3ef;
+}
+.bot-Guide{
+    height: 200px;
+    border-bottom: 1px solid #cccccc;
+}
+.bot-Guide>*{
+    width: 180px;
+}
+
+
+.bot-contact{
+    height: 270px;
+    text-align: center;
+
+}
+.para-1{
+    font-size: 0;
+}
+.para-1>*{
+    font-size: 13px;
+}
+.para-1>span{
+    margin:0 10px;
+}

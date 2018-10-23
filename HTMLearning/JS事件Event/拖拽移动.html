@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖拽移动</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+    <style>
+        .div {
+            width: 100px;
+            height: 100px;
+            background: lightskyblue;
+            cursor: none;
+            position: absolute;     /*若不设置该属性，无法移动*/
+        }
+    </style>
+</head>
+<body>
+
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+
+
+<div class="div"></div>
+
+<script>
+    window.onload = function () {
+
+
+    var block = document.querySelector(".div");
+    var body = document.body;
+
+    //无法直接通过某个函数判断事件状态的话，则用一个标记来判断，好方法
+    var mousedownFlag = false;
+
+    var initX, initY, relaX, relaY, finalX, finalY;
+
+    function imouseDown(devent) {
+        mousedownFlag = true;
+        initX = devent.clientX;
+        initY = devent.clientY;
+        relaX = initX - block.offsetLeft;
+        relaY = initY - block.offsetTop;
+        console.log("mouveDOWN");
+        console.log(initX);
+        console.log(relaX);
+        console.log(imouseDown);
+        console.log(mousedownFlag);
+    }
+
+    function imouseMove(mevent) {
+
+        //写法2：if(imouseDown)或if(body.onmousedown)说明imouseDown事件既不是空也不是false，则也可以作为判断依据
+        //但是只要第一次点下去以后就不会放开了，因为没有因为鼠标松开后将down事件置为空，所以不可行
+
+        //不写==true ，相当于标记不为false，正解：用标记判断
+        if (mousedownFlag) {
+            finalX = mevent.clientX - relaX;
+            finalY = mevent.clientY - relaY;
+            console.log(finalX);
+            console.log(finalY);
+        }
+        block.style.left = finalX + "px";
+        block.style.top = finalY + "px";
+        
+        console.log("mouseMove");
+    }
+
+    function imouseUp(uevent) {
+        mousedownFlag = false;
+        console.log("mouveUP");
+    }
+
+    body.onmousedown = imouseDown;
+    body.onmousemove = imouseMove;
+    body.onmouseup = imouseUp;
+
+
+    }
+
+</script>
+
+</body>
+</html>

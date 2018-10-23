@@ -1,0 +1,162 @@
+
+body{
+    background:url("img/bg5.jpg");
+    background-size:cover;
+}
+
+.change{
+    font-weight: bold !important;
+    font-size: 18px !important;
+    padding:0px 30px !important;
+    height: 46px !important;
+}
+
+.content{
+    background: floralwhite;
+    width:720px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:50px;
+    min-height:380px;
+    border:3px violet solid;
+    /*圆角边框*/
+    border-radius: 20px;
+}
+
+.todoInput{
+    height: 40px;
+    width: 200px;
+    padding-left:6px;
+    margin-left:38px;
+    /*     padding-top:4px; */
+    vertical-align:middle;
+    font-size:15px;
+    color:darkcyan;
+    border: 2px solid saddlebrown;
+}
+
+.todoAdd{
+    font-weight: bold !important;;
+    color: mediumslateblue;
+    font-size: 20px !important;;
+    padding:2px 8px;
+}
+
+.leftPart{
+    margin-left:40px;
+    margin-top:40px;
+    padding-top:40px;
+    text-align: center;
+    height: 240px;
+    float:left;
+    width: 250px;
+    background: white;
+}
+
+.rightPart{
+
+    margin-top: 50px;
+    margin-left:285px;
+    /*height: auto;*/
+}
+
+li{
+    /*//float:left;*/
+    /*margin-left:15px;*/
+    font-size: 16px;
+    color:orangered;
+    list-style: none;       /*去掉前面的点，点也可为方形*/
+    width: 310px;
+}
+
+span{
+    line-height: 30px;
+    /*中文换行正常，英文换行异常，配置这个属性后，允许在单词中换行，所以无论打什么英文都会根据长度达到即换行*/
+    word-break: break-all;
+}
+
+.delete{
+    font-size: 17px;
+    color:darkred;
+    margin-left: 20px;
+    padding:7px;
+}
+
+hr{
+    border:1px solid mediumvioletred;
+    width: 300px;
+    margin-left:0px;
+}
+
+.blue{
+    color:royalblue;
+    vertical-align:middle;
+    margin-left: 0px;
+    /*z-index: 2;*/
+    /*position: relative;*/
+
+}
+
+.btnicon{
+    height: 35px;
+    margin-left:-10px !important;
+    /*width: 60px;
+      text-align: left !important;
+      想居左的方法，设置些宽度然后用text-align或者 margin-left直接负值px*/
+    /*垃圾桶按钮点不了和这个没关系，是因为jqueryUI的问题*/
+    /*z-index:5;*/
+    /*position: relative;*/
+}
+
+.delAll{
+    width: 250px;
+    color:whitesmoke !important;
+    font-weight: bold !important;
+    background-color: mediumpurple !important;
+    margin-top: 40px !important;
+}
+
+/*弹窗定义，最后未使用*/
+#msg{
+    width:266px;
+    position: fixed;
+    z-index:999;
+    top: 49%;
+    margin-top:-80px;
+    left:50%;
+    margin-left:-133px;
+    background:#fff;
+    box-shadow:5px 5px 8px #999;
+    font-size:17px;
+    color:#666;
+    border:1px solid #f8f8f8;
+    text-align: center;
+    line-height: 2rem;
+    display:inline-block;
+    padding-bottom:20px;
+    border-radius:2px;
+}
+#msg_top{
+    background:#f8f8f8;
+    padding:5px 15px 5px 20px;
+    text-align:left;
+}
+#msg_top span{
+    font-size:22px;
+    float:right;
+    cursor:pointer;
+}
+#msg_cont{
+    padding:15px 20px 20px;
+    text-align:left;
+}
+#msg_clear{
+    display:inline-block;
+    color:#fff;
+    padding:1px 15px;
+    background:#8fc31f;
+    border-radius:2px;
+    float:right;
+    margin-right:15px;
+    cursor:pointer;
+}

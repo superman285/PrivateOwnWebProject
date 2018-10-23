@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dummies</title>
+    <style>
+        #h{
+            color:teal;
+        }
+
+        #p{
+            color:lightskyblue;
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js">
+    </script>
+
+</head>
+<body>
+
+    <h1 id="h">Eva</h1>
+    <hr>
+    <em>I'm learning to build dynamic web pages with JavaScript and HTML</em>
+    <hr>
+    <p id="p">Here are some of the things I like to do:</p>
+    <ul>
+        <li id="first">Write</li>
+        <li id="second">Dance</li>
+        <li id="third">Travel</li>
+    </ul>
+    <button id="change_btn">ChangeYourList</button>
+
+    <script>
+        var change_btn = document.getElementById("change_btn");
+
+        var item1,item2,item3;
+
+        change_btn.onclick = function(){
+            //$("#change_btn").text(ChangeMyList)
+            //change_btn.textContent = "ChangeMyList"
+            /*var random = Math.random()
+            if(random < 0.5){
+                document.getElementsByTagName("li")[0].textContent="Dance";
+                document.getElementsByTagName("li")[1].textContent="Write";
+            }else{
+                document.getElementsByTagName("li")[1].textContent="Travel";
+                document.getElementsByTagName("li")[2].textContent="Dance";
+            }*/
+
+            inputlist();
+            document.getElementById("first").textContent = item1;
+            document.getElementById("second").textContent = item2;
+            document.getElementById("third").textContent = item3;
+
+
+        }
+
+        function inputlist(){
+             item1 = prompt("Please enter a new first thing:","Write")
+
+             item2 = prompt("Please enter a new second thing:","Dance")
+            while(item2 === item1){
+                item2 = prompt("Retry to enter a no-repeat thing:","")
+            }
+
+             item3 = prompt("Please enter a new third thing:","Travel")
+            while(item3 === item2 || item3 === item1){
+                item3 = prompt("Retry to enter a no-repeat thing:","")
+            }
+        }
+
+    </script>
+
+</body>
+</html>

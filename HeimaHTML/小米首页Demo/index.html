@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小米首页</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+    <link rel="icon" href="mi-logo.png">
+    <link rel="stylesheet" href="CSS/MI-common.css">
+    <link rel="stylesheet" href="iconfont/iconfont.css">
+    <link rel="stylesheet" href="CSS/index.css"> 
+
+    <style>
+        ::-webkit-scrollbar {/*滚动条整体样式*/
+            width: 6px;     /*高宽分别对应横竖滚动条的尺寸*/
+            height: 6px;
+        }
+        ::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+            border-radius: 3px;
+            -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+            background: rgba(65,105,225,0.5);
+        }
+        ::-webkit-scrollbar-track {/*滚动条里面轨道*/
+            -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+            border-radius: 0;
+            background: rgba(0,0,0,0.1);
+        }
+        html{
+            width: 1280px;
+        }
+
+        /*<!--头部-->*/
+        .headerWrap{
+            width: 100%;
+            background-color: black;
+        }
+        .header{
+            height: 40px;
+            background-color: black;
+            display:flex;
+            justify-content:space-between;
+        }
+        .header li{
+            font-size: 12px;
+            color:white;
+            display:inline-block;
+        }
+
+        /*顶部logo一栏*/
+        .topBar{
+            height: 100px;
+            display:flex;
+            justify-content: space-between;
+            align-items:center;
+        }
+        .logo{
+            width: 55px;
+            height: 55px;
+            background:url("mi-logo.png") no-repeat center center;
+            background-color: #ff6700;
+
+        }
+        .topBar li{
+            display: inline-block;
+        }
+        .searchBox{
+            border:1px solid lightgrey;
+            font-size: 0px;
+            position: relative;
+        }
+        .searchBox span:nth-last-child(2){
+            right:95px;
+            top:17px;
+            color:#757593;
+            background-color: #eee;
+            position: absolute;
+        }
+        .searchBox span:last-child{
+            right:55px;
+            top:17px;
+            color:#757593;
+            background-color: #eee;
+            position: absolute;
+        }
+        /*.simParent{*/
+            /*width: 240px;*/
+            /*height: 45px;*/
+            /*position:absolute;*/
+            /*top:-32px;*/
+            /*left:-2px;*/
+            /*z-index:-1;*/
+            /*border:1px solid lightsteelblue;*/
+        /*}*/
+
+        #search-input{
+            width: 252px;
+            height: 52px;
+            line-height: 47px;
+            padding-left: 10px;
+            box-sizing: border-box;
+            vertical-align: middle;
+            font-size: 16px;
+            color:dimgrey;
+        }
+        #search-input:focus ~ span{
+            display: none;
+        }
+        /*#search-input:focus ~ .simParent{
+            border:2px solid red;
+        }*/
+        #search-input:focus{
+            box-shadow:-2px 2px 3px darkgrey;
+        }
+        /*#search-input:focus ~ label{
+            box-shadow:2px 3px 4px darkgrey;
+        }*/
+        .search-icon{
+            display:inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            border-left:1px solid lightgrey;
+            vertical-align: middle;
+            text-align:center;
+            color:dimgrey;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        /*顶部区banner*/
+        .topBanner{
+            display:grid;
+            grid-template-columns: 3fr 4fr 4fr 4fr;
+            grid-template-rows: 460px 170px;
+            grid-gap: 15px;
+            grid-template-areas:
+                    "tv tv tv tv"
+                    "cm ph1 ph2 ph3";
+        }
+        .topBanner>div{
+            border:1px solid grey;
+        }
+        .tv-big{
+            grid-area: tv;
+        }
+        .cmBox{
+            grid-area: cm;
+        }
+        .ph-1{
+            grid-area: ph1;
+        }
+        .ph-2{
+            grid-area: ph2;
+        }
+        .ph-3{
+            grid-area: ph3;
+        }
+
+        /*顶部区明星产品*/
+        .topStar-title{
+            display:flex;
+            justify-content: space-between;
+            line-height: 50px;
+        }
+        .topStar-title a{
+            border:1px solid grey;
+            padding:2px;
+        }
+        .topStar-content{
+            display:flex;
+            justify-content:space-around;
+        }
+        .topStar-content>div{
+            width: 235px;
+            height: 334px;
+            border-top:2px solid violet;
+            background-color: #f5f5f5;
+        }
+
+        /*中心区超大块内容*/
+        .centerCotainer{
+            background-color: #f5f5f5;
+            margin-top: 40px;
+            padding-top:50px;
+        }
+
+        /*智能硬件*/
+        .AIHardwareTitle{
+            display:flex;
+            justify-content:space-between;
+            line-height: 50px;
+        }
+        .AIHardwareContent{
+            height: 615px;
+            display:grid;
+            grid-template-columns: repeat(5,1fr);
+            grid-template-rows: repeat(2,1fr);
+            grid-gap: 15px;
+        }
+        .AIHardwareContent>div{
+            background-color: #fff;
+        }
+        .mi-watermachine{
+            grid-row: 1/3;
+        }
+
+        /*三个通用版式*/
+        .proTitle{
+            line-height: 50px;
+        }
+        .proContent{
+            height: 615px;
+            display:grid;
+            grid-template-columns: repeat(5,1fr);
+            grid-template-rows: repeat(4,1fr);
+            grid-gap: 15px;
+        }
+        /*注意这种方式与grid-template-areas的区别
+        这个方法11个div，可以用选择器，若用areas，
+        需要11个名字，比较烦，因为areas中同名的必然合并，没办法像选择器那样进行通用设置，这种排序方式是
+        从左往右排，满了进入下一行
+        */
+        .proContent>div:nth-child(1),.proContent>div:nth-child(2),.proContent>div:nth-child(3),.proContent>div:nth-child(4),.proContent>div:nth-child(5){
+            background-color: #fff;
+            grid-row:1/3;
+        }
+        .proContent>div:nth-child(6),.proContent>div:nth-child(7),.proContent>div:nth-child(8),.proContent>div:nth-child(9){
+            background-color: #fff;
+            grid-row:3/5;
+        }
+        .proContent>div:nth-child(10){
+            background-color: #fff;
+            grid-row:3/4;
+        }
+        .proContent>div:nth-child(11){
+            background-color: #fff;
+            grid-row:4/5;
+        }
+
+        /*四个区*/
+        .recommendTitle,.HotCommentTitle,.contentBookTitle,.videoTitle{
+            line-height: 50px;
+        }
+        /*推荐区*/
+        .recommendContent{
+            height: 300px;
+            background-color: #fff;
+        }
+        .recommendContent>div{
+            flex:1;
+            background-color: navy;
+        }
+        /*热评区*/
+        .HotCommentContent{
+            height: 420px;
+            background-color: #fff;
+        }
+        .HotCommentContent>div{
+            flex:1;
+            background-color: violet;
+        }
+        /*内容区*/
+        .contentBookContent{
+            height: 420px;
+            background-color: #fff;
+        }
+        .contentBookContent>div{
+            flex:1;
+            background-color: violet;
+        }
+        /*视频区*/
+        .videoContent{
+            height: 285px;
+            background-color: #fff;
+        }
+        .videoContent>div{
+            flex:1;
+            background-color: violet;
+        }
+        /*给item加间距*/
+        .recommendContent>div:not(:first-child),.HotCommentContent>div:not(:first-child),.contentBookContent>div:not(:first-child),.videoContent>div:not(:first-child){
+            margin-left:15px;
+        }
+
+        /*底部*/
+        .servicesBar{
+            height: 80px;
+            border-bottom:1px solid darkgrey;
+        }
+        .servicesDL{
+            height: 195px;
+        }
+        .bottomContainer{
+            margin-top: 60px;
+            border-top:1px dashed violet;
+        }
+        /*footer*/
+        .footer{
+            height: 145px;
+            background-color: #fafafa;
+        }
+
+    </style>
+
+</head>
+<body class="border-box">
+
+<div class="headerWrap">
+    <div class="header w">
+        <ul class="hleft">
+            <li>小米网</li>
+            <li>MIUI</li>
+            <li>米聊</li>
+            <li>游戏</li>
+            <li>多看阅读</li>
+            <li>云服务</li>
+            <li>小米网移动版</li>
+            <li>问题反馈</li>
+            <li>Region</li>
+        </ul>
+        <ul class="right">
+            <li>登录</li>
+            <li>注册</li>
+            <li>购物车</li>
+        </ul>
+    </div>
+</div>
+
+    <div class="topCotainer border-box">
+        <div class="topBar w">
+            <div class="logo">
+                <!--<img src="mi-logo.png" alt="">-->
+            </div>
+            <div class="topNav">
+                <ul>
+                    <li class=".f18">小米手机</li>
+                    <li class=".f18">红米</li>
+                    <li class=".f18">平板</li>
+                    <li class=".f18">电视</li>
+                    <li class=".f18">盒子</li>
+                    <li class=".f18">路由器</li>
+                    <li class=".f18">智能硬件</li>
+                    <li class=".f18">服务</li>
+                    <li class=".f18">社区</li>
+                </ul>
+            </div>
+            <div class="searchBox" id="">
+                <input type="text" id="search-input">
+
+                <label for="" class="search-icon iconfont icon-sousuo"></label>
+                <span class="f12">小米手机4c</span><span class="f12">平衡车</span>
+                <!--<span class="simParent"></span>-->
+            </div>
+        </div>
+        <div class="topBanner w">
+            <div class="tv-big"></div>
+            <div class="cmBox"></div>
+            <div class="ph-1"></div>
+            <div class="ph-2"></div>
+            <div class="ph-3"></div>
+        </div>
+        <div class="topStar w">
+            <div class="topStar-title">
+                <div class="f20">小米明星单品</div>
+                <div><a href="#">&nbsp;&lt;&nbsp;</a><a href="#">&nbsp;&gt;&nbsp;</a></div>
+            </div>
+            <div class="topStar-content">
+                <div class="ts1"></div>
+                <div class="ts2"></div>
+                <div class="ts3"></div>
+                <div class="ts4"></div>
+                <div class="ts5"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="centerCotainer border-box">
+        <div class="AIHardware w">
+            <div class="AIHardwareTitle">
+                <div class="f20">小米明星单品</div>
+                <div><a class="f14" href="#">查看全部</a><img src="" alt=""></div>
+            </div>
+            <div class="AIHardwareContent">
+                <div class="mi-watermachine"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+        <!--三者可通用样式-->
+        <div class="match-1 w">
+            <div class="proTitle flex-spacebetween">
+                <div class="f20">搭配</div>
+                <div class="flex-spacebetween">
+                    <ul class="li">热门</ul>
+                    <ul class="li">耳机音箱</ul>
+                    <ul class="li">电源</ul>
+                    <ul class="li">电池存储卡</ul>
+                </div>
+            </div>
+            <div class="proContent">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div class="match-2 w">
+            <div class="proTitle flex-spacebetween">
+                <div class="f20">配件</div>
+                <div class="flex-spacebetween">
+                    <ul class="li">热门</ul>
+                    <ul class="li">保护套</ul>
+                    <ul class="li">后盖</ul>
+                    <ul class="li">贴膜</ul>
+                    <ul class="li">其他配件</ul>
+                </div>
+            </div>
+            <div class="proContent">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div class="around w">
+            <div class="proTitle flex-spacebetween">
+                <div class="f20">周边</div>
+                <div class="flex-spacebetween">
+                    <ul class="li">热门</ul>
+                    <ul class="li">服装</ul>
+                    <ul class="li">米兔</ul>
+                    <ul class="li">生活周边</ul>
+                    <ul class="li">箱包</ul>
+                </div>
+            </div>
+            <div class="proContent">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+        <!--下面4个区域-->
+        <div class="recommend w">
+            <div class="recommendTitle flex-spacebetween">
+                <div class="f20">为您推荐</div>
+                <div><a href="#">&nbsp;&lt;&nbsp;</a><a href="#">&nbsp;&gt;&nbsp;</a></div>
+            </div>
+            <div class="recommendContent flex-spacebetween">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div class="HOTComment w">
+            <div class="HotCommentTitle f20">热评产品</div>
+            <div class="HotCommentContent flex-spacebetween">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div class="contentBook w">
+            <div class="contentBookTitle f20">内容</div>
+            <div class="contentBookContent flex-spacebetween border-box">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div class="video w">
+            <div class="videoTitle flex-spacebetween">
+                <div class="f20">视频</div>
+                <div><a class="f14" href="#">查看全部</a><img src="" alt=""></div>
+            </div>
+            <div class="videoContent flex-spacebetween">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottomContainer border-box">
+        <div class="servicesBar w"></div>
+        <div class="servicesDL w"></div>
+    </div>
+
+    <div class="footer"></div>
+</body>
+</html>

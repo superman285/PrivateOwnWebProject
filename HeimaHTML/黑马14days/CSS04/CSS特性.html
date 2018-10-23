@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+    <style>
+        /*层叠性*/
+        .two{
+            color:red;
+        }
+        .three{
+            color:blue;
+        }
+
+        div.inherited{
+            width: 300px;
+            height: 200px;
+            background-color: violet;
+            /*继承性*/
+            color:red;
+            font-size: 20px;
+            font-style: italic;
+            font-weight: bold;
+            font-family: "微软雅黑";
+            text-align: center;
+        }
+
+        div{
+            width: 100px;
+            height: 30px;
+            color:red;
+        }
+        .class{
+            color:blue;
+        }
+
+        .class2{
+            color:blue;
+        }
+        #id{
+            color:green;
+        }
+
+        #id2{
+            color:yellow;
+        }
+
+        /*最强权重优先级*/
+        .class4{
+            color:black !important;
+        }
+
+    </style>
+</head>
+<body>
+    <!--层叠性-->
+    <div class="two three">我是div</div>
+
+    <hr>
+    <!--继承性-->
+    <div class="inherited">
+        <br>
+        我是div中文字
+        <br><br>
+        <span>我是儿子span文字</span>
+    </div>
+
+    <!--优先级-->
+    <!--蓝色-->
+    <div class="class">优先级1</div>
+    <!--绿色-->
+    <div class="class2" id="id">优先级2</div>
+    <!--粉色-->
+    <div id="id2" style="color:pink">优先级3</div>
+    <!--黑色-->
+    <div class="class4" style="color:mediumpurple">优先级4</div>
+
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="网上购物,网上商城,手机,笔记本,电脑,MP3,CD,VCD,DV,相机,数码,配件,手表,存储卡,品优购">
+    <meta name="description" content="品优购-专业的综合网上购物商城,销售家电、数码通讯、电脑、家居百货、服装服饰、母婴、图书、食品等数万个品牌优质商品.便捷、诚信的服务，为您提供愉悦的网上购物体验!">
+    <title>品优购</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="CSS/shopping-common.css">
+    <link rel="stylesheet" href="CSS/header.css">
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="iconfont/iconfont.css">
+    <link rel="stylesheet" href="iconfont2/iconfont.css">
+    <script src="iconfont/iconfont.js"></script>
+    <script src="iconfont2/iconfont.js"></script>
+
+    <style>
+        /*隐藏滚动条，直接避免出现拉滚动条后通栏无法覆盖*/
+        /*设置html或body均可,最好在每个案例的common处设置*/
+        html{
+            /*overflow-x:hidden;*/
+            min-width: 1280px;
+        }
+        /*滚动条样式*/
+        ::-webkit-scrollbar {/*滚动条整体样式*/
+            width: 10px;     /*高宽分别对应横竖滚动条的尺寸*/
+            height: 10px;
+        }
+        ::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+            border-radius: 5px;
+            -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+            background: rgba(65,105,225,0.6);
+        }
+        ::-webkit-scrollbar-track {/*滚动条里面轨道*/
+            -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+            border-radius: 0;
+            background: rgba(0,0,0,0.1);
+        }
+
+    </style>
+</head>
+<body>
+<!--顶部广告栏-->
+<!--相邻元素选择器法,貌似不行,没有点击一下的事件只有active-->
+<!--<a class="closeAD f18">✖</a>-->
+
+<div class="topBannerWrap" id="hiddenAD">
+    <div class="topBanner w"></div>
+    <a class="closeAD f18" href="#hiddenAD">✖</a>
+</div>
+
+<!--顶部bar-->
+<div class="topBarWrap">
+    <!--顶灰色nav-->
+    <div class="topBar flex-spacebetween w">
+        <span class="f12">品优购欢迎您！请登录 <span ><a href="" style="color:#ff2016;">免费注册</a></span></span>
+        <ul>
+            <li><a href="#" class="f12">我的订单&nbsp;<span class="iconfont icon-xiangxiajiantou" style="font-size:11px;"></span></a></li>
+            <li><a href="#" class="f12">我的订单</a></li>
+            <li><a href="#" class="f12">我的订单</a></li>
+            <li><a href="#" class="f12">我的订单</a></li>
+            <li><a href="#" class="f12">我的订单</a></li>
+            <li><a href="#" class="f12">我的订单</a></li>
+            <li><a href="#" class="f12">我的订单&nbsp;<span class="iconfont icon-xiangxiajiantou" style="font-size:11px;"></span></a></li>
+            <li><a href="#" class="f12">我的订单</a>
+                <i class="iconfont icon-gouwuche"></i>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--顶部区域-->
+<div class="topAreaWrap">
+    <!--含logo顶部区-->
+    <div class="topCotainer w flex-spacebetween">
+        <div class="logo"></div>
+        <div class="searchBox border-box clear-linespacing">
+            <input type="text" class="searchInput border-box">
+            <a href="#" class="searchIcon border-box iconfont icon-sousuo f20"></a>
+            <div class="searchTips f12 flex-spacebetween">
+                <span>优惠券首发</span>
+                <span>优惠券首发</span>
+                <span>优惠券首发</span>
+                <span>优惠券首发</span>
+                <span>优惠券首发</span>
+                <span>优惠券首发</span>
+            </div>
+        </div>
+        <div class="shoppingBox">
+            <!--i标签引用iconfont方式-->
+            <!--<i class="iconfont icon-gouwuche"></i>-->
+            <a class="iconfont icon-gouwuche f14" href="#">
+                <svg class="icon" style="font-size: 20px;font-weight: 700;">
+                    <use xlink:href="#icon-gouwuche"></use>
+                </svg>
+                &nbsp;我的购物车&nbsp;&gt;</a>
+            <i>8</i>
+        </div>
+    </div>
+    <!--顶部nav区-->
+    <div class="topNav w border-box">
+        <div class="top-category f20">
+            <div class="top-categoryTitle">全部商品分类</div>
+            <div class="top-categoryList">
+                <ul>
+                    <li><a href="#" class="f16 flex-spacebetween">家用电器<span style="font-family: 宋体;font-weight:bold;">&gt;</span></a></li>
+                    <li><a href="#" class="f16 flex-spacebetween">家用电器<span style="font-family: 宋体;font-weight:bold;">&gt;</span></a></li>
+                    <li><a href="#" class="f16 flex-spacebetween">家用电器<span style="font-family: 宋体;font-weight:bold;">&gt;</span></a></li>
+                    <li><a href="#" class="f16 flex-spacebetween">家用电器<span style="font-family: 宋体;font-weight:bold;">&gt;</span></a></li>
+                    <li><a href="#" class="f16 flex-spacebetween">家用电器<span style="font-family: 宋体;font-weight:bold;">&gt;</span></a></li>
+                    <li><a href="#" class="f16 flex-spacebetween">家用电器<span style="font-family: 宋体;font-weight:bold;">&gt;</span></a></li>
+                    <li><a href="#" class="f16 flex-spacebetween">家用电器<span style="font-family: 宋体;font-weight:bold;">&gt;</span></a></li>
+                    <li><a href="#" class="f16 flex-spacebetween">家用电器<span style="font-family: 宋体;font-weight:bold;">&gt;</span></a></li>
+                    <li><a href="#" class="f16 flex-spacebetween">家用电器<span style="font-family: 宋体;font-weight:bold;">&gt;</span></a></li>
+                    <li><a href="#" class="f16 flex-spacebetween">家用电器<span style="font-family: 宋体;font-weight:bold;">&gt;</span></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="top-menu flex-spacebetween">
+            <ul>
+                <li><a href="#" class="f18">服装城</a></li>
+                <li><a href="#" class="f18">服装城</a></li>
+                <li><a href="#" class="f18">服装城</a></li>
+                <li><a href="#" class="f18">服装城</a></li>
+                <li><a href="#" class="f18">服装城</a></li>
+                <li><a href="#" class="f18">服装城</a></li>
+                <li><a href="#" class="f18">服装城</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="maincontentWrap">
+    <div class="asideAD">
+    </div>
+    <div class="maincontent w">
+        <div class="main-bannerContainer">
+            <div class="banner-blank"></div>
+            <div class="banner-center"></div>
+            <div class="banner-right border-box">
+                <div class="br-title border-box">
+                    <span class="f13 bold">品优购快报</span>
+                    <span class="f13">更多></span>
+                </div>
+                <div class="br-content border-box">
+                    <ul class="border-box">
+                        <li class="f12">[特惠]荣耀超级新品日</li>
+                        <li class="f12">[特惠]荣耀超级新品日</li>
+                        <li class="f12">[特惠]荣耀超级新品日</li>
+                        <li class="f12">[特惠]荣耀超级新品日</li>
+                        <li class="f12">[特惠]荣耀超级新品日</li>
+
+                    </ul>
+                </div>
+                <div class="br-fee border-box">
+                    <div class="f12">话费</div>
+                    <div class="f12">话费</div>
+                    <div class="f12">话费</div>
+                    <div class="f12">话费</div>
+                    <div class="f12">话费</div>
+                    <div class="f12">话费</div>
+                    <div class="f12">话费</div>
+                    <div class="f12">话费</div>
+                    <div class="f12">话费</div>
+                    <div class="f12">话费</div>
+                    <div class="f12">话费</div>
+                    <div class="f12">话费</div>
+                    <div class="f12">话费</div>
+                    <div class="f12">话费</div>
+                    <div class="f12">话费</div>
+                    <div class="f12">话费</div>
+
+                </div>
+                <div class="br-starSZJ border-box"></div>
+            </div>
+        </div>
+
+        <div class="recommendContainer">
+            <div class="recommend-today f20">今日推荐</div>
+            <div class="recommend-product"></div>
+            <div class="recommend-product"></div>
+            <div class="recommend-product"></div>
+        </div>
+
+        <div class="HA-Container HA1">
+
+            <div class="HA-title flex-spacebetween">
+
+                <span class="f13 bold">家用电器</span>
+
+                <span><a href="#" class="f12">大家电</a><span class="line">|</span>
+                    <a href="#" class="f12">大家电</a><span class="line">|</span>
+                    <a href="#" class="f12">大家电</a><span class="line">|</span>
+                    <a href="#" class="f12">大家电</a><span class="line">|</span>
+                    <a href="#" class="f12">大家电</a><span class="line">|</span>
+                    <a href="#" class="f12">大家电</a><span class="line">|</span>
+                    <a href="#" class="f12">大家电</a><span class="line">|</span>
+                    <a href="#" class="f12">大家电</a></span>
+            </div>
+
+            <div class="HA-content">
+                <div class="row2 i1 samsungTV">
+                    <div class="TVdiscount">
+                        <div class="tvdis1 f12">节能补贴</div>
+                        <div class="tvdis2 f12">节能补贴</div>
+                        <div class="tvdis3 f12">节能补贴</div>
+                        <div class="tvdis4 f12">节能补贴</div>
+                        <div class="tvdis5 f12">节能补贴</div>
+                        <div class="tvdis6 f12">节能补贴</div>
+                    </div>
+                    <div class="TV-avater child-horizontalCenter">
+                        <img src="uploads/floor-1-1.png" alt="">
+                    </div>
+                </div>
+                <div class="row2 i2"></div>
+                <div class="i3"></div>
+                <div class="row2 i4"></div>
+                <div class="i5"></div>
+                <div class="i6"></div>
+                <div class="i7"></div>
+
+            </div>
+
+        </div>
+
+        <div class="HA-Container HA2">
+
+            <div class="HA-title flex-spacebetween">
+
+                <span class="f13 bold">家用电器</span>
+
+                <span><a href="#" class="f12">大家电</a><span class="line">|</span>
+                    <a href="#" class="f12">大家电</a><span class="line">|</span>
+                    <a href="#" class="f12">大家电</a><span class="line">|</span>
+                    <a href="#" class="f12">大家电</a><span class="line">|</span>
+                    <a href="#" class="f12">大家电</a><span class="line">|</span>
+                    <a href="#" class="f12">大家电</a><span class="line">|</span>
+                    <a href="#" class="f12">大家电</a><span class="line">|</span>
+                    <a href="#" class="f12">大家电</a></span>
+            </div>
+
+            <div class="HA-content">
+                <div class="row2 i1 samsungTV">
+                    <div class="TVdiscount">
+                        <div class="tvdis1 f12">节能补贴</div>
+                        <div class="tvdis2 f12">节能补贴</div>
+                        <div class="tvdis3 f12">节能补贴</div>
+                        <div class="tvdis4 f12">节能补贴</div>
+                        <div class="tvdis5 f12">节能补贴</div>
+                        <div class="tvdis6 f12">节能补贴</div>
+                    </div>
+                    <div class="TV-avater child-horizontalCenter">
+                        <img src="uploads/floor-1-1.png" alt="">
+                    </div>
+                </div>
+                <div class="row2 i2"></div>
+                <div class="i3"></div>
+                <div class="row2 i4"></div>
+                <div class="i5"></div>
+                <div class="i6"></div>
+                <div class="i7"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<!--footer底部区域-->
+<div class="footerWrap">
+    <div class="footer w">
+        <div class="footer-top flex-spacebetween">
+            <div class="ft-item">
+                <i class="i1"></i>
+                <a href="" class="f16">正品保障 <br><font class="f12">正品保障，提供发票</font></a>
+            </div>
+            <div class="ft-item">
+                <i class="i2"></i>
+                <a href="" class="f16">正品保障 <br><font class="f12">正品保障，提供发票</font></a>
+            </div>
+            <div class="ft-item">
+                <i class="i3"></i>
+                <a href="" class="f16">正品保障 <br><font class="f12">正品保障，提供发票</font></a>
+            </div>
+            <div class="ft-item">
+                <i class="i4"></i>
+                <a href="" class="f16">正品保障 <br><font class="f12">正品保障，提供发票</font></a>
+            </div>
+            <div class="ft-item">
+                <i class="i5"></i>
+                <a href="" class="f16">正品保障 <br><font class="f12">正品保障，提供发票</font></a>
+            </div>
+
+        </div>
+        <div class="footer-center">
+            <dl>
+                <dt>购物指南</dt>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+            </dl>
+            <dl>
+                <dt>购物指南</dt>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+            </dl>
+            <dl>
+                <dt>购物指南</dt>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+            </dl>
+            <dl>
+                <dt>购物指南</dt>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+            </dl>
+            <dl>
+                <dt>购物指南</dt>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+            </dl>
+            <div>
+                <p class="f16">优品购物指南</p>
+                <img src="img/wx_cz.jpg" alt="">
+                <p class="f14">优品购物指南</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+
+            <p>
+                <a href="#">关于我们</a><span>|</span>
+                <a href="#">联系我们</a><span>|</span>
+                <a href="#">联系客服</a><span>|</span>
+                <a href="#">合作招商</a><span>|</span>
+                <a href="#">商家帮助</a><span>|</span>
+                <a href="#">营销中心</a><span>|</span>
+                <a href="#">手机京东</a><span>|</span>
+                <a href="#">友情链接</a><span>|</span>
+                <a href="#">销售联盟</a><span>|</span>
+                <a href="#">京东社区</a><span>|</span>
+                <a href="#">风险监测</a><span>|</span>
+                <a href="#">隐私政策</a><span>|</span>
+                <a href="#">京东公益</a>
+            </p>
+            <p>
+                <a href="#">关于我们</a><span>|</span>
+                <a href="#">联系我们</a><span>|</span>
+                <a href="#">联系客服</a><span>|</span>
+                <a href="#">合作招商</a><span>|</span>
+                <a href="#">商家帮助</a><span>|</span>
+                <a href="#">营销中心</a>
+            </p>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

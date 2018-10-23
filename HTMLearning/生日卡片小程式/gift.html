@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Birthday Card</title>
+    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js">
+    </script>
+    <style>
+        div{
+            background: #00daaa;
+            width: 400px;
+            margin: 0 auto;
+            border-radius:20px;         //圆角背景
+        }
+        img{
+            margin-left: 125px; /*200px为中间，减去img宽度的一半，正好居中*/
+            margin-top: 20px;
+        }
+        img+p{
+            margin-left: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            color:white;
+        }
+        h2{
+            color:dodgerblue;
+            text-align: center;     /*设置h2标题所在行的文字居中*/
+        }
+        h2+p{
+            text-align:right;
+            padding-right: 10px;
+            padding-bottom: 10px;
+            color:hotpink;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <script>
+    var myName = prompt("Please输入你的名字：")
+    </script>
+
+    <div class="gift">
+        <img src="bcard.jpg" width="150" height="150" alt="gift">
+        <p>Hello <em id="myName"></em> ：</p>
+        <h2>祝你生日快乐!</h2>
+        <p class="sendName">小花</p>
+    </div>
+    <script>
+        document.getElementById('myName').textContent = myName
+
+    </script>
+
+</body>
+</html>

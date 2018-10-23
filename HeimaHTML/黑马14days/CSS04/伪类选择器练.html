@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>伪类选择器</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+
+    <style>
+        a{
+            color:darkgrey;
+        }
+        .link:link{
+            color:orangered;
+        }
+        .visited:visited{
+            color:lightgoldenrodyellow;
+        }
+        .visited3:visited{
+            color:violet;
+        }
+        .hover:hover{
+            color:deepskyblue;
+        }
+        .active:active{
+            color:palegreen;
+        }
+        /*.one span{*/
+            /*color:red;*/
+        /*}*/
+        /*div .two{*/
+            /*color:blue;*/
+        /*}*/
+        .two.three{
+            color: green;
+        }
+
+
+        body>*{
+            background-color: pink;
+        }
+
+        :hover{
+            color:darkviolet;
+        }
+
+    </style>
+
+</head>
+<body>
+    <a href="#" id="link" class="link">a:link伪类</a>
+    <a href="#" class="visited">a:visited伪类</a>
+    <a href="#" class="hover">a:hover伪类</a>
+    <a href="#" class="active">a:active伪类</a>
+
+    <a href="#" class="visited2">a:visited伪类2</a>
+    <a href="#" class="visited3">a:visited伪类3</a>
+
+    <div class="one">
+        我师傅元素
+        <span class="two three">
+            我是子元素
+        </span>
+    </div>
+
+    <div>
+        <div class="one"><span></span></div>
+    </div>
+
+    <div id="one"></div>
+    <p class="two"><span></span></p>
+    <div class="three"><span></span></div>
+    <hr>
+    <!--166宽-->
+    <div style="display: inline-block;height:20px;">我肚子对方的地方对方对方的的发达的地方对方的</div>
+
+
+</body>
+</html>

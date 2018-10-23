@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>切版挑战1优化版</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+    <style>
+        .container {
+            padding-top: 40px;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        main {
+            display: flex;
+            flex-wrap: nowrap;
+        }
+        .left {
+            flex: 2;
+            background-color: #fff;
+        }
+        .news {
+            background-color: #eee;
+            display: flex;
+            width: 426px;
+            height: 100px;
+            margin: 0px 2px 4px 2px;
+            padding: 1px;
+            overflow: hidden;
+        }
+        h1 {
+            margin: 0;
+            padding: 3px;
+            font-size: 1.5rem
+        }
+        p {
+            margin: 0;
+            padding: 3px;
+            display: -webkit-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+        img {
+            width: 96px;
+        }
+        .right {
+            position: relative;
+            flex: 1;
+        }
+        img {
+            width: 208px;
+        }
+        .top {
+            position: absolute;
+            top: -35px;
+            right: -35px;
+            width: 70px;
+            height: 70px;
+            background-color: #f00;
+            border-radius: 50px;
+            color: black;
+            text-align: center;
+            line-height: 70px;
+        }
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: #eee;
+            height: 80px;
+            line-height: 80px;
+            min-width: 640px;
+        }
+
+
+    </style>
+</head>
+<body>
+<!--<div class="container">
+    <div class="main">
+        <div class="block"><img src="https://fakeimg.pl/96/">
+            <div class="content">
+                <div class="title">Lorem Ipsum</div>
+                <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua.
+                </div>
+            </div>
+        </div>
+        <div class="block"><img src="https://fakeimg.pl/96/">
+            <div class="content">
+                <div class="title">Lorem Ipsum</div>
+                <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="side"><img src="https://fakeimg.pl/208/">
+        <div class="top">Top 1</div>
+    </div>
+    <div class="bottom">bottom</div>
+</div>-->
+<div class="container">
+    <main>
+        <div class="left">
+            <div class="news">
+                <img src="https://fakeimg.pl/300/" alt="">
+                <div class="newstxt">
+                    <h1>Title Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur minima quod, illo
+                        perspiciatis doloremque enim soluta accusamus at eveniet earum, repudiandae culpa laborum ea
+                        pariatur inventore ipsa consequatur cum aut.</h1>
+                    <p class="txt">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore ducimus repellat
+                        dolorem tempore hic esse voluptatem minus, itaque alias quia voluptates aliquam suscipit unde
+                        magni modi error, praesentium illo temporibus.</p>
+                </div>
+            </div>
+            <div class="news">
+                <img src="https://fakeimg.pl/300/" alt="">
+                <div class="newstxt">
+                    <h1>Title Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus consectetur neque rem
+                        voluptate ipsum natus voluptates veniam veritatis possimus nihil provident, nemo beatae maiores
+                        voluptatum porro unde dolore doloremque enim.</h1>
+                    <p class="txt">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore ducimus repellat
+                        dolorem tempore hic esse voluptatem minus, itaque alias quia voluptates aliquam suscipit unde
+                        magni modi error, praesentium illo temporibus.</p>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <img src="https://fakeimg.pl/300/" alt="">
+            <div class="top">
+                TOP1
+            </div>
+        </div>
+    </main>
+    <footer>
+        表尾文字
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>background一堆属性</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+
+    <style>
+        .box{
+            width: 250px;
+            height: 250px;
+            border: 1px solid red;
+            background-image: url(../../images/zao.png);
+            background-repeat: no-repeat;
+            background-position: center right;
+        }
+        .te{
+            width: 300px;
+            height: 300px;
+            background-color: violet;
+
+
+        }
+        .inner{
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            /*position:relative;*/
+            /*top:50%;*/
+            /*transform:translate(0,-50%);*/
+
+        }
+        table{
+            width: inherit;
+            height: inherit;
+        }
+
+        .p{
+            font-size:25px;
+            border:1px solid black;
+        }
+
+        input{
+            border:none;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="box">
+        <!--<img src="" alt="">-->
+    </div>
+
+    <hr>
+
+    <div class="te">
+        <!--<table>-->
+            <!--<tr>-->
+                <!--<td>-->
+                    <!---->
+                <!--</td>-->
+            <!--</tr>-->
+        <!--</table>-->
+        <div class="inner"></div>
+    </div>
+
+    <div class="p">有没有间距呢</div>
+
+    <input type="text" value="就这样">
+
+</body>
+</html>

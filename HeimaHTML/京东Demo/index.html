@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>京东</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="CSS/header.css">
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="CSS/JD-common.css">
+    <link rel="stylesheet" href="iconfont/iconfont.css">
+    <link rel="stylesheet" href="iconfont-large/iconfont.css">
+    <style>
+        body{
+            min-width: 1350px;
+        }
+        /*滚动条样式*/
+        ::-webkit-scrollbar {/*滚动条整体样式*/
+            width: 10px;     /*高宽分别对应横竖滚动条的尺寸*/
+            height: 10px;
+        }
+        ::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+            border-radius: 5px;
+            -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+            background: rgba(239, 122, 199, 0.6);
+        }
+        ::-webkit-scrollbar-track {/*滚动条里面轨道*/
+            -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+            border-radius: 0;
+            background: rgba(0,0,0,0.1);
+        }
+
+
+    </style>
+</head>
+<body>
+
+<!--header区域-->
+<div class="header">
+
+    <div class="headeradWrapper">
+        <div class="headerAD w"></div>
+    </div>
+
+    <div class="shortcut-navWrapper">
+        <div class="shortcut-nav w flex-spacebetween">
+            <div class="shortcut-left">
+                <i class="iconfont icon-daohangdizhi JDred"></i>
+                <a href="">北京</a>
+            </div>
+            <div class="shortcut-right">
+                <ul class="shortcut-list flex-spacebetween">
+                    <li>
+                        <span>你好,请登录</span> <a href="" class="JDred">免费注册</a>
+                    </li>
+                    <li>
+                        <a href="">&nbsp;我的订单</a>
+                    </li>
+                    <li>
+                        <a href="">&nbsp;我的京东 <i class="iconfont icon-jiantouxia"></i></a>
+                    </li>
+                    <li>
+                        <a href="">&nbsp;京东会员</a>
+                    </li>
+                    <li>
+                        <a href="">&nbsp;企业采购 <i class="iconfont icon-jiantouxia"></i></a>
+                    </li>
+                    <li>
+                        <a href="">&nbsp;客户服务 <i class="iconfont icon-jiantouxia"></i></a>
+                    </li>
+                    <li>
+                        <a href="">&nbsp;网站导航 <i class="iconfont icon-jiantouxia"></i></a>
+                    </li>
+                    <li>
+                        <a href="">&nbsp;手机京东</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="searchArea w">
+        <div class="searchBox clear-linespacing">
+            <input type="text" class="search-input border-box">
+            <button class="search-icon">
+                <i class="iconfont icon-sousuo bold"></i>
+            </button>
+            <i class="po-camera iconfont icon-camera"></i>
+            <div class="search-keywords flex-spacebetween">
+                <a href="" class="JDred">七夕情人节</a>
+                <a href="">9.9秒杀</a>
+                <a href="">822神券</a>
+                <a href="">游戏手机</a>
+                <a href="">家具家电</a>
+                <a href="">0元试用</a>
+                <a href="">国庆出游</a>
+                <a href="">815空调</a>
+                <a href="">联想小新</a>
+            </div>
+        </div>
+        <div class="cartBtn f15 JDred">
+            <a href=""><i class="iconfont icon-daishouhuo bold"></i>
+            我的购物车
+            </a>
+            <i class="cart-count">8</i>
+        </div>
+        <div class="QRcode">
+
+        </div>
+
+        <div class="JD-logo">
+        </div>
+
+
+    </div>
+
+    <div class="header-mainNav">
+        <ul class="hNav-list">
+            <li><a href="">秒杀</a></li>
+            <li><a href="">优惠券</a></li>
+            <li><a href="">PLUS会员</a></li>
+            <li><a href="">闪购</a></li>
+            <li><a href="">拍卖</a></li>
+            <li><a href="">京东服饰</a></li>
+            <li><a href="">京东超市</a></li>
+            <li><a href="">生鲜</a></li>
+            <li><a href="" class="JDred">全球购</a></li>
+            <li><a href="">京东金融</a></li>
+        </ul>
+    </div>
+
+</div>
+
+
+<!--主体区域-->
+<div class="main">
+
+    <div class="sumContainer w">
+        <div class="sumMenu"></div>
+        <div class="adBanner"></div>
+        <div class="avater-1"></div>
+        <div class="avater-2"></div>
+        <div class="avater-3"></div>
+        <div class="asideInfo">
+            <div class="aside-welcome"></div>
+            <div class="aside-notice"></div>
+            <div class="aside-funitems"></div>
+        </div>
+    </div>
+
+    <div class="seckillContainer w">
+
+        <div class="secKill-flag"></div>
+        <div class="sk1 border-r"></div>
+        <div class="sk2 border-r"></div>
+        <div class="sk3 border-r"></div>
+        <div class="sk4 border-r"></div>
+        <div class="sk5"></div>
+
+    </div>
+
+    <div class="showGoods w flex-spacebetween">
+        <div class="show-item1"></div>
+        <div class="show-item2"></div>
+        <div class="show-item3"></div>
+        <div class="show-item4"></div>
+        <div class="show-item5"></div>
+    </div>
+
+</div>
+
+
+<!--footer区域-->
+<div class="footer">
+
+    <div class="footer-banner w">
+        <div class="fb-1"></div>
+        <div class="fb-2"></div>
+        <div class="fb-3"></div>
+        <div class="fb-4"></div>
+    </div>
+    <hr class="line-row">
+    <div class="bottomContainer w">
+
+        <div class="bot-Guide flex-spacebetween">
+            <dl>
+                <dt>购物指南</dt>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+            </dl>
+            <dl>
+                <dt>购物指南</dt>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+            </dl>
+            <dl>
+                <dt>购物指南</dt>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+            </dl>
+            <dl>
+                <dt>购物指南</dt>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+            </dl>
+            <dl>
+                <dt>购物指南</dt>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+                <dd>购物流程</dd>
+            </dl>
+            <div class="jd-area"></div>
+        </div>
+
+
+
+        <div class="bot-contact">
+
+
+            <p class="para-1">
+                <a href="#">关于我们</a><span>|</span>
+                <a href="#">联系我们</a><span>|</span>
+                <a href="#">联系客服</a><span>|</span>
+                <a href="#">合作招商</a><span>|</span>
+                <a href="#">商家帮助</a><span>|</span>
+                <a href="#">营销中心</a><span>|</span>
+                <a href="#">手机京东</a><span>|</span>
+                <a href="#">友情链接</a><span>|</span>
+                <a href="#">销售联盟</a><span>|</span>
+                <a href="#">京东社区</a><span>|</span>
+                <a href="#">风险监测</a><span>|</span>
+                <a href="#">隐私政策</a><span>|</span>
+                <a href="#">京东公益</a>
+            </p>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+</body>
+</html>

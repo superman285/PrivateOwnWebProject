@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>时钟</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        .clock{
+            width: 400px;
+            height: 400px;
+            border:2px solid grey;
+            position: relative;
+        }
+
+        .sec{
+            height: 160px;
+            width: 2px;
+            position: absolute;
+            top:40px;
+            left:200px;
+            background-color: pink;
+            transform-origin:bottom;
+            animation:sec_move 60s infinite steps(60);
+        }
+
+
+        @keyframes sec_move {
+            from{
+                transform:rotate(0deg);
+            }
+
+            to{
+                transform:rotate(360deg);
+            }
+        }
+
+        .top{
+            width: 100px;
+            height: 100px;
+        }
+
+        button{
+            width: 100px;
+            height: 40px;
+            background-color: yellow;
+            border:0;
+            
+        }
+
+        #box1 #box2 {color:blue;}
+        
+        #box3{
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+
+
+
+
+    <div class="clock">
+
+        <div class="hour"></div>
+
+        <div class="min"></div>
+
+        <div class="sec"></div>
+
+        <div class="point"></div>
+
+    </div>
+
+    <hr>
+
+
+
+<div class="top"></div>
+
+<button>我的天</button>
+
+    <div id="box1" class="spec1">
+        <div id="box2" class="spec2">
+            <div id="box3" class="spec3">
+                <p>文字颜色</p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <hr>
+
+    
+
+
+
+</body>
+</html>

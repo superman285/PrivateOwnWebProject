@@ -1,0 +1,215 @@
+
+.topBarWrap{
+    background-color: #333333;
+}
+.topBar{
+    height: 24px;
+    line-height: 24px;
+    display:flex;
+    justify-content:flex-end;
+}
+.topBar>img:nth-child(2){
+    width: 14px;
+    height: 20px;
+    margin-top: 2px;
+}
+.topBar>img:not(:nth-child(2)){
+    width: 20px;
+    height: 20px;
+    margin-top: 1px;
+}
+.topBar>span{
+    color:#e8f5fe;
+    font-size: 12px;
+}
+.topBar>*{
+    margin-right: 10px;
+}
+
+/*logoBar*/
+
+.logoBar{
+    height: 100px;
+}
+
+.menu-nav{
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #404040;
+    padding:34px 30px;
+    margin-top: 7px;
+    color:#666560;
+    vertical-align: middle;
+}
+.menu-nav:last-child>img{
+    width: 17px;
+    height: 16px;
+}
+
+.menu-nav:hover{
+    background-color: #dcdcdc;
+    border-bottom: 3px solid #226a8d;
+    color: #403f3c;
+}
+
+
+
+/*中间区域*/
+
+.product-title{
+    height: 70px;
+    /*width: 175px;*/
+    margin:0 auto;
+    text-align: center;
+}
+.product-title>hr{
+    display: inline-block;
+    width: 60px;
+}
+.product-title>h3{
+    color:#226a8d;
+    margin-bottom:6px;
+}
+
+.product-grid{
+    height: 540px;
+    display:grid;
+    grid-template-rows: 45% 45%;
+    grid-template-columns: 30% 30% 30%;
+    justify-content: space-between;
+    align-content:space-around;
+}
+
+.product-item{
+    border:1px solid #cccccc;
+    text-align: center;
+
+}
+
+.product-item:first-child{
+    display:flex;
+    flex-direction: column;
+    transition: background-color 0.5s linear;
+}
+.product-item:first-child>.item-avater{
+    height: 80px;
+    background: url("../images/service1.png") no-repeat center;
+    margin-top: 25px;
+    transition:background 1s linear;
+}
+.product-item:first-child>.item-title{
+    color:#226a8d;
+    transition:color 1s linear;
+}
+.product-item:first-child>p{
+    width: 300px;
+    margin:0 auto;
+    font-size: 14px !important;
+    transition:color 1s linear;
+}
+
+.product-item:first-child:hover .item-avater{
+    background: url("../images/service1_on.png") no-repeat center;
+
+}
+.product-item:first-child:hover h2.item-title{
+    color:white;
+}
+.product-item:first-child:hover p.item-text{
+    color:white;
+}
+.product-item:first-child:hover{
+    background-color: #226a8d;
+}
+
+/*footer部分*/
+
+.footerInfoWrap{
+    background-color: #000;
+}
+
+.footerInfo{
+    /*background-color: #000;*/
+    height: 230px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+}
+
+.footerInfo>div,.footerInfo>dl{
+    margin-top: 30px;
+}
+.footerNew{
+    width: 305px;
+}
+.footerNew>p{
+    margin-bottom: 6px;
+}
+.footerNew>p:first-child{
+    font-size: 20px;
+    font-weight: bold;
+    color:#eeeeee;
+}
+.footerInfo .n2{
+    font-size: 14px;
+    font-weight: bold;
+    color:#eeeeee;
+}
+.footerInfo .n3{
+    font-size: 15px;
+    font-style: italic;
+    color:#999999;
+}
+.footerInfo .n4{
+    font-size: 12px;
+    color:#eeeeee;
+}
+
+.footerdl>dt{
+    font-size: 20px;
+    font-weight: bold;
+    color:#eee;
+    margin-bottom: 10px;
+}
+.footerdl>dd{
+    font-size: 14px;
+    color:#eee;
+    margin-bottom: 6px;
+}
+
+.footer-SNS{
+    width: 150px;
+}
+.footer-SNS>h2.aboutus{
+    color:#eee;
+    margin-top:0px;
+    margin-left:30px;
+}
+.footer-SNS>img{
+    width: 70px;
+    height: 70px;
+}
+.footer-SNS>span{
+    color:#eee;
+    font-size: 14px;
+}
+.footer-contact{
+    width: 250px;
+}
+.footer-contact>p{
+    color:#eee;
+    font-size: 12px;
+}
+
+
+.footerAddrWrap{
+    background-color: #1a1a1a;
+}
+.footerAddr{
+    height: 50px;
+    font-size: 12px;
+    color: #eeeeee;
+    text-align: center;
+    line-height: 50px;
+}
+

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单learn</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+</head>
+<body>
+
+    <form action="1.js" method="get">
+
+        <!--最多能输入字符个数可用js来限制，或input的属性-->
+        <!--禁止输入方法1.readonly只读 2.disabled不可用-->
+        <!--placeholder，浅色提示文字，不同于value-->
+
+        <!--required属性：规定必须在提交之前填写输入域-->
+        邮箱地址： <input type="text" maxlength="12" required><br>
+        邮箱地址2： <input type="text" maxlength="12"><br>
+        邮箱地址3： <input type="text" maxlength="12"><br>
+
+        <input type="submit">
+        <hr>
+
+        <input list="cars" placeholder="选择车辆">
+        <datalist id="cars">
+            <option value="BMW">
+            <option value="Ford">
+            <option value="Volvo">
+        </datalist>
+
+        <hr>
+
+        复选框：
+        <input type="checkbox">1
+        <input type="checkbox">2
+        <input type="checkbox">3
+        <input type="checkbox">4
+        <hr>
+
+        单选框：
+        <input type="radio" name="sex">男
+        <input type="radio" name="sex">女
+        <hr>
+
+        <fieldset>
+        下拉列表：
+        <select name="" id="">
+            <optgroup label="河北省">
+                <option value="">保定</option>
+                <option value="">唐山</option>
+                <option value="">石家庄</option>
+                <option value="">张家口</option>
+            </optgroup>
+            <optgroup label="广东省">
+                <option value="">广州</option>
+                <option value="" selected>茂名</option>
+                <option value="">湛江</option>
+                <option value="">深圳</option>
+            </optgroup>
+        </select>
+        <hr>
+        
+        下拉列表年：
+        <select name="">
+            <option value="" style="display: none;">请选择年份</option>
+            <option value="">2014</option>
+            <option value="">2015</option>
+            <option value="">2016</option>
+            <option value="">2017</option>
+            <option value="">2018</option>
+        </select>
+        <hr>
+
+        文本域：
+        <textarea cols="20" rows="6"></textarea>
+        <hr>
+
+        </fieldset>
+        <hr>
+
+
+
+        提交按钮：
+        <input type="submit" value="登陆">
+        <hr>
+        <input type="image" src="../../btn.png">
+        <hr>
+        <input type="button" value="input按钮">
+        <hr>
+    </form>
+
+    <button>Button按钮</button>
+
+</body>
+</html>

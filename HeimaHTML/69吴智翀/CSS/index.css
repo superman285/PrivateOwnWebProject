@@ -1,0 +1,240 @@
+body{
+    background-color: #f7f7f7;
+}
+/*header部分*/
+.topBarWrap{
+    background-color: #009b72;
+}
+.topBar{
+    height: 30px;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+}
+.topBar>a{
+    display:inline-block;
+    height: 30px;
+    line-height: 28px;
+    padding-left:20px;
+    padding-right: 20px;
+    color:white;
+    border-left:1px solid white;
+    font-size: 13px;
+}
+
+.topNavWrap{
+    background-color: #ffffff;
+}
+.topNav{
+    height: 80px;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+}
+.topNav>.tnav-item{
+    font-size: 15px;
+    margin-left: 40px;
+    padding-bottom:3px;
+}
+.topNav>.logolink{
+    margin-right: auto;
+}
+.tnav-item:hover{
+    color:black;
+    border-bottom: 2px solid #009b72;
+}
+
+
+/*main区域*/
+.main{
+    background-color: #f7f7f7;
+}
+
+/*banner*/
+.adBanner-title{
+    height: 50px;
+    line-height: 50px;
+}
+
+.adBanner{
+    height: 740px;
+    display:grid;
+    grid-template-columns: 770px 400px;
+    grid-template-rows: repeat(2,365px);
+    justify-content:space-between;
+    align-content:space-between;
+    grid-template-areas: "ad11 ad13"
+                           "ad12 ad13";
+}
+.adBanner>.ad11{
+    grid-area:ad11;
+    background: url("../img/11.png");
+    background-size: cover;
+}
+.adBanner>.ad12{
+    grid-area:ad12;
+    background: url("../img/12.png");
+    background-size: cover;
+}
+.adBanner>.ad13{
+    grid-area:ad13;
+    background: url("../img/13.png");
+    background-size: cover;
+}
+
+/*产品系列*/
+.productOPPO-title{
+    display:flex;
+    align-items:center;
+    margin-top: 80px;
+}
+.lineL,.lineR{
+    height: 2px;
+    background-color: #cccccc;
+    flex:1;
+}
+.pro-titleCenter{
+    width: 230px;
+    padding:0 30px;
+    font-size: 23px;
+}
+
+.productOPPO-subtitle{
+    display:flex;
+    justify-content:flex-start;
+}
+
+.productOPPO-subtitle>h2{
+    font-size: 20px;
+    font-weight: 400;
+}
+.productOPPO-subtitle>h2:last-child{
+    color:#bbb;
+    margin-left: 22px;
+}
+
+.main-productOPPO{
+    display:flex;
+    justify-content:flex-start;
+}
+.main-productOPPO>div{
+    height: 365px;
+    width: 288px;
+    margin-right: 10px;
+    background-color: #fff;
+    text-align: center;
+}
+.main-productOPPO>div>img{
+    width: 150px;
+    height: 180px;
+    margin-top: 55px;
+    margin-bottom: 30px;
+}
+.main-productOPPO>div>span:nth-child(3){
+    font-size: 17px;
+    color:black;
+}
+.main-productOPPO>div>span:last-child{
+    font-size: 13px;
+    color: #999999;
+}
+
+/*产品特色*/
+
+.main-specialOPPO{
+    /*height: 300px;*/
+    display:flex;
+    justify-content:space-between;
+    margin-top: 25px;
+    margin-bottom: 150px;
+}
+.specialLeft{
+    width: 582px;
+    height: 300px;
+    background: url("../img/31.jpg");
+    background-size: cover;
+}
+.specialRight{
+    width: 582px;
+    height: 300px;
+    background: url("../img/32.jpg");
+    background-size: cover;
+}
+
+
+/*footer部分*/
+.footer{
+    background-color: #f7f7f7;
+}
+.foot-services{
+    height: 200px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    border-bottom: 1px solid #ccc;
+}
+
+.foot-services dt{
+    font-size: 16px;
+    color:#363636;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+.foot-services dd{
+    font-size: 13px;
+    color:#353535;
+    margin-bottom: 10px;
+
+}
+.foot-services>div:last-child{
+    width: 210px;
+    height: 140px;
+    margin-left: 100px;
+}
+
+.kefu-icon{
+    height: 50px;
+    background: url("../img/icon-online.png") no-repeat right;
+    margin-bottom: 30px;
+}
+.phoneNum{
+    color:#353535;
+    font-size: 26px;
+    text-align: right;
+    margin-bottom: 5px;
+}
+.hotline{
+    color: #333333;
+    font-size: 16px;
+    text-align: right;
+}
+
+
+.foot-info{
+    height: 125px;
+    display:flex;
+    justify-content: space-between;
+
+}
+
+.copyright{
+    font-size: 13px;
+    color:#7b7a7a;
+    vertical-align: middle;
+    margin-top: 35px;
+}
+.copyright>div{
+    display:inline-block;
+    width: 24px;
+    height: 25px;
+    background: url("../img/icon-identification.png") left center no-repeat;
+    vertical-align: middle;
+}
+
+.sns{
+    font-size: 13px;
+    color:#7b7a7a;
+    vertical-align: middle;
+    margin-top: 35px;
+}
+

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新浪导航</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+
+    <style>
+
+        body,div,ul,li{
+            padding:0;
+            margin:0;
+            list-style:none;
+        }
+        a{
+            text-decoration: none;
+        }
+
+        .nav{
+            /*margin-top: 10px;*/
+            width: 100%;
+            height: 40px;
+            border-top: 3px solid darkorange;
+            /*border-bottom:1px solid lightgrey;*/
+            box-shadow: 1px 2px lightgrey;
+        }
+        .left{
+            float:left;
+            margin-left: 20px;
+            width: 500px;
+        }
+        .right{
+            float:right;
+            margin-right: 20px;
+        }
+        .listL{
+            font-size: 0px;
+        }
+        .listR {
+            font-size: 0px;
+        }
+        li{
+            display: inline-block;
+            height:40px;
+        }
+        a{
+            display: block;
+            color:slategrey;
+            height: 40px;
+            line-height:40px;
+            font-size:14px;
+
+            padding-left:15px;
+            padding-right:15px;
+            text-align: center;
+
+        }
+        a:hover{
+            background-color:lightgrey;
+            color:orange;
+            font-weight: bold;
+        }
+        .main-content{
+            width: 100%;
+            height: 250px;
+            background-color: violet;
+            margin-top: 20px;
+        }
+        .clearfix{
+            clear:both;
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="nav">
+    <div class="left">
+        <ul class="listL">
+            <li class="itemL"><a href="#" class="linkL">设为首页</a></li>
+            <li class="itemL"><a href="#" class="linkL">手机新浪</a></li>
+            <li class="itemL"><a href="#" class="linkL">移动客户端</a></li>
+        </ul>
+    </div>
+    <div class="right">
+        <ul class="listR">
+            <li class="itemR"><a href="" class="linkR">登录</a></li>
+            <li class="itemR"><a href="" class="linkR">微博</a></li>
+            <li class="itemR"><a href="" class="linkR">博客</a></li>
+            <li class="itemR"><a href="" class="linkR">邮箱</a></li>
+        </ul>
+    </div>
+    <div class="clearfix"></div>
+    <div class="main-content">这里是主要内容</div>
+
+
+
+</div>
+</body>
+</html>

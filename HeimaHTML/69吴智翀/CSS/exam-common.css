@@ -1,0 +1,160 @@
+/*css reset 样式初始化*/
+
+
+:root{
+    font-size: 16px;
+    font-family:"微软雅黑";
+}
+
+
+body,dl,dt,dd,ul,ol,li,form,input,p,th,td{
+    margin:0;
+    padding:0;
+    /*font-size: 14px;*/
+    color:#666666;
+}
+header,footer,article,aside,section,nav,menu,hgroup,details,dialog,figure,figcaption{
+    display:block
+}
+ol,li,ul,dl,dt,dd{
+    list-style:none;
+}
+a{
+    text-decoration:none;
+    color: #666666;
+}
+a:hover{
+    /*设置为所需颜色*/
+}
+
+input,img,button{
+    border:none;
+    outline:none;
+    vertical-align: middle;
+    padding:0;
+}
+table{
+    border-collapse:collapse;
+    border_spacing:0;
+}
+
+/*常用效率 样式*/
+/*版心,版心设置以min-width为基准*/
+
+html{
+    /*设置为我当前屏幕宽度分辨率，方便调试*/
+    min-width:1350px;
+}
+
+.w{
+    /*百分比一般不用*/
+    /*width: 85%; 这个可用于响应式布局，媒体查询*/
+    width: 1180px;
+    margin: 0 auto;
+}
+
+/*flex行分居左右大法*/
+.flex-spacebetween{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+/*字体*/
+.red{
+    color:#ff2016;
+}
+.blue{
+    color:#00a4ff;
+}
+.lightgrey{
+    color:#cccccc;
+}
+.oppocolor{
+    color:#7c7c7c;
+}
+.grey{
+    color:#666666;
+}
+
+.f20{
+    font-size: 20px;
+    font-weight: bold;
+}
+.f18{
+    font-size: 18px;
+}
+.f16{
+    font-size: 16px;
+}
+.f15{
+    font-size: 15px;
+}
+.f14{
+    font-size: 14px;
+}
+.f13{
+    font-size: 14px;
+}
+.f12{
+    font-size: 12px;
+}
+.f11{
+    font-size: 11px;
+}
+.bold{
+    font-weight: bold;
+}
+
+/*清除浮动,给父元素设置，after是父元素的最后那儿加*/
+.clearfix:after {
+    content: "";
+    display: block;
+    height: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.clearfix{
+    zoom: 1;
+}
+/*左浮动*/
+.fl{
+    float:left;
+}
+/*右浮动*/
+.fr{
+    float:right;
+}
+
+/*加入flex弹性布局*/
+.flex{
+    display:flex;
+}
+
+/*加入grid网格布局*/
+.grid{
+    display:grid;
+}
+
+/*父元素加上该属性清除 行内块子元素之间的空白间距*/
+.clear-linespacing{
+    font-size: 0px;
+}
+
+/*后代行内元素水平居中*/
+.inlinechild-horizontalCenter{
+    text-align:center;
+}
+/*块元素自身水平居中*/
+.block-horizontalCenter{
+    margin:0 auto;
+}
+
+/*边框和padding不影响实际大小的css3新属性*/
+.border-box{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+

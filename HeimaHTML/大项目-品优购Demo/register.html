@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册页面</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="CSS/shopping-common.css">
+    <link rel="stylesheet" href="CSS/header.css">
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="iconfont/iconfont.css">
+    <link rel="stylesheet" href="iconfont2/iconfont.css">
+    <link rel="stylesheet" href="CSS/register.css">
+
+    <style>
+        html{
+            /*overflow-x:hidden;1280为我电脑屏幕宽度*/
+            min-width: 1280px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header w"></div>
+
+    <div class="main w">
+        <div class="main-bar flex-spacebetween">
+            <span class="barleft">注册新用户</span>
+            <span class="barright">我有账号，去<a
+                 href="#" class="loginlink"> 登录</a>
+            </span>
+        </div>
+
+        <div class="main-frame">
+            <div class="PhoneNum">
+                <label for="PhoneNum" id="forPhoneNum">手机号:&nbsp;</label>
+                <input type="text" id="PhoneNum" placeholder="请输入手机号">&nbsp;
+                <span class="f12">手机号码格式不正确，请重新输入</span>
+            </div>
+
+            <div class="messageCode">
+                <label for="messageCode" id="formessageCode">验证码:&nbsp;</label>
+                <input type="text" id="messageCode" placeholder="请输入验证码">&nbsp;
+                <span class="f12">请您60秒之内输入验证码</span>
+            </div>
+
+            <div class="loginpwd">
+                <label for="loginpwd" id="forloginpwd">登录密码:&nbsp;</label>
+                <input type="password" id="loginpwd" placeholder="请输入密码">&nbsp;
+                <span class="f12">恭喜您,格式正确</span>
+            </div>
+
+            <!--安全程度-->
+            <div class="securityLevel f12 border-box">
+                安全程度:
+                <span>弱</span>
+                <span>中</span>
+                <span>强</span>
+            </div>
+
+            <div class="confirmpwd">
+                <label for="confirmpwd" id="forconfirmpwd">确认密码:&nbsp;</label>
+                <input type="password" id="confirmpwd" placeholder="请再次输入密码">&nbsp;
+                <span class="f12">恭喜您,验证通过</span>
+            </div>
+
+            <div class="agreeCheckbox f12">
+                <input type="checkbox" checked>同意协议并注册
+            </div>
+
+            <button class="enterBtn f14">完成注册</button>
+
+        </div>
+
+    </div>
+
+    <div class="footer w">
+
+        <p>
+            <a href="" class="addPipe">关于我们</a><a href="" class="addPipe">关于我们</a><a href="" class="addPipe">关于我们</a><a
+                href="" class="addPipe">关于我们</a><a href="" class="addPipe">关于我们</a><a href=""
+                                                                                      class="addPipe">关于我们</a><a
+                href="" class="addPipe">关于我们</a><a href="" class="addPipe">关于我们</a><a href=""
+                                                                                      class="addPipe">关于我们</a><a
+                href="" class="addPipe">关于我们</a><a href="" class="addPipe">关于我们</a><a href=""
+                                                                                      class="addPipe">关于我们</a><a
+                href="" class="addPipe">关于我们</a><a href="" class="addPipe">关于我们</a><a href="">Contact US</a>
+        </p>
+        <p>地址：北京市昌平区建材城西路金燕龙办公楼一层 邮编:100096 电话:400-618-4000 传真:010-82935100 邮箱:zhanghj+itcast.cn</p>
+        <p>京ICP备08001421号京公网安备110108007702</p>
+    </div>
+</body>
+</html>

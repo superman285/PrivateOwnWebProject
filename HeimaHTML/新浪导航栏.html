@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+    <style>
+
+        body,ul,li,div{
+            padding:0;
+            margin: 0;
+        }
+        ul{
+            list-style:none;
+        }
+
+        .nav{
+            width: 100%;
+            height: 50px;
+            border-top:2px solid orange;
+            border-bottom:1px solid lightgrey;
+        }
+
+        .left{
+            float:left;
+            margin-left: 20px;
+        }
+        .right{
+            float:right;
+            margin-right: 20px;
+        }
+
+        .listL,.listR{
+            float:left;
+        }
+
+        a{
+            display:block;
+
+            height: 50px;
+            color:orange;
+            line-height:50px;
+            text-align:center;
+            text-decoration:none;
+        }
+        a.itemL{
+            width: 100px;
+        }
+        a.itemR{
+            width: 70px;
+        }
+        a:hover{
+            background-color: lightgrey;
+            color:darkorange;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="nav">
+    <ul class="left">
+        <li class="listL"><a href="" class="itemL">设为首页</a></li>
+        <li class="listL"><a href="" class="itemL">手机新浪网</a></li>
+        <li class="listL"><a href="" class="itemL">移动客户端</a></li>
+    </ul>
+    <ul class="right">
+        <li class="listR"><a href="" class="itemR">登录</a></li>
+        <li class="listR"><a href="" class="itemR">微博</a></li>
+        <li class="listR"><a href="" class="itemR">博客</a></li>
+        <li class="listR"><a href="" class="itemR">邮箱</a></li>
+        <!--<li class="listR"><a href="" class="itemR"></a></li>-->
+    </ul>
+</div>
+
+</body>
+</html>

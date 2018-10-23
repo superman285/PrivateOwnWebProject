@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+    *{
+        color:violet;
+    }
+    /*交集选择器，中间无空格，元素选择器(标签)后紧跟id或类选择器*/
+    div.class2{
+        color:greenyellow;
+    }
+    div#id1{
+        color:blanchedalmond;
+    }
+    /*并集选择器,逗号隔开，可换行可不换行*/
+    .class3, .class4{
+        background:beige;
+    }
+    /*后代选择器*/
+    div p{
+        color:darkviolet;
+    }
+    /*子元素选择器，只选择儿子，而上述的后代选择器是所有后代都选*/
+    h1>span{            /*只有第一句h1的关键变色了，第二句的关键不是直接儿子所以没变色*/
+        color:darkred;
+    }
+    /*属性选择器，href=....,也有写法[属性=value]*/
+    [href]{
+        color:darkred;
+    }
+
+
+</style>
+</head>
+<body>
+    <div id="id1">通用选择器1</div>
+    <div class="class2">通用选择器2</div>
+    <div class="class3">通用选择器3</div>
+    <div class="class4">通用选择器4</div>
+    <div>
+        <p  href="#">通用选择器5</p>
+    </div>
+
+    <h1>这是非常<span>关键</span>的一步。</h1>
+    <h1>这是非常<em><span>关键</span></em>的一步。</h1>
+    <h1 href="www.baidu.com">这是非常<span>关键</span>的一步。</h1>
+
+</body>
+</html>

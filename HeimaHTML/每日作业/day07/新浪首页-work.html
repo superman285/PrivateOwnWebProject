@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新浪首页</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+    <link rel="stylesheet" href="../../CSS/global_common.css">
+    <style>
+        .header{
+            width: 100%;
+            min-width: 1200px;
+            height: 45px;
+            border-top:2px solid orange;
+            box-shadow:0 1px 1px lightgrey;
+            position: fixed;
+            border-bottom:1px solid #333;
+            /*top:0;*/
+            /*margin-top: 40px;*/
+        }
+        .topNav{
+            height: 45px;
+        }
+        .header li{
+            display: inline-block;
+        }
+        .itemL,.itemR{
+            display: block;
+            height: 45px;
+            line-height: 45px;
+            padding:0 15px;
+            font-size: 14px;
+        }
+        .itemL:hover{
+            background-color: lightgrey;
+        }
+
+
+        .aside{
+            position: sticky;
+        }
+        .aside.leftad{
+            /*平时在本身所在位置，欲脱离浏览器时显示设置的trbl位置*/
+            top: 0px;
+            left: 0px;
+            float:left;
+            margin-top:150px;
+        }
+        .aside.rightad{
+            top: 50px;
+            right: 0px;
+            float:right;
+            margin-top:150px;
+        }
+
+        .content{
+            height: 1500px;
+            margin-top:60px;
+            border: 2px solid dodgerblue;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="topNav w">
+        <ul class="leftP fl">
+            <li class="listL"><a href="" class="itemL">设为首页</a></li>
+            <li class="listL"><a href="" class="itemL">手机新浪网</a></li>
+            <li class="listL"><a href="" class="itemL">移动客户端</a></li>
+
+        </ul>
+        <ul class="rightP fr">
+            <li class="listR"><a href="" class="itemR">登录</a></li>
+            <li class="listR"><a href="" class="itemR">微博</a></li>
+            <li class="listR"><a href="" class="itemR">博客</a></li>
+            <li class="listR"><a href="" class="itemR">邮箱</a></li>
+            <li class="listR"><a href="" class="itemR">网站导航</a></li>
+        </ul>
+
+    </div>
+
+</div>
+
+    <div class="aside leftad">
+        <img src="images/ad-l.png" alt="">
+    </div>
+    <div class="aside rightad">
+        <img src="images/ad-r.png" alt="">
+    </div>
+
+    <div class="content w"></div>
+
+</body>
+</html>

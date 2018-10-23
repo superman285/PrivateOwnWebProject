@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>mi1</title>
+	<link rel="stylesheet" href="css/mi1base.css">
+	<link rel="stylesheet" href="css/mi1index.css">
+	<style>
+        /*.ul{*/
+            /*width: 440px;*/
+            /*height: 42px;*/
+        /*}*/
+	</style>
+</head>
+<body>
+
+    <!--子元素高度超过父元素，导致下面的元素设置了浮动也不能居左
+    非常隐晦，不好发现-->
+
+	<div class="box">
+		<!-- 顶部开始 -->
+		<div class="top-nav clearfix">
+			<div class="w clearfix">
+				<div class="fl">
+					<ul class="clearfix">
+						<li><a href="#">小米网</a><span></span></li>
+						<li><a href="#">小米网</a><span></span></li>
+						<li><a href="#">小米网</a><span></span></li>
+						<li><a href="#">小米网</a><span></span></li>
+						<li><a href="#">小米网</a><span></span></li>
+						<li><a href="#">小米网</a><span></span></li>
+						<li><a href="#">小米网</a><span></span></li>
+						<li><a href="#">小米网</a><span></span></li>
+						<li><a href="#">小米网</a></li>
+					</ul>
+				</div>
+				<div class="fr clearfix">
+					<ul class="clearfix">
+						<li><a href="#">登录</a><span></span></li>
+						
+						<li><a href="#">注册</a></li>
+						<li class="buy"><a href="#">购物车(0)</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+        <!--<hr>-->
+
+		<!-- 导航开始 -->
+		<div class="nav w">
+			<div class="logo">
+				<img src="mi-logo.png" alt="">
+			</div>
+			<div class="list">
+				<ul>
+					<li><a href="#">路由器</a></li>
+					<li><a href="#">路由器</a></li>
+					<li><a href="#">路由器</a></li>
+					<li><a href="#">路由器</a></li>
+					<li><a href="#">路由器</a></li>
+					<li><a href="#">路由器</a></li>
+					<li><a href="#">路由器</a></li>
+					<li><a href="#">路由器</a></li>
+					<li><a href="#">路由器</a></li>
+				</ul>
+			</div>
+			<div class="search">
+				<div class="left fl">
+					<a href="#">小米手机</a>
+					<a href="#">购物车</a>
+				</div>
+				<div class="right fr">
+					<img src="search2.jpg" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

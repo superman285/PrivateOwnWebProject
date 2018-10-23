@@ -1,0 +1,124 @@
+/*
+* @Author: dhl
+* @Date:   2018-08-17 14:10:04
+* @Last Modified by:   dhl
+* @Last Modified time: 2018-08-17 18:07:03
+*/
+
+/* 首页开始 */
+.bg { width: 100%; height: 470px; background: url("../img/jd.png") no-repeat center top; /* 目的： 让脱标不占位置 */
+	position: absolute; }
+
+.main_body { /* 提高层级占位置 */
+	position: relative; }
+
+.banner_img { margin-left: 215px; margin-top: 13px; height: 470px; }
+
+.news_list { width: 250px; height: 454px; border: 1px solid #ccc; margin-top: 13px; margin-right: 10px; }
+
+.top_news_list { height: 159px; border-bottom: 1px solid #ccc; }
+.list_title { height: 30px; line-height: 30px; border-bottom: 1px dashed #ccc; padding: 0 10px; }
+
+.list_content { padding: 8px 18px 0px; }
+.list_content li { height: 23px; }
+
+
+/* 服务列表 */
+.service_list { width: 250px; height: 212px; }
+
+.service_list ul { width: 252px; }
+
+.service_list li { width: 62px; height: 70px; border-bottom: 1px solid #ccc; border-right: 1px solid #ccc; float: left; }
+
+.service_list li a { width: 62px; height: 25px; display: block; text-align: center; padding-top: 45px; position: relative; }
+
+.icon_bg { width: 26px; height: 26px; display: block; background: url("../img/icons.png") no-repeat  -18px -16px; position: absolute; left: 50%; top: 15px; margin-left: -13px; }
+
+.news_list>a:last-child { display: block; margin-top: 7px; }
+
+
+/* 今日推荐 */
+.tuijian {
+	height: 164px;
+	background-color: #ebebeb;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.one_tuijian {
+	width: 200px;
+	height: 100%;
+	background: #604f4d url("../img/clock.png") no-repeat center 20px;
+
+	color: #fff;
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 200px;
+	text-align: center;
+}
+
+.tuijian li {
+	height: 145px;
+	border-right: 1px solid #ccc;
+	margin-top: 10px;
+}
+
+.tuijian li:last-child {
+	border-right: 0 none;
+}
+
+
+/* 家用电器 */
+.top_appliance {
+	height: 26px;
+	border-bottom: 2px solid red;
+}
+
+.top_appliance .line  {
+	width: 1px;
+	height: 12px;
+	background-color: #ccc;
+	margin: 5px 10px;
+}
+
+
+/* 家电列表 */
+.bot_appliance {
+	height: 360px;
+	border-right: 1px solid #ccc;
+	margin-bottom: 20px;
+}
+
+.one_sanxing {
+	width: 208px;
+	height: 100%;
+	text-align: center;
+}
+
+.one_sanxing ul {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.one_sanxing li {
+	height: 20px;
+	border-bottom: 1px solid #ccc;
+	padding: 0 10px;
+	margin-left: 17px;
+}
+
+
+.three {
+	width: 220px;
+	height: 100%;
+	border-right: 1px solid red;
+}
+
+.top_three {
+	border-bottom: 1px solid red;
+}
+
+.four {
+	width: 221px;
+	height: 100%;
+	border-right: 1px solid red;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .ani{
+            margin-top: 200px;
+            margin-left: 200px;
+            background-color: greenyellow;
+            width: 200px;
+            height: 200px;
+
+
+
+
+        }
+
+        @keyframes scaleye{
+            from{
+                transform:scale(1);
+            }
+
+            to{
+                transform:scale(2);
+            }
+        }
+
+        div:hover{
+            animation-name:scaleye;
+            animation-duration:1s;
+            animation-iteration-count: 5;
+            animation-timing-function: linear;
+            animation-delay: 1s;
+        }
+
+
+    </style>
+</head>
+<body>
+
+
+    <div class="ani">动画</div>
+</body>
+</html>

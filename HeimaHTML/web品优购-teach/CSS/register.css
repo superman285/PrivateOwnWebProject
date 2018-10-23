@@ -1,0 +1,101 @@
+/*
+* @Author: dhl
+* @Date:   2018-08-19 15:48:26
+* @Last Modified by:   dhl
+* @Last Modified time: 2018-08-19 16:20:23
+*/
+
+
+.register_title {
+	height: 61px;
+	border-bottom: 2px solid red;
+	margin-top: 20px;
+}
+
+
+.form_box {
+	height: 522px;
+	border: 1px solid #ccc;
+	margin: 20px auto;
+}
+
+.form_title {
+	height: 40px;
+	line-height: 40px;
+	border-bottom: 1px solid #ccc;
+	background-color: #ececec;
+	padding: 0 20px;
+}
+
+
+.form_box  form {
+	 width: 600px;
+	 margin: 48px auto;
+}
+
+.public_input {
+	margin-top: 15px;
+}
+
+.public_input label {
+	width: 80px;
+	display: inline-block;
+	text-align: right;
+}
+
+.public_input input {
+	width: 227px;
+	height: 30px;
+	border: 1px solid #ccc;
+	padding-left: 10px;
+	vertical-align: middle;
+}
+
+/* 当输入框获取到鼠标的焦点的时候，会触发该选择器 */
+.public_input input:focus {
+	background-color: pink;
+}
+
+.public_input span {
+	height: 20px;
+	display: inline-block;
+	margin-left: 10px;
+	background: url("../img/wrong.png") no-repeat;
+	padding-left: 20px;
+	color: red;
+}
+
+
+.other {
+	padding-left: 150px;
+	padding-top: 10px;
+}
+
+.other span {
+	width: 30px;
+	height: 20px;
+	display: inline-block;
+	text-align: center;
+	line-height: 20px;
+	color: #fff;
+	background-color: pink;
+}
+
+.btn {
+	width: 200px;
+	height: 72px;
+	margin-left: 100px;
+	margin-top: 20px;
+}
+
+.btn input:last-child {
+	width: 100%;
+	height: 35px;
+	background-color: red;
+	color: #fff;
+	line-height: 35px;
+	text-align: center;
+	margin-top: 20px;
+}
+
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .wrapper{
+            /*min-width: 645px;*/
+            /*width:100%;*/
+            /*若用vw则会有横向滚动条，因为右侧纵向滚动条占了一定距离，
+            而100%则没事，是除了右侧滚动条以外的所有位置*/
+
+            /*min-width加上width的100%可以稍微有一定的自适应化，若太窄则出现滚动条*/
+            back-ackground-color: darkgrey;
+            /*min-height:1000px;*/
+
+            display:grid;
+            /*auto代表可以自用适应，可以拖动的*/
+            grid-template-rows:110px 50px minmax(100px,auto) 110px;
+            /*默认就是1列，可省略*/
+            grid-template-columns:minmax(645px,auto);
+
+            /*神技，宽高都不用设置，完全用布局搞定了！！*/
+            grid-row-gap:20px;
+        }
+        .wrapper>div{
+            background-color: #ecedfa;
+            border:1px dashed lightgrey;
+        }
+
+
+
+    </style>
+</head>
+<body class="wrapper">
+    <div class="top"></div>
+    <div class="banner"></div>
+    <div class="main">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad blanditiis consectetur dolor enim, fugiat fugit ipsa libero maiores neque obcaecati perferendis quasi recusandae veritatis? Amet asperiores consectetur eveniet inventore, iste iure laudantium nam nisi officia perferendis, praesentium veniam voluptatibus? Beatae cum illum ipsa nostrum numquam obcaecati quis quo ratione similique veritatis! At cum cupiditate dignissimos dolorem enim expedita harum impedit, ipsum laudantium molestias mollitia perspiciatis quasi, rem similique suscipit totam ut! Atque consequatur dicta dolor eligendi ipsum laboriosam, pariatur! Aliquam assumenda, dolor doloremque dolorum ducimus eaque enim ex facere facilis fugit illo, itaque laboriosam natus nulla optio quaerat quas quibusdam quo quos recusandae reiciendis rem tempora tempore velit, veniam? Alias aperiam architecto at, atque ea, facere id labore laboriosam mollitia, nemo nihil nisi quis rerum sapiente sit soluta suscipit unde voluptate? Ab ad adipisci amet consequatur cum deleniti distinctio est ex, excepturi harum, ipsam labore laboriosam magnam minima modi neque nesciunt nisi nobis odio porro provident quia rerum sed tempore totam voluptate voluptatem voluptates. Accusamus at cupiditate dolor dolore dolorum esse eum, excepturi fuga fugiat harum impedit incidunt ipsa iusto modi molestiae omnis, pariatur perferendis qui quos recusandae reiciendis unde voluptas. Cupiditate eligendi harum minus modi sequi. Ab autem deleniti dolor eaque earum eos impedit, inventore iste labore, libero magni molestiae praesentium, tempore. Adipisci, assumenda atque aut corporis cum debitis deserunt dolorem iste laboriosam maiores minima nam officiis quas qui quidem quo recusandae rem sed suscipit totam, veniam veritatis voluptas voluptatibus. Accusantium expedita numquam optio repellat sed sit, tempore veniam.</div>
+    <div class="footer"></div>
+</body>
+</html>

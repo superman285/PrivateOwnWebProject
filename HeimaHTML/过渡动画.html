@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+    <style>
+
+        /*开始状态*/
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: teal;
+            margin:100px auto;
+
+            /*过渡动画效果,transition为合写，4个属性*/
+
+            /*设置哪些属性要有动画效果*/
+            transition-property: width;
+            /*动画执行时间*/
+            transition-duration: 1s;
+            /*动画速度类型,linear为匀速*/
+            transition-timing-function:ease;
+            /*设置动画延时执行*/
+            transition-delay: 1s;
+
+
+        }
+
+        /*结束状态*/
+        .box:hover{
+            width: 400px;
+            height: 400px;
+            background-color: teal;
+        }
+
+        .outer{
+            width: 150px;
+            height: 400px;
+            position: relative;
+            border:1px solid #ccc;
+        }
+        .inner{
+            width: 150px;
+            height: 0px;
+            background-color: orange;
+            position:absolute;
+            bottom:0;
+        }
+        .outer:hover .inner{
+            height:70px;
+            transition:height 0.4s linear 0.3s;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+
+    <br>
+
+<div class="outer">
+
+    <div class="inner"></div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+
+    <style>
+        .transition{
+            width: 100px;
+            height: 100px;
+            background-color: teal;
+
+            transition:500ms linear;
+            transition-property: height,width;
+        }
+
+        .transition:hover{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="transition"></div>
+</body>
+</html>

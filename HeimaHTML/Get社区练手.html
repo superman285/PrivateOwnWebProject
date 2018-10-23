@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Get社区</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+    <style>
+        html,body,div,p,ul,li{
+            margin:0;
+            padding:0;
+            border:0;
+        }
+        div.topBar{
+            width: 100%;
+            height: 60px;
+            position: fixed;
+            top:0px;
+            left:0px;
+            /*border-bottom: 1px solid darkgrey;*/
+            box-shadow: 0 1px 5px lightgrey;
+            background-color: rgba(255,255,255,0.6);
+        }
+        .topBar:hover{
+            background-color: white;
+        }
+        .title{
+            display:inline-block;
+            font-size:30px;
+            color:lightseagreen;
+            margin-left:30px;
+            line-height:60px;
+        }
+        /*ul偏右float，ul内部的li偏左float*/
+        ul.menu{
+            /*display: inline-block;*/
+            list-style: none;
+            float:right;
+            color:lightseagreen;
+            /*margin-top:20px;*/
+        }
+        li.menu_item{
+            /*方法一：*/
+            /*float:left;*/
+            /*margin-right: 20px;*/
+            /*方法二：*/
+            display: inline-block;
+            margin-right: 20px ;
+            
+        }
+        .menu_item:last-child{
+            margin-right:10px;
+        }
+        a{
+            color:lightseagreen;
+            text-decoration: none;
+            line-height: 50px;
+        }
+        .menu_item:hover{
+            border-bottom:3px solid lightseagreen;
+        }
+        span{
+            color: grey;
+        }
+
+        .container{
+            max-width: 800px;
+            background-color: lightblue;
+            /*margin-top: 80px;*/
+            border:1px solid red;
+            margin:80px auto;
+        }
+
+        .content{
+            min-height: 1080px;
+        }
+
+        .bottomBar{
+            width: 250px;
+            height: 50px;
+            color: white;
+            position: fixed;
+            right:10px;
+            bottom:0;
+            box-shadow: 0 1px 5px grey;
+            text-align: center;
+            background-color: rgba(255,255,255,0.7);
+            /*border-top:1px solid grey;*/
+            /*border-left: 1px solid grey;*/
+        }
+        .bottomBar:hover{
+            background-color: rgba(255,255,255,1);
+        }
+
+        /*.test{
+            width: 250px;
+            height: 150px;
+            color:red;
+            line-height:100px;
+            background-color: pink;
+        }*/
+        /*a.test2{*/
+            /*width: inherit;*/
+            /*display: inline-block;*/
+            /*line-height: 150px;*/
+            /*border:1px solid grey;*/
+        /*}*/
+        /*span{*/
+            /*border:1px solid black;*/
+        /*}*/
+        
+        .po1,.po2,.po3{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            display: inline-block;
+            /*margin-left: 10px;*/
+            padding-left:10px;
+            padding-right:10px;
+        }
+        .po4{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            /*margin-left: 10px;*/
+            border:solid red 2px;
+        }
+        .po3{
+            /*padding-left:10%;*/
+            /*-webkit-box-sizing: border-box;*/
+            /*-moz-box-sizing: border-box;*/
+            /*box-sizing: border-box;*/
+            margin-left: 50%;
+        }
+        .po2{
+            /*position: absolute;*/
+            top: 30px;
+            left: 60px;
+        }
+        /*.po1:hover:before{*/
+            /*content:"知道了";*/
+        /*}*/
+        /*.po2:hover{*/
+            /*content:url("images/logo.png");*/
+        /*}*/
+
+        /*strong{*/
+            /*color:red;*/
+        /*}*/
+        p:first-child{
+            color:blue;
+        }
+
+        .one,.two,.three{
+            display: inline-block;
+            width: 190px;
+            height: 70px;
+            background-color: violet;
+            /*vertical-align: top;*/
+        }
+        img.four{
+            width: 190px;
+            height: 70px;
+        }
+
+
+        
+    </style>
+</head>
+<body>
+    <div class="topBar">
+        <div class="title">✔Get社区</div>
+        <ul class="menu">
+            <li class="menu_item"><a href="">新知</a></li>
+            <li class="menu_item"><a href="">卡片流</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <ul class="content">
+            <li class="content">Easy</li>
+            <li class="content"></li>
+            <li class="content"></li>
+            <li class="content"></li>
+            <li class="content"></li>
+            <li class="content"></li>
+            <li class="content"></li>
+        </ul>
+    </div>
+    <!--<div class="test"><span>我是div测试标签</span>-->
+    <!--</div>-->
+
+    <dl>
+        <dt>列表头</dt>
+        <li>chognzhi</li>
+        <li></li>
+        <li></li>
+    </dl>
+
+    <div class="po1">框1</div>
+    <div class="po2">框2</div>
+    <div class="po3">我是</div>
+    <hr style="background:red">
+    <div class="po4"><span class="sp">我是方框4</span></div>
+
+    <p class="im1"><strong>优先级测试1</strong></p>
+    <p class="im1">优先级测试2</p>
+
+    <div class="bottomBar">
+        <a href="#">微博一键登入</a>
+        <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+        <a href="#">⇡</a>
+    </div>
+
+    <hr>
+
+    <div class="one">汉字</div>
+    <div class="one">汉字</div>
+    <div class="two"></div>
+    <div class="three">一行显示</div>
+    <img src="" alt="" class="four">
+
+
+
+</body>
+</html>

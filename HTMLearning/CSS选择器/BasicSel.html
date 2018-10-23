@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS选择器基础</title>
+<style>
+    div{
+        font-size:20px;
+        color:blueviolet;
+    }
+    /*.teacher{
+        font-size: 24px;
+        font-weight:bold;
+    }
+    .green{
+        font-style: italic;
+        color:greenyellow;
+    }*/
+    .teacher.green{         /*该写法等同于上面分开两类选择的写法，注意中间不能有空格*/
+        font-size: 24px;
+        font-weight:bold;
+        font-style: italic;
+        color:greenyellow;
+    }
+</style>
+</head>
+<body>
+    <div>妙味课堂</div>
+    <div>妙味公告</div>
+    <div class="teacher green">妙味讲师</div>
+</body>
+</html>

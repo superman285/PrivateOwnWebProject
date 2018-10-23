@@ -1,0 +1,88 @@
+
+
+.footerWrap{
+    margin-top: 20px;
+    background-color: #e0dedb;
+}
+
+.footer-top{
+    height: 110px;
+    border-bottom:1px solid #ccc;
+}
+.ft-item{
+    width: 170px;
+    height: 70px;
+    /*background-color: pink;*/
+    font-size: 0px;
+    margin-bottom: -25px;
+}
+
+.ft-item i{
+    display:inline-block;
+    width: 53px;
+    height: 53px;
+    vertical-align: middle;
+    background:url("../img/icons.png") no-repeat -253px -1px;
+}
+.ft-item .i2{
+    background: url("../img/icons.png") no-repeat -253px -53px;
+}
+.ft-item .i3{
+    background: url("../img/icons.png") no-repeat -256px -105px;
+}
+.ft-item .i4{
+    background: url("../img/icons.png") no-repeat -256px -157px;
+}
+.ft-item .i5{
+    background: url("../img/icons.png") no-repeat -254px -208px;
+}
+.ft-item a{
+    display:inline-block;
+    /*width: 90px;*/
+    /*height: 60px;*/
+    vertical-align: middle;
+    font-size: 16px;
+    color:grey;
+}
+
+.footer-center{
+    height: 170px;
+    border-bottom:1px solid #ccc;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+}
+.footer-center>dl,.footer-center>div{
+    height: 145px;
+}
+.footer-center dt{
+    font-size: 18px;
+    font-weight: bold;
+    color: #666;
+}
+.footer-center dd{
+    font-size: 13px;
+    color: #767676;
+}
+.footer-center>div{
+    text-align:center;
+}
+.footer-center>div>*{
+    margin-bottom: 8px;
+}
+
+.footer-bottom{
+    height: 80px;
+    text-align: center;
+}
+.footer-bottom>p{
+    font-size: 0;
+    margin-top:12px;
+}
+.footer-bottom a{
+    font-size: 12px;
+}
+.footer-bottom span{
+    font-size: 14px;
+    margin:0 5px;
+}

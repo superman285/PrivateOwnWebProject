@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>六角学院简单布局</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+    <style>
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed,
+        figure, figcaption, footer, header, hgroup,
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure,
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+        body {
+            line-height: 1;
+        }
+        ol, ul {
+            list-style: none;
+        }
+        blockquote, q {
+            quotes: none;
+        }
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+
+        img{
+            /*width: 200px;*/
+            /*height: 100px;*/
+        }
+        .header{
+            width: 720px;
+            height: 120px;
+            background-color: orangered;
+            margin-bottom: 20px;
+        }
+        .asideL{
+            width: 160px;
+            background-color: black;
+            float: left;
+            color: white;
+            margin-right: 15px;
+            padding: 10px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        .content{
+            width: 440px;
+            background-color: pink;
+            float: left;
+            margin-right: 15px;
+            padding: 10px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        .asideR{
+            width: 90px;
+            background-color: blue;
+            float: left;
+            color: white;
+            padding: 10px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .clearfix{
+            clear:both;
+        }
+        .footer{
+            width: 720px;
+            height: 70px;
+            background-color: darkgrey;
+            margin-top: 20px;
+        }
+        ul{
+            float:right;
+            list-style: none;
+
+        }
+        li{
+            float:left;
+            margin:20px 20px;
+            color:white;
+            font-weight: bold;
+        }
+
+        .inline1{
+            margin-right: 50px;
+            border:1px solid red;
+            width: 100px;
+            height: 100px;
+            display:inline-block;
+        }
+        .inline2{
+            margin-left: 20px;
+            border:1px solid red;
+            width: 100px;
+            height: 100px;
+            display:inline-block;
+        }
+        .inline3{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            display:inline-block;
+            /*vertical-align:bottom;*/
+            /*vertical-align: top;*/
+            /*position:relative;*/
+            /*top:-80px;*/
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="images/logo.png" id="logo" alt="">
+        <ul>
+            <li>关于我们</li>
+            <li>产品介绍</li>
+            <li>Q&A</li>
+        </ul>
+    </div>
+    <div class="asideL">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores assumenda consequuntur, dignissimos doloribus eligendi error explicabo illum impedit laborum modi nesciunt nulla, perspiciatis saepe veniam? Assumenda modi repudiandae rerum?
+    </div>
+    <div class="content">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias assumenda doloremque ea facere quaerat quas quos reiciendis repellendus sint ullam?
+    </div>
+    <div class="asideR">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, ipsam.
+    </div>
+    <div class="clearfix">
+
+    </div>
+    <div class="footer">
+
+    </div>
+
+    <hr>分隔线
+    <hr>
+
+    <!--<div class="inline1">我是盒子1</div>
+    <img src="images/logo.png" alt="">-->
+    <img src="images/logo.png" alt="">
+    <a href="#logo"><img src="images/logo.png" alt=""></a>
+    <hr>
+    <input type="text">
+    <div class="inline3">我是盒子2</div>
+
+
+</body>
+</html>

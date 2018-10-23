@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>切版挑战1</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+    <style>
+        .cotainer {
+            display: flex;
+            flex-direction: column;
+        }
+        .main {
+            width: 640px;
+            height:auto;
+            display: flex;
+            flex-direction: row;
+            border:2px solid violet;
+        }
+        .left{
+            flex: 1;
+            padding-top: 8px;
+        }
+        .center{
+            flex: 3.3;
+            border:1px solid blue;
+        }
+        .right{
+            flex: 2.2;
+        }
+        ul{
+            zoom:0.8;
+            list-style:none;
+            padding: 0 15px;
+        }
+        h4{
+            line-height: 0px;
+            margin-top:30px;
+        }
+        .Simg{
+            width: 96px;
+            height: 96px;
+        }
+        .Limg{
+            width: 208px;
+            height: 208px;
+        }
+        .footer{
+            display: flex;
+            width: 640px;
+            height:100px;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid greenyellow;
+        }
+    </style>
+</head>
+
+<body class="cotainer">
+
+
+    <div class="main">
+        <aside class="left"><img src="adimg.jpg" alt="" class="Simg"><img src="adimg.jpg" alt="" class="Simg"></aside>
+        <div class="center">
+            <ul class="textUL">
+                <li class="textLI">
+                    <h4 class="textTitle">Title Lorem...</h4>
+                    <p class="textContent">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus corporis odit optio possimus praesentium voluptatem.</p>
+                </li>
+                <li class="textLI">
+                    <h4 class="textTitle">Title Lorem...</h4>
+                    <p class="textContent">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta doloremque eum, labore placeat quas reiciendis.</p>
+                </li>
+            </ul>
+        </div>
+        <aside class="right"><img src="adimg.jpg" alt="" class="Limg"></aside>
+    </div>
+
+    <footer class="footer">居中表尾文字</footer>
+
+
+</body>
+</html>

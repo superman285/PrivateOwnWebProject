@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>立体动画导航</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .nav{
+            height: 60px;
+            width: 600px;
+            display:flex;
+            background-color: pink;
+            margin-left:200px;
+            margin-top:100px;
+        }
+        .nav>div{
+            height: 60px;
+            width: 120px;
+            /*background-color: green;*/
+            transform-style: preserve-3d;
+            position: relative;
+
+            transform:rotateX(-30deg);
+
+            /*transition:1s all linear;*/
+        }
+        /*.nav>div:hover {*/
+            /*transform:rotateX(-90deg);*/
+        /*}*/
+        .front{
+            height: 60px;
+            width: 120px;
+            background-color: green;
+            transform:translateZ(30px);
+            position: absolute;
+            text-align: center;
+            line-height: 60px;
+        }
+        .top{
+            height: 60px;
+            line-height: 60px;
+            width: 120px;
+            background-color: yellow;
+            transform:rotateX(90deg) translateZ(30px);
+            position: absolute;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+
+    <div class="nav">
+
+        <div class="first">
+            <div class="front">前端学院</div>
+            <div class="top">web前端</div>
+        </div>
+        <div class="second"></div>
+        <div class="third"></div>
+
+    </div>
+
+</body>
+</html>

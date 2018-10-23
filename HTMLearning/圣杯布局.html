@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圣杯layout</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+    <style>
+        .header,.footer{
+            background: darkgrey;
+            width: 720px;
+            height: 100px;
+        }
+        .cotainer{
+            display: flex;
+            flex-direction: row;
+            justify-content:space-between;
+            width: 720px;
+            height: 400px;
+        }
+        .left{
+            flex:1;
+            background: lightskyblue;
+        }
+        .right{
+            flex:1;
+            background: tomato;
+        }
+        .center{
+            flex:2;
+            background: whitesmoke;
+            border:2px greenyellow solid ;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header"></header>
+    <div class="cotainer">
+
+        <div class="left"></div>
+        <div class="center"></div>
+        <div class="right"></div>
+
+
+    </div>
+
+
+    <footer class="footer"></footer>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+</head>
+<body>
+
+    <span class="hh" id="h1">HelloWorld</span>
+    <br>
+    <hr>
+    <h2>每个农场的农夫名字</h2>
+    <ul class="list"></ul>
+    <ul class="list2">大事不妙
+    </ul>
+
+
+    <script>
+        var span1 = document.querySelector("span");
+        var newNode = document.createElement("span")    //意思并不是赋值，而是用变量接收这个函数的返回值，即创建的节点
+        newNode.textContent = "No-HelloWorld"
+
+        //以下爲錯誤寫法示範，賦值給新變量，新變量的改變不會影響原newNode的textContent
+        //newNodeContent = newNode.textContent;
+        //newNodeContent = "No-HelloWorld";
+
+        //span1.before(newNode);      //作为兄弟插入到前面
+        //span1.after(newNode);       //作为兄弟插入到后面
+        span1.appendChild(newNode);   //作为儿子节点插入到原内容之后
+        //span1.prepend(newNode)      //作为儿子节点插入到原内容之前
+
+        var flist = document.querySelector(".list");    //意思并不是赋值，而是用变量接收这个函数的返回值，即查询到的节点
+        console.log(flist.innerText);
+        //innerHTML也是指的儿子节点，与appendChild有异曲同工之妙；
+        var flistInnerHTML = flist.innerHTML;       //错误示范，赋值给变量然后去改变变量
+                                                       //改变变量并不会影响flist.innerHTML，所以不能这样
+        //flistInnerHTML = "<li>卡斯伯</li>";         //错误！@_@
+        flist.innerHTML = "<li>卡斯伯</li>";        //正确！！！！
+        console.log(flistInnerHTML);
+        
+    </script>
+</body>
+</html>

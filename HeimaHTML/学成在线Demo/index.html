@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--TDK设置-->
+    <title>学成在线</title>
+    <meta type="description" value="一个在线学习网站">
+    <meta type="keywords" value="前端学习，HTML，CSS，JavaScript，全栈学习">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+    <link rel="icon" href="config.ico">
+    <link rel="stylesheet" href="CSS/common.css">
+    <link rel="stylesheet" href="CSS/index.css">
+    <style>
+    </style>
+</head>
+<body>
+    <!--header高度100像素，#f3f5f7-->
+    <div class="header">
+        <div class="nav">
+            <div class="logo"><img src="img/logo.png" alt=""></div>
+            <div class="nav-bar">
+                <ul>
+                    <li>首页</li>
+                    <li>课程</li>
+                    <li>职业规划</li>
+                </ul>
+            </div>
+            <div class="searchBox border-box clear-linespacing">
+                <input type="text" class="searchTxt border-box" placeholder="输入关键词">
+                <i class="searchIcon"></i>
+            </div>
+            <div class="nav-info clear-linespacing">
+                <span style="font-size: 13px;">个人中心</span>
+                <img src="img/ling_06.png" alt="">
+                <img src="img/user.png" alt="">
+                <span style="font-size: 14px;">qq-leishuui</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-container">
+
+        <!--banner广告区-->
+        <div class="banner">
+            <div class="bannerWrap w">
+                <div class="banMenu">
+                    <ul>
+                        <li class="beautyblue">前端开发<span style="font-family: 宋体;">&gt;</span></li>
+                        <li>后端开发<span style="font-family: 宋体;">&gt;</span></li>
+                        <li>移动开发<span style="font-family: 宋体;">&gt;</span></li>
+                        <li>人工智能<span style="font-family: 宋体;">&gt;</span></li>
+                        <li>商业预测<span style="font-family: 宋体;">&gt;</span></li>
+                        <li>云计算&大数据<span style="font-family: 宋体;">&gt;</span></li>
+                        <li>运维&从测试<span style="font-family: 宋体;">&gt;</span></li>
+                        <li>UI设计<span style="font-family: 宋体;">&gt;</span></li>
+                        <li>产品<span style="font-family: 宋体;">&gt;</span></li>
+                    </ul>
+                </div>
+                <div class="banSchedule">
+                    <div class="schTitle">我的课程表</div>
+                    <div class="sch-center">
+                        <span style="font-size: 16px;">继续学习 程序设计语言</span><br>
+                        <span style="font-size: 12px;">正在学习-面向对象</span>
+                    </div>
+                    <div class="sch-center">
+                        <span style="font-size: 16px;">继续学习 程序设计语言</span><br>
+                        <span style="font-size: 12px;">正在学习-面向对象</span>
+                    </div>
+                    <div class="sch-center beautyblue">
+                        <span style="font-size: 16px;">继续学习 程序设计语言</span><br>
+                        <span style="font-size: 12px;">正在学习-面向对象</span>
+                    </div>
+                    <button class="sch-center border-box beautyblue">全部课程</button>
+                </div>
+            </div>
+        </div>
+
+        <!--主题内容区-->
+        <div class="main-content w">
+
+            <!--侧边定位栏菜单-->
+            <ul class="aside-fixedBar border-box">
+                <li>编程入门</li>
+                <li>数据分析师</li>
+                <li>机器学习工程师</li>
+                <li>前端开发开发工程师</li>
+                <li>全栈开发工程师</li>
+                <li>人工智能工程师</li>
+                <li>安卓工程师</li>
+                <li>iOS工程师</li>
+                <li>VR开发工程师</li>
+            </ul>
+
+            <!--主菜单-->
+            <div class="mainBar w">
+                <ul>
+                    <li>精品推荐</li>
+                    <li>JQuery</li>
+                    <li>Spark</li>
+                    <li>MySQL</li>
+                    <li>JavaWeb</li>
+                    <li>MySQL</li>
+                    <li>JavaScript</li>
+                </ul>
+                <div class="beautyblue">修改兴趣</div>
+            </div>
+
+            <!--精品推荐-->
+            <div class="recommendBox w">
+                <div class="recommendTitle">精品推荐<span>查看全部</span></div>
+                <div class="recommendContent">
+                    <!--第一行-->
+                    <div class="contentBox php hot border-box">
+                        <img src="img/banner1.png" alt="">
+                        <div class="contentxt">
+                        <p>Think PHP 5.0 博客系统实战项目演练</p>                        <span>高级</span>&nbsp;&nbsp;•&nbsp;&nbsp;1125人在学习
+                        </div>
+                    </div>
+                    <div class="contentBox android new border-box">
+                        <img src="img/banner2.png" alt="">
+                        <div class="contentxt">
+                            <p>Think PHP 5.0 博客系统实战项目演练</p>                        <span>高级</span>&nbsp;&nbsp;•&nbsp;&nbsp;1125人在学习
+                        </div>
+                    </div>
+                    <div class="contentBox angular border-box">
+                        <img src="img/banner3.png" alt="">
+                        <div class="contentxt">
+                            <p>Think PHP 5.0 博客系统实战项目演练</p>                        <span>高级</span>&nbsp;&nbsp;•&nbsp;&nbsp;1125人在学习
+                        </div>
+                    </div>
+                    <div class="contentBox hybrid border-box">
+                        <img src="img/banner2.png" alt="">
+                        <div class="contentxt">
+                            <p>Think PHP 5.0 博客系统实战项目演练</p>                        <span>高级</span>&nbsp;&nbsp;•&nbsp;&nbsp;1125人在学习
+                        </div>
+                    </div>
+                    <div class="contentBox hybrid border-box">
+                        <img src="img/banner1.png" alt="">
+                        <div class="contentxt">
+                            <p>Think PHP 5.0 博客系统实战项目演练</p>                        <span>高级</span>&nbsp;&nbsp;•&nbsp;&nbsp;1125人在学习
+                        </div>
+                    </div>
+                    <!--第二行-->
+                    <div class="contentBox php hot border-box">
+                        <img src="img/banner1.png" alt="">
+                        <div class="contentxt">
+                            <p>Think PHP 5.0 博客系统实战项目演练</p>                        <span>高级</span>&nbsp;&nbsp;•&nbsp;&nbsp;1125人在学习
+                        </div>
+                    </div>
+                    <div class="contentBox android new border-box">
+                        <img src="img/banner2.png" alt="">
+                        <div class="contentxt">
+                            <p>Think PHP 5.0 博客系统实战项目演练</p>                        <span>高级</span>&nbsp;&nbsp;•&nbsp;&nbsp;1125人在学习
+                        </div>
+                    </div>
+                    <div class="contentBox angular border-box">
+                        <img src="img/banner3.png" alt="">
+                        <div class="contentxt">
+                            <p>Think PHP 5.0 博客系统实战项目演练</p>                        <span>高级</span>&nbsp;&nbsp;•&nbsp;&nbsp;1125人在学习
+                        </div>
+                    </div>
+                    <div class="contentBox hybrid border-box">
+                        <img src="img/banner2.png" alt="">
+                        <div class="contentxt">
+                            <p>Think PHP 5.0 博客系统实战项目演练</p>                        <span>高级</span>&nbsp;&nbsp;•&nbsp;&nbsp;1125人在学习
+                        </div>
+                    </div>
+                    <div class="contentBox hybrid border-box">
+                        <img src="img/banner1.png" alt="">
+                        <div class="contentxt">
+                            <p>Think PHP 5.0 博客系统实战项目演练</p>                        <span>高级</span>&nbsp;&nbsp;•&nbsp;&nbsp;1125人在学习
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--编程入门-->
+            <div class="codelearnBox w">
+                <div class="codelearnTitle">
+                    <span>编程入门</span>
+                    <ul>
+                        <li>入门</li>
+                        <li>初级</li>
+                        <li>中级</li>
+                        <li>高级</li>
+                    </ul>
+                    <span>查看全部</span>
+                </div>
+                <div class="codelearnContent">
+                    <div class="code-aside"></div>
+                    <div class="code-mainRight">
+                        <div class="code-top"></div>
+                        <div class="code-bottom">
+                            <img src="img/banner7.png" alt="">
+                            <div class="contentxt">
+                                <p>Android Hybrid APP开发实战H5+原生!</p>                        <span>高级</span>&nbsp;&nbsp;•&nbsp;&nbsp;1125人在学习
+                            </div>
+                        </div>
+                        <div class="code-bottom">
+                            <img src="img/banner8.png" alt="">
+                            <div class="contentxt">
+                                <p>Android Hybrid APP开发实战H5+原生!</p>                        <span>高级</span>&nbsp;&nbsp;•&nbsp;&nbsp;1125人在学习
+                            </div>
+                        </div>
+                        <div class="code-bottom">
+                            <img src="img/banner5.png" alt="">
+                            <div class="contentxt">
+                                <p>Android Hybrid APP开发实战H5+原生!</p>                        <span>高级</span>&nbsp;&nbsp;•&nbsp;&nbsp;1125人在学习
+                            </div>
+                        </div>
+                        <div class="code-bottom">
+                            <img src="img/banner6.png" alt="">
+                            <div class="contentxt">
+                                <p>Android Hybrid APP开发实战H5+原生!</p>                        <span>高级</span>&nbsp;&nbsp;•&nbsp;&nbsp;1125人在学习
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--数据分析-->
+            <div class="analysisBox w">
+                <div class="codelearnTitle">
+                    <span>数据分析师</span>
+                    <ul>
+                        <li>热门</li>
+                        <li>初级</li>
+                        <li>中级</li>
+                        <li>高级</li>
+                    </ul>
+                    <span>查看全部</span>
+                </div>
+                <div class="codelearnContent">
+                    <div class="code-aside"></div>
+                    <div class="code-mainRight">
+                        <div class="code-top"></div>
+                        <div class="code-bottom">
+                            <img src="img/banner7.png" alt="">
+                            <div class="contentxt">
+                                <p>Android Hybrid APP开发实战H5+原生!</p>                        <span>高级</span>&nbsp;&nbsp;•&nbsp;&nbsp;1125人在学习
+                            </div>
+                        </div>
+                        <div class="code-bottom">
+                            <img src="img/banner8.png" alt="">
+                            <div class="contentxt">
+                                <p>Android Hybrid APP开发实战H5+原生!</p>                        <span>高级</span>&nbsp;&nbsp;•&nbsp;&nbsp;1125人在学习
+                            </div>
+                        </div>
+                        <div class="code-bottom">
+                            <img src="img/banner5.png" alt="">
+                            <div class="contentxt">
+                                <p>Android Hybrid APP开发实战H5+原生!</p>                        <span>高级</span>&nbsp;&nbsp;•&nbsp;&nbsp;1125人在学习
+                            </div>
+                        </div>
+                        <div class="code-bottom">
+                            <img src="img/banner6.png" alt="">
+                            <div class="contentxt">
+                                <p>Android Hybrid APP开发实战H5+原生!</p>                        <span>高级</span>&nbsp;&nbsp;•&nbsp;&nbsp;1125人在学习
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--机器学习-->
+            <div class="machineLearningBox w">
+                <div class="codelearnTitle ml">
+                    <span>机器学习工程师</span>
+                    <ul>
+                        <li>热门</li>
+                        <li>初级</li>
+                        <li>中级</li>
+                        <li>高级</li>
+                    </ul>
+                    <span>查看全部</span>
+                </div>
+                <div class="mlContent">
+                    <div class="ml">
+                        <img src="img/banner7.png" alt="">
+                        <div class="contentxt">
+                            <p>Android Hybrid APP开发实战H5+原生!</p>                        <span>高级</span>&nbsp;&nbsp;•&nbsp;&nbsp;1125人在学习
+                        </div>
+                    </div>
+                    <div class="ml">
+                        <img src="img/banner5.png" alt="">
+                        <div class="contentxt">
+                            <p>Android Hybrid APP开发实战H5+原生!</p>                        <span>高级</span>&nbsp;&nbsp;•&nbsp;&nbsp;1125人在学习
+                        </div>
+                    </div>
+                    <div class="ml">
+                        <img src="img/banner6.png" alt="">
+                        <div class="contentxt">
+                            <p>Android Hybrid APP开发实战H5+原生!</p>                        <span>高级</span>&nbsp;&nbsp;•&nbsp;&nbsp;1125人在学习
+                        </div>
+                    </div>
+                    <div class="ml">
+                        <img src="img/banner8.png" alt="">
+                        <div class="contentxt">
+                            <p>Android Hybrid APP开发实战H5+原生!</p>                        <span>高级</span>&nbsp;&nbsp;•&nbsp;&nbsp;1125人在学习
+                        </div>
+                    </div>
+                    <div class="ml">
+                        <img src="img/banner3.png" alt="">
+                        <div class="contentxt">
+                            <p>Android Hybrid APP开发实战H5+原生!</p>                        <span>高级</span>&nbsp;&nbsp;•&nbsp;&nbsp;1125人在学习
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--前端开发工程师-->
+            <div class="frontendBox w">
+                <div class="codelearnTitle web">
+                    <span>前端开发工程师</span>
+                    <ul>
+                        <li>热门</li>
+                        <li>初级</li>
+                        <li>中级</li>
+                        <li>高级</li>
+                    </ul>
+                    <span>查看全部</span>
+                </div>
+                <div class="frontendContent">
+                    <div class="web">
+                        <img src="img/banner7.png" alt="">
+                        <div class="contentxt">
+                            <p>Android Hybrid APP开发实战H5+原生!</p>                        <span>高级</span>&nbsp;&nbsp;•&nbsp;&nbsp;1125人在学习
+                        </div>
+                    </div>
+                    <div class="web">
+                        <img src="img/banner5.png" alt="">
+                        <div class="contentxt">
+                            <p>Android Hybrid APP开发实战H5+原生!</p>                        <span>高级</span>&nbsp;&nbsp;•&nbsp;&nbsp;1125人在学习
+                        </div>
+                    </div>
+                    <div class="web">
+                        <img src="img/banner6.png" alt="">
+                        <div class="contentxt">
+                            <p>Android Hybrid APP开发实战H5+原生!</p>                        <span>高级</span>&nbsp;&nbsp;•&nbsp;&nbsp;1125人在学习
+                        </div>
+                    </div>
+                    <div class="web">
+                        <img src="img/banner8.png" alt="">
+                        <div class="contentxt">
+                            <p>Android Hybrid APP开发实战H5+原生!</p>                        <span>高级</span>&nbsp;&nbsp;•&nbsp;&nbsp;1125人在学习
+                        </div>
+                    </div>
+                    <div class="web">
+                        <img src="img/banner3.png" alt="">
+                        <div class="contentxt">
+                            <p>Android Hybrid APP开发实战H5+原生!</p>                        <span>高级</span>&nbsp;&nbsp;•&nbsp;&nbsp;1125人在学习
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--牛人推荐-->
+            <div class="supermanBox">
+                <div class="supermanTitle">牛人</div>
+                <div class="supermanContent">
+                    <div ></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div class="big"></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="footer">
+        <div class="bottomWrap w">
+            <div class="bottom-asideLeft">
+                <img src="img/logo.png" alt="">
+                <span>学成在线致力于普及中国最好的教育，与中国一流大学和机构合作提供在线课程。</span>
+                <span>©2017年XTCG Inc. 保留所有权利。 -沪ICP备15025210号</span>
+                <button>下载APP</button>
+            </div>
+            <div class="bottom-asideRight">
+                <dl>
+                    <dt>关于学成网</dt>
+                    <dd>关于</dd>
+                    <dd>管理团队</dd>
+                    <dd>工作机会</dd>
+                    <dd>客户服务</dd>
+                    <dd>帮助</dd>
+                </dl>
+                <dl>
+                    <dt>新手指南</dt>
+                    <dd>如何注册 </dd>
+                    <dd>如何选课</dd>
+                    <dd>如何拿到毕业证</dd>
+                    <dd>学分是什么</dd>
+                    <dd>考试未通过怎么办</dd>
+                </dl>
+                <dl>
+                    <dt>合作伙伴</dt>
+                    <dd>合作机构</dd>
+                    <dd>合作导师</dd>
+                </dl>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</body>
+</html>

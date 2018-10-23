@@ -1,0 +1,75 @@
+/*
+* @Author: Administrator
+* @Date:   2018-08-12 13:41:01
+* @Last Modified by:   Administrator
+* @Last Modified time: 2018-08-13 09:29:49
+*/
+/* 顶部开始 */
+.top-nav {
+	background-color: #333;
+	height: 40px;
+	line-height: 40px;
+}
+.top-nav .fl li {
+	/*float: left;*/
+	display: inline-block;
+}
+.top-nav a {
+	color: #b0b0b0;
+	font-size: 12px;
+}
+.top-nav .w span {
+	display: inline-block;
+	width: 2px;
+	height: 12px;
+	background-color: #40403b;
+	margin-left: 6px;
+	margin-right: 6px;
+}
+.top-nav .fr li {
+	float: left;
+}
+.top-nav .fr span {
+	margin-left: 6px;
+	margin-right: 6px;
+}
+.top-nav .fr .buy a {
+	display: inline-block;
+	width: 120px;
+	height: 38px;
+	line-height: 40px;
+	background-color: #424242;
+	text-align: center;
+	margin-left: 20px;
+}
+
+/* 导航开始 */
+.nav {
+	height: 100px;
+	/* line-height: 100px; */
+}
+/* .nav .logo {
+	float: left;
+}
+.nav .list {
+	float: left;
+}
+.nav .search {
+	float: right;
+} */
+.nav .logo {
+	width: 55px;
+	height: 55px;
+	background-color: #ff6700;
+	float: left;
+	/* margin-top: 22px; */
+}
+	.list{
+		float: left;
+	}
+	.search{
+		float: right;
+	}
+	.list li{
+		float: left;
+	}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>伪类和伪元素选择器</title>
+    <style >
+        .adiv:first-child{        /*所有div中的第一个div，伪类*/
+            background:#80C6BE;
+        }
+        div::first-letter{       /*所有div中的第一个字母，css3用::表示伪元素*/
+            font-size:40px;
+            color:violet;
+        }
+    </style>
+</head>
+<body>
+    <div class="adiv">妙味零基础课堂</div>
+    <div class="adiv">妙味javascript课堂</div>
+    <div class="adiv">妙味移动端课堂</div>
+</body>
+</html>

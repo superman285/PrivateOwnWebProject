@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>春夏秋冬</title>
+</head>
+
+<body>
+
+    <!--通过js的方法-->
+
+    <a href="#" class="sp">春意绵绵</a>
+    <a href="#" class="su">夏日炎炎</a>
+    <a href="#" class="au">秋风瑟瑟</a>
+    <a href="#" class="wi">冬雪皑皑</a>
+    <img id="seaImg" src="../images/chun.jpg" alt="">
+
+    <script>
+
+        //切记 getElementsByClassName慎用，获取的是一个列表，而不是一个元素，容易犯错，多用byId和querySelector
+        var splink = document.getElementsByClassName("sp")[0];
+        var sulink = document.getElementsByClassName("su")[0];
+        var aulink = document.getElementsByClassName("au")[0];
+        var wilink = document.querySelector(".wi");
+        var btn = document.getElementsByClassName("btn");
+        var seaImg = document.getElementById("seaImg");
+
+
+        splink.onclick = function () {
+            console.log("点击春天");
+            seaImg.src = "../images/chun.jpg"
+        }
+
+        sulink.onclick = function () {
+            console.log("点击夏天");
+            seaImg.src = "../images/xia.jpg"
+        }
+
+        aulink.addEventListener("click",function () {
+            console.log("点击秋天");
+            seaImg.src = "../images/qiu.jpg"
+        },false)
+
+        wilink.addEventListener('click',function () {
+            console.log("点击冬天");
+            seaImg.src = "../images/dong.jpg"
+        },false)
+
+    </script>
+
+</body>
+</html>

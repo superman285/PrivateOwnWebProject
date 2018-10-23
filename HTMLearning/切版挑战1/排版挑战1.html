@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+    <style>
+        .wrap{
+            width: 640px;
+            height: 220px;
+            border:2px solid violet;
+            box-sizing:border-box;
+            margin:auto;
+        }
+        .mainContent{
+            border:1px solid deepskyblue;
+            height:217px;
+            box-sizing:border-box;
+            /*width: 300px;*/
+        }
+        .content{
+            border:1px solid tomato;
+            height: 218px;
+            width: 46%;
+            box-sizing:border-box;
+            display:inline-block;
+            /*float:right;*/
+        }
+        section{
+
+        }
+        h4{
+            height: 10px;
+            margin-top: 25px;
+        }
+        .adSImg{
+            width: 110px;
+            display:inline-block;
+            /*float:left;*/
+            position: relative;
+            height: 220px;
+            padding:4px 0;
+            box-sizing:border-box;
+        }
+        .smallImg{
+            width: 96px;
+            height: 96px;
+            padding-top:5px;
+            /*display: block;*/
+        }
+
+        .adBImg{
+            width: 220px;
+            position: relative;
+            display:inline-block;
+            /*float: right;*/
+            box-sizing:border-box;
+            text-align: center;
+            margin-top: 4px;
+            border:1px solid black;
+        }
+        .bigImg{
+            width: 208px;
+            height: 208px;
+        }
+        p{
+            font-size: 10px;
+        }
+        .footer{
+            border:2px dotted gold;
+            height: 100px;
+            text-align: center;
+            margin-top: 20px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            padding-top:35px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+
+        <div class="mainContent">
+
+        <aside class="adSImg">
+            <img src="../adimg.jpg" alt="adsimg" class="smallImg">
+            <img src="../adimg.jpg" alt="adsimg" class="smallImg">
+        </aside>
+        <div class="content">
+            <section class="textContent">
+                <h4 class="textTitle">Title Lorem</h4>
+                <p class="paragraphContent">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis eius facilis nihil nulla quae, reprehenderit soluta voluptatibus voluptatum? Enim, rem.</p>
+            </section>
+            <section class="textContent">
+                <h4 class="textTitle">Title Lorem</h4>
+                <p class="paragraphContent">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequuntur eligendi eos explicabo, facere fugit laudantium officiis porro voluptate voluptatibus?</p>
+            </section>
+        </div>
+        <aside class="adBImg"><img src="../adimg.jpg" alt="adbimg" class="bigImg"></aside>
+
+        </div>
+
+
+
+
+        <footer class="footer">表尾文字</footer>
+    </div>
+
+</body>
+</html>

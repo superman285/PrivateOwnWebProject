@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>导航栏</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+
+    <style>
+        div{
+            text-align: center;
+            background-color: pink;
+            /*宽高不设置，由a来撑开*/
+        }
+        a{
+            display: inline-block;
+            font-size:16px;
+            font-weight: bold;
+            text-decoration: none;
+            width: 100px;
+            height: 50px;
+        }
+        a.orange{
+            color:orangered;
+        }
+        a.black{
+            color: dimgrey;
+        }
+        a:hover{
+            background-color: lightblue;
+            color:orangered;
+            text-decoration: underline;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="nav">
+
+        <a href="#" class="orange">天猫</a>
+        <a href="#" class="orange">聚划算</a>
+        <a href="#" class="orange">超市</a>
+        <a href="#" class="orange">头条</a>
+        <a href="#" class="black">阿里旅行</a>
+        <a href="#" class="black">电器城</a>
+        <a href="#" class="black">淘抢购</a>
+        <a href="#" class="black">苏宁易购</a>
+        <a href="#" class="black">智能生活</a>
+
+    </div>
+
+</body>
+</html>

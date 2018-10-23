@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小米导航</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+    <style>
+
+        .clearfix:after{
+            content:"";
+            display:block;
+            clear:both;
+            
+            height:0;
+            line-height: 0;
+            visibility: hidden;
+        }
+
+        body,div,ul,li{
+            padding: 0;
+            margin: 0;
+            list-style:none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .adWrap{
+            width: 1200px;
+            height: 450px;
+            background:url(1.jpg);
+            background-size: 100%;
+            position: relative;
+        }
+        .leftMenu{
+            width: 240px;
+            height: 100%;
+            overflow:hidden;
+            background: rgba(96,96,96,0.7);
+        }
+        /*剧中方法一*/
+        /*.leftMenu:before,.leftMenu:after{*/
+            /*content:"";*/
+            /*display:block;*/
+            /*height: 25px;*/
+        /*}*/
+        .menuUL{
+            height: 400px;
+            position: relative;
+            top:50%;
+            margin-top:-200px;
+            /*或用以下方法，自适配高度*/
+            /*transform: translateY(-50%);*/
+        }
+
+        .menuItem{
+            display: block;
+            height: 40px;
+            line-height: 40px;
+            color:white;
+            padding-left:20px;
+            vertical-align: middle;
+            position: relative;
+        }
+        .menuItem .arrow{
+            /*vertical-align: top;*/
+            position: absolute;
+            right:20px;
+            top:2px;
+        }
+        .menuItem:hover{
+            background: rgba(96,96,96,1);
+            font-weight: bold;
+        }
+
+        .adWrap>img{
+            position: absolute;
+            top:50%;
+            transform: translateY(-50%);
+        }
+        .arrowL{
+            left:260px;
+        }
+        .arrowR{
+            right:20px;
+        }
+        .adWrap>img:hover{
+            cursor:pointer;
+            opacity:0.6;
+        }
+
+        .dotset{
+            width: 90px;
+            height: 15px;
+            position: absolute;
+            bottom:20px;
+            right:50px;
+        }
+
+        i{
+            display:inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(96,96,96,0.5);
+            border:1.2px solid darkgrey;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        i:hover{
+            background-color: rgba(255,255,255,0.7);
+            cursor: pointer;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="adWrap">
+        <img src="images/left.png" alt="" class="arrowL"><img src="images/right.png" alt="" class="arrowR">
+
+        <div class="dotset">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+        </div>
+
+        <div class="leftMenu">
+            <ul class="menuUL">
+                <li class="menuList"><a href="#" class="menuItem">手机电话卡<img src="images/right.png" alt="" class="arrow"></a></li>
+                <li class="menuList"><a href="#" class="menuItem">电视盒子<img src="images/right.png" alt="" class="arrow"></a></li>
+                <li class="menuList"><a href="#" class="menuItem">笔记本<img src="images/right.png" alt="" class="arrow"></a></li>
+                <li class="menuList"><a href="#" class="menuItem">智能家电<img src="images/right.png" alt="" class="arrow"></a></li>
+                <li class="menuList"><a href="#" class="menuItem">健康家居<img src="images/right.png" alt="" class="arrow"></a></li>
+                <li class="menuList"><a href="#" class="menuItem">出行儿童<img src="images/right.png" alt="" class="arrow"></a></li>
+                <li class="menuList"><a href="#" class="menuItem">路由器手机配件<img src="images/right.png" alt="" class="arrow"></a></li>
+                <li class="menuList"><a href="#" class="menuItem">移动电源插线板<img src="images/right.png" alt="" class="arrow"></a></li>
+                <li class="menuList"><a href="#" class="menuItem">耳机音箱<img src="images/right.png" alt="" class="arrow"></a></li>
+                <li class="menuList"><a href="#" class="menuItem">生活米兔<img src="images/right.png" alt="" class="arrow"></a></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

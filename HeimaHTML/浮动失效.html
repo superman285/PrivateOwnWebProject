@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浮动失效</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+    <style>
+
+        .w{
+            width: 500px;
+            height: 100px;
+            border:1px solid red;
+            position: fixed;
+            top:0;
+            left:50%;
+            margin-left:-250px;
+        }
+
+
+
+        .zin1{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        .zin2{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+            top:0;
+            left: 0;
+            z-index:auto;
+        }
+        
+        [class=linear-gradient]{
+            width: 300px;
+            height: 100px;
+            background:-webkit-linear-gradient(left,yellow,red);
+        }
+
+        ul{
+            list-style-type:circle;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <!--<div class="w">-->
+        <!---->
+    <!--</div>-->
+
+
+    <!--<div class="zin2"></div>-->
+    <!--<div class="zin1"></div>-->
+
+
+<div class="linear-gradient"></div>
+
+<ul>
+    <li>测试小圆点噢</li>
+    <li>测试小圆点噢</li>
+    <li>测试小圆点噢</li>
+    <li>测试小圆点噢</li>
+    <li>测试小圆点噢</li>
+</ul>
+
+
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+.header{
+    background-color: #f0f3ef;
+    height: 260px;
+    border-bottom:1px dashed violet;
+}
+.headeradWrapper{
+    width: 100%;
+    background-color: #ef235e;
+}
+.headerAD{
+    height: 75px;
+    background: url("../img/5b7276c9Na1fe6db5.jpg") no-repeat;
+}
+
+.shortcut-navWrapper{
+    background-color: #e3e4e5;
+    box-shadow: 0px 1px 1px darkgrey;
+}
+.shortcut-nav{
+    height: 30px;
+}
+.shortcut-left a{
+    color: #999999;
+}
+.shortcut-list li *{
+    font-size: 12px;
+}
+
+/*即最后一个li之后不加竖线*/
+.shortcut-list li:not(:last-child):after{
+    content:"|";
+    color: #999999;
+    margin:0 5px;
+}
+
+/*搜索框所在行区*/
+.searchArea{
+    height: 85px;
+    display:flex;
+    justify-content:flex-end;         align-items:center;
+    position: relative;
+}
+.search-input{
+    height: 40px;
+    width: 500px;
+    padding-left:15px;
+}
+.search-keywords{
+    width: 520px;
+    bottom: -17px;
+    left:1px;
+    position: absolute;
+    font-size: 11px;
+}
+.search-icon{
+    height: 40px;
+    width: 50px;
+    background-color: #f10215;
+    color:white;
+}
+.searchBox{
+    margin-right: 30px;
+    position: relative;
+}
+.po-camera{
+    position: absolute;
+    top:8px;
+    right:66px;
+    font-size:21px !important;
+}
+
+.cartBtn{
+    height: 40px;
+    line-height: 40px;
+    width: 190px;
+    border: 0.5px solid darkgrey;
+    margin-right: 30px;
+    background-color: #fff;
+    text-align: center;
+    position: relative;
+}
+.cart-count{
+    font-size: 8px;
+    display:inline-block;
+    width: 12px;
+    height: 12px;
+    line-height: 12px;
+    text-align:center;
+    border-radius:6px;
+    color:white;
+    background-color: #f10215;
+    position: absolute;
+    top:5px;
+    right:37px;
+    font-style:normal;
+}
+
+.QRcode{
+    height: 70px;
+    width: 70px;
+    align-self: flex-start;
+    background: url("../img/qr.png");
+    background-size: contain;
+}
+.JD-logo{
+    visibility:hidden;
+    width: 180px;
+    height: 180px;
+    position: absolute;
+    top: -30px;
+    left:0;
+    background: url("../img/jd-logo.png");
+    box-shadow:-0.5px 0 5px #cccccc,0.5px 0 5px #cccccc;
+}
+
+/*主导航nav*/
+
+.header-mainNav{
+    width: 720px;
+    margin:25px auto;
+}
+.hNav-list{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+
+

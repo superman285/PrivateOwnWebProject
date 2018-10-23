@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+   <!-- <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>-->
+</head>
+
+<body>
+
+<h3>请输入你的姓名</h3><br>
+<input type="text" id="input">
+<button id="btn">点击</button>
+<button id="btncall">点击呼叫名字</button>
+
+<script>
+    var str = 'tom';
+    localStorage.setItem('myName',str);
+    console.log(localStorage.getItem('myName'));
+
+    var input = document.querySelector("#input");
+    var btn = document.querySelector("#btn");
+    var btncall = document.querySelector("#btncall");
+
+    btn.addEventListener('click',function(e){
+        if(input.value){
+            localStorage.setItem('myName',input.value);
+            console.log("存储完毕");
+        }
+    },false)
+
+    btncall.addEventListener('click',function(e){
+        console.log(localStorage.getItem('myName'));
+    },false)
+
+
+
+
+
+</script>
+
+</body>
+</html>

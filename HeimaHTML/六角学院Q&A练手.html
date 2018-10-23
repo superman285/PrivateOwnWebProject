@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>六角學院</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+
+    <link rel="icon" href="images/hex.jpg">
+
+    <style>
+        body,div,ul,li{
+            margin:0;
+            padding:0;
+            list-style: none;
+        }
+        a{
+            color:dimgrey;
+            text-decoration: none;
+        }
+        .header{
+            width: 100%;
+            height: 120px;
+            background-color: #f4f4f4;
+            /*border-bottom:1px solid darkgrey;*/
+            box-shadow: 1px 1.4px lightgrey;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        .topBar{
+            margin-left: 30px;
+        }
+        .logo-avater{
+            height: 65px;
+            width: 61px;
+        }
+        .logo-txt{
+            display: inline-block;
+            color: #00cc99;
+            vertical-align:top;
+            margin-left:20px;
+        }
+        .menuList{
+            font-size: 0px;
+            margin-left: 22px;
+        }
+        li.menuItem{
+            display: inline-block;
+        }
+        a.itemLink{
+            font-size: 16px;
+            display: block;
+            width: 80px;
+            height: 47px;
+            line-height: 40px;
+            text-align: center;
+        }
+        .itemLink.notFirst:hover{
+            border-bottom:2px solid #00CC99;
+            color:#00CC99;
+            font-weight: bold;
+        }
+        /*=======中间内容==============*/
+        .contentUl{
+            width: 800px;
+            height: 1500px;
+            border:2px solid lightseagreen;
+            margin:150px auto;
+        }
+        /*=====================底部栏内容=====================*/
+
+        .contactUS{
+            width: 100%;
+            height: 350px;
+            background-color: #313030;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .leftP{
+            height: 340px;
+            width: 300px;
+            float:left;
+            margin-left: 80px;
+
+        }
+        .left{
+            width: 300px;
+            height: 160px;
+            color:darkgrey;
+            font-size: 18px;
+        }
+
+        .right{
+            float:left;
+            color:darkgrey;
+            font-size: 17px;
+            margin-left: 100px;
+        }
+        .right li{
+            margin-top: 20px;
+        }
+        .right li a{
+            color:#47c8eb;
+        }
+        
+        div.left a:hover,div.right a:hover{
+            text-decoration: underline;
+        }
+
+        .bottomBar{
+            width: 100%;
+            height: 60px;
+            background-color: #272626;
+            line-height: 60px;
+            color: lightgrey;
+            font-size: 12px;
+            padding-left:30px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            
+        }
+        .blink{
+            float:right;
+            color:dimgrey;
+            font-size: 30px;
+            margin-right: 30px;
+            line-height: 54px;
+        }
+        .blink:hover{
+            color:white;
+            font-weight: bold;
+        }
+
+        .fixContact img{
+            /*background:url("images/chat.png");*/
+            width: 60px;
+            height: 60px;
+            position: fixed;
+            bottom:70px;
+            right:30px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="topBar">
+            <img class="logo-avater" src="images/hex.jpg" alt=""><h2 class="logo-txt">六角學院</h2>
+        </div>
+        <div class="topMenu">
+            <ul class="menuList">
+                <li class="menuItem"><a href="" class="itemLink" style="color:#ff5e45">精选课程</a></li>
+                <li class="menuItem"><a href="" class="itemLink notFirst">专栏文章</a></li>
+                <li class="menuItem"><a href="" class="itemLink notFirst">部落格</a></li>
+                <li class="menuItem"><a href="" class="itemLink notFirst">企业团购</a></li>
+                <li class="menuItem"><a href="" class="itemLink notFirst">问与答</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="content">
+        <ul class="contentUl">
+            <li class="contentList"></li>
+            <li class="contentList"></li>
+            <li class="contentList"></li>
+            <li class="contentList"></li>
+            <li class="contentList"></li>
+            <li class="contentList"></li>
+            <li class="contentList"></li>
+            <li class="contentList"></li>
+            <li class="contentList"></li>
+            <li class="contentList"></li>
+        </ul>
+    </div>
+    <div class="footer">
+        <div class="contactUS">
+            <div class="leftP">
+            <div class="left up">
+                <h2>About Us</h2>
+                六角學院是由高雄前端社群創辦人以及相關核心團員所創立，目的是透過線上教育的方式，開設符合使用者需求的課程。
+            </div>
+            <div class="left down">
+                <h2>Contact</h2>
+                Facebook: <a href="#" style="color: #47c8eb;font-size:17px">六角學院 粉絲團</a>
+                <br>
+                Email: <a href="#" style="color: #47c8eb;font-size:17px">service@hexschool.com</a>
+            </div>
+            </div>
+            <div class="right">
+                <h2>快速连结</h2>
+                <ul>
+                    <li><a href="#">精选课程</a></li>
+                    <li><a href="#">部落格</a></li>
+                    <li><a href="#">问与答</a></li>
+                    <li><a href="#">免责声明</a></li>
+                    <li><a href="#">六角学院</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="bottomBar">©2018 六角学院
+            <a href="#" class="blink">⚝‍</a>
+        </div>
+    </div>
+
+    <a href="#" class="fixContact"><img src="images/chat.png" alt=""></a>
+
+</body>
+</html>

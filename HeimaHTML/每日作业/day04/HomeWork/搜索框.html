@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>搜索框</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+    </script>
+    <style>
+        input{
+            width: 300px;
+            height: 30px;
+            /*最后两个单位相当于background-position,水平位置和垂直位置，
+            距离左边框和上边框*/
+            background: url("../images/1.jpg") right 5px;
+            background-repeat: no-repeat;
+        }
+        input:focus{
+            /*去掉背景图*/
+            background:none;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" value="请输入关键字">
+
+</body>
+</html>
