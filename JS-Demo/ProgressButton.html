@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Progress Button</title>
+    <style>
+
+        .wrapper {
+            width: 400px;
+            height: 300px;
+            border: 2px solid dodgerblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 200px;
+            margin-left: 200px;
+        }
+
+        button {
+            font-size: 1.4rem;
+            color: #60CB9B;
+            outline: none;
+            border: 2px solid #60CB9B;
+            width: 250px;
+            height: 65px;
+            box-sizing: border-box;
+            border-radius: 100px;
+            /*clip-path: circle(10% at 50% 50%);*/
+            transition: all .7s;
+        }
+
+        button:hover {
+            background: #60CB9B;
+            color: white;
+        }
+
+        button:focus {
+            width: 65px;
+
+        }
+
+        button.click span {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <button>
+        <span>Submit</span>
+    </button>
+</div>
+
+
+<script>
+
+    var btn = document.getElementsByTagName("button")[0];
+    btn.onclick = () => {
+        console.log('点击了我');
+        btn.classList.toggle('click');
+    }
+
+</script>
+</body>
+</html>
