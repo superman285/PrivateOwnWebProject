@@ -17,16 +17,17 @@
         }
 
         button {
+            z-index: 1;
             font-size: 1.4rem;
             color: #60CB9B;
             outline: none;
             border: 2px solid #60CB9B;
-            width: 250px;
-            height: 65px;
+            width: 300px;
+            height: 90px;
             box-sizing: border-box;
-            border-radius: 100px;
-            /*clip-path: circle(10% at 50% 50%);*/
-            transition: all .7s;
+            border-radius: 90px;
+            transition: all 1s;
+            position: absolute;
         }
 
         button:hover {
@@ -34,13 +35,75 @@
             color: white;
         }
 
-        button:focus {
-            width: 65px;
-
+        button.click {
+            width: 90px;
         }
 
         button.click span {
             display: none;
+        }
+
+        button.click~.maskL::after{
+            transform: rotate(45deg);
+        }
+
+        button.click~.maskR::after{
+            transform: rotate(405deg);
+        }
+
+        .circleWrapper {
+            display: flex;
+            width: 300px;
+        }
+
+        .maskL {
+            width: 50px;
+            height: 100px;
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .maskL::after {
+            content: '';
+            position: absolute;
+            box-sizing: border-box;
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+            border:10px solid #60CB9B;
+            border-top:10px solid transparent;
+            border-right:10px solid transparent;
+            transform: rotate(-135deg);
+            transition: all 1s 2s linear;
+        }
+
+        .maskR {
+            width: 50px;
+            height: 100px;
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .maskR::after {
+            content: '';
+            position: absolute;
+            box-sizing: border-box;
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+            border:10px solid #60CB9B;
+            border-bottom:10px solid transparent;
+            border-left:10px solid transparent;
+            transform: rotate(225deg);
+            transition: all  1s 1s linear;
+            right:0px;
+        }
+
+        .circleWrapper:hover .maskL::after{
+            transform: rotate(45deg);
+        }
+        .circleWrapper:hover .maskR::after{
+            transform: rotate(405deg);
         }
     </style>
 </head>
@@ -50,6 +113,8 @@
     <button>
         <span>Submit</span>
     </button>
+    <div class="maskL"></div>
+    <div class="maskR"></div>
 </div>
 
 
