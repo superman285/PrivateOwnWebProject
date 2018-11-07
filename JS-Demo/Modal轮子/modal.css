@@ -1,0 +1,35 @@
+/*浮层、底层*/
+.modal {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 5%;
+    background: rgba(60, 50, 60, .7);
+    display: none;
+    opacity: 0;
+    transition: opacity .4s;
+    /*display状态变更 会引起重排和重绘，性能不好，加上opacity就只会重绘不会重排*/
+}
+.modal.visible {
+    opacity: 1;
+    /*不能放open里 z-index*/
+    z-index: 1;
+}
+.modal.open {
+    display: block;
+}
+.lock {
+    overflow: hidden;
+}
+
+.modal .modal-container {
+    background: #ffffff;
+    width: 400px;
+    height: 300px;
+    margin: 0 auto;
+    border-radius: 20px;
+    padding: 18px;
+}
