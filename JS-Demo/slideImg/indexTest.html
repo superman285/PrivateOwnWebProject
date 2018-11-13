@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>slideImg</title>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_853916_37a7tz4v1k2.css">
+    <style>
+        button {
+            width: 90px;
+            height: 30px;
+            font-size: .9rem;
+            outline: none;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        .imgFrame {
+            position: absolute;
+            top: 75px;
+            left: 200px;
+            width: 600px;
+            height: 450px;
+            border: 10px solid lightgrey;
+            overflow: hidden;
+        }
+        .img {
+            height: 450px;
+            width: 600px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all 1s linear;
+        }
+        i {
+            position: absolute;
+            top: 50%;
+            transform: translate(0,-50%);
+            color: darkgrey;
+            opacity: .5;
+        }
+        i:hover {
+            cursor: pointer;
+            opacity: .8;
+        }
+        i:nth-last-child(2) {
+            left: 5px;
+            font-size: 3rem;
+        }
+        i:last-child {
+            right: 5px;
+            font-size: 3rem;
+        }
+        .img:first-child {
+            left: 0;
+        }
+        .img:nth-child(2) {
+            left: 600px;
+        }
+        .img:nth-child(3) {
+            left: 1200px;
+        }
+        .img:nth-child(4) {
+            left: 1800px;
+        }
+        .img:nth-child(5) {
+            left: 2400px;
+        }
+    </style>
+</head>
+<body>
+<button class="ord" style="background: skyblue">顺序切换</button>
+<button class="cir">循环切换</button>
+
+<div class="imgFrame">
+
+    <img src="img/img1.jpg" alt="" class="img">
+    <img src="img/img2.jpg" alt="" class="img">
+    <img src="img/img3.jpg" alt="" class="img">
+    <img src="img/img4.jpg" alt="" class="img">
+    <img src="img/img5.jpg" alt="" class="img">
+    <i class="iconfont icon-arrow-l"></i>
+    <i class="iconfont icon-arrow-r"></i>
+
+</div>
+
+<script>
+
+    var isOrderly = true;
+
+    var imgArr = ["0px","600px","1200px","1800px","2400px"];
+    var curIndex = 0;
+
+    var ordBtn = document.querySelector(".ord"),
+        cirBtn = document.querySelector(".cir");
+
+    var eImg = document.getElementsByClassName("img");
+    var leftBtn = document.querySelector(".icon-arrow-l"),
+        rightBtn = document.querySelector(".icon-arrow-r");
+
+
+    judge();
+    console.log(eImg);
+
+
+    function judge() {
+        if (isOrderly) {
+            slideOrderly();
+        }else {
+            slideCircular();
+        }
+    }
+
+    ordBtn.onclick = function () {
+        isOrderly = true;
+        ordBtn.style.background = 'skyblue';
+        cirBtn.style.background = '';
+        judge();
+    };
+    cirBtn.onclick = function () {
+        isOrderly = false;
+        cirBtn.style.background = 'skyblue';
+        ordBtn.style.background = '';
+        judge();
+    };
+
+    function slideOrderly() {
+        leftBtn.onclick = function () {
+
+            if (curIndex==0) {
+                //do nothing
+            }else{
+                for (let i = 0; i < imgArr.length; i++) {
+                    eImg[i].style.left = parseInt(imgArr[i])+600+'px';
+                    imgArr[i] = parseInt(imgArr[i]) + 600 + 'px';
+                    console.log(eImg[i].style.left);
+                }
+                eImg[curIndex].style.opacity = 0;
+                eImg[curIndex-1].style.opacity = 1;
+                curIndex--;
+            }
+        };
+        rightBtn.onclick = function () {
+
+            if (curIndex==imgArr.length-1) {
+                //do nothing
+            }else {
+                for (let i = 0; i < imgArr.length; i++) {
+                    eImg[i].style.left = parseInt(imgArr[i]) - 600 + 'px';
+                    imgArr[i] = parseInt(imgArr[i]) - 600 + 'px';
+                    console.log(eImg[i].style.left);
+                }
+                eImg[curIndex].style.opacity = 0;
+                eImg[curIndex+1].style.opacity = 1;
+                curIndex++;
+            }
+        }
+    }
+
+    function slideCircular() {
+        leftBtn.onclick = function () {
+            if (curIndex>0) {
+                curIndex--;
+            }else {
+                curIndex = imgArr.length-1;
+            }
+            eImg.src = imgArr[curIndex];
+        };
+        rightBtn.onclick = function () {
+            if (curIndex < imgArr.length - 1) {
+                curIndex++;
+            }else {
+                curIndex = 0;
+            }
+            eImg.src = imgArr[curIndex];
+        }
+    }
+</script>
+</body>
+</html>

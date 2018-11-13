@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <title>slideImg</title>
     <link rel="stylesheet" href="//at.alicdn.com/t/font_853916_37a7tz4v1k2.css">
+    <link rel="stylesheet" href="css/iconfont.css">
     <style>
+        .btnWrap {
+            margin-top: 10px;
+        }
         button {
             width: 90px;
             height: 30px;
@@ -47,8 +51,14 @@
     </style>
 </head>
 <body>
-    <button class="ord" style="background: skyblue">顺序切换</button>
-    <button class="cir">循环切换</button>
+    <div class="btnWrap">
+        <button class="ord" style="background: skyblue">顺序切换</button>
+        <button class="cir">循环切换</button>
+    </div>
+    <div class="btnWrap">
+        <button class="anim">带动画</button>
+        <button class="unanim" style="background: skyblue">无动画</button>
+    </div>
 
     <div class="imgFrame">
 
@@ -66,7 +76,9 @@
         var curIndex = 0;
 
         var ordBtn = document.querySelector(".ord"),
-            cirBtn = document.querySelector(".cir");
+            cirBtn = document.querySelector(".cir"),
+            animBtn = document.querySelector(".anim"),
+            unanimBtn = document.querySelector(".unanim");
 
         var eImg = document.querySelector(".img");
         var leftBtn = document.querySelector(".icon-arrow-l"),
@@ -95,6 +107,16 @@
             cirBtn.style.background = 'skyblue';
             ordBtn.style.background = '';
             judge();
+        };
+
+        animBtn.onclick = function () {
+            animBtn.style.background = 'skyblue';
+            unanimBtn.style.background = '';
+            window.location.href='indexAnim.html';
+        };
+        unanimBtn.onclick = function () {
+            unanimBtn.style.background = 'skyblue';
+            animBtn.style.background = '';
         };
 
         function slideOrderly() {
