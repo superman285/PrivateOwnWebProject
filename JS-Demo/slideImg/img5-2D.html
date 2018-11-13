@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5Img-2D</title>
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_853916_37a7tz4v1k2.css">
+    <style>
+        button {
+            width: 90px;
+            height: 30px;
+            font-size: .9rem;
+            outline: none;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        .imgFrame {
+            position: absolute;
+            top: 75px;
+            left: 200px;
+            width: 600px;
+            height: 450px;
+            border: 10px solid lightgrey;
+            overflow: hidden;
+        }
+        .img {
+            height: 450px;
+            width: 600px;
+            position: absolute;
+            top: 0;
+            transition: all 1s linear;
+        }
+        i {
+            position: absolute;
+            top: 50%;
+            z-index: 5;
+            transform: translate(0,-50%);
+            color: darkgrey;
+            opacity: .5;
+        }
+        i:hover {
+            cursor: pointer;
+            opacity: .8;
+        }
+        i:nth-last-child(2) {
+            left: 5px;
+            font-size: 3rem;
+        }
+        i:last-child {
+            right: 5px;
+            font-size: 3rem;
+        }
+        .img:nth-child(5) {
+
+        }
+    </style>
+</head>
+<body>
+<button class="ord" style="background: skyblue">顺序切换</button>
+<button class="cir">循环切换</button>
+
+<div class="imgFrame">
+
+    <img src="img/img1.jpg" alt="" class="img">
+    <img src="img/img2.jpg" alt="" class="img">
+    <img src="img/img3.jpg" alt="" class="img">
+    <img src="img/img4.jpg" alt="" class="img">
+    <img src="img/img5.jpg" alt="" class="img">
+
+    <i class="iconfont icon-arrow-l"></i>
+    <i class="iconfont icon-arrow-r"></i>
+
+</div>
+
+<script>
+
+    // var isOrderly = true;
+
+    // var imgArr = ["0px","600px","1200px","1800px","2400px"]
+    var initNum = 1000; //写大点防止求余出来负数
+
+    var ordBtn = document.querySelector(".ord"),
+        cirBtn = document.querySelector(".cir");
+
+    var eImg = document.getElementsByClassName("img");
+    var leftBtn = document.querySelector(".icon-arrow-l"),
+        rightBtn = document.querySelector(".icon-arrow-r");
+
+    slideCircular();
+    console.log(eImg);
+
+    rightBtn.onclick = function () {
+
+        initNum = initNum + 1;
+
+        slideCircular();
+    };
+
+    leftBtn.onclick = function () {
+
+        initNum = initNum - 1;
+
+        slideCircular();
+    }
+
+
+    function slideCircular() {
+
+        eImg[initNum%5].style.left = '0';
+        eImg[initNum%5].style.zIndex = 2;
+        eImg[initNum%5].style.opacity = 1;
+
+        eImg[(initNum+ 1)%5].style.left = '600px';
+        eImg[(initNum+ 1)%5].style.zIndex = 2;
+        eImg[(initNum+ 1)%5].style.opacity = 0;
+
+        eImg[(initNum+ 2)%5].style.left = '600px';
+        eImg[(initNum+ 2)%5].style.zIndex = 1;
+        eImg[(initNum+ 2)%5].style.opacity = 0;
+
+        eImg[(initNum+ 3)%5].style.left = '0';
+        eImg[(initNum+ 3)%5].style.zIndex = 1;
+        eImg[(initNum+ 3)%5].style.opacity = 0;
+
+        eImg[(initNum+ 4)%5].style.left = '-600px';
+        eImg[(initNum+ 4)%5].style.zIndex = 1;
+        eImg[(initNum+ 4)%5].style.opacity = 0;
+    }
+
+
+
+</script>
+</body>
+</html>
