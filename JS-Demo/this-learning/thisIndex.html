@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        li {
+            user-select: none;
+            transition: all .3s linear;
+        }
+    </style>
+</head>
+<body>
+
+
+<ul>
+    <li>点我变红</li>
+    <li>点我变红</li>
+    <li>点我变红</li>
+    <li>点我变红</li>
+    <li>点我变红</li>
+</ul>
+
+<script>
+
+    var eLi = document.getElementsByTagName("li");
+
+    for (var i = 0; i < eLi.length; i++) {
+        eLi[i].onclick = function () {
+            //循环瞬间完成，给每个节点都绑上了事件，但是consolelog是点击时才触发，这时i早就等于5了，所以肯定打印出5
+            //绑事件的时候eLi的索引i，和点击触发时的i不一样，function中的i是点击时候的i
+            console.log(i);
+            if(!this.style.background){
+                this.style.background = '#ff6036';
+            }else {
+                this.style.background = '';
+            }
+        }
+    }
+</script>
+</body>
+</html>

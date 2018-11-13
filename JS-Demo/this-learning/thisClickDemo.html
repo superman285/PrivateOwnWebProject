@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>thisDemo</title>
+    <style>
+        li {
+            transition: all .3s linear;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>点我变红</li>
+        <li>点我变红</li>
+        <li>点我变红</li>
+        <li>点我变红</li>
+        <li>点我变红</li>
+    </ul>
+
+    <script>
+        var eLi = document.getElementsByTagName("li");
+
+        for (var i = 0; i < eLi.length; i++) {
+            eLi[i].onclick = function () {
+                if(!this.style.background){
+                    this.style.background = '#ff6036';
+                }else {
+                    this.style.background = '';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
