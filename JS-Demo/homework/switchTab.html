@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        button {
+            height: 40px;
+            width: 100px;
+            font-size: 1rem;
+            outline: none;
+        }
+        .active {
+            background: orange;
+        }
+    </style>
+</head>
+<body>
+
+    <button>选项卡1</button>
+    <button>选项卡2</button>
+    <button>选项卡3</button>
+    <button>选项卡4</button>
+    <button>选项卡5</button>
+
+    <script>
+        var btns = document.getElementsByTagName("button");
+
+        /*for (var i = 0; i < btns.length; i++) {
+            btns[i].index = i;
+            btns[i].onclick = function () {
+                /!*console.log('直接this值:'+this);
+                this.className = 'active';*!/
+
+                for (var j = 0; j < btns.length; j++) {
+                    btns[j].className = '';
+                }
+
+                console.log(btns[this.index]);
+                btns[this.index].className = 'active';
+            }
+
+        }*/
+
+        /*//法二：清除上一次，使用遍历判断
+
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].onclick = function() {
+                for (var j = 0; j < btns.length; j++) {
+                    if(btns[j].className == 'active'){
+                        btns[j].className = "";
+                    }
+                }
+                this.className = 'active';
+            }
+        }
+
+        //法三：清除上一次
+        var temp;
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].index = i;
+            btns[i].onclick = function() {
+                if(temp) {
+                    temp.className = "";
+                }
+                btns[this.index].className = 'active';
+                temp = btns[this.index];
+            }
+        }*/
+
+        //法四：清除上一次
+        var temp;
+
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].index = i;
+            btns[i].onclick = function () {
+                btns[this.index].className = 'active';
+            }
+
+        }
+
+
+
+
+
+        //console.log('在循环外面调:'+i);
+
+
+
+        
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
