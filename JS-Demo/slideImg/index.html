@@ -9,6 +9,7 @@
         .btnWrap {
             margin-top: 10px;
         }
+
         button {
             width: 90px;
             height: 30px;
@@ -17,6 +18,7 @@
             border-radius: 15px;
             cursor: pointer;
         }
+
         .imgFrame {
             position: absolute;
             top: 75px;
@@ -25,25 +27,45 @@
             height: 450px;
             border: 10px solid lightgrey;
         }
+
         .img {
             height: 450px;
             width: 600px;
         }
+
+        .topInfo,.bottomInfo {
+            position: absolute;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+            text-align: center;
+            background: rgba(0,0,0,.4);
+        }
+        .bottomInfo {
+            bottom: 0;
+        }
+
         i {
             position: absolute;
             top: 50%;
-            transform: translate(0,-50%);
+            transform: translate(0, -50%);
             color: darkgrey;
             opacity: .5;
         }
+
         i:hover {
             cursor: pointer;
             opacity: .8;
         }
-        i:nth-child(2) {
+
+        i:nth-last-child(2) {
             left: 5px;
             font-size: 3rem;
         }
+
         i:last-child {
             right: 5px;
             font-size: 3rem;
@@ -51,104 +73,126 @@
     </style>
 </head>
 <body>
-    <div class="btnWrap">
-        <button class="ord" style="background: skyblue">顺序切换</button>
-        <button class="cir">循环切换</button>
-    </div>
-    <div class="btnWrap">
-        <button class="anim">带动画</button>
-        <button class="unanim" style="background: skyblue">无动画</button>
-    </div>
+<div class="btnWrap">
+    <button class="ord" style="background: skyblue">顺序切换</button>
+    <button class="cir">循环切换</button>
+</div>
+<div class="btnWrap">
+    <button class="anim">带动画</button>
+    <button class="unanim" style="background: skyblue">无动画</button>
+</div>
 
-    <div class="imgFrame">
+<div class="imgFrame">
+    <div class="topInfo"></div>
+    <div class="bottomInfo"></div>
+    <img src="img/img1.jpg" alt="" class="img">
+    <i class="iconfont icon-arrow-l"></i>
+    <i class="iconfont icon-arrow-r"></i>
 
-            <img src="img/img1.jpg" alt="" class="img">
-            <i class="iconfont icon-arrow-l"></i>
-            <i class="iconfont icon-arrow-r"></i>
+</div>
 
-    </div>
+<script>
 
-    <script>
+    var isOrderly = true;
 
-        var isOrderly = true;
+    var imgArr = ["img/img1.jpg", "img/img2.jpg", "img/img3.jpg", "img/img4.jpg", "img/img5.jpg"];
+    var curIndex = 0;
 
-        var imgArr = ["img/img1.jpg","img/img2.jpg","img/img3.jpg","img/img4.jpg","img/img5.jpg"];
-        var curIndex = 0;
+    var topInfoArr = ["1  /  5", "2  /  5", "3  /  5", "4  /  5", "5  /  5"];
+    var bottomInfoArr = ["图片1", "图片2", "图片3", "图片4", "图片5"];
 
-        var ordBtn = document.querySelector(".ord"),
-            cirBtn = document.querySelector(".cir"),
-            animBtn = document.querySelector(".anim"),
-            unanimBtn = document.querySelector(".unanim");
+    var ordBtn = document.querySelector(".ord"),
+        cirBtn = document.querySelector(".cir"),
+        animBtn = document.querySelector(".anim"),
+        unanimBtn = document.querySelector(".unanim");
 
-        var eImg = document.querySelector(".img");
-        var leftBtn = document.querySelector(".icon-arrow-l"),
-            rightBtn = document.querySelector(".icon-arrow-r");
+    var eImg = document.querySelector(".img");
+    var leftBtn = document.querySelector(".icon-arrow-l"),
+        rightBtn = document.querySelector(".icon-arrow-r");
 
+    var topBar = document.querySelector(".topInfo"),
+        bottomBar = document.querySelector(".bottomInfo");
 
+    judge();
+    setInfo();
+
+    function judge() {
+        if (isOrderly) {
+            slideOrderly();
+        } else {
+            slideCircular();
+        }
+    }
+
+    ordBtn.onclick = function () {
+        isOrderly = true;
+        ordBtn.style.background = 'skyblue';
+        cirBtn.style.background = '';
         judge();
+    };
+    cirBtn.onclick = function () {
+        isOrderly = false;
+        cirBtn.style.background = 'skyblue';
+        ordBtn.style.background = '';
+        judge();
+    };
 
+    animBtn.onclick = function () {
+        animBtn.style.background = 'skyblue';
+        unanimBtn.style.background = '';
+        window.location.href = 'indexAnim.html';
+    };
+    unanimBtn.onclick = function () {
+        unanimBtn.style.background = 'skyblue';
+        animBtn.style.background = '';
+    };
 
-        function judge() {
-            if (isOrderly) {
-                slideOrderly();
-            }else {
-                slideCircular();
+    function slideOrderly() {
+        leftBtn.onclick = function () {
+            if (curIndex == 0) {
+                alert('已经是第一张了！')
             }
-        }
-
-        ordBtn.onclick = function () {
-            isOrderly = true;
-            ordBtn.style.background = 'skyblue';
-            cirBtn.style.background = '';
-            judge();
+            curIndex = curIndex > 0 ? --curIndex : curIndex;
+            eImg.src = imgArr[curIndex];
+            setInfo();
         };
-        cirBtn.onclick = function () {
-            isOrderly = false;
-            cirBtn.style.background = 'skyblue';
-            ordBtn.style.background = '';
-            judge();
-        };
-
-        animBtn.onclick = function () {
-            animBtn.style.background = 'skyblue';
-            unanimBtn.style.background = '';
-            window.location.href='indexAnim.html';
-        };
-        unanimBtn.onclick = function () {
-            unanimBtn.style.background = 'skyblue';
-            animBtn.style.background = '';
-        };
-
-        function slideOrderly() {
-            leftBtn.onclick = function () {
-                curIndex = curIndex > 0 ? --curIndex : curIndex;
-                eImg.src = imgArr[curIndex];
-            };
-            rightBtn.onclick = function () {
-                curIndex = curIndex < imgArr.length - 1 ? ++curIndex : curIndex;
-                eImg.src = imgArr[curIndex];
+        rightBtn.onclick = function () {
+            if (curIndex == 4) {
+                alert('已经是最后一张了！')
             }
+            curIndex = curIndex < imgArr.length - 1 ? ++curIndex : curIndex;
+            eImg.src = imgArr[curIndex];
+            setInfo();
         }
+    }
 
-        function slideCircular() {
-            leftBtn.onclick = function () {
-                if (curIndex>0) {
-                    curIndex--;
-                }else {
-                    curIndex = imgArr.length-1;
-                }
-                eImg.src = imgArr[curIndex];
-            };
-            rightBtn.onclick = function () {
-                if (curIndex < imgArr.length - 1) {
-                    curIndex++;
-                }else {
-                    curIndex = 0;
-                }
-                eImg.src = imgArr[curIndex];
+    function slideCircular() {
+        leftBtn.onclick = function () {
+            if (curIndex > 0) {
+                curIndex--;
+            } else {
+                curIndex = imgArr.length - 1;
             }
+            eImg.src = imgArr[curIndex];
+            setInfo();
+        };
+        rightBtn.onclick = function () {
+            if (curIndex < imgArr.length - 1) {
+                curIndex++;
+            } else {
+                curIndex = 0;
+            }
+            eImg.src = imgArr[curIndex];
+            setInfo();
         }
+    }
 
-    </script>
+    function setInfo() {
+        console.log(curIndex);
+        topBar.innerText = topInfoArr[curIndex];
+        bottomBar.innerText = bottomInfoArr[curIndex];
+    }
+
+</script>
 </body>
 </html>
