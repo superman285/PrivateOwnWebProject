@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object Exercise</title>
+</head>
+<body>
+
+
+<script>
+    //对象.变量，相当于把属性挂载在对象上
+    //obj.a
+
+    function fn(){
+        console.log(666);}
+
+    var ak = new Object();
+    ak.fn = fn;
+    console.log(ak.fn);
+
+    //undefined.pro = 124;
+    //console.log(undefined.proa);//undefined不能挂属性
+
+    //null.prop = 123;
+    //console.log(null.prop);//null不能挂属性
+
+    //内存相关
+
+    var arr = [1,2,3];
+
+    var brr = arr;
+
+    arr = [1,2,3,4];
+
+    console.log(arr);
+    console.log(brr);
+
+</script>
+</body>
+</html>

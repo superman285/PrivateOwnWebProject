@@ -52,6 +52,16 @@
         }
     }
 
+    //或者第一次声明时用btns[0]赋值
+    var temp = btns[0];
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].onclick = function() {
+            temp.className = "";
+            this.className = 'active';
+            temp = this;
+        }
+    }
+
 
 
 

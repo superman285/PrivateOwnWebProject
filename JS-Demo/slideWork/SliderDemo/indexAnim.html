@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>slideImg</title>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_853916_37a7tz4v1k2.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <style>
+        .btnWrap {
+            margin-top: 10px;
+        }
+        button {
+            width: 90px;
+            height: 30px;
+            font-size: .9rem;
+            outline: none;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        .imgFrame {
+            position: absolute;
+            top: 75px;
+            left: 200px;
+            width: 600px;
+            height: 450px;
+            border: 10px solid lightgrey;
+            overflow: hidden;
+        }
+        .img {
+            height: 450px;
+            width: 600px;
+            position: absolute;
+            top: 0;
+            /*transition: all 1s linear;*/
+        }
+        i {
+            position: absolute;
+            top: 50%;
+            z-index: 10;
+            transform: translate(0,-50%);
+            color: darkgrey;
+            opacity: .5;
+        }
+        i:hover {
+            cursor: pointer;
+            opacity: .8;
+        }
+        i:nth-last-child(3) {
+            left: 5px;
+            font-size: 3rem;
+        }
+        i:nth-last-child(2) {
+            right: 5px;
+            font-size: 3rem;
+        }
+
+        .dotSet {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 10;
+            position: absolute;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            width: 35%;
+            height: 20px;
+            border-radius: 15px;
+            background: rgba(0,0,0,.4);
+        }
+        .dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.6);
+            cursor: pointer;
+        }
+        .dotActive {
+            position: absolute;
+            left: 14px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: orangered;
+            transition: all .5s linear !important;
+        }
+        /*14,56,98,140,182*/
+
+    </style>
+</head>
+<body>
+<div class="btnWrap">
+<button class="ord" style="background: skyblue">顺序切换</button>
+<button class="cir">循环切换</button>
+</div>
+<div class="btnWrap">
+<button class="anim" style="background: skyblue">带动画</button>
+<button class="unanim">无动画</button>
+</div>
+
+<div class="imgFrame">
+
+    <img src="img/img1.jpg" alt="" class="img">
+    <img src="img/img2.jpg" alt="" class="img">
+    <img src="img/img3.jpg" alt="" class="img">
+    <img src="img/img4.jpg" alt="" class="img">
+    <img src="img/img5.jpg" alt="" class="img">
+    <i class="iconfont icon-arrow-l"></i>
+    <i class="iconfont icon-arrow-r"></i>
+
+    <div class="dotSet">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dotActive"></div>
+    </div>
+
+</div>
+
+<script>
+
+    var isOrderly = true;
+
+    var posArr = ["0px","600px","1200px","1800px","2400px"];
+    var curIndex = 0;
+
+    var initNum = 1000;         //点击几百次后可能会有问题，暂时先用这个，或者用取模不用取余
+
+    var ordBtn = document.querySelector(".ord"),
+        cirBtn = document.querySelector(".cir"),
+        animBtn = document.querySelector(".anim"),
+        unanimBtn = document.querySelector(".unanim");
+
+    var eImg = document.getElementsByClassName("img");
+    var leftBtn = document.querySelector(".icon-arrow-l"),
+        rightBtn = document.querySelector(".icon-arrow-r");
+    
+    var curDot = document.querySelector(".dotActive"),
+        eDots = document.getElementsByClassName("dot");
+
+
+
+    init();
+    startAnim();
+    eventBind();
+
+
+
+    function startAnim() {
+        for (var i = 0; i < eImg.length; i++) {
+            eImg[i].style.transition = "all .6s linear";
+        }
+    }
+
+    function stopAnim(){
+        for (var i = 0; i < eImg.length; i++) {
+            eImg[i].style.transition = "";
+        }
+    }
+
+    //按钮事件绑定和小点事件绑定
+    function eventBind() {
+        ordBtn.onclick = function () {
+            location.reload();
+            isOrderly = true;
+            ordBtn.style.background = 'skyblue';
+            cirBtn.style.background = '';
+            init();
+        };
+        cirBtn.onclick = function () {
+            isOrderly = false;
+            cirBtn.style.background = 'skyblue';
+            ordBtn.style.background = '';
+            init();
+        };
+
+        animBtn.onclick = function () {
+            startAnim();
+            animBtn.style.background = 'skyblue';
+            unanimBtn.style.background = '';
+        };
+        unanimBtn.onclick = function () {
+            stopAnim();
+            unanimBtn.style.background = 'skyblue';
+            animBtn.style.background = '';
+            window.location.href='index.html';
+        }
+
+        for (var i = 0,dotLen = eDots.length; i < dotLen; i++) {
+            eDots[i].index = i;
+            eDots[i].onclick = function () {
+                if (isOrderly) {
+                    for (var j = 0; j < posArr.length; j++) {
+                        eImg[j].style.left = 600 * j - 600 * this.index + 'px';
+                        posArr[j] = 600 * j - 600 * this.index + 'px';
+                    }
+                    curIndex = this.index;
+                    curDot.style.left = 14 + 42*curIndex + 'px';
+                }else {
+                    //若此处设为0开始会有问题
+                    initNum = this.index + 1000;
+                    circularPos();
+                }
+            }
+
+        }
+    }
+
+    //位置改变，滚动方式选择
+    function init() {
+        setPos(isOrderly);
+        if (isOrderly) {
+            slideOrderly();
+        }else {
+            slideCircular();
+        }
+    }
+    //设置图片位置
+    function setPos(isOrderly) {
+        if(isOrderly) {
+            for (let i = 0; i < eImg.length; i++) {
+                eImg[i].style.left = parseInt(posArr[i]) + 'px';
+            }
+        }else {
+            circularPos();
+        }
+    }
+
+    //循环播放各图片位置设置
+    function circularPos() {
+        
+        curDot.style.left = 14 + 42*(initNum%5) + 'px';
+        
+        eImg[initNum%5].style.left = '0';
+        eImg[initNum%5].style.zIndex = 2;
+        eImg[initNum%5].style.opacity = 1;
+
+        eImg[(initNum+ 1)%5].style.left = '600px';
+        eImg[(initNum+ 1)%5].style.zIndex = 2;
+        eImg[(initNum+ 1)%5].style.opacity = 0;
+
+        eImg[(initNum+ 2)%5].style.left = '600px';
+        eImg[(initNum+ 2)%5].style.zIndex = 1;
+        eImg[(initNum+ 2)%5].style.opacity = 0;
+
+        eImg[(initNum+ 3)%5].style.left = '0';
+        eImg[(initNum+ 3)%5].style.zIndex = 1;
+        eImg[(initNum+ 3)%5].style.opacity = 0;
+
+        eImg[(initNum+ 4)%5].style.left = '-600px';
+        eImg[(initNum+ 4)%5].style.zIndex = 1;
+        eImg[(initNum+ 4)%5].style.opacity = 0;
+    }
+
+    //顺序滚动
+    function slideOrderly() {
+        leftBtn.onclick = function () {
+            if (curIndex==0) {
+                //do nothing
+                console.log('do nothing');
+                alert('到头了！')
+            }else{
+
+                for (let i = 0; i < posArr.length; i++) {
+                    eImg[i].style.left = parseInt(posArr[i])+600+'px';
+                    posArr[i] = parseInt(posArr[i]) + 600 + 'px';
+                }
+                /*eImg[curIndex].style.opacity = 0.6;
+                eImg[curIndex-1].style.opacity = 1;*/
+                curIndex--;
+                //下方点动画
+                curDot.style.left = 14 + 42*curIndex + 'px';
+            }
+        };
+        rightBtn.onclick = function () {
+            if (curIndex==posArr.length-1) {
+                //do nothing
+                console.log('do nothing');
+                alert('到底了！')
+            }else{
+
+                for (let i = 0; i < posArr.length; i++) {
+                    eImg[i].style.left = parseInt(posArr[i]) - 600 + 'px';
+                    posArr[i] = parseInt(posArr[i]) - 600 + 'px';
+                }
+                /*eImg[curIndex].style.opacity = 0.6;
+                eImg[curIndex+1].style.opacity = 1;*/
+                curIndex++;
+                //下方点动画
+                curDot.style.left = 14 + 42*curIndex + 'px';
+            }
+        }
+    }
+
+    //循环滚动
+    function slideCircular() {
+        leftBtn.onclick = function () {
+            initNum--;
+            circularPos();
+        };
+        rightBtn.onclick = function () {
+            initNum++;
+            circularPos();
+        };
+    }
+</script>
+</body>
+</html>
