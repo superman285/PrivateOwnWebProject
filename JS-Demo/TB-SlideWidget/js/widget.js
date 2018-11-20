@@ -31,6 +31,8 @@ slideFunction(clickIndex,curIndex,5,imgul,control,"orangered",0,100);
 //下轮播
 slideFunction(clickIndex2,curIndex2,6,imgul2,control2,"black",1,600);
 
+setInterval(function(){arrR[0].click()},3000);
+
 
 function slideFunction(clickIndex,curIndex,modNum,imgul,control,controlColor,arrIdx,safeIndex) {
     setControlPos();

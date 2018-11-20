@@ -9,6 +9,7 @@
         .btnWrap {
             margin-top: 10px;
         }
+
         button {
             width: 90px;
             height: 30px;
@@ -17,6 +18,7 @@
             border-radius: 15px;
             cursor: pointer;
         }
+
         .imgFrame {
             position: absolute;
             top: 75px;
@@ -26,29 +28,34 @@
             border: 10px solid lightgrey;
             overflow: hidden;
         }
+
         .img {
             height: 450px;
             width: 600px;
             position: absolute;
             top: 0;
-            /*transition: all 1s linear;*/
+            /*transition: all .6s linear;*/
         }
+
         i {
             position: absolute;
             top: 50%;
             z-index: 10;
-            transform: translate(0,-50%);
+            transform: translate(0, -50%);
             color: darkgrey;
             opacity: .5;
         }
+
         i:hover {
             cursor: pointer;
             opacity: .8;
         }
+
         i:nth-last-child(3) {
             left: 5px;
             font-size: 3rem;
         }
+
         i:nth-last-child(2) {
             right: 5px;
             font-size: 3rem;
@@ -66,15 +73,17 @@
             width: 35%;
             height: 20px;
             border-radius: 15px;
-            background: rgba(0,0,0,.4);
+            background: rgba(0, 0, 0, .4);
         }
+
         .dot {
             width: 14px;
             height: 14px;
             border-radius: 50%;
-            background: rgba(255,255,255,.6);
+            background: rgba(255, 255, 255, .6);
             cursor: pointer;
         }
+
         .dotActive {
             position: absolute;
             left: 14px;
@@ -84,18 +93,19 @@
             background: orangered;
             transition: all .5s linear !important;
         }
+
         /*14,56,98,140,182*/
 
     </style>
 </head>
 <body>
 <div class="btnWrap">
-<button class="ord" style="background: skyblue">顺序切换</button>
-<button class="cir">循环切换</button>
+    <button class="ord" style="background: skyblue">顺序切换</button>
+    <button class="cir">循环切换</button>
 </div>
 <div class="btnWrap">
-<button class="anim" style="background: skyblue">带动画</button>
-<button class="unanim">无动画</button>
+    <button class="anim" style="background: skyblue">带动画</button>
+    <button class="unanim">无动画</button>
 </div>
 
 <div class="imgFrame">
@@ -123,7 +133,7 @@
 
     var isOrderly = true;
 
-    var posArr = ["0px","600px","1200px","1800px","2400px"];
+    var posArr = ["0px", "600px", "1200px", "1800px", "2400px"];
     var curIndex = 0;
 
     var initNum = 1000;         //点击几百次后可能会有问题，暂时先用这个，或者用取模不用取余
@@ -136,10 +146,12 @@
     var eImg = document.getElementsByClassName("img");
     var leftBtn = document.querySelector(".icon-arrow-l"),
         rightBtn = document.querySelector(".icon-arrow-r");
-    
+
     var curDot = document.querySelector(".dotActive"),
         eDots = document.getElementsByClassName("dot");
 
+
+    var timerID = null;
 
 
     init();
@@ -147,14 +159,13 @@
     eventBind();
 
 
-
     function startAnim() {
         for (var i = 0; i < eImg.length; i++) {
-            eImg[i].style.transition = "all .6s linear";
+            eImg[i].style.transition = "opacity .6s linear";
         }
     }
 
-    function stopAnim(){
+    function stopAnim() {
         for (var i = 0; i < eImg.length; i++) {
             eImg[i].style.transition = "";
         }
@@ -185,10 +196,10 @@
             stopAnim();
             unanimBtn.style.background = 'skyblue';
             animBtn.style.background = '';
-            window.location.href='index.html';
-        }
+            window.location.href = 'index.html';
+        };
 
-        for (var i = 0,dotLen = eDots.length; i < dotLen; i++) {
+        for (var i = 0, dotLen = eDots.length; i < dotLen; i++) {
             eDots[i].index = i;
             eDots[i].onclick = function () {
                 if (isOrderly) {
@@ -197,8 +208,8 @@
                         posArr[j] = 600 * j - 600 * this.index + 'px';
                     }
                     curIndex = this.index;
-                    curDot.style.left = 14 + 42*curIndex + 'px';
-                }else {
+                    curDot.style.left = 14 + 42 * curIndex + 'px';
+                } else {
                     //若此处设为0开始会有问题
                     initNum = this.index + 1000;
                     circularPos();
@@ -213,83 +224,97 @@
         setPos(isOrderly);
         if (isOrderly) {
             slideOrderly();
-        }else {
+        } else {
             slideCircular();
         }
     }
+
     //设置图片位置
     function setPos(isOrderly) {
-        if(isOrderly) {
+        if (isOrderly) {
             for (let i = 0; i < eImg.length; i++) {
                 eImg[i].style.left = parseInt(posArr[i]) + 'px';
             }
-        }else {
+        } else {
             circularPos();
         }
     }
 
-    //循环播放各图片位置设置
+    //循环播放各图片位置设置,立体3D参考图画一下，用zIndex
     function circularPos() {
-        
-        curDot.style.left = 14 + 42*(initNum%5) + 'px';
-        
-        eImg[initNum%5].style.left = '0';
-        eImg[initNum%5].style.zIndex = 2;
-        eImg[initNum%5].style.opacity = 1;
 
-        eImg[(initNum+ 1)%5].style.left = '600px';
-        eImg[(initNum+ 1)%5].style.zIndex = 2;
-        eImg[(initNum+ 1)%5].style.opacity = 0;
+        curDot.style.left = 14 + 42 * (
+            initNum % 5) + 'px';
 
-        eImg[(initNum+ 2)%5].style.left = '600px';
-        eImg[(initNum+ 2)%5].style.zIndex = 1;
-        eImg[(initNum+ 2)%5].style.opacity = 0;
+        eImg[initNum % 5].style.left = '0';
+        eImg[initNum % 5].style.zIndex = 2;
+        eImg[initNum % 5].style.opacity = 1;
 
-        eImg[(initNum+ 3)%5].style.left = '0';
-        eImg[(initNum+ 3)%5].style.zIndex = 1;
-        eImg[(initNum+ 3)%5].style.opacity = 0;
+        eImg[(
+            initNum + 1) % 5].style.left = '600px';
+        eImg[(
+            initNum + 1) % 5].style.zIndex = 2;
+        eImg[(
+            initNum + 1) % 5].style.opacity = 0.6;
 
-        eImg[(initNum+ 4)%5].style.left = '-600px';
-        eImg[(initNum+ 4)%5].style.zIndex = 1;
-        eImg[(initNum+ 4)%5].style.opacity = 0;
+        eImg[(
+            initNum + 2) % 5].style.left = '600px';
+        eImg[(
+            initNum + 2) % 5].style.zIndex = 1;
+        eImg[(
+            initNum + 2) % 5].style.opacity = 0.6;
+
+        eImg[(
+            initNum + 3) % 5].style.left = '0';
+        eImg[(
+            initNum + 3) % 5].style.zIndex = 1;
+        eImg[(
+            initNum + 3) % 5].style.opacity = 0.6;
+
+        eImg[(
+            initNum + 4) % 5].style.left = '-600px';
+        eImg[(
+            initNum + 4) % 5].style.zIndex = 1;
+        eImg[(
+            initNum + 4) % 5].style.opacity = 0.6;
     }
 
     //顺序滚动
     function slideOrderly() {
         leftBtn.onclick = function () {
-            if (curIndex==0) {
+            if (curIndex === 0) {
                 //do nothing
                 console.log('do nothing');
                 alert('到头了！')
-            }else{
+            } else {
 
                 for (let i = 0; i < posArr.length; i++) {
-                    eImg[i].style.left = parseInt(posArr[i])+600+'px';
+                    eImg[i].style.left = parseInt(posArr[i]) + 600 + 'px';
                     posArr[i] = parseInt(posArr[i]) + 600 + 'px';
                 }
-                /*eImg[curIndex].style.opacity = 0.6;
-                eImg[curIndex-1].style.opacity = 1;*/
+                eImg[curIndex].style.opacity = 0.6;
+                eImg[curIndex - 1].style.opacity = 1;
                 curIndex--;
                 //下方点动画
-                curDot.style.left = 14 + 42*curIndex + 'px';
+                curDot.style.left = 14 + 42 * curIndex + 'px';
             }
         };
         rightBtn.onclick = function () {
-            if (curIndex==posArr.length-1) {
+            if (curIndex === posArr.length - 1) {
                 //do nothing
                 console.log('do nothing');
                 alert('到底了！')
-            }else{
+            } else {
 
                 for (let i = 0; i < posArr.length; i++) {
                     eImg[i].style.left = parseInt(posArr[i]) - 600 + 'px';
                     posArr[i] = parseInt(posArr[i]) - 600 + 'px';
                 }
-                /*eImg[curIndex].style.opacity = 0.6;
-                eImg[curIndex+1].style.opacity = 1;*/
+                eImg[curIndex].style.opacity = 0.6;
+                eImg[curIndex + 1].style.opacity = 1;
                 curIndex++;
                 //下方点动画
-                curDot.style.left = 14 + 42*curIndex + 'px';
+                curDot.style.left = 14 + 42 * curIndex + 'px';
             }
         }
     }
@@ -297,13 +322,34 @@
     //循环滚动
     function slideCircular() {
         leftBtn.onclick = function () {
-            initNum--;
-            circularPos();
+            if(timerID!=null){
+
+                clearTimeout(timerID);
+
+            }
+
+            timerID = setTimeout(function () {
+                initNum--;
+                circularPos();
+            },100)
+
         };
+
         rightBtn.onclick = function () {
-            initNum++;
-            circularPos();
+
+            if(timerID!=null){
+
+                clearTimeout(timerID);
+
+            }
+            timerID = setTimeout(function () {
+                initNum++;
+                circularPos();
+            },100)
+
+
         };
+
     }
 </script>
 </body>

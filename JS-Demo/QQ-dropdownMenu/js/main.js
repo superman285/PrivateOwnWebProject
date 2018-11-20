@@ -23,7 +23,7 @@ var isExpand1 = false,
     isExpand3 = false;
 
 //给三个列表的title绑定事件
-gTitle1.onclick = function () {
+gTitle1.onclick = function a() {
     if (!isExpand1) {
         if (isExpand3) {
             UL3_OFF();

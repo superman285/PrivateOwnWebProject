@@ -20,6 +20,7 @@ faceSwitch.onclick = function(){
     input.value = "";
 };
 
+
 sendBtn.onmousedown = function(){
     inputText = input.value;
     if(inputText) {

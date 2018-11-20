@@ -6,6 +6,11 @@
     <link rel="stylesheet" href="//at.alicdn.com/t/font_853916_37a7tz4v1k2.css">
     <link rel="stylesheet" href="css/iconfont.css">
     <style>
+
+        html {
+            user-select: none;
+        }
+
         .btnWrap {
             margin-top: 10px;
         }
@@ -31,6 +36,7 @@
         .img {
             height: 450px;
             width: 600px;
+            transition: all .2s linear;
         }
 
         .topInfo,.bottomInfo {
@@ -43,6 +49,7 @@
             color: #fff;
             text-align: center;
             background: rgba(0,0,0,.4);
+            visibility: hidden;
         }
         .bottomInfo {
             bottom: 0;
@@ -106,12 +113,16 @@
         animBtn = document.querySelector(".anim"),
         unanimBtn = document.querySelector(".unanim");
 
+    var imgFrame = document.querySelector(".imgFrame");
+
     var eImg = document.querySelector(".img");
     var leftBtn = document.querySelector(".icon-arrow-l"),
         rightBtn = document.querySelector(".icon-arrow-r");
 
     var topBar = document.querySelector(".topInfo"),
         bottomBar = document.querySelector(".bottomInfo");
+
+    var timerID = null;
 
     judge();
     setInfo();
@@ -136,6 +147,7 @@
         ordBtn.style.background = '';
         judge();
     };
+    cirBtn.click();
 
     animBtn.onclick = function () {
         animBtn.style.background = 'skyblue';
@@ -149,7 +161,7 @@
 
     function slideOrderly() {
         leftBtn.onclick = function () {
-            if (curIndex == 0) {
+            if (curIndex === 0) {
                 alert('已经是第一张了！')
             }
             curIndex = curIndex > 0 ? --curIndex : curIndex;
@@ -157,7 +169,7 @@
             setInfo();
         };
         rightBtn.onclick = function () {
-            if (curIndex == 4) {
+            if (curIndex === 4) {
                 alert('已经是最后一张了！')
             }
             curIndex = curIndex < imgArr.length - 1 ? ++curIndex : curIndex;
@@ -168,21 +180,38 @@
 
     function slideCircular() {
         leftBtn.onclick = function () {
+            eImg.style.opacity = 0.2;
             if (curIndex > 0) {
                 curIndex--;
             } else {
                 curIndex = imgArr.length - 1;
             }
-            eImg.src = imgArr[curIndex];
-            setInfo();
+            setTimeout(function () {
+
+                eImg.style.opacity = 1;
+                eImg.src = imgArr[curIndex];
+                setInfo();
+            },400);
+
+
         };
         rightBtn.onclick = function () {
+            eImg.style.opacity = 0.6;
             if (curIndex < imgArr.length - 1) {
                 curIndex++;
             } else {
                 curIndex = 0;
             }
-            eImg.src = imgArr[curIndex];
+
+            if(timerID!=null) {
+
+                clearTimeout(timerID);
+            }
+
+            timerID = setTimeout(function () {
+                eImg.style.opacity = 1;
+                eImg.src = imgArr[curIndex];
+            },200);
             setInfo();
         }
     }
