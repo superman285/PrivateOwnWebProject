@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ca59e340-a849-4acf-a506-aa88aa6319c4" name="默认更改列表" comment="sliderDemo相关内容更新&#10;update on 2018.11.20" />
+    <list default="true" id="ca59e340-a849-4acf-a506-aa88aa6319c4" name="默认更改列表" comment="无缝轮播SeamlessSliderDemo，未优化好版本ver9.0,&#10;下次在末尾加一张图再实现&#10;update on 2018.11.20" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -48,7 +48,7 @@
           <entry key="html" value="3796" />
           <entry key="js" value="10356" />
           <entry key="scss" value="3958" />
-          <entry key="txt" value="258" />
+          <entry key="txt" value="312" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -56,7 +56,7 @@
           <entry key="CSS" value="350" />
           <entry key="HTML" value="3796" />
           <entry key="JavaScript" value="10356" />
-          <entry key="PLAIN_TEXT" value="258" />
+          <entry key="PLAIN_TEXT" value="312" />
           <entry key="SCSS" value="3958" />
         </counts>
       </usages-collector>
@@ -97,8 +97,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/slideWork/SliderDemo/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="123" lean-forward="true" selection-start-line="123" selection-end-line="123" />
+            <state relative-caret-position="245">
+              <caret line="121" column="34" selection-start-line="121" selection-start-column="34" selection-end-line="121" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -311,7 +311,7 @@
       <workItem from="1542519532821" duration="2294000" />
       <workItem from="1542526148853" duration="894000" />
       <workItem from="1542555768640" duration="6909000" />
-      <workItem from="1542600327608" duration="46099000" />
+      <workItem from="1542600327608" duration="46652000" />
     </task>
     <task id="LOCAL-00001" summary="拼图游戏简易版，ver1.0&#10;update on 2018.11.06">
       <created>1541519188702</created>
@@ -369,17 +369,23 @@
       <option name="project" value="LOCAL" />
       <updated>1542727718635</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="无缝轮播SeamlessSliderDemo，未优化好版本ver9.0,&#10;下次在末尾加一张图再实现&#10;update on 2018.11.20">
+      <created>1542727905268</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1542727905268</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93342000" />
+    <option name="totallyTimeSpent" value="93895000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="244" y="85" width="1513" height="856" extended-state="0" />
-    <editor active="true" />
+    <frame x="134" y="73" width="1513" height="856" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4978903" visible="true" weight="0.17686617" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4978903" visible="true" weight="0.17686617" />
       <window_info id="Structure" order="1" sideWeight="0.5021097" side_tool="true" weight="0.21623513" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -394,7 +400,7 @@
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32784638" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32921812" />
       <window_info anchor="bottom" id="调试" order="11" />
-      <window_info anchor="bottom" id="Messages" order="12" visible="true" weight="0.3251029" />
+      <window_info active="true" anchor="bottom" id="Messages" order="12" visible="true" weight="0.3251029" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -415,7 +421,8 @@
     <MESSAGE value="QQ级联菜单demo，带动画，有意义&#10;update on 2018.11.19" />
     <MESSAGE value="多参数适用性强轮播，两个组件&#10;update on 2018.11.19" />
     <MESSAGE value="sliderDemo相关内容更新&#10;update on 2018.11.20" />
-    <option name="LAST_COMMIT_MESSAGE" value="sliderDemo相关内容更新&#10;update on 2018.11.20" />
+    <MESSAGE value="无缝轮播SeamlessSliderDemo，未优化好版本ver9.0,&#10;下次在末尾加一张图再实现&#10;update on 2018.11.20" />
+    <option name="LAST_COMMIT_MESSAGE" value="无缝轮播SeamlessSliderDemo，未优化好版本ver9.0,&#10;下次在末尾加一张图再实现&#10;update on 2018.11.20" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/Desktop/demo/index3.html" />
@@ -724,8 +731,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/slideWork/SliderDemo/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="123" lean-forward="true" selection-start-line="123" selection-end-line="123" />
+        <state relative-caret-position="245">
+          <caret line="121" column="34" selection-start-line="121" selection-start-column="34" selection-end-line="121" selection-end-column="34" />
         </state>
       </provider>
     </entry>
