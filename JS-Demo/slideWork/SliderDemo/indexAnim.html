@@ -153,6 +153,7 @@
 
     var timerID = null;
 
+    var canClick = true;
 
     init();
     startAnim();
@@ -337,15 +338,14 @@
 
         rightBtn.onclick = function () {
 
-            if(timerID!=null){
-
-                clearTimeout(timerID);
-
-            }
-            timerID = setTimeout(function () {
+            if (canClick) {
                 initNum++;
                 circularPos();
-            },100)
+                setTimeout(function () {
+                    can
+                },100)
+            }
+
 
 
         };
