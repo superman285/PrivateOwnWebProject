@@ -26,7 +26,7 @@ ul{
   position: relative;
   left: 0;
   display: flex;
-  width: 2500px;
+  width: 3000px;
   height: 100%;
   transition: all .1s linear;
 }
@@ -53,13 +53,10 @@ ul{
     background: url("../img/slide4.jpg");
     background-size: cover;
   }
-}
-
-.halfOpacity {
-  opacity: .5;
-}
-.fullOpacity {
-  opacity: 1;
+  &:nth-child(6){
+    background: url("../img/slide1.jpg");
+    background-size: cover;
+  }
 }
 
 .imgul2 {

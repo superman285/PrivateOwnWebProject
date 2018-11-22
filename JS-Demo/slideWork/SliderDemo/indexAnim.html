@@ -338,13 +338,17 @@
 
         rightBtn.onclick = function () {
 
+            //666，再加个变量来判断，真的牛
             if (canClick) {
                 initNum++;
                 circularPos();
-                setTimeout(function () {
-                    can
-                },100)
+                canClick = false;
+                timerID = setTimeout(function () {
+                    canClick = true;
+                    clearTimeout(timerID);
+                },1000)
             }
+
 
 
 

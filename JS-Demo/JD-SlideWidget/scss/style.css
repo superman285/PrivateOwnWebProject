@@ -1,0 +1,29 @@
+* { margin: 0; padding: 0; }
+
+ul { list-style: none; }
+
+.Wrap1 { position: relative; width: 800px; height: 280px; margin-top: 100px; margin-left: 200px; border: 4px solid violet; box-sizing: border-box; overflow: hidden; }
+
+.imgul { position: relative; left: 0px; display: flex; width: 4800px; height: 100%; transition: opacity .4s linear; }
+
+.imgli { position: relative; width: 100%; height: 100%; transition: all .5s linear; }
+.imgli:nth-child(1) { background: url("../img/scroll1.jpg") no-repeat; background-size: cover; }
+.imgli:nth-child(2) { background: url("../img/scroll2.jpg") no-repeat; background-size: cover; }
+.imgli:nth-child(3) { background: url("../img/scroll3.jpg") no-repeat; background-size: cover; }
+.imgli:nth-child(4) { background: url("../img/scroll4.jpg") no-repeat; background-size: cover; }
+.imgli:nth-child(5) { background: url("../img/scroll5.jpg") no-repeat; background-size: cover; }
+.imgli:nth-child(6) { background: url("../img/scroll6.jpg") no-repeat; background-size: cover; }
+
+.unactive { opacity: 0; }
+
+.controlWrap { display: flex; justify-content: space-around; z-index: 5; align-items: center; position: absolute; left: 0; right: 0; bottom: 15px; width: 250px; height: 18px; margin: 0 auto; border-radius: 15px; background: rgba(255, 255, 255, 0.45); }
+.controlWrap .control { width: 11px; height: 11px; border-radius: 6px; background: white; cursor: pointer; }
+
+.arrowL, .arrowR { position: absolute; z-index: 5; width: 30px; height: 30px; line-height: 26px; text-align: center; font-weight: bold; border-radius: 15px; background: slategrey; cursor: pointer; user-select: none; opacity: .75; }
+.arrowL:hover, .arrowR:hover { opacity: 1; }
+
+.arrowL { left: -10px; top: 0; bottom: 0; margin: auto 0; }
+
+.arrowR { right: -10px; top: 0; bottom: 0; margin: auto 0; }
+
+/*# sourceMappingURL=style.css.map */
