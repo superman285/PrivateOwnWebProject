@@ -4,13 +4,113 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            width: 500px;
+            height: 170px;
+            position: absolute;
+            transition: all .3s linear;
+            box-shadow: 0 0 5px 2px grey;
+        }
+        .pic1 {
+            background: url("img/scroll1.jpg");
+            background-size: cover;
+            top: 20px;
+            left: 20px;
+        }
+        .pic2 {
+            background: url("img/scroll2.jpg");
+            background-size: cover;
+            top: 20px;
+            left: 570px;
+        }
+        .pic3 {
+            background: url("img/scroll3.jpg");
+            background-size: cover;
+            top: 220px;
+            left: 20px;
+        }
+        .pic4 {
+            background: url("img/scroll4.jpg");
+            background-size: cover;
+            top: 220px;
+            left: 570px;
+        }
+        .pic5 {
+            background: url("img/scroll5.jpg");
+            background-size: cover;
+            top: 420px;
+            left: 20px;
+        }
+        .pic6 {
+            background: url("img/scroll6.jpg");
+            background-size: cover;
+            top: 420px;
+            left: 570px;
+        }
+
+        button {
+            font-size: 1.1rem;
+            padding: 2px 10px;
+            background: dodgerblue;
+            color: #fff;
+            outline: none;
+        }
+        button.btnl {
+            margin-left: 1100px;
+        }
 
     </style>
 </head>
 <body>
 
+<div class="pic1"></div>
+<div class="pic2"></div>
+<div class="pic3"></div>
+<div class="pic4"></div>
+<div class="pic5"></div>
+<div class="pic6"></div>
+
+<button class="btnl">顺序</button>
+<button class="btnr">乱序</button>
 
 <script>
+
+    var divs = document.getElementsByTagName("div");
+
+    var posLT = [{left:"20px",top:"20px"},{left:"570px",top:"20px"},{left:"20px",top:"220px"},
+                 {left:"570px",top:"220px"},{left:"20px",top:"420px"},{left:"570px",top:"420px"}];
+
+    var btnl = document.getElementsByClassName("btnl")[0],
+        btnr = document.getElementsByClassName("btnr")[0];
+
+    btnl.onclick = function() {
+        originPos();
+    };
+    btnr.onclick = function () {
+        randomPos();
+    };
+
+    function randomPos() {
+        var posLTN = posLT.concat().sort(function () {
+            return Math.random()-0.5;
+        });
+
+        for (var i = 0; i < divs.length; i++) {
+            divs[i].style.left = posLTN[i].left;
+            divs[i].style.top = posLTN[i].top;
+        }
+    }
+
+    function originPos() {
+        for (var i = 0; i < divs.length; i++) {
+            divs[i].style.left = posLT[i].left;
+            divs[i].style.top = posLT[i].top;
+        }
+    }
 
 </script>
 </body>
