@@ -8,16 +8,16 @@ var showBox = document.getElementsByClassName("show")[0],
 showTitle.onclick = function () {
     console.log("我点了啊");
     showBox.classList.add("expand");
-}
+};
 
 document.onclick = function (e) {
     var clickPart = e.target.nodeName;
-    if (clickPart == "BODY"|| clickPart == "HTML") {
+    if (clickPart === "BODY"|| clickPart === "HTML") {
         showBox.classList.remove("expand");
     } else {
         console.log("点击的部分是:"+clickPart);
     }
-}
+};
 
 fontList.onclick = function (e) {
     console.dir(e);
