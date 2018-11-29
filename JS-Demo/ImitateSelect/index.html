@@ -3,8 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .show {
+            width: 300px;
+            height: 35px;
+            margin: 20px auto;
+            border: 2px solid coral;
+            font-size: 1rem;
+            line-height: 35px;
+            overflow: hidden;
+            transition: all .2s linear;
+            user-select: none;
+        }
+        .show.expand {
+            height: 245px;
+        }
+        .title {
+            width: 300px;
+            height: 35px;
+            padding-left: 10px;
+            border-bottom: 2px solid coral;
+        }
+        .fontItem {
+            height: 35px;
+            padding-left: 10px;
+        }
+        .fontItem:hover {
+            color: white;
+            background: coral;
+        }
+        .fontItem.choose {
+            color: black;
+            background: coral;
+        }
+
+    </style>
 </head>
 <body>
 
+
+    <div class="show">
+        <div class="title">按住shift多选</div>
+        <ul class="fontList">
+            <li class="fontItem">宋体</li>
+            <li class="fontItem">黑体</li>
+            <li class="fontItem">楷体</li>
+            <li class="fontItem">微软雅黑</li>
+            <li class="fontItem">新宋体</li>
+            <li class="fontItem">仿宋</li>
+        </ul>
+    </div>
+
+    <script src="index.js"></script>
 </body>
 </html>
