@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div.fir {
+            position: absolute;
+            left: 300px;
+            top: 300px;
+            width: 100px;
+            height: 100px;
+            background: coral;
+        }
+        .inner {
+            margin-left: 20px;
+            width: 60px;
+            height: 500px;
+            background: yellow;
+        }
+
+        .d2 {
+            width: 100px;
+            height: 100px;
+            background: blue;
+            position: absolute;
+            top: 1400px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="fir">
+    </div>
+
+
+
+    <script>
+
+        var block = document.getElementsByTagName("div")[0];
+
+        var timerL = null,
+            timerT = null,
+            timerR = null,
+            timerB = null;
+
+        var movableL = true,
+            movableT = true,
+            movableR = true,
+            movableB = true;
+        document.onkeydown = function (event) {
+            //console.log(block);
+            switch (event.keyCode) {
+                case 37:
+                    if (movableL&&movableR) {
+                        timerL = setInterval(function(){
+                            block.style.left = block.offsetLeft - 1 + 'px';
+                        },1);
+                        movableL = false;
+                    }
+                    break;
+                case 38:
+                    if (movableT&&movableB) {
+                        timerT = setInterval(function(){
+                            block.style.top = block.offsetTop - 1 + 'px';
+                        },1);
+                        movableT =false;
+                    }
+                    break;
+                case 39:
+                    if (movableR&&movableL) {
+                        timerR = setInterval(function(){
+                            block.style.left = block.offsetLeft + 1 + 'px';
+                        },1);
+                        movableR = false;
+                    }
+                    break;
+                case 40:
+                    if (movableB&&movableT) {
+                        timerB = setInterval(function(){
+                            block.style.top = block.offsetTop + 1 + 'px';
+                        },1);
+                        movableB = false;
+                    }
+            }
+        };
+
+        document.onkeyup = function(event) {
+            switch (event.keyCode) {
+                case 37:
+                    clearInterval(timerL);
+                    movableL = true;
+                    break;
+                case 38:
+                    clearInterval(timerT);
+                    movableT = true;
+                    break;
+                case 39:
+                    clearInterval(timerR);
+                    movableR = true;
+                    break;
+                case 40:
+                    clearInterval(timerB);
+                    movableB = true;
+            }
+        }
+
+
+    </script>
+</body>
+</html>
