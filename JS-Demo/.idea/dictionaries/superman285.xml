@@ -2,10 +2,13 @@
   <dictionary name="superman285">
     <words>
       <w>onmousedown</w>
+	  <w>onmouseup</w>
       <w>onmouseenter</w>
       <w>onmouseleave</w>
       <w>onmouseout</w>
       <w>onmouseover</w>
+	  <w>onkeydown</w>
+	  <w>onkeyup</w>
       <w>transitionend</w>
     </words>
   </dictionary>
