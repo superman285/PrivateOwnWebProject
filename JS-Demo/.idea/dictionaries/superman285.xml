@@ -1,14 +1,14 @@
 <component name="ProjectDictionaryState">
   <dictionary name="superman285">
     <words>
+      <w>onkeydown</w>
+      <w>onkeyup</w>
       <w>onmousedown</w>
-	  <w>onmouseup</w>
       <w>onmouseenter</w>
       <w>onmouseleave</w>
+      <w>onmouseout</w>
       <w>onmouseover</w>
-	  <w>onmouseout</w>
-	  <w>onkeydown</w>
-	  <w>onkeyup</w>
+      <w>onmouseup</w>
       <w>transitionend</w>
     </words>
   </dictionary>

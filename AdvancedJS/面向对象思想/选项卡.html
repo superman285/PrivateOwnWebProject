@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        button.active {
+            background: yellowgreen;
+        }
+        p {
+            display: none;
+        }
+        p.active {
+            display: block;
+        }
+    </style>
+
+</head>
+<body>
+
+
+    <div id="div1">
+        <div class="tabs">
+            <button class="active">选项一</button>
+            <button>选项二</button>
+            <button>选项三</button>
+            <p class="active">内容1</p>
+            <p>内容2</p>
+            <p>内容3</p>
+        </div>
+    </div>
+
+    <div id="div2">
+        <div class="tabs">
+            <button class="active">选项一</button>
+            <button>选项二</button>
+            <button>选项三</button>
+            <p class="active">内容1</p>
+            <p>内容2</p>
+            <p>内容3</p>
+        </div>
+    </div>
+
+    <script>
+
+        /*抽象
+        * 描述-属性:
+        * 有容器，有选项组(tabs)，有内容组，有当前激活选项，
+        * 描述-功能:
+        * 激活
+        * */
+
+        //创建属于自己myself的类型！！
+        class Tab {
+            //对抽象出来的内容进行封装
+
+            //构造函数：创建对象并对对象进行初始化
+            constructor(container) {
+                //当一个类被new的时候，这个类的构造函数将被执行
+                console.log('我是constructor，我被执行了');
+                //构造函数被执行时，会在构造函数中内部自动创建一个新的对象
+                //this打印出 Tab{} , this可以读，但是不可改
+                console.log(this);
+                //构造函数执行完成后会返回这个this,不需要手动返回，方法会自动返回
+                //相当于return this;
+
+                //然后我们可以给this添加各种属性
+
+                this.container = container;
+                this.tabs = this.container.querySelectorAll('button');
+                this.contents = this.container.querySelectorAll('p');
+                this.n = 0;
+
+
+                //箭头函数还是指的上一个的this而不是点击对象，与function不一样
+                this.tabs.forEach( (tab,index)=>{
+                    tab.onclick = ()=> {
+                        console.log("点了tab"+index);
+                        this.n = index;
+                        this.setActive(index);
+                    }
+                })
+            }
+
+
+            setActive(n) {
+                console.log("setActive方法");
+
+                //隐藏所有，显示当前的
+                //用了箭头函数，函数里的this指的是最外层的对象，即tabs组
+                this.tabs.forEach(t=>{
+                    t.classList.remove('active');
+                });
+                //把所有内容隐藏起来
+                this.contents.forEach(c=>{
+                    c.classList.remove('active')
+                });
+
+
+                tab.classList.add('active');
+
+                this.contents[this.n].classList.add('active');
+            }
+        }
+
+
+
+        let tab1 = new Tab; //执行了Tab类的constructor执行
+        console.dir(tab1);
+
+        let tabsElements = document.querySelectorAll(".tabs");
+
+        let t2 = new Tab(tabsElements[1]);
+
+
+        //想做嵌套选项卡的话，最好把三个参数都传进constructor
+
+    </script>
+
+
+</body>
+</html>
