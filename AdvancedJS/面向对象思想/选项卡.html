@@ -5,6 +5,9 @@
     <title>Title</title>
 
     <style>
+        button {
+            outline: none;
+        }
         button.active {
             background: yellowgreen;
         }
@@ -62,6 +65,7 @@
                 //构造函数被执行时，会在构造函数中内部自动创建一个新的对象
                 //this打印出 Tab{} , this可以读，但是不可改
                 console.log(this);
+                console.log(typeof this);
                 //构造函数执行完成后会返回这个this,不需要手动返回，方法会自动返回
                 //相当于return this;
 
@@ -77,16 +81,29 @@
                 this.tabs.forEach( (tab,index)=>{
                     tab.onclick = ()=> {
                         console.log("点了tab"+index);
-                        this.n = index;
+                        //以下这部分封装到setActive(index)中
+                        /*this.n = index;
+                        //隐藏所有，显示当前的
+                        //用了箭头函数，函数里的this指的是最外层的对象，即tabs组
+                        this.tabs.forEach(t=>{
+                            t.classList.remove('active');
+                        });
+                        //把所有内容隐藏起来
+                        this.contents.forEach(c=>{
+                            c.classList.remove('active')
+                        });
+                        tab.classList.add('active');
+                        this.contents[this.n].classList.add('active');*/
                         this.setActive(index);
                     }
                 })
             }
 
+            a:2
 
-            setActive(n) {
+            setActive(index) {
                 console.log("setActive方法");
-
+                this.n = index;
                 //隐藏所有，显示当前的
                 //用了箭头函数，函数里的this指的是最外层的对象，即tabs组
                 this.tabs.forEach(t=>{
@@ -96,23 +113,18 @@
                 this.contents.forEach(c=>{
                     c.classList.remove('active')
                 });
-
-
-                tab.classList.add('active');
-
+                this.tabs[this.n].classList.add('active');
                 this.contents[this.n].classList.add('active');
             }
         }
 
-
-
-        let tab1 = new Tab; //执行了Tab类的constructor执行
-        console.dir(tab1);
-
         let tabsElements = document.querySelectorAll(".tabs");
 
+        let tab1 = new Tab(tabsElements[0]);
+        console.log(tab1);
         let t2 = new Tab(tabsElements[1]);
 
+        console.dir(t2);
 
         //想做嵌套选项卡的话，最好把三个参数都传进constructor
 

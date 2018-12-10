@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<style>
+    body {
+        text-align: center;
+    }
+    #div1 {
+        margin: 100px auto;
+        border: 1px solid #000;
+        width: 520px;
+        height: 280px;
+    }
+    ul {
+        position: absolute;
+        bottom: 0;
+        padding: 10px 0;
+        /*background: grey;*/
+        width: 100%;
+        text-align: center;
+    }
+    ul li {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        background: #fff;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    ul li.active {
+        background: orange;
+    }
+    .slider span {
+        position: absolute;
+        width: 50px;
+        height: 100%;
+        top: 0;
+        line-height: 280px;
+        text-align: center;
+    }
+    .slider .prev {
+        left: 0;
+    }
+    .slider .next {
+        right: 0;
+    }
+</style>
+
+<body>
+
+
+
+
+    <div id="div" class="slider">
+        <img src="slider-img/slide1.jpg" alt="">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <span class="prev">&lt;</span>
+        <span class="next">&gt;</span>
+    </div>
+
+
+    <script>
+
+        class Slider {
+
+            constructor(container,images=[]){
+                this.container = container;
+                this.images = images;
+                this.n = 0;
+                this.lis
+                this.img = document.createElement("img");
+
+
+                if (images.length) {
+                    this.img.src = images[this.n];
+                }
+
+                let ul = document.createElement("ul");
+
+                images.forEach((everyimg,index)=>{
+                    let li = document.createElement("li");
+                    if (index == this.n) {
+                        li.classList.add('active');
+                    }
+
+                    li.onclick = ()=>{
+                        this.n = index;
+                        this.setActive();
+                    };
+
+                    ul.appendChild(li);
+                    this.lis.push(li);
+                });
+
+                let prev = document.createElement("span");
+                prev.classList.add('prev');
+                prev.onclick = ()=>{
+                  this.n--;
+                  if(this.n<0){
+                      this.n = this.images.length - 1;
+                  }
+                  this.setActive();
+                };
+
+                let next = document.createElement("span");
+                next.classList.add('next');
+                next.onclick = ()=>{
+                    this.n++;
+                    if(this.n>=this.images.length){
+                        this.n = 0;
+                    }
+                    this.
+                }
+
+
+                this.container.appendChild(img);
+                this.container.appendChild(ul);
+                this.container.appendChild(prev);
+                this.container.appendChild(next);
+
+            }
+
+            setActive() {
+                this.img.src = this.images[this.n];
+
+                this.lis
+
+            }
+
+        }
+
+
+        new Slider(document.querySelector("#div1"),)
+
+    </script>
+
+</body>
+</html>

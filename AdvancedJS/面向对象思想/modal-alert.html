@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+        body {
+            background: rgba(0,0,0,.3);
+        }
+
+        .modal {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            width: 420px;
+            padding: 10px;
+            border: 1px solid violet;
+            background: #fff;
+        }
+        .modal .content {
+            
+        }
+        .header {
+            position: relative;
+        }
+        .header button {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+        .header h4 {
+            margin: 2px 0;
+        }
+
+        .footer button {
+            text-align: right;
+        }
+    </style>
+
+</head>
+<body>
+
+
+    <div class="modal">
+
+        <div class="header">
+            <h4>title</h4>
+            <button>X</button>
+        </div>
+        <div class="content">
+            内容
+        </div>
+        <div class="footer">
+            <button>确定</button>
+        </div>
+
+    </div>
+
+    <script>
+        
+        class Modal {
+            constructor(options) {
+                
+                //可以放对象里头存起来，更好，
+                /*this.container = null;
+                this.header = null;
+                this.h4 = null;
+                this.buttons = {
+                    close: null,
+                    ok: null
+                };
+                this.footer = null;*/
+
+                //assign，相当于把options拷贝给这个对象，同名就覆盖，不同名就合并
+                this.options = Object.assign({
+                    title: '标题',
+                    content: ''
+                },options);
+
+                this.elements = {
+                    container: null,
+                    header:null,
+                    h4:null,
+                    content: null,
+                    footer: null,
+                    buttons: {
+                        ok:null,
+                        close: null
+                    }
+                };
+                
+                
+                this.render();
+            }
+            
+            
+            render(){
+                this.elements.container = document.createElement("div");
+                this.elements.container.classList.add('modal');
+
+                this.elements.header = document.createElement("div");
+                this.elements.header.classList.add('header');
+
+                this.elements.header = document.createElement("h4");
+
+                this.elements.buttons.close = document.createElement("button");
+                this.elements.buttons.close.innerHTML = "X";
+
+                this.elements.container = document.createElement("div");
+                this.elements.container.classList.add('footer');
+
+                this.elements.buttons.ok = document.createElement("button");
+                this.elements.buttons.ok.innerHTML = "确定";
+
+                document.body.appendChild(this.elements.container);
+                this.elements.container.appendChild(this.elements.header);
+                this.elements.container.appendChild(this.elements.h4);
+                this.elements.container.appendChild(this.elements.content);
+            }
+
+        }
+        
+        let modal1 = new Modal();
+    </script>
+</body>
+</html>

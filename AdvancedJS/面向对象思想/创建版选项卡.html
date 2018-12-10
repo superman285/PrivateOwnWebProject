@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        button {
+            outline: none;
+            font-size: 1rem;
+        }
+        button.active {
+            background: yellowgreen;
+        }
+        .content {
+            display: none;
+            font-size: 2rem;
+        }
+        .content.active {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<div id="div1" class="tabs">
+    <button class="tab active">选项一</button>
+    <button class="tab">选项二</button>
+    <button class="tab">选项三</button>
+    <div class="content active">内容1</div>
+    <div class="content">内容2</div>
+    <div class="content">内容3</div>
+</div>
+
+<script>
+
+    class Tabs {
+        constructor(container,tabs,contents){
+            this.container = container;
+            this.tabs = tabs;
+            this.contents = contents;
+            //设置当前要显示的内容的下标
+            this.n = 0;
+
+
+            this.container = document.createElement('div');
+            this.container.classList = "tabs";
+            ['选项一','选项二','选项三'].forEach(item=>{
+                let button = document.createElement('button');
+                button.classList.add('tab');
+                this.container.appendChild(button);
+
+                this.tabs.push(button);
+            });
+            ['选项一','选项二','选项三'].forEach(item=>{
+                let content = document.createElement('div');
+                content.classList.add('tab');
+                this.container.appendChild(content);
+
+                this.tabs.push(content);
+            });
+
+            this.tabs.forEach((tab,index)=>{
+                tab.onclick = ()=>{
+                    this.n = index;
+                    this.setActive();
+                }
+            });
+        }
+
+        //根据当前选项卡对象的n值，来设置当前激活显示的内容组
+        setActive(){
+            this.tabs.forEach(everytab=>{
+                everytab.classList.remove('active');
+            });
+            this.contents.forEach(everycontent=>{
+                everycontent.classList.remove('active');
+            })
+            this.tabs[this.n].classList.add('active');
+            this.contents[this.n].classList.add('active');
+        }
+    }
+    
+    let tab1 = new Tabs(document.querySelector(".tabs"), document.querySelectorAll(".tab"), document.querySelectorAll(".content"))
+    
+    
+
+</script>
+</body>
+</html>

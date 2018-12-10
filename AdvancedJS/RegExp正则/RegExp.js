@@ -5,6 +5,7 @@
 let str = "asfad07fsfa889saf909dfd98fsdqw7890xcx13"
 let result = [];
 
+
 //普通方法
 function findNum(str) {
     var temp = "";
@@ -37,6 +38,9 @@ console.log();
 /*断言后面跟着数字，但是匹配结果排除后面跟着的数字，即不替换数字*/
 console.log(testString.replace(/win(?=\d)/g,"视窗"));
 console.log(testString.match(/win(?!\d)/g));
+
+//负向断言,断言我in前面跟着字符，但不替换前面的字符，只替换in
+console.log(testString.replace(/in(?<=\w)/g,"领英"));
 
 //console.dir(testString.match(/(?:win)/));
 
