@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+
+    <div class="d1">1</div>
+    <div class="d2">2</div>
+
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+
+        var div = document.getElementsByTagName("div");
+        var qdiv = document.querySelector("div");
+        var jdiv = $("div");
+        console.log(div);
+        div.innerHTML = "Nihao"
+        qdiv.innerHTML = "qqqnihao"
+        console.log(qdiv);
+        console.dir(jdiv.html(function(index,res){return res.innerHTML;}));
+
+
+
+    </script>
+</body>
+</html>
