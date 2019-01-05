@@ -1,0 +1,25 @@
+{
+  "development": {
+    "username": "root",
+    "password": "123456",
+    "database": "musicDB",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "timezone": "+08:00",
+    "logging": false
+  },
+  "test": {
+    "username": "root",
+    "password": "123456",
+    "database": "musicDB_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "123456",
+    "database": "musicDB_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
