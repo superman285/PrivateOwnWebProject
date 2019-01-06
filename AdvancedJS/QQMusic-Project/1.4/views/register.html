@@ -39,8 +39,7 @@
 
     <script>
 
-        
-    
+
         // let btn1 = document.querySelector('.btn1');
         let form = document.querySelector('form');
         let usernameMessageEle = document.querySelector('.msg.username');
@@ -56,20 +55,20 @@
         // }
 
         // 通过name直接获取表单元素
-        form.username.onblur = function() {
+        /*form.username.onblur = function() {
             // console.log(this.value);
 
-            /**
+            /!**
              * 通过js发送一个http请求到指定的http服务器，把要注册的用户名带过去
              * 当响应完成以后，返回的数据又会保存到js指定的位置
-            */
+            *!/
 
-            /**
+            /!**
              * XMLHttpRequest
              * 创建一个XMLHttpRequest对象（ajax），通过这个对象来完成数据请求和接收
-            */
+            *!/
             let xhr = new XMLHttpRequest();
-            /**
+            /!**
              * 发送请求之前的准备工作（请求配置的初始化）
              *  open(请求的方式，请求的url，是否异步)
              * 
@@ -89,14 +88,14 @@
              * js的xhr对象
              *      同步阻塞
              *      异步非阻塞
-            */
+            *!/
             xhr.open('get', '/checkUserName?username=' + this.value, true);
             
-            /**
+            /!**
              * 当请求完成以后触发的事件
              * 当请求完成以后，服务端返回的信息会保存到xhr下的
              *  response 属性中
-            */
+            *!/
             xhr.onload = function() {
                 console.log( '这是返回的数据：', this.response );
                 let data = JSON.parse(this.response);
@@ -104,11 +103,11 @@
 
                 // usernameMessageEle.innerHTML = this.response;
 
-                /**
+                /!**
                  * 后端的数据不仅仅是直接显示在页面中，有的时候是需要根据后端
                  * 返回的不同数据去对页面做不同的处理
                  * 后端返回的数据有的时候只是前端在渲染新内容的时候的一种判断依据
-                */
+                *!/
 
                 // 直接用返回的内容做判断是可以的，但是
                 // if (this.response == '可以注册') {
@@ -127,15 +126,38 @@
                 usernameMessageEle.innerHTML = data.message;
             }
             
-            /**
+            /!**
              * 发送请求
-            */
+            *!/
             xhr.send(); //如果是同步的，那么其它的所有事情都需要等待请求完成以后才会去处理
 
             // console.log(1);
 
-            
+        };*/
+
+
+        //axios框架改写
+        form.username.onblur = function(){
+            console.log(axios);
+
+            axios({
+                method: 'GET',
+                url: '/checkUserName?username='+this.value,
+            }).then(res=>{
+                console.log(this.value);
+                console.log(res.data);
+                if (res.data.code) {
+                    usernameMessageEle.classList.remove('success');
+                    usernameMessageEle.classList.add('error');
+                } else {
+                    usernameMessageEle.classList.remove('error');
+                    usernameMessageEle.classList.add('success');
+                }
+                usernameMessageEle.innerHTML = res.data.message;
+            })
         }
+
+
     
     </script>
 

@@ -28,7 +28,7 @@
     {% endif %}
 
     {% for n in range(pages) %}
-    <a href="/{{n+1}}" {% if n+1==page %}class="current" {% endif %}>{{n+1}}</strong>
+    <a href="/{{n+1}}" {% if n+1==page %}class="current" {% endif %}>{{n+1}}</a>
         {% endfor %}
 
         {% if page < pages %} <a href="/{{page+1}}" class="next"> &gt; </a>

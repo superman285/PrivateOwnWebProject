@@ -38,6 +38,7 @@
             </div>
             <div class="input_row">
                 <button class="btn info">立即登录 - POST</button>
+                <input type="submit" class="btn info" value="立即登录">
             </div>
         </form>
 
@@ -77,8 +78,9 @@
             console.log(this.value);
 
 
-            let xhr = new XMLHttpRequest();
+            /*let xhr = new XMLHttpRequest();
 
+            //参数为method 方式,action 后端接口,async 是否异步
             xhr.open('get','/checkUserName_login?username='+this.value,true);
 
             xhr.send();
@@ -97,7 +99,32 @@
                     usernameMessageEle.classList.add('success');
                 }
                 usernameMessageEle.innerHTML = data.message;
-            };
+            };*/
+
+
+            //jQ的ajax框架改写
+
+            $.ajax({
+                type: "GET",
+                url: '/checkUserName_login',
+                //url: '/checkUserName_login?username='+this.value,
+                data: {
+                  username: this.value
+                },
+                success: function(data,status,xhr){
+                    console.log(data);
+                    if (data.code) {
+                        usernameMessageEle.classList.remove('success');
+                        usernameMessageEle.classList.add('error');
+                    } else {
+                        usernameMessageEle.classList.remove('error');
+                        usernameMessageEle.classList.add('success');
+                    }
+                    usernameMessageEle.innerHTML = data.message;
+                }
+            })
+
+
 
 
         }

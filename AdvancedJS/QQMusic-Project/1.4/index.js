@@ -97,7 +97,7 @@ router.get('/:page(\\d+)?', async ctx => {
 });
 
 /**
- * 歌手详情
+ * 歌手详情页面
  */
 router.get('/detail/:singerId(\\d+)', async ctx => {
 
@@ -135,8 +135,27 @@ router.get('/detail/:singerId(\\d+)', async ctx => {
     let sql6 = "select * from albums where singerId=? limit 5";
     let [albums] = await db.query(sql6, [singerId]);
 
+
+
+    let page = ctx.params.page || 1;
+    let pages = 0;
+    let limit = 10;
+    let offset = Math.ceil((page - 1) * limit);
+
+    // 总长度
+    let commentsql1 = "select count(*) as len from comments";
+    let [[{len: count}]] = await db.query(commentsql1);
+    pages = Math.ceil(count / limit);
+    let commentsql2 = "select * from comments limit ? offset ?";
+    
+    let [comments] = await db.query(commentsql2, [limit, offset]);
+
+    console.log("comments:",comments);
     ctx.body = tpl.render('singer.html', {
         singer,
+        page,
+        pages,
+        comments,
         detail,
         basic,
         songsCount,
@@ -404,7 +423,7 @@ router.post('/comment', async ctx => {
     if (!ctx.loginUser.uid) {
         ctx.body = {
             code: 100,
-            message: '你没有权限进行此操作'
+            message: '您没有权限进行此操作,请先登录'
         };
         return;
     }
@@ -438,13 +457,11 @@ router.post('/comment', async ctx => {
                 datetime
             }
         };
-        return;
     } else {
         ctx.body = {
             code: 2,
             message: '评论失败'
         };
-        return;
     }
 
 
