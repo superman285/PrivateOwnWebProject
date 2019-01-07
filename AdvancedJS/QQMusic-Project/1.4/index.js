@@ -97,10 +97,11 @@ router.get('/:page(\\d+)?', async ctx => {
 });
 
 /**
- * 歌手详情页面
+ * 歌手详情
  */
-router.get('/detail/:singerId(\\d+)', async ctx => {
+router.get('/detail/:singerId(\\d+)/:page(\\d+)?', async ctx => {
 
+    console.log(ctx.params);
     let singerId = ctx.params.singerId;
 
     // 根据传入的singerId从singers表中查询指定的用户基本信息
@@ -135,33 +136,40 @@ router.get('/detail/:singerId(\\d+)', async ctx => {
     let sql6 = "select * from albums where singerId=? limit 5";
     let [albums] = await db.query(sql6, [singerId]);
 
-
-
-    let page = ctx.params.page || 1;
+    /*
+    * 评论相关
+    * */
+    let page = parseInt(ctx.params.page) || 1;
     let pages = 0;
-    let limit = 10;
+    let limit = 2;
     let offset = Math.ceil((page - 1) * limit);
 
     // 总长度
-    let commentsql1 = "select count(*) as len from comments";
-    let [[{len: count}]] = await db.query(commentsql1);
+    let csql1 = "select count(*) as len from comments where singerid=?";
+    let [[{len: count}]] = await db.query(csql1,[singerId]);
     pages = Math.ceil(count / limit);
-    let commentsql2 = "select * from comments limit ? offset ?";
-    
-    let [comments] = await db.query(commentsql2, [limit, offset]);
 
-    console.log("comments:",comments);
+    let csql2 = "select * from comments where singerid=? limit ? offset ?";
+    let [comments] = await db.query(csql2, [singerId,limit, offset]);
+
+
+    comments.forEach(val=>{
+        val.year = new Date(val.datetime).getFullYear();
+    });
+    console.log(comments);
+
     ctx.body = tpl.render('singer.html', {
+        singerId,
         singer,
-        page,
-        pages,
-        comments,
         detail,
         basic,
         songsCount,
         albumsCount,
         songs,
         albums,
+        page,
+        pages,
+        comments,
         username: ctx.loginUser.username
     });
 });
@@ -418,7 +426,9 @@ router.get('/logout', async ctx => {
  * 评论的提交
  */
 router.post('/comment', async ctx => {
-    let {content} = ctx.request.body;
+    let {content,singerid} = ctx.request.body;
+
+    console.log(content,singerid);
 
     if (!ctx.loginUser.uid) {
         ctx.body = {
@@ -437,12 +447,23 @@ router.post('/comment', async ctx => {
     }
 
     let datetime = Date.now();
-    let sql = "insert into comments (uid, username, content, datetime) values (?,?,?,?)";
+    let dateYear = new Date(datetime).getFullYear();
+    let dateMonth = new Date(datetime).getMonth() + 1;
+    let dateDay = new Date(datetime).getDate();
+    let dateHour = new Date(datetime).getHours();
+    let dateMin = new Date(datetime).getMinutes();
+    let sql = "insert into comments (uid, username, content, singerid,datetime,dateYear,dateMonth,dateDay,dateHour,dateMin) values (?,?,?,?,?,?,?,?,?,?)";
     let [ results ] = await db.query(sql, [
         ctx.loginUser.uid,
         ctx.loginUser.username,
         content,
-        datetime
+        singerid,
+        datetime,
+        dateYear,
+        dateMonth,
+        dateDay,
+        dateHour,
+        dateMin
     ]);
 
     if (results.insertId) {
@@ -455,6 +476,7 @@ router.post('/comment', async ctx => {
                 username: ctx.loginUser.username,
                 content,
                 datetime
+                //可不用dateYear等属性，因为ajax时没使用到
             }
         };
     } else {

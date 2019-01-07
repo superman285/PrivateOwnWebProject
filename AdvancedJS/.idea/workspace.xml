@@ -4,11 +4,6 @@
     <list default="true" id="4cdc32d7-bcce-44ce-8473-1b45e697a0a1" name="默认更改列表" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/QQMusic-Project/1.4/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/QQMusic-Project/1.4/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QQMusic-Project/1.4/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/QQMusic-Project/1.4/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QQMusic-Project/1.4/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/QQMusic-Project/1.4/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QQMusic-Project/1.4/views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/QQMusic-Project/1.4/views/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QQMusic-Project/1.4/views/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/QQMusic-Project/1.4/views/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QQMusic-Project/1.4/views/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/QQMusic-Project/1.4/views/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/QQMusic-Project/1.4/views/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/QQMusic-Project/1.4/views/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/QQMusic-Project/1.4/views/singer.html" beforeDir="false" afterPath="$PROJECT_DIR$/QQMusic-Project/1.4/views/singer.html" afterDir="false" />
     </list>
@@ -25,16 +20,16 @@
     <session id="208009433">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="16" />
+          <entry key="project.closed" value="17" />
           <entry key="project.open.time.0" value="6" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="3" />
-          <entry key="project.open.time.5" value="3" />
+          <entry key="project.open.time.5" value="4" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="17" />
+          <entry key="project.opened" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -43,7 +38,7 @@
           <entry key="gitignore" value="1" />
           <entry key="html" value="23" />
           <entry key="jpg" value="1" />
-          <entry key="js" value="33" />
+          <entry key="js" value="34" />
           <entry key="json" value="8" />
           <entry key="md" value="1" />
           <entry key="vue" value="2" />
@@ -55,7 +50,7 @@
           <entry key="HTML" value="23" />
           <entry key="Image" value="1" />
           <entry key="JSON" value="8" />
-          <entry key="JavaScript" value="33" />
+          <entry key="JavaScript" value="34" />
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Vue.js" value="2" />
@@ -63,20 +58,20 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="6784" />
-          <entry key="js" value="3278" />
+          <entry key="html" value="7219" />
+          <entry key="js" value="4048" />
           <entry key="json" value="40" />
           <entry key="md" value="54" />
-          <entry key="txt" value="106" />
+          <entry key="txt" value="137" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="6784" />
+          <entry key="HTML" value="7219" />
           <entry key="JSON" value="40" />
-          <entry key="JavaScript" value="3278" />
+          <entry key="JavaScript" value="4048" />
           <entry key="Markdown" value="54" />
-          <entry key="PLAIN_TEXT" value="106" />
+          <entry key="PLAIN_TEXT" value="137" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -87,14 +82,14 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5842623">
+    <splitter split-orientation="horizontal" split-proportion="0.45349544">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/QQMusic-Project/1.4/views/register.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="87">
-                  <caret line="138" column="19" selection-start-line="138" selection-start-column="19" selection-end-line="138" selection-end-column="19" />
+                <state relative-caret-position="722">
+                  <caret line="38" selection-start-line="38" selection-end-line="38" />
                 </state>
               </provider>
             </entry>
@@ -102,8 +97,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/QQMusic-Project/1.4/views/singer.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="192">
-                  <caret line="138" column="8" selection-start-line="138" selection-start-column="8" selection-end-line="138" selection-end-column="8" />
+                <state relative-caret-position="3674">
+                  <caret line="293" column="5" lean-forward="true" selection-start-line="293" selection-start-column="5" selection-end-line="293" selection-end-column="5" />
                 </state>
               </provider>
             </entry>
@@ -111,8 +106,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/QQMusic-Project/1.4/views/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="95">
-                  <caret line="10" column="28" lean-forward="true" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+                <state relative-caret-position="15">
+                  <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
                 </state>
               </provider>
             </entry>
@@ -120,11 +115,11 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/QQMusic-Project/1.4/views/login.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="863">
+                <state relative-caret-position="2451">
                   <caret line="129" column="9" lean-forward="true" selection-start-line="129" selection-start-column="9" selection-end-line="129" selection-end-column="9" />
                 </state>
               </provider>
@@ -133,7 +128,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/QQMusic-Project/1.4/views/layout.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-46">
+                <state relative-caret-position="171">
                   <caret line="9" column="69" lean-forward="true" selection-start-line="9" selection-start-column="69" selection-end-line="9" selection-end-column="69" />
                 </state>
               </provider>
@@ -142,8 +137,17 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/QQMusic-Project/1.4/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1">
-                  <caret line="152" column="25" selection-start-line="152" selection-start-column="17" selection-end-line="152" selection-end-column="25" />
+                <state relative-caret-position="227">
+                  <caret line="156" column="56" lean-forward="true" selection-start-line="156" selection-start-column="56" selection-end-line="156" selection-end-column="56" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$USER_HOME$/Resources/FrontEnd/JS进阶课/2019-1-4-ajax/课件/music/index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="382">
+                  <caret line="147" column="3" lean-forward="true" selection-start-line="68" selection-end-line="147" selection-end-column="3" />
                 </state>
               </provider>
             </entry>
@@ -171,7 +175,10 @@
       <find>commentList</find>
       <find>url</find>
       <find>/detail</find>
+      <find>singer</find>
       <find>detail</find>
+      <find>comment</find>
+      <find>/comment</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -205,10 +212,10 @@
         <option value="$PROJECT_DIR$/QQMusic-Project/README.md" />
         <option value="$PROJECT_DIR$/QQMusic-Project/1.4/views/login.html" />
         <option value="$PROJECT_DIR$/QQMusic-Project/1.4/views/layout.html" />
-        <option value="$PROJECT_DIR$/QQMusic-Project/1.4/views/register.html" />
         <option value="$PROJECT_DIR$/QQMusic-Project/1.4/views/index.html" />
-        <option value="$PROJECT_DIR$/QQMusic-Project/1.4/index.js" />
+        <option value="$PROJECT_DIR$/QQMusic-Project/1.4/views/register.html" />
         <option value="$PROJECT_DIR$/QQMusic-Project/1.4/views/singer.html" />
+        <option value="$PROJECT_DIR$/QQMusic-Project/1.4/index.js" />
       </list>
     </option>
   </component>
@@ -274,9 +281,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="113" />
-    <option name="y" value="62" />
-    <option name="width" value="1551" />
+    <option name="x" value="-44" />
+    <option name="y" value="81" />
+    <option name="width" value="1671" />
     <option name="height" value="902" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -315,38 +322,7 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="AdvancedJS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AdvancedJS" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AdvancedJS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AdvancedJS" type="462c0819:PsiDirectoryNode" />
-              <item name="QQMusic-Project" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AdvancedJS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AdvancedJS" type="462c0819:PsiDirectoryNode" />
-              <item name="QQMusic-Project" type="462c0819:PsiDirectoryNode" />
-              <item name="1.4" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AdvancedJS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AdvancedJS" type="462c0819:PsiDirectoryNode" />
-              <item name="QQMusic-Project" type="462c0819:PsiDirectoryNode" />
-              <item name="1.4" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -438,7 +414,8 @@
       <workItem from="1545984034142" duration="599000" />
       <workItem from="1546012018610" duration="795000" />
       <workItem from="1546051702908" duration="77000" />
-      <workItem from="1546614444176" duration="24505000" />
+      <workItem from="1546614444176" duration="30198000" />
+      <workItem from="1546850004721" duration="6513000" />
     </task>
     <task id="LOCAL-00001" summary="JS进阶班demo update on 2018.12.7">
       <created>1544196416532</created>
@@ -468,11 +445,25 @@
       <option name="project" value="LOCAL" />
       <updated>1546700494140</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="JS进阶班demo update on 2019.1.6&#10;使用axios和jq ajax框架改写原生xhr ajax">
+      <created>1546784837677</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1546784837677</updated>
+    </task>
+    <task id="LOCAL-00006" summary="JS进阶班demo update on 2019.1.6&#10;使用axios和jq ajax框架改写原生xhr ajax">
+      <created>1546784914389</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1546784914389</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58048000" />
+    <option name="totallyTimeSpent" value="70254000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -484,7 +475,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="113" y="62" width="1551" height="902" extended-state="0" />
+    <frame x="-44" y="81" width="1671" height="902" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.16983606" />
@@ -499,8 +490,8 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32913387" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.42322582" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5008026" side_tool="true" weight="0.30778894" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.4990164" visible="true" weight="0.2580645" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5009836" side_tool="true" weight="0.42322582" />
       <window_info anchor="bottom" id="调试" order="11" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -520,7 +511,8 @@
     <MESSAGE value="JS进阶班demo update on 2018.12.10 未完成" />
     <MESSAGE value="JS进阶班demo update on 2018.12.22 npm和node和koa相关" />
     <MESSAGE value="JS进阶班demo update on 2019.1.5&#10;ajax相关 登录注册时候的简单验证" />
-    <option name="LAST_COMMIT_MESSAGE" value="JS进阶班demo update on 2019.1.5&#10;ajax相关 登录注册时候的简单验证" />
+    <MESSAGE value="JS进阶班demo update on 2019.1.6&#10;使用axios和jq ajax框架改写原生xhr ajax" />
+    <option name="LAST_COMMIT_MESSAGE" value="JS进阶班demo update on 2019.1.6&#10;使用axios和jq ajax框架改写原生xhr ajax" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/面向对象思想/FaceToObj.js">
@@ -779,30 +771,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="589">
           <caret line="191" column="16" selection-start-line="191" selection-start-column="16" selection-end-line="191" selection-end-column="16" />
-          <folding>
-            <element signature="e#3417#3498#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/QQMusic-Project/1.4/views/layout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-46">
-          <caret line="9" column="69" lean-forward="true" selection-start-line="9" selection-start-column="69" selection-end-line="9" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/QQMusic-Project/1.4/views/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="138" column="19" selection-start-line="138" selection-start-column="19" selection-end-line="138" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/QQMusic-Project/1.4/views/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="863">
-          <caret line="129" column="9" lean-forward="true" selection-start-line="129" selection-start-column="9" selection-end-line="129" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -813,24 +781,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/QQMusic-Project/1.4/views/index.html">
+    <entry file="file://$PROJECT_DIR$/QQMusic-Project/1.4/views/register.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="10" column="28" lean-forward="true" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+        <state relative-caret-position="722">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/QQMusic-Project/1.4/index.js">
+    <entry file="file://$PROJECT_DIR$/QQMusic-Project/1.4/views/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
-          <caret line="152" column="25" selection-start-line="152" selection-start-column="17" selection-end-line="152" selection-end-column="25" />
+        <state relative-caret-position="2451">
+          <caret line="129" column="9" lean-forward="true" selection-start-line="129" selection-start-column="9" selection-end-line="129" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/QQMusic-Project/1.4/views/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="69" lean-forward="true" selection-start-line="9" selection-start-column="69" selection-end-line="9" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Resources/FrontEnd/JS进阶课/2019-1-4-ajax/课件/music/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="147" column="3" lean-forward="true" selection-start-line="68" selection-end-line="147" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/QQMusic-Project/1.4/views/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/QQMusic-Project/1.4/views/singer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="138" column="8" selection-start-line="138" selection-start-column="8" selection-end-line="138" selection-end-column="8" />
+        <state relative-caret-position="3674">
+          <caret line="293" column="5" lean-forward="true" selection-start-line="293" selection-start-column="5" selection-end-line="293" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/QQMusic-Project/1.4/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="156" column="56" lean-forward="true" selection-start-line="156" selection-start-column="56" selection-end-line="156" selection-end-column="56" />
         </state>
       </provider>
     </entry>

@@ -1,17 +1,17 @@
 {% extends './layout.html' %}
 
 {% block css %}
-<link rel="stylesheet" href="/public/css/singer.css" />
-<link rel="stylesheet" href="/public/css/song.css" />
-<link rel="stylesheet" href="/public/css/album.css" />
-<link rel="stylesheet" href="/public/css/form.css" />
-<link rel="stylesheet" href="/public/css/comment.css" />
+<link rel="stylesheet" href="/public/css/singer.css"/>
+<link rel="stylesheet" href="/public/css/song.css"/>
+<link rel="stylesheet" href="/public/css/album.css"/>
+<link rel="stylesheet" href="/public/css/form.css"/>
+<link rel="stylesheet" href="/public/css/comment.css"/>
 {% endblock %}
 
 {% block main %}
 <div class="detail_header">
     <a href="" class="detail_cover">
-        <img src="/public/photos/singers/T001R150x150M000{{singer.mid}}.jpg" />
+        <img src="/public/photos/singers/T001R150x150M000{{singer.mid}}.jpg"/>
     </a>
     <div class="detail_con">
         <h1>{{singer.name}}</h1>
@@ -59,8 +59,10 @@
                     <a href="">{{song.name}}</a>
 
                     <div class="tools">
-                        <button data-song-id="{{song.id}}" data-song-name="{{song.name}}" data-song-time="{{song.interval}}"
-                            class="tools_play">播放</button>
+                        <button data-song-id="{{song.id}}" data-song-name="{{song.name}}"
+                                data-song-time="{{song.interval}}"
+                                class="tools_play">播放
+                        </button>
                     </div>
                 </div>
                 <div class="songlist_album">
@@ -87,7 +89,7 @@
             <div class="playlist_item_box">
                 <div class="playlist_item_cover">
                     <a href="">
-                        <img src="/public/photos/albums/T002R300x300M000{{album.mid}}.jpg" />
+                        <img src="/public/photos/albums/T002R300x300M000{{album.mid}}.jpg"/>
                     </a>
                 </div>
                 <h4 class="playlist_item_title">
@@ -109,7 +111,7 @@
             <span>共 121 条评论</span>
         </h2>
     </div>
-    
+
     <div class="form">
         <form id="comment_form" method="POST" enctype="application/x-www-form-urlencoded" action="/comment">
             <div>
@@ -122,40 +124,35 @@
     </div>
 
     <ul class="comment_list">
-        <!-- <li>
-            <h4>zMouse</h4>
-            <p>一直单曲循环，而你依然美得让我窒息，我好想你</p>
+
+        {% for comment in comments %}
+        <li>
+            <h4>{{comment.username}}</h4>
+            <p>{{comment.content}}</p>
             <div class="clear">
-                <div class="fl date">2018年12月28日 18:55</div>
+                <div class="fl date">{{comment.year}}年{{comment.datemonth}}月{{comment.dateday}}日{{comment.datehour}}:{{comment.datemin}}
+                </div>
                 <div class="fr">
                     顶 （100）
                 </div>
             </div>
-        </li> -->
-        {% for comment in comments %}
-        <li>
-        <h4>{{comment.username}}</h4>
-        <!--<p>{{comment.content}</p>-->
-        <div class="clear">
-            <div class="fl date">{{dateTime.getFullYear()}}年{{dateTime.getMonth() + 1}}月{{dateTime.getDate()}}日 {{dateTime.getHours()}}:{{dateTime.getMinutes()}}</div>
-            <div class="fr">
-                顶 （100）
-            </div>
-        </div>
+
+
         </li>
         {% endfor %}
+
     </ul>
 
     <div class="pages">
         {% if page > 1 %}
-        <a href="/{{page-1}}" class="prev"> &lt; </a>
+        <a href="/detail/{{singerId}}/{{page-1}}" class="prev"> &lt; </a>
         {% endif %}
 
         {% for n in range(pages) %}
-        <a href="/{{n+1}}" {% if n+1==page %}class="current" {% endif %}>{{n+1}}</a>
+        <a href="/detail/{{singerId}}/{{n+1}}" {% if n+1==page %}class="current" {% endif %}>{{n+1}}</a>
         {% endfor %}
 
-        {% if page < pages %} <a href="/{{page+1}}" class="next"> &gt; </a>
+        {% if page < pages %} <a href="/detail/{{singerId}}/{{page+1}}" class="next"> &gt; </a>
         {% endif %}
     </div>
 
@@ -181,24 +178,24 @@
              * Storage
              *  数据库是服务器用来存储数据的
              *  在浏览器中也有很多的位置（方式）来存储数据
-             * 
+             *
              * locaStorage / sessionStorage
-             * 
+             *
              * Storage 是以 key-value 的形式存储的
-             * 
+             *
              * 注意：
              *  同域（同源策略）限制
              *      同源策略：请求与响应的 协议、域名、端口都相同 则时同源，否则为 跨源/跨域，浏览器中的Storage是以域的形式来存储，不同的域存储的Storage不能互相访问和操作
              *  存储的内容都会转换成字符串
              *  locaStorage 中存储的数据是永久存储在，除非强制删除他们
-             * 
+             *
              * locaStorage 还有一个全局事件：storage 事件
              *  当storage数据发生改变的时候（添加，修改，删除）就会触发
-             * 
+             *
              *  当前页面触发的storage事件只能由其它页面监听
              *  在当前页面对storage进行操作，不会触发当前这个页面的storage事件
              *  这个事件是一种：广播特性的事件
-            */
+             */
 
             // console.log( localStorage );
 
@@ -218,7 +215,6 @@
             }
 
 
-
             // 每次songsList更新了以后，都要存储到 localStorage 里面
             localStorage.setItem('songsList', JSON.stringify(songsList));
 
@@ -232,37 +228,37 @@
 
     /**
      * 获取评论并显示
-    */
-   
+     */
+
 
     /**
      * 评论
-    */
+     */
     let commentForm = document.querySelector('#comment_form');
     let content = commentForm.content;
     let commentBtn = document.querySelector('.comment_btn');
 
-    commentBtn.onclick = function(e) {
+    commentBtn.onclick = function (e) {
         e.preventDefault();
-        
+
         /**
          * 通过ajax把提交的数据发送到后端
-        */
+         */
         let xhr = new XMLHttpRequest();
-        xhr.open('post','/comment',true);
+        xhr.open('post', '/comment', true);
         //xhr.open(commentForm.method, commentForm.action, true);//含义同上
-        xhr.onload = function() {
+        xhr.onload = function () {
             // console.log(xhr.response);
             let res = JSON.parse(xhr.response);
 
-            console.log('获取到的res为:',res);
-            
+            console.log('获取到的res为:', res);
+
             if (res.code) {
                 console.log(res.code);
                 alert(res.message);
                 //权限不足跳转登录
-                if (res.code===100) {
-                    window.location.href="/login";
+                if (res.code === 100) {
+                    window.location.href = "/login";
                 }
             } else {
                 //alert('留言成功');
@@ -291,10 +287,11 @@
          *      - 二进制的（formData）：
          *  - 所以，如果数据是通过正文发的，那么同时还需要在发送的请求头种设置当前
          *      提交的数据的content-type
-        */
+         */
         xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
-        xhr.send('content=' + content.value);
+        xhr.send('content=' + content.value+"&singerid="+window.location.href.split('/')[4]);
+        console.log('singerID:',window.location.href.split('/')[4]);
     }
-    
+
 </script>
 {% endblock %}
