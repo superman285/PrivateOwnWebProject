@@ -36,12 +36,35 @@
         console.log(data.s);
         //此处为展示搜索结果逻辑
         resultBox.innerHTML = '<a href="#!" class="collection-item active">result</a>';
-        data.s.forEach(val=>{
+        /*data.s.forEach(val=>{
             let aLink = document.createElement("a");
-            aLink.innerText = val;
-            aLink.classList.add('collection-item');
+
+            Object.assign(aLink,{
+                innerText: val,
+                target: "blank",
+                href: `https://www.baidu.com/s?wd=${val}`,
+                classList: 'collection-item'
+            });
+
+            /!*aLink.innerText = val;
+            aLink.target = "blank";
+            aLink.href="https://www.baidu.com/s?wd="+val;
+            aLink.classList.add('collection-item');*!/
             resultBox.appendChild(aLink);
-        });
+        });*/
+
+        for (let val of data.s) {
+            let aLink = document.createElement("a");
+
+            //第一个参数是目标，第二个开始参数是要塞入目标中的源
+            Object.assign(aLink,{
+                innerText: val,
+                target: "blank",
+                href: `https://www.baidu.com/s?wd=${val}`,
+                classList: 'collection-item'
+            });
+            resultBox.appendChild(aLink);
+        }
     }
 
     let jsonpAPI = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?json=1&p=3&cb=search&wd=";

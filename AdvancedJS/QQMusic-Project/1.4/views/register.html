@@ -168,10 +168,11 @@
 
           let res = await axios({
                 method: 'GET',
-                url: '/checkUserName',
+                url: 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?json=1&p=3&cb=search&wd=s',
                 params: {
                     username: this.value,
-                }
+                },
+                withCredentials:true,
                 //等价于写法url: '/checkUserName?username='+this.value,
             });
 
