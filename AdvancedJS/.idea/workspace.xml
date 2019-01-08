@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4cdc32d7-bcce-44ce-8473-1b45e697a0a1" name="默认更改列表" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QQMusic-Project/1.4/views/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/QQMusic-Project/1.4/views/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QQMusic-Project/1.4/views/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/QQMusic-Project/1.4/views/register.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -57,20 +55,20 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="8320" />
+          <entry key="html" value="8369" />
           <entry key="js" value="4048" />
           <entry key="json" value="40" />
           <entry key="md" value="54" />
-          <entry key="txt" value="333" />
+          <entry key="txt" value="460" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="8320" />
+          <entry key="HTML" value="8369" />
           <entry key="JSON" value="40" />
           <entry key="JavaScript" value="4048" />
           <entry key="Markdown" value="54" />
-          <entry key="PLAIN_TEXT" value="333" />
+          <entry key="PLAIN_TEXT" value="460" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -84,20 +82,20 @@
     <splitter split-orientation="horizontal" split-proportion="0.5219098">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/QQMusic-Project/1.4/views/register.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="61">
-                  <caret line="165" column="22" lean-forward="true" selection-start-line="165" selection-start-column="22" selection-end-line="165" selection-end-column="22" />
+                <state relative-caret-position="394">
+                  <caret line="178" column="38" lean-forward="true" selection-start-line="178" selection-start-column="38" selection-end-line="178" selection-end-column="38" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/JSONP即时搜索/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1197">
-                  <caret line="59" column="22" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
+                <state relative-caret-position="285">
+                  <caret line="13" column="7" lean-forward="true" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
                 </state>
               </provider>
             </entry>
@@ -223,8 +221,8 @@
         <option value="$PROJECT_DIR$/QQMusic-Project/1.4/views/singer.html" />
         <option value="$PROJECT_DIR$/QQMusic-Project/1.4/index.js" />
         <option value="$PROJECT_DIR$/QQMusic-Project/1.4/views/login.html" />
-        <option value="$PROJECT_DIR$/QQMusic-Project/1.4/views/register.html" />
         <option value="$PROJECT_DIR$/JSONP即时搜索/index.html" />
+        <option value="$PROJECT_DIR$/QQMusic-Project/1.4/views/register.html" />
       </list>
     </option>
   </component>
@@ -437,7 +435,7 @@
       <workItem from="1546012018610" duration="795000" />
       <workItem from="1546051702908" duration="77000" />
       <workItem from="1546614444176" duration="30198000" />
-      <workItem from="1546850004721" duration="12460000" />
+      <workItem from="1546850004721" duration="12708000" />
     </task>
     <task id="LOCAL-00001" summary="JS进阶班demo update on 2018.12.7">
       <created>1544196416532</created>
@@ -488,11 +486,18 @@
       <option name="project" value="LOCAL" />
       <updated>1546856927821</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="音乐demo ajax框架不同写法&#10;jQ: data支持对象写法和字符串写法&#10;axios: 查询参数queryString 写在params字段中，或者不用params字段，直接把qs拼在url字段&#10;update 2019.1.8">
+      <created>1546923486329</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1546923486329</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76201000" />
+    <option name="totallyTimeSpent" value="76449000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -504,7 +509,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="338" y="140" width="1834" height="902" extended-state="0" />
+    <frame x="117" y="120" width="1834" height="902" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15431416" />
@@ -542,7 +547,8 @@
     <MESSAGE value="JS进阶班demo update on 2019.1.5&#10;ajax相关 登录注册时候的简单验证" />
     <MESSAGE value="JS进阶班demo update on 2019.1.6&#10;使用axios和jq ajax框架改写原生xhr ajax" />
     <MESSAGE value="音乐demo，完成评论的分页显示，&#10;评论根据歌手id来显示&#10;update 2019.1.7&#10;知识点：ajax xhr send urlencoded格式的不同数据用&amp;连接 a=2&amp;b=5&#10;其他数据直接xhr.send(json)，但要设置对应的正确setRequestHeader&#10;字符串通过split分割成数组&#10;forEach循环 第一个参数为value" />
-    <option name="LAST_COMMIT_MESSAGE" value="音乐demo，完成评论的分页显示，&#10;评论根据歌手id来显示&#10;update 2019.1.7&#10;知识点：ajax xhr send urlencoded格式的不同数据用&amp;连接 a=2&amp;b=5&#10;其他数据直接xhr.send(json)，但要设置对应的正确setRequestHeader&#10;字符串通过split分割成数组&#10;forEach循环 第一个参数为value" />
+    <MESSAGE value="音乐demo ajax框架不同写法&#10;jQ: data支持对象写法和字符串写法&#10;axios: 查询参数queryString 写在params字段中，或者不用params字段，直接把qs拼在url字段&#10;update 2019.1.8" />
+    <option name="LAST_COMMIT_MESSAGE" value="音乐demo ajax框架不同写法&#10;jQ: data支持对象写法和字符串写法&#10;axios: 查询参数queryString 写在params字段中，或者不用params字段，直接把qs拼在url字段&#10;update 2019.1.8" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/面向对象思想/FaceToObj.js">
@@ -853,17 +859,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/QQMusic-Project/1.4/views/register.html">
+    <entry file="file://$PROJECT_DIR$/JSONP即时搜索/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="165" column="22" lean-forward="true" selection-start-line="165" selection-start-column="22" selection-end-line="165" selection-end-column="22" />
+        <state relative-caret-position="285">
+          <caret line="13" column="7" lean-forward="true" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JSONP即时搜索/index.html">
+    <entry file="file://$PROJECT_DIR$/QQMusic-Project/1.4/views/register.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1197">
-          <caret line="59" column="22" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
+        <state relative-caret-position="394">
+          <caret line="178" column="38" lean-forward="true" selection-start-line="178" selection-start-column="38" selection-end-line="178" selection-end-column="38" />
         </state>
       </provider>
     </entry>
