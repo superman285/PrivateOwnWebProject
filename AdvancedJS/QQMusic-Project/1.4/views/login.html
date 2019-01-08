@@ -108,11 +108,15 @@
                 type: "GET",
                 url: '/checkUserName_login',
                 //url: '/checkUserName_login?username='+this.value,
-                data: {
+
+                data: 'username='+this.value,
+                //对象写法或string写法都可以，因为jq做了智能的处理，支持各种格式
+                /*data: {
                   username: this.value
-                },
+                },*/
                 success: function(data,status,xhr){
                     console.log(data);
+                    console.log(xhr.getAllResponseHeaders());
                     if (data.code) {
                         usernameMessageEle.classList.remove('success');
                         usernameMessageEle.classList.add('error');

@@ -139,7 +139,10 @@
 
 
         //axios框架改写
-        form.username.onblur = function(){
+
+
+        //传统promise回调写法
+        /*form.username.onblur = function(){
             console.log(axios);
 
             axios({
@@ -157,7 +160,32 @@
                 }
                 usernameMessageEle.innerHTML = res.data.message;
             })
-        }
+        }*/
+
+        //es7 async简洁写法
+        form.username.onblur = async function(){
+            console.log(axios);
+
+          let res = await axios({
+                method: 'GET',
+                url: '/checkUserName',
+                params: {
+                    username: this.value,
+                }
+                //等价于写法url: '/checkUserName?username='+this.value,
+            });
+
+                console.log(this.value);
+                console.log(res.data);
+                if (res.data.code) {
+                    usernameMessageEle.classList.remove('success');
+                    usernameMessageEle.classList.add('error');
+                } else {
+                    usernameMessageEle.classList.remove('error');
+                    usernameMessageEle.classList.add('success');
+                }
+                usernameMessageEle.innerHTML = res.data.message;
+            }
 
 
     
