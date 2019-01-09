@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery封装</title>
+    <style>
+        .outer {
+            width: 100px;
+            height: 100px;
+            border: 1px solid teal;
+        }
+        .red {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="outer">我的天</div>
+    <div id="out">我的弟</div>
+
+
+    <script>
+
+        //原生封装jQuery框架
+        /*function jQinit(selector){
+            let els = document.querySelectorAll(selector);
+            els.forEach((el,idx)=>{
+                this[idx] = el;
+            })
+            this.length = els.length;
+            return this;
+        }
+
+        window.jQuery = function(selector){
+            return new jQinit(selector);
+        };
+
+        window.$ = window.jQuery = jQuery
+
+        jQinit.prototype.addClass = function(color){
+            for (let i = 0; i < this.length; i++) {
+                this[i].classList.add(color);
+            }
+            return this;
+        };
+        jQinit.prototype.setText = function(text){
+            for (let i = 0; i < this.length; i++) {
+                this[i].textContent = text;
+            }
+            return this;
+        };*/
+
+
+
+        //借助class 封装jquery框架
+        window.jqinit = class{
+            constructor(selector){
+                let els = document.querySelectorAll(selector);
+                els.forEach((el,idx)=>{
+                    this[idx] = el;
+                })
+                this.length = els.length;
+            };
+
+            addClass(cl){
+                for (let i = 0; i < this.length; i++) {
+                    this[i].classList.add(cl);
+                }
+                //可链式调用
+                return this;
+            };
+            setText(text){
+                for (let i = 0; i < this.length; i++) {
+                    this[i].textContent = text;
+                }
+                return this;
+            };
+        }
+        function jQuery(selector) {
+            return new jqinit(selector);
+        }
+        window.$ = window.jQuery = jQuery
+
+
+        let div = $('div');
+        let out = $('#out');
+
+        div.addClass('red').setText(123);
+
+        //out.setText('我的天拖拖拖')
+
+
+
+        console.dir(div);
+        console.dir(new $('#out'));
+
+
+    </script>
+
+
+</body>
+</html>

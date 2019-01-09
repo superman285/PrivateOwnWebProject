@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src='https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js'></script>
+</head>
+<body>
+<div id="outer">
+        <p class="p">我是1</p>
+        <p class="p" id="inner2">我是2</p>
+    </div>
+
+    <button class="btn1" id="inner">
+        点我清空1
+    </button>
+
+    <button class="btn2">
+        点我清空2
+    </button>
+
+    <script>
+
+        class ak{
+
+        }
+        
+        let jqdiv = $('#outer');
+        let jdiv = document.querySelector("#outer");
+        
+        console.dir(jqdiv);
+        console.dir(jdiv);
+
+        //console.log(typeof (typeof ak));
+        
+        let qps = document.querySelectorAll(".p");
+        let gps = document.getElementsByClassName("p");
+
+        let newp = document.createElement("p");
+        newp.classList = 'p';
+        newp.innerHTML = '我是3';
+        
+        let outer = document.querySelector("#outer");
+
+        let children = document.body.children;
+        let childnode = document.body.childNodes;
+
+        outer.appendChild(newp);
+
+        console.log(qps);
+        console.log(gps);
+
+
+        let btn1 = document.querySelector(".btn1"),
+            btn2 = document.querySelector(".btn2");
+
+        btn1.onclick = ()=>{
+            outer.removeChild();
+        }
+
+        btn2.onclick = ()=>{
+            outer.innerHTML="";
+        }
+
+
+
+
+    </script>
+
+</body>
+</html>
