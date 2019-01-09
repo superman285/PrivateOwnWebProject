@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4cdc32d7-bcce-44ce-8473-1b45e697a0a1" name="默认更改列表" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jQuery/封装jQ.html" beforeDir="false" afterPath="$PROJECT_DIR$/jQuery/封装jQ.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,7 +17,7 @@
     <session id="208009433">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="18" />
+          <entry key="project.closed" value="19" />
           <entry key="project.open.time.0" value="6" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.12" value="1" />
@@ -55,20 +55,20 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="10745" />
+          <entry key="html" value="10866" />
           <entry key="js" value="4048" />
           <entry key="json" value="40" />
           <entry key="md" value="54" />
-          <entry key="txt" value="693" />
+          <entry key="txt" value="723" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="10745" />
+          <entry key="HTML" value="10866" />
           <entry key="JSON" value="40" />
           <entry key="JavaScript" value="4048" />
           <entry key="Markdown" value="54" />
-          <entry key="PLAIN_TEXT" value="693" />
+          <entry key="PLAIN_TEXT" value="723" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -83,8 +83,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/jQuery/封装jQ.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="244">
+              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
             </state>
           </provider>
         </entry>
@@ -219,8 +219,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="339" />
-    <option name="y" value="107" />
+    <option name="x" value="601" />
+    <option name="y" value="148" />
     <option name="width" value="969" />
     <option name="height" value="902" />
   </component>
@@ -372,7 +372,7 @@
       <workItem from="1546051702908" duration="77000" />
       <workItem from="1546614444176" duration="30198000" />
       <workItem from="1546850004721" duration="15375000" />
-      <workItem from="1546950527660" duration="7895000" />
+      <workItem from="1546950527660" duration="9450000" />
     </task>
     <task id="LOCAL-00001" summary="JS进阶班demo update on 2018.12.7">
       <created>1544196416532</created>
@@ -444,11 +444,18 @@
       <option name="project" value="LOCAL" />
       <updated>1546925892641</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="jquery框架封装,function方式和class方式&#10;update 2019.1.9">
+      <created>1547043524560</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1547043524560</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87011000" />
+    <option name="totallyTimeSpent" value="88566000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -460,10 +467,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="339" y="107" width="969" height="902" extended-state="0" />
-    <editor active="true" />
+    <frame x="601" y="148" width="969" height="902" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.15431416" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27253446" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -501,7 +507,8 @@
     <MESSAGE value="音乐demo ajax框架不同写法&#10;jQ: data支持对象写法和字符串写法&#10;axios: 查询参数queryString 写在params字段中，或者不用params字段，直接把qs拼在url字段&#10;update 2019.1.8" />
     <MESSAGE value="jsonp即时搜索小demo&#10;jsonp原理 + materializeCSS框架&#10;update 2019.1.8&#10;先来一个脚本声明函数fn &#10;再来一个脚本载入的src为jsonp的api地址，内容为fn(获取的数据)" />
     <MESSAGE value="jsonp即时搜索小demo&#10;使用下for of 取到的值是val,&#10;for in取到的是index&#10;forEach取到value,index&#10;Object.assign(目标对象，要塞入目标的源对象)&#10;update 2019.1.8" />
-    <option name="LAST_COMMIT_MESSAGE" value="jsonp即时搜索小demo&#10;使用下for of 取到的值是val,&#10;for in取到的是index&#10;forEach取到value,index&#10;Object.assign(目标对象，要塞入目标的源对象)&#10;update 2019.1.8" />
+    <MESSAGE value="jquery框架封装,function方式和class方式&#10;update 2019.1.9" />
+    <option name="LAST_COMMIT_MESSAGE" value="jquery框架封装,function方式和class方式&#10;update 2019.1.9" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/面向对象思想/选项卡.html">
@@ -825,8 +832,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/jQuery/封装jQ.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="244">
+          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
         </state>
       </provider>
     </entry>

@@ -45,7 +45,6 @@ function slideFunction(clickIndex, curIndex, modNum, imgul, control, controlColo
 
     function setControlPos() {
         dotIndex = curIndex > 0 ? curIndex - 1 : 3;
-        //大清洗
         for (let i = 0; i < control.length; i++) {
             control[i].style.backgroundColor = "";
         }
