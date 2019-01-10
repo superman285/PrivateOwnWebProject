@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/mdui.css">
+    <script src="js/mdui.js"></script>
+
+    <style>
+        .uploadbox,.uploadbtn {
+            margin: 2rem;
+        }
+        .uploadclose {
+            right: 100px!important;
+        }
+
+        
+    </style>
+</head>
+<body>
+
+
+<div class="uploadbox mdui-textfield mdui-textfield-expandable">
+    <button class="mdui-textfield-icon mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">cloud</i></button>
+    <input class="upload-input mdui-textfield-input" type="file" placeholder="Search"/>
+    <button class="mdui-textfield-close mdui-btn mdui-btn-icon uploadclose"><i class="mdui-icon material-icons">close</i></button>
+</div>
+
+<button class="uploadbtn mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-theme-accent mdui-ripple mdui-color-pink-accent">上传</button>
+
+
+
+<script>
+
+    let uploadInput = document.querySelector(".upload-input");
+
+    let uploadBtn = document.querySelector(".uploadbtn");
+
+    uploadBtn.onclick = function () {
+
+        let xhr = new XMLHttpRequest();
+
+        xhr.open('get','/getdata',true);
+        
+        xhr.send();
+        
+        xhr.onload = function () {
+            console.log(this.response)
+        }
+
+    }
+
+</script>
+
+</body>
+</html>

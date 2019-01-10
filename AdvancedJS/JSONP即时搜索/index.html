@@ -5,6 +5,7 @@
     <title>即时搜索</title>
     <link href="https://cdn.bootcss.com/materialize/1.0.0-rc.2/css/materialize.min.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <style>
         .wrap {
             width: 60%;
@@ -31,31 +32,27 @@
     let resultBox = document.querySelector(".collection");
 
     function search(data) {
-        console.log(data);
-        console.log(data.q);
-        console.log(data.s);
+        //console.log(data);
+        //console.log(data.q);
+        //console.log(data.s);
         //此处为展示搜索结果逻辑
         resultBox.innerHTML = '<a href="#!" class="collection-item active">result</a>';
         /*data.s.forEach(val=>{
             let aLink = document.createElement("a");
-
             Object.assign(aLink,{
                 innerText: val,
                 target: "blank",
                 href: `https://www.baidu.com/s?wd=${val}`,
                 classList: 'collection-item'
             });
-
             /!*aLink.innerText = val;
             aLink.target = "blank";
             aLink.href="https://www.baidu.com/s?wd="+val;
             aLink.classList.add('collection-item');*!/
             resultBox.appendChild(aLink);
         });*/
-
         for (let val of data.s) {
             let aLink = document.createElement("a");
-
             //第一个参数是目标，第二个开始参数是要塞入目标中的源
             Object.assign(aLink,{
                 innerText: val,
@@ -71,16 +68,19 @@
 
 
     searchInput.oninput = function () {
-
         //此处为加载jsonp脚本逻辑
-
-        let loadScript = document.createElement("script");
-        console.log(this.value);
+        /*let loadScript = document.createElement("script");
         loadScript.src = `${jsonpAPI}${this.value}`;
-        console.log('fixed src');
-        console.log(loadScript.src);
-        document.body.appendChild(loadScript);
+        document.body.appendChild(loadScript);*/
         //以上三步相当于下面的引入一个script标签并把api填入src的操作，等价
+
+        //此处ajax发请求 相当于jsonp方式加载脚本，和以上三步等价
+        $.ajax({
+            url: jsonpAPI+this.value,
+            dataType: "jsonp",
+        });
+
+
     }
 </script>
 
