@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.2/css/mdui.min.css">
+    <script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.2/js/mdui.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        button {
+            background: hotpink!important;
+            color: #fff!important;
+        }
+        .mdui-card {
+            width: 50%;
+            height: 300px;
+            margin: 50px;
+            position: absolute;
+        }
+        .grey {
+            background: rgba(0,0,0,.3);
+        }
+
+        .container {
+            width: 40px;
+            height: 40px;
+            margin: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+<button class="mdui-btn mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">add</i></button>
+
+<div class="mdui-card mdui-hoverable">
+    <div class="mdui-card-media">
+        <img src="card.jpg"/>
+    </div>
+</div>
+</div>
+
+<script>
+    let btn = $('button').eq(0);
+    let card = $('.mdui-card').eq(0);
+    let container = $('.container').eq(0);
+
+    let showState = false;
+
+    card.hide();
+
+    btn.on('click',(e)=>{
+
+        if(!showState) {
+            card.show();
+            $(document.body).addClass('grey');
+        }else{
+            card.hide();
+            $(document.body).removeClass('grey');
+        }
+        showState = !showState;
+
+        //e.stopPropagation()
+
+        $(document).one('click',(e)=>{
+            console.log(e.target);
+            card.hide();
+            $(document.body).removeClass('grey');
+            showState = false;
+        })
+    })
+
+    container.on('click',e=>{
+        e.stopPropagation();
+    })
+
+
+
+</script>
+</body>
+</html>

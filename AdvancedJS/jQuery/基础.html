@@ -3,7 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-
+    <style>
+        .outer {
+            width: 150px;
+            height: 150px;
+            background: teal;
+        }
+        .inner {
+            background: azure;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
 </head>
 <body>
 
@@ -11,6 +22,11 @@
     <div class="d1">1</div>
     <div class="d2">2</div>
 
+    <div class="outer">
+        <div class="inner">
+            我是儿子
+        </div>
+    </div>
 
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script>
@@ -24,7 +40,16 @@
         console.log(qdiv);
         console.dir(jdiv.html(function(index,res){return res.innerHTML;}));
 
+        let outer = $('.outer').eq(0);
+        let inner = $('.inner').eq(0);
 
+        $(outer).on('click',()=>{
+            console.log('show');
+            $(inner).one('click',()=>{
+                console.log('我不会执行');
+                console.log('hide');
+            })
+        })
 
     </script>
 </body>

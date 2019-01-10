@@ -18,6 +18,7 @@ let dotIndex = 0;
 
 let clickRightFlag = true;
 
+
 //轮播
 slideFunction(clickIndex, curIndex, 5, imgul, control, "orangered", 0, 2001);
 
@@ -25,10 +26,20 @@ let timerID = setInterval(function(){arrR.eq(0).click()},2000);
 
 wrap1.mouseover(function () {
     clearInterval(timerID);
-})
+});
 
 wrap1.mouseout(function () {
     timerID = setInterval(function(){arrR.eq(0).click()},2000);
+});
+
+//用户暂离页面时停掉页面
+document.addEventListener('visibilitychange',()=>{
+    console.log('用户暂离状态:',document.hidden);
+    if (document.hidden) {
+        clearInterval(timerID);
+    }else{
+        timerID = setInterval(function(){arrR.eq(0).click()},2000);
+    }
 })
 
 
@@ -44,9 +55,12 @@ function slideFunction(clickIndex, curIndex, modNum, imgul, control, controlColo
 
     function setControlPos() {
         dotIndex = curIndex > 0 ? curIndex - 1 : 3;
-        for (let i = 0; i < control.length; i++) {
+        /*for (let i = 0; i < control.length; i++) {
             control.eq(i).css("background","");
-        }
+        }*/ //循环变为map
+        control.map(idx=>{
+            control.eq(idx).css('background',"");
+        });
         control.eq(dotIndex).css("background",controlColor);
     }
 
@@ -104,21 +118,20 @@ function slideFunction(clickIndex, curIndex, modNum, imgul, control, controlColo
             }
         }
     });
-
     //绑定底部点 点击事件
     function controlEvent() {
         for (let i = 0; i < control.length; i++) {
-            control.eq(i)[0].index = i;
+            //control.eq(i)[0].index = i;
             control.eq(i).click(function () {
                 if (clickIndex % modNum == 0) {
                     imgul.eq(0).css("transition","none");
                     imgul.eq(0).css("left",-500 * (
                         imgli.length - 1) + "px");
                 }
-                clickIndex = this.index + 1;
+                //clickIndex = this.index + 1;
+                clickIndex = i + 1; //循环用let没那个问题
                 setTimeout(function () {
                     imgul.eq(0).css("transition","");
-                    console.log("获取的索引值1:" + clickIndex);
                     setImgPos();
                     setControlPos();
                 }, 16)
