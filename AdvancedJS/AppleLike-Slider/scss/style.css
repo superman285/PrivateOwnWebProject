@@ -1,0 +1,36 @@
+* { margin: 0; padding: 0; }
+
+ul { list-style: none; }
+
+.Wrap1, .Wrap2 { position: relative; width: 900px; height: 380px; margin: 100px auto; box-sizing: border-box; overflow-x: hidden; box-shadow: 0 0 10px 2px grey; box-sizing: border-box; }
+
+.Wrap2 { display: none; }
+
+.imgul, .imgul2 { position: relative; left: 0; display: flex; width: 4500px; height: 100%; transition: all .2s linear; }
+
+.imgli { width: 100%; height: 100%; }
+.imgli:nth-child(1) { background: url("../img/info.jpg"); background-size: cover; }
+.imgli:nth-child(2) { background: url("../img/macbook.jpg"); background-size: cover; }
+.imgli:nth-child(3) { background: url("../img/iphone.jpg"); background-size: cover; }
+.imgli:nth-child(4) { background: url("../img/imac.jpg"); background-size: cover; }
+.imgli:nth-child(5) { background: url("../img/info.jpg"); background-size: cover; }
+
+.controlWrap { display: flex; justify-content: center; align-items: center; position: absolute; left: 0; right: 0; bottom: -60px; width: 900px; margin: 0 auto; background: rgba(255, 255, 255, 0.45); box-shadow: 0 0 2px black; }
+.controlWrap .control { position: relative; width: 60px; height: 50px; padding-top: 10px; text-align: center; background: white; cursor: pointer; box-sizing: border-box; box-shadow: 0 0em 1em rgba(0, 0, 0, 0.3); background: linear-gradient(to bottom, #f5f6f6 0%, #dbdce2 21%, #b8bac6 49%, #dddfe3 80%, #f5f6f6 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f6f6', endColorstr='#f5f6f6',GradientType=0 ); /* IE6-9 */ background: linear-gradient(to bottom, white 0%, rgba(255, 255, 255, 0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */ }
+.controlWrap .control.active { background: linear-gradient(to bottom, rgba(174, 188, 191, 0.3) 0%, rgba(110, 119, 116, 0.3) 50%, rgba(10, 14, 10, 0.3) 51%, rgba(10, 8, 9, 0.3) 100%); }
+
+.Wrap2 .title { height: 30px; margin-left: 0; margin-top: 10px; }
+.Wrap2 .title img { height: 100%; }
+.Wrap2 .title span { vertical-align: top; line-height: 26px; }
+
+.controlWrap2 { display: flex; width: 100%; height: 6px; margin-top: -1px; background: #EA394E; cursor: pointer; }
+.controlWrap2 .control2 { flex: 1; }
+
+.arrowL, .arrowR { position: absolute; width: 30px; height: 30px; line-height: 26px; text-align: center; font-weight: bold; border-radius: 15px; background: slategrey; cursor: pointer; user-select: none; }
+.arrowL:hover, .arrowR:hover { opacity: .7; }
+
+.arrowL { left: -10px; top: 0; bottom: 0; margin: auto 0; }
+
+.arrowR { right: -10px; top: 0; bottom: 0; margin: auto 0; }
+
+/*# sourceMappingURL=style.css.map */
