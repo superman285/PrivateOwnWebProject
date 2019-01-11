@@ -13,13 +13,11 @@
         .uploadclose {
             right: 100px!important;
         }
-
-        
     </style>
 </head>
 <body>
 
-<h1 class="mdui-color-pink-accent">文件上传自建服务器版</h1>
+<h1 class="mdui-color-pink-accent">文件上传图床版</h1>
 
 <div class="uploadbox mdui-textfield mdui-textfield-expandable">
     <button class="mdui-textfield-icon mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">cloud</i></button>
@@ -45,20 +43,22 @@
             return;
         }
         let xhr = new XMLHttpRequest();
-
-        xhr.open('post','/upload',true);
+        //sm.ms图床切记 要带smfile参数 ，在fordata的append中配置
+        xhr.open('post','https://sm.ms/api/upload',true);
 
         //xhr.setRequestHeader('content-type','multipart/form-data');
 
         xhr.onload = function () {
             console.log(this.response)
+            console.log(JSON.parse(this.response));
+            console.log('图床放图地址为:',(JSON.parse(this.response)).data.url);
             uploadBox.classList.remove('mdui-textfield-expanded')
             alert('上传成功了')
         };
 
 
         let formdata = new FormData();
-        formdata.append('file',fileData);
+        formdata.append('smfile',fileData);
         xhr.send(formdata);
 
 
