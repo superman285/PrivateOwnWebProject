@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <style>
+        .red {
+            color: red;
+        }
+        .teal {
+            color: teal;
+        }
+        #div1 {
+            width: 200px;
+            height: 200px;
+            background: teal;
+        }
+        #div2 {
+            width: 120px;
+            height: 120px;
+            background: skyblue;
+        }
+        #div3 {
+            width: 80px;
+            height: 80px;
+            background: lightpink;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <h1>{{title}}</h1>
+    {{fn2()}}
+    {{fn3()}}
+    {{fn3}}
+
+    <hr>
+
+    <ul>
+        <h1 v-for="value in users" v-show="value.gender=='男'">{{value.username}}</h1>
+        <li v-for="(value,idx) in users">{{value}}-{{idx}}</li>
+    </ul>
+
+    <hr>
+
+    我用v-bind
+    <h3 :title="title">我的字</h3>
+
+    <hr>
+    v-bind用于class和style
+    <ul>
+        <li v-for="user in users">
+            <span :class="user.gender=='男'?'':'red'">{{user.username}}</span>
+        </li>
+        对象写法：
+        <li v-for="user in users">
+            <span :class="{teal:user.gender=='男'}">{{user.username}}</span>
+        </li>
+    </ul>
+
+    <h2 style="color:red;background:#000;">我呀</h2>
+
+    <hr>
+
+    <button @click="fnClick(1,2,$event,3)">点我</button>
+
+    <hr>
+    <h4>测试修饰符</h4>
+
+    <div @click.self="test1" id="div1">
+        <div @click="test2" id="div2">
+            <div @click="test3" id="div3">
+                    来来来大家快来
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div id="example-5">
+        <select v-model="selected">
+            <option disabled value="">请选择</option>
+            <option>
+                <div>ac1</div>
+            </option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        <span>Selected: {{ selected }}</span>
+    </div>
+
+</div>
+
+
+let p1 = new Promise((a,b)=>{
+resolve();
+})
+<script>
+
+    function fn(){
+        return 'miaov';
+    }
+
+    console.log('开始了');
+
+    let p1 = new Promise((a,b)=>{
+        a(22);
+    })
+
+    /*let p2 = new Promise((a,b)=>{
+        b(333);
+    })*/
+
+    p2 = p1.then(x=>{
+        console.log(x);
+        return 3;
+    })
+   /* p2.then(undefined,y=>{
+        console.log(y);
+    })*/
+   
+   /*p3 = p2.catch(/!*x=>{
+       console.log(x);
+   },()=>{
+       console.log('第一then');
+   }*!/)*/
+
+   p3 = p2.catch(x=>{
+       console.log('我是catch',x);
+       return new Promise((x,y)=>{
+           console.log('return我拒绝',y);
+           y('返回我拒绝');
+       })
+   })
+
+    p4 = p3.catch(x=>{
+        console.log('结束');
+    })
+
+
+    /*p4 = p3.then(()=>{
+       console.log('再来');
+   },()=>{
+       console.log('再来2');
+   })*/
+
+    //p4 = p3.catch()
+
+    //console.log(p1,p2,p1==p2);
+
+
+    let title = 'Music'
+
+    let app = new Vue({
+        el: '#app', //指定当前vue对象处理的范围，通过el指定的内容将被当前Vue对象管理，使用选择器
+        data: {
+            title,
+
+            users:[
+                {username:'zmouse',gender:"男"},
+                {username:'zmouse2',gender:"男2"},
+                {username:'zmouse3',gender:"男3"},
+            ],
+
+            selected: 'ac1',
+
+            fn2(){
+                return 'miaov';
+            }
+        },
+        methods: {
+            fn3(){
+                return 'miaov2';
+            },
+            fnClick(a,b){
+                console.log(a,b);
+            },
+            test1(e){
+                console.log('div1');
+            },
+            test2(e){
+                console.log('div2');
+            },
+            test3(e){
+                console.log('div3');
+            },
+        }
+
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" async="true"></script>
+
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background: teal;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <div class="box" v-drag="isDrag" @mousedown="down" @mousemove="move" @mouseup="up"></div>
+    </div>
+
+
+    <script>
+
+
+        //自定义拖拽指令
+        Vue.directive('drag',{
+            bind(el,binding){
+
+                let {value: isDrag} = binding;
+
+
+                el._isDrag = binding.value;
+
+                el.onmousedown = function(e) {
+                    let {clientX,clientY} = e;
+                    let x = clientX = el.offsetLeft;
+                    let y = clientY - el.offsetTop;
+
+
+                    document.onmousemove = function(e){
+                        let {clientX,clientY} = e;
+                        el.style.left = clientX - x + 'px';
+                        el.style.top = clientY - y + 'px';
+                    }
+
+                    document.onmouseup = function() {
+                        document.onmousemove = document.onmouseup = null;
+                    }
+                }
+            },
+
+            update(el,binding){
+              binding.value = el._isDrag;
+            }
+        })
+
+        new Vue({
+            el: '#app',
+            data: {
+                isDrag: true,
+            },
+            methods: {
+                down(e){
+
+                },
+                move(e){
+
+                },
+                up(e){
+
+                }
+            }
+        });
+    </script>
+</body>
+</html>
