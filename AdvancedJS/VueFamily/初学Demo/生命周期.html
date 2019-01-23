@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LifeTime</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
+
+</head>
+<body>
+
+<div id="app">
+    {{a}}
+</div>
+
+<script>
+
+    Animate({
+        el: '#app',
+        attrs: {
+            width: 200,
+        },
+        onend(){
+            //运动完成后的回调
+        }
+    })
+
+    /*
+      通过调用Animate函数传入的一些指定配置函数
+      然后Animate会在其指定的位置(运行期)中调用传入对应函数
+      我们把这些函数称为钩子函数，通过这种方式我们可以在函数运行期间指定位置做一些额外工作
+    */
+
+    function Animate(options) {
+        // 运动开始前的准备, 一些初始化工作
+        options.oninit();
+
+        // 准备开始运动 代码
+        options.onstart();
+
+        // 运动开始 代码
+        options.onmoving();
+
+        // 运动结束 代码
+        options.onend();
+    }
+
+    //初始化事件 数据观测=> 编译模板(html) => 显示在浏览器指定的位置(el el为你指定的挂载对象)
+
+    // 模板 + 数据=>编译后 =>得到视图
+
+    let vm = new Vue({
+        el:'#app',
+
+        data: {
+            a:1,
+            b:10
+        },
+
+
+        methods: {
+            add(){
+                this.a++;
+            }
+        },
+
+
+
+        beforeCreate(){
+            console.log('beforeCreate');
+        },
+
+        created(){
+            console.log('created');
+        },
+
+
+        beforeMount(){
+            console.log('beforeMount');
+        },
+
+        mounted(){
+            console.log('mounted');
+        },
+
+        //数据发生变化 会导致beforeUpdate和updated两个阶段的执行
+        beforeUpdate(){
+            console.log('beforeUpdate');
+        },
+        updated(){
+            console.log('updated');
+        },
+
+        /*
+        * when vm.$destroy() is called 会执行以下两个阶段
+        *
+        */
+        beforeDestroy(){
+            console.log('beforeDestroy');
+        },
+        destroyed(){
+            console.log('destroyed');
+        }
+
+    })
+
+    //手动指定挂载对象元素
+    vm.$mount('#app');
+
+
+    let lifecycleObj = {
+        beforeCreate(){
+            console.log('beforeCreate');
+        },
+
+        created(){
+            console.log('created');
+        },
+
+
+        beforeMount(){
+            console.log('beforeMount');
+        },
+
+        mounted(){
+            console.log('mounted');
+        },
+
+        //数据发生变化 会导致beforeUpdate和updated两个阶段的执行
+        beforeUpdate(){
+            console.log('beforeUpdate');
+        },
+        updated(){
+            console.log('updated');
+        },
+
+        /*
+        * when vm.$destroy() is called 会执行以下两个阶段
+        *
+        */
+        beforeDestroy(){
+            console.log('beforeDestroy');
+        },
+        destroyed(){
+            console.log('destroyed');
+        }
+    }
+
+
+</script>
+</body>
+</html>
