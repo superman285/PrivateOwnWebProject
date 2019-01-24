@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTMLRouter</title>
+  <script src="https://cdn.bootcss.com/vue/2.5.22/vue.js"></script>
+  <script src="https://cdn.bootcss.com/vuex/3.1.0/vuex.js"></script>
+  <script src="https://cdn.bootcss.com/vue-router/3.0.2/vue-router.js"></script>
+</head>
+<body>
+
+  <div id="app">
+
+    <a href="/">首页</a>
+    <a href="/list">列表</a>
+
+
+    <router-view></router-view>
+
+    <hr>
+  </div>
+
+
+<script>
+
+  const HomePage = Vue.component('HomePage',{
+    template: '<h1>首页</h1>'
+  });
+
+  const ListPage = Vue.component('HomePage',{
+    template: '<h1>列表</h1>'
+  });
+
+
+  const router = new VueRouter({
+    //mode: 'history',  //该模式需要后端支持
+
+    base: '/v2/',   //相当于前缀 后面的path相当于都加上了/v2/
+
+    routes: [
+      {
+        path: '/',
+        component: HomePage
+      },
+      {
+        path: '/list',
+        component: ListPage
+      }
+    ],
+  })
+
+  new Vue({
+
+    el: '#app',
+    router
+  })
+
+
+</script>
+
+
+</body>
+</html>
