@@ -1,5 +1,7 @@
 # VueResumer
 
+## vue.config.js是全局配置文件，可配置所有内容
+
 ## Project setup
 ```
 npm install

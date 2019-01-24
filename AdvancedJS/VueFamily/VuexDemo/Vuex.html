@@ -3,11 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <title>Vuex</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.22/vue.js"></script>
+    <script src="https://cdn.bootcss.com/vuex/3.1.0/vuex.js"></script>
 </head>
 <body>
 
+
+<div id="app">
+    <h1>小型计数器</h1>
+    <p>Count:<h2>{{count}}</h2></p>
+    <button class="add" @click="vuexAdd">++</button>
+    <button class="sub" @click="vuexSub">--</button>
+</div>
+
+
+
 <script>
 
+    let store = new Vuex.Store({
+        state: {
+            count: 0,
+        },
+        mutations:{
+            xadd(state){
+                console.log('state',state);
+                state.count++;
+            },
+            xsub(){
+                //不传参就要带上this 否则undefined
+                this.state.count--;
+            }
+        }
+    });
+
+    let vm = new Vue({
+        el: '#app',
+        //template: `<div>我会覆盖你</div>`
+
+        //要使用计算属性，用data有问题
+        computed: {
+            count () {
+                return store.state.count
+            }
+        },
+        methods:{
+            add(e,a){
+                console.log('++',a);
+                this.count+=e;
+            },
+            sub(eve){
+                console.log('--',eve);
+                this.count--;
+            },
+            vuexAdd(){
+                store.commit('xadd')
+            },
+            vuexSub(){
+                store.commit('xsub')
+            }
+        }
+    })
+    console.log(vm);
+
+
+    console.log('store',store);
 </script>
 </body>
 </html>
