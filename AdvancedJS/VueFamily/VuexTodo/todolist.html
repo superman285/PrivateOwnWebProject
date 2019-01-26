@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TodoList</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.22/vue.js"></script>
+    <script src="https://cdn.bootcss.com/vuex/3.1.0/vuex.js"></script>
+    <script src="https://cdn.bootcss.com/vue-router/3.0.2/vue-router.js"></script>
+</head>
+<body>
+
+
+<div id="app">
+
+</div>
+
+<header>
+    <p>
+        <input type="text" placeholder="请输入任务">
+    </p>
+</header>
+
+<ul>
+    <li>
+        <input type="checkbox">
+        <span>111</span>
+        <button>删除</button>
+    </li>
+    <li>
+        <input type="checkbox">
+        <span>222</span>
+        <button>删除</button>
+    </li>
+    <li>
+        <input type="checkbox">
+        <span>333</span>
+        <button>删除</button>
+    </li>
+</ul>
+
+<script>
+
+    const mHeader = Vue.component('mHeader', {
+        data(){
+          return {
+              tasks: [],
+              _id: 0,
+              tasks: [
+                  {id:1,name:'',done:false}
+              ]
+          }
+        },
+        template: `
+    <header>
+        <p>
+            <input type="text" v-model="task" placeholder="请输入任务">
+            <button @click="addNewTask">添加</button>
+        </p>
+    </header>`,
+        methods: {
+            addNewTask(){
+            this.tasks.push({
+                id: ++this._id,
+                name: this.task,
+                done: false
+            })
+                this.$emit('addNewTask',this.task);
+            //父亲 标签加上@addNewTask='addNewTask'
+            }
+        }
+    });
+
+    const mList = Vue.component('mList',{
+        template:`
+            <ul>
+    <li>
+        <input type="checkbox">
+        <span>111</span>
+        <button>删除</button>
+    </li>
+    <li>
+        <input type="checkbox">
+        <span>222</span>
+        <button>删除</button>
+    </li>
+    <li>
+        <input type="checkbox">
+        <span>333</span>
+        <button>删除</button>
+    </li>
+</ul>
+        `
+    })
+
+    const HomePage = Vue.component('HomePage', {
+        template: `
+                <div>
+                    <m-header></m-header>
+                    <m-list></m-list>
+                </div>
+            `,
+        methods: {
+            addNewTask(task){
+
+            }
+        }
+    });
+
+
+    const router = new Vue.router();
+</script>
+
+</body>
+</html>
