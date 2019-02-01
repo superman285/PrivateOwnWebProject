@@ -15,10 +15,14 @@
                 <!--<div class="resumeField" v-for="(value,key) in resume[item.field]">-->
 
                     <div v-if="resume[item.field] instanceof Array">
-                        <div class="subitem" v-for="subitem in resume[item.field]">
+                        <div class="subitem" v-for="(subitem,i) in resume[item.field]">
                             <div class="resumeField" v-for="(value,key) in subitem">
                                 <label> {{key}} </label>
-                                <input type="text" :value="value">
+                                <input type="text"
+                                       :value="value"
+                                       @input="changeResumeField(item.field, key, $event.target.value)"
+                                >
+                                <h1>{{i}}</h1>
                             </div>
                             <hr>
                         </div>
@@ -26,10 +30,11 @@
                     <div v-else class="resumeField" v-for="(value,key) in resume[item.field]">
 
                     <label> {{key}} </label>
-                    <v-text-field
-                            v-model="resume[item.field][key]"
+                    <input
+                            :value="value"
+                            @input="changeResumeField(item.field, key, $event.target.value)"
                             required
-                    ></v-text-field>
+                    ></input>
                 </div>
             </li>
         </ol>
@@ -39,7 +44,8 @@
 <script>
     export default {
         name: "ResumeEditor",
-        data:()=>({
+        //移到store
+        /*data:()=>({
                 selected: 'profile',
                 resume:{
                     config:[
@@ -77,7 +83,28 @@
                         { contact: 'qq', content: '12345678' },
                     ],
                 }
-        })
+        })*/
+        computed: {
+            count: ()=>this.$store.state.count,
+            selected: {
+                get(){ return this.$store.state.selected},
+                set(value){
+                    this.$store.commit('switchTab', value)
+                },
+            },
+            resume(){return this.$store.state.resume;},
+        },
+        methods: {
+            changeResumeField(field, subfield, value){
+
+                console.log(value);
+                this.$store.commit('updateResume',{
+                    field,
+                    subfield,
+                    value
+                })
+            }
+        }
     }
 </script>
 
@@ -100,6 +127,7 @@
                     align-items: center;
                     margin-top: 8px;
                     margin-bottom: 8px;
+                    cursor: pointer;
                     &.active {
                         background: white;
                         .v-icon {
