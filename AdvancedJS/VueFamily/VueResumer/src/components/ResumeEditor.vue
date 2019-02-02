@@ -20,11 +20,9 @@
                                 <label> {{key}} </label>
                                 <input type="text"
                                        :value="value"
-                                       @input="changeResumeField(item.field, key, $event.target.value)"
+                                       @input="changeResumeFieldArr(item.field, i, key, $event.target.value)"
                                 >
-                                <h1>{{i}}</h1>
                             </div>
-                            <hr>
                         </div>
                     </div>
                     <div v-else class="resumeField" v-for="(value,key) in resume[item.field]">
@@ -96,20 +94,30 @@
         },
         methods: {
             changeResumeField(field, subfield, value){
-
                 console.log(value);
                 this.$store.commit('updateResume',{
                     field,
                     subfield,
                     value
                 })
-            }
+            },
+            changeResumeFieldArr(field, arridx, subfield, value){
+                console.log(value);
+                this.$store.commit('updateResumeArr',{
+                    field,
+                    arridx,
+                    subfield,
+                    value
+                })
+            },
+
         }
     }
 </script>
 
 <style scoped lang="scss">
     #resume-editor {
+        font-size: 1.2rem;
         background:#ffffff;
         box-shadow:0 1px 3px 0 rgba(0,0,0,0.25);
         display: flex;
@@ -138,8 +146,23 @@
             }
         }
     }
+    .panels {
+        flex: 1;
+    }
+    input {
+        padding: 5px 0;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid #00838F;
+        width: 92%;
+    }
+    label {
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: #00ACC1;
+    }
     .resumeField{
-        margin: 20px;
+        margin: 1.5rem;
         > label{
             display: block;
         }

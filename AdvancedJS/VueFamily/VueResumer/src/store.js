@@ -7,6 +7,10 @@ export default new Vuex.Store({
     state: {
         count: 0,
         selected: 'profile',
+        user: {
+            id: '',
+            username: '',
+        },
         resume: {
             config: [
                 {field: 'profile', icon: 'assignment_ind'},
@@ -46,21 +50,27 @@ export default new Vuex.Store({
         }
     },
     mutations: {
+        initState(state,payload) {
+          Object.assign(state,payload);
+        },
         switchTab(state, payload) {
             state.selected = payload;
+            localStorage.setItem('state',JSON.stringify(state));
         },
         updateResume(state, {field, subfield, value}){
-            state.resume[field][subfield] = value
-
-
-
-
+            state.resume[field][subfield] = value;
+            localStorage.setItem('state',JSON.stringify(state));
         },
-        setUser() {
-
+        updateResumeArr(state,{field,arridx,subfield,value}){
+            state.resume[field][arridx][subfield] = value;
+            localStorage.setItem('state',JSON.stringify(state));
         },
-        removeUser() {
-
+        setUser(state,payload) {
+            Object.assign(state.user,payload);
+            console.log(state.user);
+        },
+        removeUser(state) {
+            state.user.id = null;
         }
     },
     actions: {

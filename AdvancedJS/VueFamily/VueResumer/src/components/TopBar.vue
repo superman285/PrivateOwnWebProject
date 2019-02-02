@@ -4,8 +4,38 @@
             <span class="logo">Resumer</span>
 
         <div class="actions">
-            <v-btn outline color="light-blue accent-3">保存</v-btn>
-            <v-btn outline color="green accent-4">预览</v-btn>
+
+            <div v-if="logined" class="userActions">
+                <span class="welcome">Hello,{{user.username}}</span>
+                <v-btn outline color="light-blue accent-4"
+                       @click.prevent="signOut">登出</v-btn>
+            </div>
+
+
+            <div v-else class="userActions">
+                <v-btn outline color="light-blue accent-3"
+                       @click.prevent="test"
+                >注册</v-btn>
+                <MyDialog title="注册" :visible="signUpDialogVisible"
+                          @close="signUpDialogVisible = false">
+                    <SignUpForm @success="signIn($event)"></SignUpForm>
+                </MyDialog>
+
+                <v-btn @click.prevent="signInDialogVisible=true" outline color="green accent-4">登录</v-btn>
+                <MyDialog title="登录" :visible="signInDialogVisible"
+                          @close="signInDialogVisible=false">
+                    <SignInForm @success="signIn($event)"></SignInForm>
+                </MyDialog>
+
+
+            </div>
+
+
+
+
+
+            <!--<v-btn outline color="light-blue accent-3">保存</v-btn>
+            <v-btn outline color="green accent-4">预览</v-btn>-->
         </div>
         </div>
     </div>
@@ -13,8 +43,54 @@
 
 
 <script>
+
+    import AV from "leancloud-storage";
+
+    import MyDialog from '@/components/MyDialog';
+    import SignUpForm from '@/components/SignUpForm';
+    import SignInForm from './SignInForm.vue';
+
     export default {
-        name: "TopBar"
+        name: "TopBar",
+        data(){
+            return {
+                signUpDialogVisible: false,
+                signInDialogVisible: false,
+            }
+        },
+        components: {MyDialog,SignUpForm,SignInForm},
+        computed: {
+            user(){
+                return this.$store.state.user
+            },
+            logined(){
+              return this.user.id
+            },
+        },
+        methods: {
+            test(){
+                this.signUpDialogVisible=true;
+                console.log('AV:',AV);
+            },
+
+            signOut() {
+                var appId = '93ivy0ImjLvoRTU1SLSw8lnM-gzGzoHsz';
+                var appKey = 'Ydqpc6FQV4jXqUImwvcI8T0l';
+
+                /*AV.init({
+                    appId,
+                    appKey,
+                })*/
+
+                AV.User.logOut();
+                this.$store.commit('removeUser')
+            },
+            signIn(user) {
+                this.signUpDialogVisible =false;
+                this.signInDialogVisible =false;
+                this.$store.commit('setUser',user);
+            }
+        }
     }
 </script>
 

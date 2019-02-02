@@ -13,9 +13,12 @@
 <script>
     import './assets/reset.css';
 
-    import TopBar from './components/TopBar';
+    import TopBar from './components/TopBar.vue';
     import ResumeEditor from './components/ResumeEditor';
     import ResumePreview from './components/ResumePreview';
+    import MyDialog from './components/MyDialog';
+
+    import getAVUser from './utils/getAVUser';
 
 
     export default {
@@ -23,7 +26,16 @@
         components: {
             TopBar,
             ResumeEditor,
-            ResumePreview
+            ResumePreview,
+            MyDialog
+        },
+        created() {
+            let state = localStorage.getItem('state')
+            if(state){
+                state = JSON.parse(state)
+            }
+            this.$store.commit('initState', state)
+            this.$store.commit('setUser',getAVUser())
         }
     }
 
@@ -31,6 +43,10 @@
 </script>
 
 <style lang="scss">
+
+    footer {
+        height: 200px;
+    }
 
     #app {
         height: 100vh;
