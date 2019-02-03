@@ -1,8 +1,8 @@
 
 module.exports = {
 
-    baseUrl: './',
+    baseUrl: '/PrivateOwnWebProject/AdvancedJS/VueFamily/VueResumer/dist/',
 
-    
+
 
 }
