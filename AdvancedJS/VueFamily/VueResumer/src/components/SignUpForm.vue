@@ -1,4 +1,5 @@
 <template>
+    <!--注册-->
     <div>
         <form @submit.prevent="signUp">
             <div class="row">

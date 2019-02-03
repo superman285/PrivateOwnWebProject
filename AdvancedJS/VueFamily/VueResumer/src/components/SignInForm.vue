@@ -1,4 +1,5 @@
 <template>
+    <!--登录-->
     <div>
         <form @submit.prevent="signIn">
             <div class="row">
@@ -35,6 +36,7 @@
 
             signIn(){
 
+                console.log('触发了啊');
                 var appId = '93ivy0ImjLvoRTU1SLSw8lnM-gzGzoHsz';
                 var appKey = 'Ydqpc6FQV4jXqUImwvcI8T0l';
 
@@ -44,13 +46,16 @@
                 })*/
                 let {username, password} = this.formData;
                 AV.User.logIn(username,password).then(() =>{
-                    this.$emit('success',getAVUser())
-
+                    console.log('成功了吧');
+                    setTimeout(function () {
+                        location.reload()
+                    },1000)
+                    this.$emit('success',getAVUser());
                 }, (error)=> {
                     //alert(JSON.stringify(error));
                     this.errorMessage = getErrorMessage(error)
                 });
-                
+
             }
         }
     }

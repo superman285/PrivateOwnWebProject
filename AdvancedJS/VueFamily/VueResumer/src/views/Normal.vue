@@ -1,42 +1,42 @@
 <template>
-    <div id="app" v-cloak>
-
-
-
-        <!--<router-link to="/">Normal</router-link> |
-        <router-link to="/preview">Preview</router-link>-->
-        <router-view/>
-       <!-- <header>
+    <div id="normal" v-cloak>
+        <header>
             <TopBar></TopBar>
         </header>
         <main>
             <ResumeEditor class="reditor"></ResumeEditor>
             <ResumePreview class="rpreview"></ResumePreview>
-        </main>-->
+        </main>
     </div>
 </template>
 
 <script>
-    import './assets/reset.css';
+    import '../assets/reset.css';
+
+    import TopBar from '../components/TopBar.vue';
+    import ResumeEditor from '../components/ResumeEditor';
+    import ResumePreview from '../components/ResumePreview';
+    import MyDialog from '../components/MyDialog';
+
+    import getAVUser from '../utils/getAVUser';
 
 
     export default {
-        name: 'app',
-        /*components: {
+        name: 'normal',
+        components: {
             TopBar,
             ResumeEditor,
             ResumePreview,
             MyDialog
         },
         created() {
-
             let state = localStorage.getItem('state')
             if(state){
                 state = JSON.parse(state)
             }
             this.$store.commit('initState', state)
             this.$store.commit('setUser',getAVUser())
-        }*/
+        },
     }
 
 
@@ -48,7 +48,7 @@
         display: none !important;
     }
 
-    #app {
+    #normal {
         height: 100vh;
         display: flex;
         flex-direction: column!important;
@@ -68,13 +68,13 @@
         align-self: center;
         width: 100%;
     }
-    
+
     .reditor {
         width: 35%;
         background:#ffffff;
         box-shadow:0 1px 3px 0 rgba(0,0,0,0.25);
     }
-    
+
     .rpreview {
         flex: 1;
         margin-left: 16px;

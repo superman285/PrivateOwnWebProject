@@ -87,7 +87,6 @@
                     appId,
                     appKey,
                 })*/
-
                 AV.User.logOut();
                 this.$store.commit('removeUser')
             },

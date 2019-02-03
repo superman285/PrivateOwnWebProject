@@ -131,6 +131,7 @@ export default new Vuex.Store({
         },
         removeUser(state) {
             state.user.id = null;
+            location.reload()
         }
     },
     actions: {

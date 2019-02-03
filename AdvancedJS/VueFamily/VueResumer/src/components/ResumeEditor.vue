@@ -33,7 +33,7 @@
 
                     <v-btn color="blue-grey" class="white--text add-btn" @click="addItem(item.field)">
                         添加
-                        <v-icon right dark>cloud_upload</v-icon>
+                        <v-icon right dark>playlist_add</v-icon>
                     </v-btn>
                 </div>
 
