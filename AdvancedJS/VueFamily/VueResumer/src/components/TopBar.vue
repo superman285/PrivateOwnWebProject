@@ -6,7 +6,9 @@
         <div class="actions">
 
             <div v-if="logined" class="userActions">
-                <span class="welcome">Hello,{{user.username}}</span>
+                <span class="welcome">Hello,
+                    <span class="mvp">{{user.username}}</span>
+                </span>
                 <v-btn outline color="light-blue accent-4"
                        @click.prevent="signOut">登出</v-btn>
             </div>
@@ -113,6 +115,12 @@
         .logo{
             font-size:24px;
             color:#000000;
+        }
+
+        .mvp {
+            font-weight: bold;
+            color: limegreen;
+            font-size: 1.2rem;
         }
     }
 </style>

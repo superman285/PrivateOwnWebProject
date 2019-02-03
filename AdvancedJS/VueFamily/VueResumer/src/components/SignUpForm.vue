@@ -10,7 +10,6 @@
                 <v-text-field class="pwdfield" type="password" v-model="formData.password" required></v-text-field>
             </div>
             <div class="actions">
-                <input type="submit" value="提交">
                 <v-btn type="submit" class="sub-btn">提交</v-btn>
                 <span class="errorMessage">{{errorMessage}}</span>
             </div>
@@ -28,8 +27,8 @@
         name: "SignUpForm",
         data:()=>({
             formData: {
-                username: 's',
-                password: 'ss'
+                username: '',
+                password: ''
             },
             errorMessage: ''
         }),
@@ -50,8 +49,9 @@
                 user.setPassword(password);
                 user.signUp().then(() =>{
                     this.$emit('success',getAVUser())
+
                 }, (error)=> {
-                    alert(JSON.stringify(error));
+                    //alert(JSON.stringify(error));
                     this.errorMessage = getErrorMessage(error)
                 });
             }

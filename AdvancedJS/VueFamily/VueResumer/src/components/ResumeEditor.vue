@@ -13,9 +13,11 @@
         <ol class="panels">
             <li v-for="item in resume.config" v-show="item.field === selected">
                 <!--<div class="resumeField" v-for="(value,key) in resume[item.field]">-->
+                <h1 class="editor-title">{{item.field}}</h1>
 
-                    <div v-if="resume[item.field] instanceof Array">
-                        <div class="subitem" v-for="(subitem,i) in resume[item.field]">
+                <div v-if="resume[item.field] instanceof Array">
+                    <div class="subitem" v-for="(subitem,i) in resume[item.field]">
+                        <v-card class="cardwrap">
                             <div class="resumeField" v-for="(value,key) in subitem">
                                 <label> {{key}} </label>
                                 <input type="text"
@@ -23,17 +25,29 @@
                                        @input="changeResumeFieldArr(item.field, i, key, $event.target.value)"
                                 >
                             </div>
-                        </div>
+                            <v-btn v-if="i!=0" fab dark small color="indigo" class="item-del" @click="delItem(i,item.field)">
+                                <v-icon dark>remove</v-icon>
+                            </v-btn>
+                        </v-card>
                     </div>
-                    <div v-else class="resumeField" v-for="(value,key) in resume[item.field]">
 
-                    <label> {{key}} </label>
-                    <input
-                            :value="value"
-                            @input="changeResumeField(item.field, key, $event.target.value)"
-                            required
-                    ></input>
+                    <v-btn color="blue-grey" class="white--text add-btn" @click="addItem(item.field)">
+                        添加
+                        <v-icon right dark>cloud_upload</v-icon>
+                    </v-btn>
                 </div>
+
+                <div v-else>
+                    <div class="resumeField" v-for="(value,key) in resume[item.field]">
+                        <label> {{key}} </label>
+                        <input
+                                :value="value"
+                                @input="changeResumeField(item.field, key, $event.target.value)"
+                                required
+                        ></input>
+                    </div>
+                </div>
+
             </li>
         </ol>
     </div>
@@ -83,27 +97,41 @@
                 }
         })*/
         computed: {
-            count: ()=>this.$store.state.count,
+            count: () => this.$store.state.count,
             selected: {
-                get(){ return this.$store.state.selected},
-                set(value){
+                get() {
+                    return this.$store.state.selected
+                },
+                set(value) {
                     this.$store.commit('switchTab', value)
                 },
             },
-            resume(){return this.$store.state.resume;},
+            resume() {
+                return this.$store.state.resume;
+            },
         },
         methods: {
-            changeResumeField(field, subfield, value){
+
+            addItem(field) {
+                console.log('item.field:', field);
+                this.$store.commit('addItem', field)
+            },
+            delItem(index,field,ev) {
+
+                this.$store.commit('delItem',{index,field})
+            },
+
+            changeResumeField(field, subfield, value) {
                 console.log(value);
-                this.$store.commit('updateResume',{
+                this.$store.commit('updateResume', {
                     field,
                     subfield,
                     value
                 })
             },
-            changeResumeFieldArr(field, arridx, subfield, value){
+            changeResumeFieldArr(field, arridx, subfield, value) {
                 console.log(value);
-                this.$store.commit('updateResumeArr',{
+                this.$store.commit('updateResumeArr', {
                     field,
                     arridx,
                     subfield,
@@ -118,17 +146,17 @@
 <style scoped lang="scss">
     #resume-editor {
         font-size: 1.2rem;
-        background:#ffffff;
-        box-shadow:0 1px 3px 0 rgba(0,0,0,0.25);
+        background: #ffffff;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
         display: flex;
         flex-direction: row;
         overflow: auto;
-        >nav {
+        > nav {
             width: 80px;
             background: black;
             color: white;
-            >ol {
-                >li {
+            > ol {
+                > li {
                     height: 60px;
                     display: flex;
                     justify-content: center;
@@ -139,16 +167,42 @@
                     &.active {
                         background: white;
                         .v-icon {
-                            color: black!important;
+                            color: black !important;
                         }
                     }
                 }
             }
         }
     }
+
+    .cardwrap {
+        margin: .1rem auto;
+        padding: 0rem 0 .3rem;
+        width: 96%;
+    }
+
+    .editor-title {
+        margin-left: 1rem;
+        color: palevioletred;
+    }
+
+    .add-btn {
+        margin-left: 1.3rem;
+    }
+
+    .item-del {
+        position: absolute !important;
+        right: 0 !important;
+        top: 0 !important;
+        width: 2rem !important;
+        height: 2rem !important;
+    }
+
     .panels {
         flex: 1;
+        overflow: auto;
     }
+
     input {
         padding: 5px 0;
         outline: none;
@@ -156,23 +210,27 @@
         border-bottom: 1px solid #00838F;
         width: 92%;
     }
+
     label {
         font-size: 1.3rem;
         font-weight: bold;
         color: #00ACC1;
     }
-    .resumeField{
+
+    .resumeField {
         margin: 1.5rem;
-        > label{
+        > label {
             display: block;
         }
     }
+
     .v-icon {
         font-size: 2rem;
-        color: white!important;
+        color: white !important;
         user-select: none;
     }
-    hr{
+
+    hr {
         border: none;
         border-top: 1px solid #ccc;
         margin: 10px 20px;

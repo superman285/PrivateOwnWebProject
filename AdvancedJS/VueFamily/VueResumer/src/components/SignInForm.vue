@@ -10,7 +10,7 @@
                 <v-text-field class="pwdfield" type="password" v-model="formData.password" required></v-text-field>
             </div>
             <div class="actions">
-                <v-btn type="submit" class="sub-btn" @click="">提交</v-btn>
+                <v-btn type="submit" class="sub-btn">提交</v-btn>
                 <span class="errorMessage">{{errorMessage}}</span>
             </div>
         </form>
@@ -26,12 +26,13 @@
         name: "SignInForm",
         data:()=>({
             formData: {
-                username: 'sin',
-                password: 'ss'
+                username: '',
+                password: ''
             },
             errorMessage: ''
         }),
         methods: {
+
             signIn(){
 
                 var appId = '93ivy0ImjLvoRTU1SLSw8lnM-gzGzoHsz';
@@ -44,10 +45,12 @@
                 let {username, password} = this.formData;
                 AV.User.logIn(username,password).then(() =>{
                     this.$emit('success',getAVUser())
+
                 }, (error)=> {
-                    alert(JSON.stringify(error));
+                    //alert(JSON.stringify(error));
                     this.errorMessage = getErrorMessage(error)
                 });
+                
             }
         }
     }

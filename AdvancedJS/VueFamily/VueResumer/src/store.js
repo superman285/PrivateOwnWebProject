@@ -57,6 +57,65 @@ export default new Vuex.Store({
             state.selected = payload;
             localStorage.setItem('state',JSON.stringify(state));
         },
+
+        addItem(state,field) {
+            switch (field) {
+                case 'work history':
+                    pushComp();
+                    break;
+                case 'education':
+                    pushSch();
+                    break;
+                case 'projects':
+                case 'awards':
+                    pushName();
+                    break;
+                case 'contacts':
+                    pushCont();
+                    break;
+            }
+            function pushComp() {
+                state.resume[field].push({
+                    company: '',
+                    content: ''
+                });
+            }
+            function pushSch() {
+                state.resume[field].push({
+                    school: '',
+                    content: ''
+                });
+            }
+            function pushName() {
+                state.resume[field].push({
+                    name: '',
+                    content: ''
+                });
+            }
+            function pushCont() {
+                state.resume[field].push({
+                    contact: '',
+                    content: ''
+                });
+            }
+        },
+        delItem(state,{index,field}){
+
+            console.log(index,field);
+            if(index) {
+
+                let asure = confirm('确认删除此项么?');
+
+                if (asure) {
+                    state.resume[field].splice(index, 1);
+                }
+
+
+            }else {
+                alert('第一条项目不可删除!')
+            }
+        },
+
         updateResume(state, {field, subfield, value}){
             state.resume[field][subfield] = value;
             localStorage.setItem('state',JSON.stringify(state));
@@ -68,6 +127,7 @@ export default new Vuex.Store({
         setUser(state,payload) {
             Object.assign(state.user,payload);
             console.log(state.user);
+
         },
         removeUser(state) {
             state.user.id = null;

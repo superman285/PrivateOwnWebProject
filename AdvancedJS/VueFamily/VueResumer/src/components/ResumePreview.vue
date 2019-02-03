@@ -90,7 +90,7 @@
     }
     .contact-kind {
         display: inline-block;
-        width: 4rem;
+        width: 5rem;
     }
     section:not(:first-child) {
         margin-top: 1.5rem;
