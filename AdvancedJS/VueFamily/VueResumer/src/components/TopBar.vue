@@ -30,6 +30,10 @@
                 </MyDialog>
 
 
+
+
+                <router-link to="/preview"><v-btn outline color="purple accent-3">预览</v-btn></router-link>
+
             </div>
 
 
@@ -97,6 +101,11 @@
 </script>
 
 <style scoped lang="scss">
+
+    a {
+        text-decoration: none;
+    }
+
     #topbar{
         background:#ffffff;
         box-shadow:0 1px 3px 0 rgba(0,0,0,0.25);

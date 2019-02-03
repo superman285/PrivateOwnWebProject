@@ -1,12 +1,18 @@
 <template>
     <div id="app">
-        <header>
+
+
+
+        <!--<router-link to="/">Normal</router-link> |
+        <router-link to="/preview">Preview</router-link>-->
+        <router-view/>
+       <!-- <header>
             <TopBar></TopBar>
         </header>
         <main>
             <ResumeEditor class="reditor"></ResumeEditor>
             <ResumePreview class="rpreview"></ResumePreview>
-        </main>
+        </main>-->
     </div>
 </template>
 
