@@ -1,9 +1,8 @@
 
 module.exports = {
 
-    //assetsDir: '/PrivateOwnWebProject/AdvancedJS/VueFamily/VueResumer/dist/',
+    baseUrl: './',
 
-    publicPath: process.env.NODE_ENV === 'production'
-        ? '/PrivateOwnWebProject/AdvancedJS/VueFamily/VueResumer/dist/'
-        : '/'
+    
+
 }
