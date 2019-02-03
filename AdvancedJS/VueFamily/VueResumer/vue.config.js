@@ -1,6 +1,6 @@
 
 module.exports = {
 
-    assetsDir: '/PrivateOwnWebProject/AdvancedJS/VueFamily/VueResumer/dist/'
-
+    assetsDir: '/PrivateOwnWebProject/AdvancedJS/VueFamily/VueResumer/dist/',
+    publicPath: './'
 }
