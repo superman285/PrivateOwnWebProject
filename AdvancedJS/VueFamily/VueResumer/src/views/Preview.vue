@@ -4,6 +4,8 @@
         <main>
             <ResumePreview class="rpreview"></ResumePreview>
         </main>
+
+
         <v-btn
                 color="indigo"
                 class="white--text"
