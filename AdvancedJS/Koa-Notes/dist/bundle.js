@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("console.log('我是入口文件啊啊啊啊啊啊');\n\n//# sourceURL=webpack:///./src/js/app/index.js?");
+eval("console.log('我是入口文件ss');\n\n\n//# sourceURL=webpack:///./src/js/app/index.js?");
 
 /***/ })
 
