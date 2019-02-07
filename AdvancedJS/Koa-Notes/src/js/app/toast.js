@@ -1,3 +1,5 @@
+import "../../sass/toast.scss";
+
 import jQuery from 'jquery';
 
 window.$ = window.jQuery = jQuery;
@@ -34,14 +36,16 @@ function Toast(msg,time) {
     return new toast(msg,time)
 }
 
-var ak = Toast('nihao',1000)
+var ak = Toast('nihao',3000);
 
-
+//加入后可以直接用,不需要再xxx.toast或xxx.Toast
+window.toast = toast;
 window.Toast = Toast;
-module.export.Toast = Toast;
+
+//module.export.Toast = Toast;
 
 
-export {toast,Toast}
+export {toast,Toast};
 
 //Toast不是对象 所以不可module.export = Toast
 //使用时 const toaMod = require('toast.js') toaMod.Toast('use',1000)

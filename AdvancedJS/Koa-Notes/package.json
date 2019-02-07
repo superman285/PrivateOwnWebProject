@@ -8,9 +8,10 @@
     "prd": "pm2 start bin/www",
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack",
-    "webpack-watch": "onchange 'src/**/*.js' -- npm run webpack "
+    "webpack-watch": "onchange 'src/**/*.js' 'src/sass/*.scss' -- npm run webpack "
   },
   "dependencies": {
+    "css-loader": "^2.1.0",
     "debug": "^2.6.3",
     "jquery": "^3.3.1",
     "koa": "^2.2.0",
@@ -22,8 +23,11 @@
     "koa-router": "^7.1.1",
     "koa-static": "^3.0.0",
     "koa-views": "^5.2.1",
+    "node-sass": "^4.11.0",
     "path": "^0.12.7",
-    "pug": "^2.0.0-rc.1"
+    "pug": "^2.0.0-rc.1",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1"
   },
   "devDependencies": {
     "nodemon": "^1.8.1",
