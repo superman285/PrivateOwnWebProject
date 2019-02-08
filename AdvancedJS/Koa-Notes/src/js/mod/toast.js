@@ -38,7 +38,7 @@ var ak = Toast('nihao',1000)
 
 
 window.Toast = Toast;
-module.export.Toast = Toast;
+//module.export.Toast = Toast;
 
 
 export {toast,Toast}

@@ -5,36 +5,19 @@ import Event from "./event";
 
 class Note {
 
-
-    colors = [
-        ['#EF5350', '#EF9A9A'], // headColor, containerColor
-        ['#EC407A', '#F48FB1'],
-        ['#AB47BC', '#CE93D8'],
-        ['#5C6BC0', '#9FA8DA'],
-        ['#42A5F5', '#90CAF9'],
-        ['#26C6DA', '#80DEEA'],
-        ['#26A69A', '#80CBC4'],
-        ['#9CCC65', '#C5E1A5'],
-        ['#D4E157', '#E6EE9C'],
-        ['#FFEE58', '#FFF59D'],
-        ['#FFCA28', '#FFE082'],
-        ['#FFA726', '#FFCC80'],
-        ['#8D6E63', '#BCAAA4'],
-        ['#78909C', '#B0BEC5'],
-        ['#BDBDBD', '#EEEEEE'],
-    ];
-    defaultOpts = {
-        id: '',   //Note的 id
-        $ct: $('#content').length > 0 ? $('#content') : $('body'),  //默认存放 Note 的容器
-        context: 'input here'  //Note 的内容
-    }
-
+//暂不支持静态属性写在外面的定义方式，先写在constructor里头 用this吧
 
     constructor(opts) {
+        this.defaultOpts = {
+            id: '',   //Note的 id
+            $ct: $('#content').length > 0 ? $('#content') : $('body'),  //默认存放 Note 的容器
+            context: 'input here'  //Note 的内容
+        };
         this.initOpts(opts);
         this.createNote();
         this.setStyle();
         this.bindEvent();
+
     }
 
     initOpts(opts) {
@@ -56,7 +39,7 @@ class Note {
     }
 
     setStyle() {
-        let color = this.colors[Math.floor(Math.random() * 15)];
+        let color = Note.colors[Math.floor(Math.random() * 15)];
         this.$note.find('.note-head').css('background-color', color[0]);
         this.$note.find('.note-ct').css('background-color', color[1]);
     }
@@ -158,6 +141,25 @@ class Note {
 
     };
 }
+
+
+Note.colors = [
+    ['#EF5350', '#EF9A9A'], // headColor, containerColor
+    ['#EC407A', '#F48FB1'],
+    ['#AB47BC', '#CE93D8'],
+    ['#5C6BC0', '#9FA8DA'],
+    ['#42A5F5', '#90CAF9'],
+    ['#26C6DA', '#80DEEA'],
+    ['#26A69A', '#80CBC4'],
+    ['#9CCC65', '#C5E1A5'],
+    ['#D4E157', '#E6EE9C'],
+    ['#FFEE58', '#FFF59D'],
+    ['#FFCA28', '#FFE082'],
+    ['#FFA726', '#FFCC80'],
+    ['#8D6E63', '#BCAAA4'],
+    ['#78909C', '#B0BEC5'],
+    ['#BDBDBD', '#EEEEEE'],
+];
 
 
 export default Note;

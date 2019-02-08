@@ -5,6 +5,9 @@ const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
+const path = require("path");
+
+const nunjucks = require("koa-nunjucks-2");
 
 const index = require('./routes/index')
 const users = require('./routes/users')
@@ -25,10 +28,21 @@ app.use(require('koa-static')(__dirname + '/public'))
 //这种写法 访问静态资源时需要 /public/stylesheets/style.css
 app.use(require('koa-static')(__dirname))
 
-//可换别的模板引擎
-app.use(views(__dirname + '/views', {
-    extension: 'pug'
-}))
+//可换别的模板引擎 koa-views的功能 若使用此插件 则index.js处应配置为index.njk 加后缀
+/*app.use(views(__dirname + '/views', {
+    map: {
+        njk: 'nunjucks'
+    }
+}))*/
+
+//koa-nunjucks-2的功能 好像更爽
+app.use(nunjucks({
+    ext: 'njk',
+    path: path.resolve(__dirname, 'views'),// 指定视图目录
+    nunjucksConfig: {
+        trimBlocks: true // 开启转义 防Xss
+    }
+}));
 
 // logger
 app.use(async (ctx, next) => {

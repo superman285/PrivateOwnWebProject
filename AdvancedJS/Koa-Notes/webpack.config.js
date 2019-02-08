@@ -4,11 +4,11 @@ const webpack = require('webpack');
 module.exports = {
     mode: 'development',
     //join中不能省__dirname
-    entry: path.join(__dirname,'./src/js/app/toast.js'),
+    entry: path.join(__dirname,'./src/js/app/index.js'),
     output: {
         //等价于path.resolve(__dirname,'dist') dirname可以省
         path: path.resolve('dist'),
-        filename: 'bundletoast.js',
+        filename: 'bundle.js',
         publicPath: '',
     },
     module: {
