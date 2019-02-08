@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
     mode: 'development',
@@ -47,9 +48,9 @@ module.exports = {
     //省去了每个模块require引入jquery的步骤 舒服
     plugins: [
 
-        /*new webpack.ProvidePlugin({
-            $: "./node_modules/jquery/dist/jquery."
-        }),*/
+        new webpack.ProvidePlugin({
+            $: "jquery"
+        }),
 
     ]
 
