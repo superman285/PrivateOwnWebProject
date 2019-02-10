@@ -38,9 +38,10 @@ function waterfall(a) {
         })
     }
 
+
     function k(b) {
-        f(a) != t && (
-            b.target.removeEventListener(b.type, arguments.callee), waterfall(a))
+        //此处写k的地方原本为arguments.callee 已经弃用
+        f(a) != t && (b.target.removeEventListener(b.type, k), waterfall(a))
     }
 
     "string" == typeof a && (
@@ -69,4 +70,4 @@ function waterfall(a) {
     window.addEventListener ? window.addEventListener("resize", k) : document.body.onresize = k
 }
 
-export {waterfall as WaterFall};
+export {waterfall};

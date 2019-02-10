@@ -6,7 +6,7 @@ require("../../sass/index.scss");
 
 import NoteManager from "../mod/note-manager.js";
 import Event from "../mod/event";
-import {WaterFall} from "../mod/waterfall-3party";
+import {waterfall} from "../mod/waterfall-3party";
 
 NoteManager.load();
 
@@ -15,8 +15,8 @@ $('.add-note').on('click', function() {
 })
 
 Event.on('waterfall', function(){
-    WaterFall('.grid');
+    waterfall('.grid');
     window.addEventListener('resize', function () {
-        WaterFall('.grid');
+        waterfall('.grid');
     });
 })

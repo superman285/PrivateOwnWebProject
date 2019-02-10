@@ -28,8 +28,9 @@ class Note {
     }
 
     createNote() {
-        let tpl = '<div class="note">'
-            + '<div class="note-head"><span class="delete">&times;</span></div>'
+        console.log($);
+        let tpl = '<div class="note item">'
+            + '<div class="note-head"><span class="delete">&nbsp;&times;</span></div>'
             + '<div class="note-ct" contenteditable="true"></div>'
             + '</div>';
         this.$note = $(tpl);
@@ -128,6 +129,7 @@ class Note {
 
     delete(){
         var self = this;
+        self.$note.remove();
         $.post('/api/notes/delete', {id: this.id})
             .done(function(ret){
                 if(ret.status === 0){
