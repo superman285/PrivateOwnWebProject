@@ -13,6 +13,7 @@ class NoteManagerClass {
     }
 
     static load() {
+        Event.fire('waterfall');
         $.get('/api/notes').done(function(ret){
                 if(ret.status == 0){
                     $.each(ret.data, function(idx, article) {
@@ -33,7 +34,7 @@ class NoteManagerClass {
     }
 
     static add(){
-        new Note();
+        return new Note();
     }
 
 }

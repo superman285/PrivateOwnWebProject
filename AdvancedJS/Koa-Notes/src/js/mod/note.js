@@ -28,7 +28,6 @@ class Note {
     }
 
     createNote() {
-        console.log($);
         let tpl = '<div class="note item">'
             + '<div class="note-head"><span class="delete">&nbsp;&times;</span></div>'
             + '<div class="note-ct" contenteditable="true"></div>'
@@ -89,12 +88,17 @@ class Note {
             $note.addClass('draggable').data('evtPos', {x: evtX, y: evtY});
         }).on('mouseup', function () {
             $note.removeClass('draggable').removeData('pos');
+            //msnry.layout();
         });
+
         $('body').on('mousemove', function (e) {
             $('.draggable').length && $('.draggable').offset({
                 top: e.pageY - $('.draggable').data('evtPos').y,
                 left: e.pageX - $('.draggable').data('evtPos').x
             });
+
+
+
         });
     };
 

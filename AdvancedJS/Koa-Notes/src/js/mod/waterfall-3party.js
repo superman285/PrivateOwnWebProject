@@ -41,7 +41,7 @@ function waterfall(a) {
 
     function k(b) {
         //此处写k的地方原本为arguments.callee 已经弃用
-        f(a) != t && (b.target.removeEventListener(b.type, k), waterfall(a))
+        f(a) != t && (b.target.removeEventListener(b.type, k(b)), waterfall(a))
     }
 
     "string" == typeof a && (
