@@ -25,14 +25,14 @@ $('.add-note').on('click', function() {
         msnry.layout();
         msnry = new Masonry(cct,{
             itemSelector: '.note',
-            columnWidth: 200,
+            //columnWidth: 15%,
             gutter: 30
         });
     }else {
         msnry = new Masonry(cct, {
             // options
             itemSelector: '.note',
-            columnWidth: 200,
+            //columnWidth: 15%,
             gutter: 30
         });
     }
