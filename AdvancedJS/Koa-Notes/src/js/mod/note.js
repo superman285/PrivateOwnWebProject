@@ -2,6 +2,7 @@ import "../../sass/note.scss";
 
 import {Toast} from "../mod/toast";
 import Event from "./event";
+import {msnry} from "../app";
 
 class Note {
 
@@ -134,6 +135,7 @@ class Note {
     delete(){
         var self = this;
         self.$note.remove();
+        msnry.layout();
         $.post('/api/notes/delete', {id: this.id})
             .done(function(ret){
                 if(ret.status === 0){
