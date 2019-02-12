@@ -1,10 +1,14 @@
 const path = require('path');
 const webpack = require('webpack');
+/*const fs = require('fs');
+const net = require('net');
+const tls = require('tls');
+const cardinal = require('cardinal');*/
 
 module.exports = {
     mode: 'development',
     //join中不能省__dirname
-    entry: path.join(__dirname,'./src/js/app/index.js'),
+    entry: path.join(__dirname, './src/js/app/index.js'),
     output: {
         //等价于path.resolve(__dirname,'dist') dirname可以省
         path: path.resolve('dist'),
@@ -15,19 +19,19 @@ module.exports = {
         rules: [
             {
                 test: /\.sass$/,
-                use: ["style-loader","css-loader","sass-loader"]
+                use: ["style-loader", "css-loader", "sass-loader"]
             },
             {
                 test: /\.scss$/,
-                use: ["style-loader","css-loader","sass-loader"]
+                use: ["style-loader", "css-loader", "sass-loader"]
             },
             {
                 test: /\.less$/,
-                use: ["style-loader","css-loader","less-loader"]
+                use: ["style-loader", "css-loader", "less-loader"]
             },
             {
                 test: /\.css$/,
-                use: ["style-loader","css-loader"]
+                use: ["style-loader", "css-loader"]
             },
             //字体处理
             {
@@ -43,7 +47,11 @@ module.exports = {
         }
     }*/
 
+    //target: "node",
 
+    /*externals: {
+        fs: 'empty'
+    },*/
 
     //省去了每个模块require引入jquery的步骤 舒服
     plugins: [

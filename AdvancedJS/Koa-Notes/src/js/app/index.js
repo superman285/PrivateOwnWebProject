@@ -10,17 +10,17 @@ import {waterfall} from "../mod/waterfall-3party";
 
 import "../mod/Masonry.js";
 
+console.log('我要开始load了');
 NoteManager.load();
 
 var cct = document.querySelector("#content");
 var msnry;
 
+
 $('.add-note').on('click', function() {
     var elem = NoteManager.add();
     console.log('触发add');
     console.log(cct);
-    
-
     if(msnry) {
         msnry.layout();
         msnry = new Masonry(cct,{
@@ -56,7 +56,17 @@ Event.on('waterfall', function(){
 
     var cct = document.querySelector("#content");
 
-    msnry.layout()
+    if (msnry) {
+        msnry.layout()
+    } else {
+        msnry = new Masonry(cct, {
+            // options
+            itemSelector: '.note',
+            //columnWidth: 15%,
+            gutter: 30
+        });
+    }
+
 
     /*var msnry = new Masonry( cct, {
         // options

@@ -1,4 +1,5 @@
 import jQuery from 'jquery';
+import "../../sass/toast.scss";
 
 window.$ = window.jQuery = jQuery;
 
@@ -34,7 +35,8 @@ function Toast(msg,time) {
     return new toast(msg,time)
 }
 
-var ak = Toast('nihao',1000)
+//test
+// var ak = Toast('nihao',1000)
 
 
 window.Toast = Toast;

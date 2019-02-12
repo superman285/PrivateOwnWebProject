@@ -5,7 +5,7 @@ body {
 }
 
 a {
-    color: #00B7FF;
+    color: dimgrey;
     text-decoration: none;
 }
 
@@ -21,12 +21,21 @@ header {
 }
 .add-note {
     margin-left: 1rem;
+
 }
+
+.add-note i {
+    font-size: 1.1rem;
+}
+
 .user-area {
     margin-left: auto;
     margin-right: 1rem;
 }
+.user-area i {
+    font-size: 1.1rem;
+}
 
 #content {
-    min-height: 100vh!important;
+    min-height: calc(100vh - 60px)!important;
 }

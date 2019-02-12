@@ -15,16 +15,21 @@ class NoteManagerClass {
     static load() {
         Event.fire('waterfall');
         $.get('/api/notes').done(function(ret){
-                if(ret.status == 0){
+            console.log('/api/notes成功');
+            console.log(ret);
+            if(ret.status == 0){
                     $.each(ret.data, function(idx, article) {
                         new Note({
                             id: article.id,
                             context: article.text
                         });
+                        console.dir('each方法article',article);
                     });
+
                     Event.fire('waterfall');
                 }else{
                     Toast(ret.errorMsg);
+                    console.log('没走status=0');
                 }
             }).fail(function(){
                 Toast('网络异常');

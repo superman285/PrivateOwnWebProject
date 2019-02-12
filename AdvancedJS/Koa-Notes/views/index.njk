@@ -6,10 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="./public/css/index.css" />
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1041196_1a2y21qpx5g.css" />
 </head>
 <body>
     <header id="header">
-          <a class="add-note" title="添加笔记" href="#"><span class="fa fa-plus"></span>添加2</a>
+          <a class="add-note" title="添加笔记" href="#"><i class="iconfont icon-add"></i>&nbsp;Add Note</a>
           <ul class="user-area">
            {% if(isLogin) %}
               <li><img src="{{user.avatar}}" alt=""></li>
@@ -17,17 +18,17 @@
               <li><span class="line"> | </span> </li>
               <li><a class="logout" href="/auth/logout">注销</a></li>
             {% else %}
-              <li><a class="login" title="GitHub登录" href="/auth/github"> GitHub登录</a>
+              <li><a class="login" title="GitHub登录" href="/auth/github"><i class="iconfont icon-social-github"></i>&nbsp;GitHub登录</a>
               </li>
             {% endif %}
           </ul>
-
         </header>
-        <div id="content">
 
+
+        <div id="content">
         </div>
 
-        <div class="stars"></div>
+        <!--<div class="stars"></div>-->
         <script src="./dist/bundle.js"></script>
 </body>
 </html>

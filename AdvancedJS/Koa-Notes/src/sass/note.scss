@@ -10,8 +10,15 @@
 
 .note-head {
   height: 1.5rem;
-  span {
+  &:hover .delete {
+    display: inline-block;
+    float: right;
+    margin-right: .5rem;
+    line-height: 1.3rem;
+  }
+  .delete {
     cursor: pointer;
+    display: none;
   }
 }
 

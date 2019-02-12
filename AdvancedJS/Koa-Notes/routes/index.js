@@ -5,10 +5,8 @@ const router = new KoaRouter();
 //还有一种写法const router = require('koa-router')()
 
 router.get('/', async (ctx, next) => {
-    //若使用koa-views此处应使用index.njk
-    await ctx.render('index', {
-        title: 'Hello Koa fasfasfa!',
-    });
+    //若使用koa-views此处应使用index.njk 而非index
+    await ctx.render('index', {});
     await next();
 })
 
@@ -24,4 +22,4 @@ router.get('/json', async (ctx, next) => {
     }
 })
 
-module.exports = router
+module.exports = router;

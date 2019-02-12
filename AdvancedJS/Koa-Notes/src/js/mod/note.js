@@ -7,7 +7,6 @@ import {msnry} from "../app";
 class Note {
 
 //暂不支持静态属性写在外面的定义方式，先写在constructor里头 用this吧
-
     constructor(opts) {
         this.defaultOpts = {
             id: '',   //Note的 id
@@ -18,15 +17,14 @@ class Note {
         this.createNote();
         this.setStyle();
         this.bindEvent();
-
-    }
+    };
 
     initOpts(opts) {
         this.opts = $.extend({}, this.defaultOpts, opts || {});
         if (this.opts.id) {
             this.id = this.opts.id;
         }
-    }
+    };
 
     createNote() {
         let tpl = '<div class="note item">'
@@ -37,13 +35,13 @@ class Note {
         this.$note.find('.note-ct').html(this.opts.context);
         this.opts.$ct.append(this.$note);
         if (!this.id) this.$note.css('bottom', '10px');
-    }
+    };
 
     setStyle() {
         let color = Note.colors[Math.floor(Math.random() * 15)];
         this.$note.find('.note-head').css('background-color', color[0]);
         this.$note.find('.note-ct').css('background-color', color[1]);
-    }
+    };
 
     setLayout() {
         var self = this;
@@ -53,7 +51,7 @@ class Note {
         self.clk = setTimeout(function () {
             Event.fire('waterfall');
         }, 100);
-    }
+    };
 
     bindEvent() {
         var self = this,
@@ -64,8 +62,7 @@ class Note {
 
         $delete.on('click', function () {
             self.delete();
-        })
-
+        });
         //contenteditable没有 change 事件，所有这里做了模拟通过判断元素内容变动，执行 save
         $noteCt.on('focus', function () {
             if ($noteCt.html() == 'input here') $noteCt.html('');
@@ -74,14 +71,17 @@ class Note {
             if ($noteCt.data('before') != $noteCt.html()) {
                 $noteCt.data('before', $noteCt.html());
                 self.setLayout();
-                if (self.id) {
+
+                //到时删
+                self.edit($noteCt.html())
+
+                /*if (self.id) {
                     self.edit($noteCt.html())
                 } else {
                     self.add($noteCt.html())
-                }
+                }*/
             }
         });
-
         //设置笔记的移动
         $noteHead.on('mousedown', function (e) {
             var evtX = e.pageX - $note.offset().left,
@@ -91,63 +91,80 @@ class Note {
             $note.removeClass('draggable').removeData('pos');
             //msnry.layout();
         });
-
         $('body').on('mousemove', function (e) {
             $('.draggable').length && $('.draggable').offset({
                 top: e.pageY - $('.draggable').data('evtPos').y,
                 left: e.pageX - $('.draggable').data('evtPos').x
             });
-
-
-
         });
     };
 
     edit(msg) {
         var self = this;
-        $.post('/api/notes/edit',{
+        $.post('/api/note/edit', {
             id: this.id,
             note: msg
-        }).done(function(ret){
-            if(ret.status === 0){
+        }).done(function (ret) {
+            if (ret.status === 0) {
                 Toast('update success');
-            }else{
+            } else {
                 Toast(ret.errorMsg);
             }
         })
     };
 
-    add(msg){
+    add(msg) {
         console.log('addd...');
         var self = this;
-        $.post('/api/notes/add', {note: msg})
+        /*$.post('/api/note/add', {note: msg})
             .done(function(ret){
                 if(ret.status === 0){
-                    Toast('add success');
+                    Toast('Add Note Success!');
                 }else{
                     self.$note.remove();
                     Event.fire('waterfall')
                     Toast(ret.errorMsg);
                 }
-            });
+            });*/
+
+        $.ajax({
+            type: "POST",
+            url: '/api/note/add',
+            data: {
+                note: msg
+            },
+            success: ret => {
+                if (ret.status === 0) {
+                    Toast('Add Note Success!');
+                } else {
+                    self.$note.remove();
+                    Event.fire('waterfall')
+                    Toast(ret.errorMsg);
+                }
+            },
+        })
     };
 
-    delete(){
+    delete() {
         var self = this;
         self.$note.remove();
         msnry.layout();
-        $.post('/api/notes/delete', {id: this.id})
-            .done(function(ret){
-                if(ret.status === 0){
-                    Toast('delete success');
-                    self.$note.remove();
-                    Event.fire('waterfall')
-                }else{
-                    Toast(ret.errorMsg);
-                }
-            });
-
+        $.ajax({
+            type: "POST",
+            url: '/api/note/delete',
+            data: {id: this.id}
+        }).done(function (ret) {
+            console.dir('delete done,status是：',ret);
+            if (ret.status === 0) {
+                Toast('delete success');
+                self.$note.remove();
+                Event.fire('waterfall')
+            } else {
+                Toast(ret.errorMsg);
+            }
+        });
     };
+
 }
 
 
