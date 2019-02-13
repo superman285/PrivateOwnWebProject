@@ -1,13 +1,59 @@
 const KoaRouter = require('koa-router');
 
 const router = new KoaRouter();
-
 //还有一种写法const router = require('koa-router')()
 
+const Koa = require('koa');
+const app = new Koa();
+
+const session = require('koa-session');
+
+
+
+const SESSION_CONFIG = {
+    key: 'koa:sess',
+    maxAge: 86400000,
+    autoCommit: true,
+    overwrite: true,
+    httpOnly: true,
+    signed: true,
+    rolling: false,
+    renew: false,
+};
+
+app.use(session(SESSION_CONFIG, app));
+
 router.get('/', async (ctx, next) => {
+
+    let data = {};
+    console.log('ctx.session',ctx.session);
+    /*if(ctx.session.user){
+        data = {
+            isLogin: true,
+            user: ctx.session.user,
+        }
+    }else {
+        data = {
+            isLogin: false,
+        }
+    }*/
+    data = {
+        isLogin:false,
+        user: {
+            avater: '/super',
+            username: 'superman',
+        }
+    }
+    console.log('data',{
+        isLogin:data.isLogin,
+        user: data.user
+    });
+
+
     //若使用koa-views此处应使用index.njk 而非index
-    await ctx.render('index', {});
-    await next();
+    await ctx.render('index', {
+        isLogin: data.isLogin,
+    });
 })
 
 //访问/string的返回页

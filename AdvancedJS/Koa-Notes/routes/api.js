@@ -60,7 +60,14 @@ router.post("/note/add",async (ctx, next) => {
 
 
     let sql = "insert into notesContent (uid,noteid,text) values (?,?,?)";
-    let [ results ] = await db.query(sql,[4,noteid,note]);
+    let [ results ] = await db.query(sql, [4,noteid,note], (err,result)=>{
+        console.log('result');
+        console.log(result);
+    });
+
+/**/
+
+    //回调函数 查询失败后可调err，暂未试验成功
 
 
     ctx.response.body = {status: 0};

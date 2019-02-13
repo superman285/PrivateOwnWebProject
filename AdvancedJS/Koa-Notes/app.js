@@ -11,6 +11,7 @@ const nunjucks = require("koa-nunjucks-2");
 
 const index = require('./routes/index')
 const api = require('./routes/api')
+const auth = require('./routes/auth')
 const users = require('./routes/users')
 
 // error handler
@@ -48,7 +49,7 @@ app.use(nunjucks({
 // logger
 app.use(async (ctx, next) => {
     const start = new Date()
-    await next()
+    await next();
     const ms = new Date() - start
     console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
 })
@@ -57,7 +58,8 @@ app.use(async (ctx, next) => {
 //结果和写index.allowedMethods()一样
 app.use(index.routes(), index)
 app.use(api.routes(),api);
-app.use(users.routes(), users.allowedMethods())
+app.use(auth.routes(),auth.allowedMethods());
+app.use(users.routes(), users.allowedMethods());
 
 // error-handling
 app.on('error', (err, ctx) => {
