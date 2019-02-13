@@ -11,6 +11,10 @@
     "webpack-watch": "onchange 'src/**/*.js' 'src/sass/*.scss' 'views/*.njk' -- npm run webpack "
   },
   "dependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-es2017": "^7.0.0-beta.53",
+    "babel": "^6.23.0",
     "cardinal": "^2.1.1",
     "css-loader": "^2.1.0",
     "debug": "^2.6.3",
@@ -36,9 +40,12 @@
     "style-loader": "^0.23.1"
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.5",
+    "babel-preset-env": "^1.7.0",
     "nodemon": "^1.8.1",
     "onchange": "^5.2.0",
-    "webpack": "^4.29.1",
+    "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3"
   }
 }

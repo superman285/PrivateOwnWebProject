@@ -37,7 +37,13 @@ module.exports = {
             {
                 test: /\.(ttf|svg|eot|woff|woff2)/,
                 use: "url-loader"
-            }
+            },
+            //babel配置
+            /*{
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: "babel-loader"
+            }*/
         ]
     },
 

@@ -8,6 +8,7 @@ class Note {
 
 //暂不支持静态属性写在外面的定义方式，先写在constructor里头 用this吧
     constructor(opts) {
+        console.log('构造初始化走起');
         this.defaultOpts = {
             id: '',   //Note的 id
             $ct: $('#content').length > 0 ? $('#content') : $('body'),  //默认存放 Note 的容器
@@ -20,6 +21,8 @@ class Note {
     };
 
     initOpts(opts) {
+        console.log('initOpts');
+        console.log(opts);
         this.opts = $.extend({}, this.defaultOpts, opts || {});
         if (this.opts.id) {
             this.id = this.opts.id;
@@ -27,14 +30,19 @@ class Note {
     };
 
     createNote() {
+        //this.opts = opts;
         let tpl = '<div class="note item">'
             + '<div class="note-head"><span class="delete">&nbsp;&times;</span></div>'
             + '<div class="note-ct" contenteditable="true"></div>'
             + '</div>';
         this.$note = $(tpl);
         this.$note.find('.note-ct').html(this.opts.context);
-        this.opts.$ct.append(this.$note);
-        if (!this.id) this.$note.css('bottom', '10px');
+        //this.opts.$ct
+        $('#content').append(this.$note);
+        //if (!this.id) this.$note.css('bottom', '10px');
+        console.log('createNote');
+        console.log(this.opts);
+        var self = this;
     };
 
     setStyle() {
@@ -58,7 +66,8 @@ class Note {
             $note = this.$note,
             $noteHead = $note.find('.note-head'),
             $noteCt = $note.find('.note-ct'),
-            $delete = $note.find('.delete');
+            $delete = $note.find('.delete'),
+            $addNote = $('.add-note');
 
         $delete.on('click', function () {
             self.delete();
@@ -71,13 +80,19 @@ class Note {
             if ($noteCt.data('before') != $noteCt.html()) {
                 $noteCt.data('before', $noteCt.html());
                 self.setLayout();
-
                 //到时删
-                self.edit($noteCt.html())
+                //self.edit($noteCt.html())
+                console.log('到bindevent阶段');
+                console.log(self.id);
 
+                //改逻辑，edit与add分开
+                self.edit($noteCt.html());
+                
                 /*if (self.id) {
+                    console.log('触发edit');
                     self.edit($noteCt.html())
                 } else {
+                    console.log('触发add');
                     self.add($noteCt.html())
                 }*/
             }
@@ -106,32 +121,23 @@ class Note {
             note: msg
         }).done(function (ret) {
             if (ret.status === 0) {
-                Toast('update success');
+                Toast('Update Note Success!');
             } else {
                 Toast(ret.errorMsg);
             }
         })
     };
 
-    add(msg) {
-        console.log('addd...');
+    static add(val) {
+        console.log('static add');
         var self = this;
-        /*$.post('/api/note/add', {note: msg})
-            .done(function(ret){
-                if(ret.status === 0){
-                    Toast('Add Note Success!');
-                }else{
-                    self.$note.remove();
-                    Event.fire('waterfall')
-                    Toast(ret.errorMsg);
-                }
-            });*/
-
         $.ajax({
             type: "POST",
             url: '/api/note/add',
             data: {
-                note: msg
+                uid: val.uid,
+                noteid: val.noteid,
+                note: val.note
             },
             success: ret => {
                 if (ret.status === 0) {
@@ -143,22 +149,35 @@ class Note {
                 }
             },
         })
+        //另一种写法
+        /*$.post('/api/note/add', {note: msg})
+    .done(function(ret){
+        if(ret.status === 0){
+            Toast('Add Note Success!');
+        }else{
+            self.$note.remove();
+            Event.fire('waterfall')
+            Toast(ret.errorMsg);
+        }
+    });*/
     };
 
     delete() {
         var self = this;
-        self.$note.remove();
         msnry.layout();
         $.ajax({
             type: "POST",
             url: '/api/note/delete',
-            data: {id: this.id}
+            data: {id: self.id}
         }).done(function (ret) {
             console.dir('delete done,status是：',ret);
             if (ret.status === 0) {
-                Toast('delete success');
-                self.$note.remove();
-                Event.fire('waterfall')
+                Toast('Delete Note Success');
+
+                    self.$note.remove();
+                    Event.fire('waterfall')
+
+
             } else {
                 Toast(ret.errorMsg);
             }

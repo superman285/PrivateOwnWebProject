@@ -18,7 +18,9 @@ var msnry;
 
 
 $('.add-note').on('click', function() {
-    var elem = NoteManager.add();
+    //var elem =
+
+    NoteManager.add();
     console.log('触发add');
     console.log(cct);
     if(msnry) {
@@ -36,24 +38,24 @@ $('.add-note').on('click', function() {
             gutter: 30
         });
     }
-
-
 })
 
 let frame = document.querySelector("#content");
 
 frame.addEventListener('click',(e)=>{
     if (msnry && e.target.id == "content") {
-        console.log("啊触发了");
         console.dir(e.target);
         msnry.layout();
+        msnry = new Masonry(cct,{
+            itemSelector: '.note',
+            //columnWidth: 15%,
+            gutter: 30
+        });
     }
 })
 
 Event.on('waterfall', function(){
     console.log('触发waterfall');
-
-
     var cct = document.querySelector("#content");
 
     if (msnry) {
@@ -66,13 +68,6 @@ Event.on('waterfall', function(){
             gutter: 30
         });
     }
-
-
-    /*var msnry = new Masonry( cct, {
-        // options
-        itemSelector: '.note',
-        //columnWidth: 200
-    });*/
 
 })
 

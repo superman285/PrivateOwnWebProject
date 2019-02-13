@@ -15,7 +15,7 @@ class toast {
         var tpl = `<div class="toast">${this.msg}</div>`;
         this.$toast = $(tpl);
         $('body').append(this.$toast);
-        console.log('createToast');
+        //console.log('createToast');
     };
 
     showToast() {
@@ -27,7 +27,7 @@ class toast {
                 });
             },self.dismissTime)
         });
-        console.log('showToast');
+        //console.log('showToast');
     };
 }
 
