@@ -58,7 +58,7 @@ app.use(async (ctx, next) => {
 //结果和写index.allowedMethods()一样
 app.use(index.routes(), index)
 app.use(api.routes(),api);
-app.use(auth.routes(),auth.allowedMethods());
+app.use(auth.routes(),auth);
 app.use(users.routes(), users.allowedMethods());
 
 // error-handling

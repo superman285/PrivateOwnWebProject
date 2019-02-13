@@ -7,8 +7,8 @@ const router = require('koa-router')({
 
 const session = require('koa-session');
 
-const passport = require('passport');
-const GitHubStrategy = require('passport-github').Strategy;
+const passport = require('koa-passport');
+const GitHubStrategy = require('passport-github2').Strategy;
 
 
 const SESSION_CONFIG = {
@@ -23,6 +23,7 @@ const SESSION_CONFIG = {
 };
 
 app.use(session(SESSION_CONFIG, app));
+
 
 
 passport.serializeUser(function(user, done) {
@@ -42,10 +43,10 @@ passport.use(new GitHubStrategy({
     clientSecret: '506dfe7197f1916ff25a3bca4388d35c038d36ac',
     // GITHUB_CLIENT_SECRET,
     callbackURL: 'http://127.0.0.1:3000/auth/github/callback'
-},(accessToken,refreshToken,profile,cb)=>{
-    /*User.findOrCreate({githubId:profile.id},function(err,user){
-        return cb(err,user);
-    })*/
+},(accessToken,refreshToken,profile,done)=>{
+    User.findOrCreate({githubId:profile.id},function(err,user){
+        return done(err,user);
+    })
     done(null,profile);
 }));
 
@@ -56,7 +57,7 @@ router.get('/logout',async (ctx,next)=>{
 })
 
 //passport.authenticate('github')
-router.get('/github',async (ctx) => {
+router.get('/github',passport.authenticate('github'),async (ctx) => {
     ctx.response.body = 'githubbody'
 });
 
@@ -69,7 +70,10 @@ router.get('/github/callback',
             avatar: ctx.request.user._json.avatar_url,
             provider: ctx.request.user.provider
         };
-        res.redirect('/');
+        ctx.response.redirect('/');
     });
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 module.exports = router;
