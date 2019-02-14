@@ -31,13 +31,10 @@ class toast {
     };
 }
 
+//方便使用，不需要每次都 new toast
 function Toast(msg,time) {
     return new toast(msg,time)
 }
-
-//test
-// var ak = Toast('nihao',1000)
-
 
 window.Toast = Toast;
 //module.export.Toast = Toast;

@@ -1,5 +1,5 @@
 //const Toast = require("./toast.js").Toast; module.export方式
-import {Toast} from "./toast"; //export方式
+import {Toast} from "./toast"; // es6 export方式
 import Note from "./note";
 import Event from "./event";
 

@@ -36,7 +36,6 @@ function Toast(msg,time) {
     return new toast(msg,time)
 }
 
-var ak = Toast('nihao',3000);
 
 //加入后可以直接用,不需要再xxx.toast或xxx.Toast
 window.toast = toast;

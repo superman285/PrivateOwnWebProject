@@ -41,7 +41,7 @@ app.use(json())
 app.use(logger())
 
 //默认带上public 访问静态资源时直接 /stylesheets/style.css即可
-app.use(require('koa-static')(__dirname + '/public'))
+//app.use(require('koa-static')(__dirname + '/public'))
 
 //这种写法 访问静态资源时需要 /public/stylesheets/style.css
 app.use(require('koa-static')(__dirname))
