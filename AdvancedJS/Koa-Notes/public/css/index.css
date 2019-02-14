@@ -31,7 +31,22 @@ header {
 .user-area {
     margin-left: auto;
     margin-right: 1rem;
+    display: flex;
+    align-items: center;
 }
+.user-area>li {
+    margin-left: .5rem;
+}
+.usname {
+    color: mediumpurple;
+    font-weight: bold;
+}
+
+.avater{
+    width: 2rem;
+    height: 2rem;
+}
+
 .user-area i {
     font-size: 1.1rem;
 }

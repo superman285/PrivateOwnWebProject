@@ -3,7 +3,7 @@ const app = new Koa()
 const views = require('koa-views')
 const json = require('koa-json')
 const onerror = require('koa-onerror')
-const bodyparser = require('koa-bodyparser')
+const bodyParser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const path = require("path");
 
@@ -14,13 +14,29 @@ const api = require('./routes/api')
 const auth = require('./routes/auth')
 const users = require('./routes/users')
 
+const session = require('koa-session2');
+
+const passport = require('koa-passport');
+const cookieParser = require('koa-cookie-parser');
+
+const SESSION_CONFIG = {
+    key: 'koa:sess',
+    maxAge: 86400000,
+    autoCommit: true,
+    overwrite: true,
+    httpOnly: true,
+    signed: true,
+    rolling: false,
+    renew: false,
+};
+
 // error handler
 onerror(app)
 
 // middlewares
-app.use(bodyparser({
+/*app.use(bodyParser({
     enableTypes: ['json', 'form', 'text']
-}))
+}))*/
 app.use(json())
 app.use(logger())
 
@@ -53,6 +69,18 @@ app.use(async (ctx, next) => {
     const ms = new Date() - start
     console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
 })
+
+
+app.use(cookieParser({
+    cookieNameList:['uid','noteid'],
+    cipherKey:"hello world",
+    maxAge:60*60*24
+}));
+app.use(bodyParser());
+app.keys = ['some secret hurr'];
+app.use(session(SESSION_CONFIG, app));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // routes
 //结果和写index.allowedMethods()一样

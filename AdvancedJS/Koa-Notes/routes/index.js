@@ -6,7 +6,7 @@ const router = new KoaRouter();
 const Koa = require('koa');
 const app = new Koa();
 
-const session = require('koa-session');
+const session = require('koa-session2');
 
 
 
@@ -23,11 +23,13 @@ const SESSION_CONFIG = {
 
 app.use(session(SESSION_CONFIG, app));
 
+//取数据
 router.get('/', async (ctx, next) => {
 
     let data = {};
-    console.log('ctx.session',ctx.session);
-    /*if(ctx.session.user){
+    console.log('~~~~~~~我是index的啊啊啊ctx.session~~~~~~~~','=-=-=-=-=');
+    console.dir(ctx.session);
+    if(ctx.session.user){
         data = {
             isLogin: true,
             user: ctx.session.user,
@@ -36,19 +38,12 @@ router.get('/', async (ctx, next) => {
         data = {
             isLogin: false,
         }
-    }*/
-    data = {
-        isLogin:false,
-        user: {
-            avater: '/super',
-            username: 'superman',
-        }
     }
-    console.log('data',{
+
+    /*console.log('data',{
         isLogin:data.isLogin,
         user: data.user
-    });
-
+    });*/
 
     //若使用koa-views此处应使用index.njk 而非index
     await ctx.render('index', {

@@ -7,14 +7,15 @@
     <title>Document</title>
     <link rel="stylesheet" href="./public/css/index.css" />
     <link rel="stylesheet" href="//at.alicdn.com/t/font_1041196_1a2y21qpx5g.css" />
+    <link rel="icon" href="../favicon.ico">
 </head>
 <body>
     <header id="header">
           <a class="add-note" title="添加笔记" href="#"><i class="iconfont icon-add"></i>&nbsp;Add Note</a>
           <ul class="user-area">
            {% if(isLogin) %}
-              <!--<li><img src="{{user.avatar}}" alt=""></li>-->
-              <!--<li><span title="{{user.username}}">{{user.username}}</span></li>-->
+              <li><img class="avater" src="{{user._json.avatar_url}}" alt=""></li>
+              <li><span class="usname" title="{{user.username}}">{{user.username}}</span></li>
               <li><span class="line"> | </span> </li>
               <li><a class="logout" href="/auth/logout">注销</a></li>
             {% else %}
