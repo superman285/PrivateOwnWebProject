@@ -18,6 +18,7 @@ header {
     align-items: center;
     background: rgba(255,255,255,.5);
     border-radius: 5px;
+    height: 60px;
 }
 .add-note {
     margin-left: 1rem;

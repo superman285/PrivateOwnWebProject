@@ -73,7 +73,8 @@ passport.use(new GitHubStrategy({
 
 
 router.get('/logout',async (ctx,next)=>{
-    ctx.session.destory();
+    console.log('======destroy======',ctx.session);
+    ctx.session = null;
     ctx.response.redirect('/');
 })
 
@@ -85,7 +86,7 @@ router.get('/github',passport.authenticate('github'));
 router.get('/github/callback',
     passport.authenticate('github', { failureRedirect: '/login' }),
     async(ctx, next) => {
-    
+
         ctx.session.user = 2;
 
         console.log('------ctxsession--------',ctx.session);
@@ -103,6 +104,10 @@ router.get('/github/callback',
             avatar: githubData._json.avatar_url,
             provider: githubData.provider
         };*/
+        
+        
+        
+        
         ctx.response.redirect('/');
     });
 
