@@ -13,21 +13,24 @@ class NoteManagerClass {
     constructor(){
         console.log("我是NoteManager类");
         //this.noteID = 0;
+
     }
 
     static load() {
-        var noteID = this.noteID;
+        //var noteID = this.noteID;
         Event.fire('waterfall');
         $.get('/api/notes').done(function(ret){
             console.log('/api/notes成功');
             console.log(ret);
             if(ret.status == 0){
                     $.each(ret.data, function(idx, article) {
-                        new Note({
+                      let noteObj = new Note({
                             id: article.noteid,
                             context: article.text
                         });
+                        NoteManagerClass.notesObjSets.push(noteObj);
                         console.log('循环打印');
+                        console.log(NoteManagerClass.notesObjSets,NoteManagerClass.notesObjSets.length);
                         console.log(idx,article);
                         NoteManagerClass.noteID += 1;
                     });
@@ -40,8 +43,26 @@ class NoteManagerClass {
             }).fail(function(){
                 Toast('网络异常');
             });
-            this.noteID = noteID;
+            //this.noteID = noteID;
+    }
 
+    static recover() {
+        /*$.get('/api/notes').done(function(ret){
+                $.each(ret.data, function(idx, article) {
+                    new Note({
+                        id: article.noteid,
+                        context: article.text
+                    });
+                });
+        })*/
+
+        //用note管理类 添加一个静态属性来获取note的实例合集，在note类中无法定义这个方法，然后对每个实例
+        //使用note类的recover方法来回滚，
+
+        NoteManagerClass.notesObjSets.forEach(item=>{
+            console.log('实例对象noteobj',item);
+            item.recover();
+        })
     }
 
     static add(){
@@ -62,13 +83,16 @@ class NoteManagerClass {
 }
 
 NoteManagerClass.noteID = 0;
+NoteManagerClass.notesObjSets = [];
 
 const load = NoteManagerClass.load,
-      add = NoteManagerClass.add;
+      add = NoteManagerClass.add,
+      recover = NoteManagerClass.recover;
 
 var NoteManager = {
     load,
     add,
+    recover
 }
 
 

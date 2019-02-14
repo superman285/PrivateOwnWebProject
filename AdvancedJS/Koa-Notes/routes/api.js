@@ -109,12 +109,16 @@ router.post("/note/edit",async (ctx, next) => {
     var noteid = ctx.request.body.id;
     var note = ctx.request.body.note;
 
-    console.dir(ctx.request.body);
 
-    let sql = "update notesContent set text = ? where noteid = ?";
-    let [ results ] = await db.query(sql,[note,noteid])
+    if(ctx.session.user) {
+        let sql = "update notesContent set text = ? where noteid = ?";
+        let [ results ] = await db.query(sql,[note,noteid])
+        ctx.response.body = {status: 0};
+    }else {
+        ctx.response.body = {status: 1,errorMsg:'未登录用户只能看,修改无效哦!'};
+    }
 
-    ctx.response.body = {status: 0};
+
 
 });
 

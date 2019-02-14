@@ -52,6 +52,8 @@ frame.addEventListener('click',(e)=>{
             //columnWidth: 15%,
             gutter: 30
         });
+        console.log('来我要回滚了');
+        NoteManager.recover();
     }
 })
 

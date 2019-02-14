@@ -44,6 +44,15 @@ class Note {
         console.log(this.opts);
         var self = this;
     };
+    
+    recover() {
+        if (this.$note) {
+            this.$note.find('.note-ct').html(this.opts.context);
+            console.log('notejs还原成功');
+        }else{
+            console.log('notejs $note为空');
+        }
+    }
 
     setStyle() {
         let color = Note.colors[Math.floor(Math.random() * 15)];
@@ -127,6 +136,8 @@ class Note {
             }
         })
     };
+    
+    
 
     static add(val) {
         console.log('static add');
