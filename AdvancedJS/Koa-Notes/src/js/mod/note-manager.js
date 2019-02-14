@@ -60,7 +60,6 @@ class NoteManagerClass {
         });
 
         Note.add({
-            uid: 6,
             noteid: NoteManagerClass.noteID,
             note: '',
         })

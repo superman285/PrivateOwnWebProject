@@ -59,11 +59,17 @@ passport.deserializeUser(function(obj, done) {
 }*/
 
 passport.use(new GitHubStrategy({
-    clientID:'63d1a5ceffbca3ee0871',
+    //clientID:'63d1a5ceffbca3ee0871',
+    //local127
+    clientID: '1fa7f763c147263ecd61',
     // GITHUB_CLIENT_ID,
     clientSecret: '506dfe7197f1916ff25a3bca4388d35c038d36ac',
+    //local127
+    clientSecret: '19d21913223df578dd224d55c237bb7feaccd8f4',
     // GITHUB_CLIENT_SECRET,
-    callbackURL: 'http://127.0.0.1:3000/auth/github/callback'
+    //callbackURL: 'http://skrnote.iask.in/auth/github/callback',
+    //local127
+    callbackURL: 'http://127.0.0.1:3000/auth/github/callback',
 },(accessToken,refreshToken,profile,done)=>{
     /*User.findOrCreate({githubId:profile.id},function(err,user){
         return done(err,user);

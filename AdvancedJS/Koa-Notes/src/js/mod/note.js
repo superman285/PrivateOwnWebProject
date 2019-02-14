@@ -173,23 +173,35 @@ class Note {
     });*/
     };
 
-    delete() {
+    //要判是否登录，还没判
+    async delete() {
         var self = this;
         msnry.layout();
-        $.ajax({
-            type: "POST",
-            url: '/api/note/delete',
-            data: {id: self.id}
-        }).done(function (ret) {
-            console.dir('delete done,status是：',ret);
-            if (ret.status === 0) {
-                Toast('Delete Note Success!');
+        
+        let result = await $.ajax({
+            type: "GET",
+            url: '/checkLogin',
+        });
+        console.log('await result',result);
+
+        if(result.login) {
+            $.ajax({
+                type: "POST",
+                url: '/api/note/delete',
+                data: {id: self.id}
+            }).done(function (ret) {
+                console.dir('delete done,status是：', ret);
+                if (ret.status === 0) {
+                    Toast('Delete Note Success!');
                     self.$note.remove();
                     Event.fire('waterfall')
-            } else {
-                Toast(ret.errorMsg);
-            }
-        });
+                } else {
+                    Toast(ret.errorMsg);
+                }
+            });
+        }else {
+            Toast('亲,不能删除别人的便签哦!')
+        }
     };
 }
 
