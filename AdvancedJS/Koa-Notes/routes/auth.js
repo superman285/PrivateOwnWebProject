@@ -87,23 +87,19 @@ router.get('/github/callback',
     passport.authenticate('github', { failureRedirect: '/login' }),
     async(ctx, next) => {
 
-        ctx.session.user = 2;
-
         console.log('------ctxsession--------',ctx.session);
         
         console.log('ctxsessionuser',ctx);
         console.log('ctxsessionuser',next);
-        
-        /*ctx.session.user = {
-            /!*id: ctx.request.body.user.id,
-            username: ctx.request.body.user.displayName || ctx.request.body.user.username,
-            avatar: ctx.request.body.user._json.avatar_url,
-            provider: ctx.request.body.user.provider*!/
-            id: githubData.id,
-            username: githubData.displayName || githubData.username,
-            avatar: githubData._json.avatar_url,
-            provider: githubData.provider
-        };*/
+
+        //callback这儿必须给ctx.session设置点啥 不然报错，这个地方
+        //相当于一个简单封装 把passport.user移到user上
+        ctx.session.user = {
+            id: ctx.session.passport.user.id,
+            username: ctx.session.passport.user.displayName || ctx.session.passport.user.username,
+            avatar: ctx.session.passport.user._json.avatar_url,
+            provider: ctx.session.passport.user.provider
+        };
         
         
         

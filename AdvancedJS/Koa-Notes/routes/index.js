@@ -23,13 +23,14 @@ const SESSION_CONFIG = {
 
 app.use(session(SESSION_CONFIG, app));
 
-//取数据
+//是获取数据
 router.get('/', async (ctx, next) => {
 
     let data = {};
     console.log('~~~~~~~我是index的啊啊啊ctx.session~~~~~~~~','=-=-=-=-=');
     console.dir(ctx.session);
     if(ctx.session.user){
+        console.log('=======user不为空=====');
         data = {
             isLogin: true,
             user: ctx.session.user,
@@ -40,14 +41,13 @@ router.get('/', async (ctx, next) => {
         }
     }
 
-    /*console.log('data',{
-        isLogin:data.isLogin,
-        user: data.user
-    });*/
+    let userstr = JSON.stringify(data);
 
     //若使用koa-views此处应使用index.njk 而非index
     await ctx.render('index', {
         isLogin: data.isLogin,
+        user: data.user,
+        data: userstr,
     });
 })
 

@@ -14,7 +14,7 @@
           <a class="add-note" title="添加笔记" href="#"><i class="iconfont icon-add"></i>&nbsp;Add Note</a>
           <ul class="user-area">
            {% if(isLogin) %}
-              <li><img class="avater" src="{{user._json.avatar_url}}" alt=""></li>
+              <li><img class="avater" src="{{user.avatar}}" alt=""></li>
               <li><span class="usname" title="{{user.username}}">{{user.username}}</span></li>
               <li><span class="line"> | </span> </li>
               <li><a class="logout" href="/auth/logout">注销</a></li>
