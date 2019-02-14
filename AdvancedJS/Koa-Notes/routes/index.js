@@ -7,9 +7,6 @@ const Koa = require('koa');
 const app = new Koa();
 
 const session = require('koa-session2');
-
-
-
 const SESSION_CONFIG = {
     key: 'koa:sess',
     maxAge: 86400000,

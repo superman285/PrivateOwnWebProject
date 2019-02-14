@@ -35,7 +35,18 @@ app.use(session(SESSION_CONFIG, app));
 
 router.get("/notes",async (ctx, next) => {
     console.log('在ide控制台打出/notes');
-    let sql = "select * from notesContent"
+
+    let sql = "";
+    console.log('ctxsessionuser',ctx.session);
+    if(ctx.session.user) {
+        console.log('看github用户自己的笔记');
+        sql = `select * from notesContent where uid=${ctx.session.user.id}`;
+    }else {
+        console.log('没有登录，看所有笔记');
+        sql = `select * from notesContent`;
+    }
+
+
     //data为数组，数组元素为笔记数据对象，对象含3个键
     let [data] = await db.query(sql);
 
@@ -66,8 +77,6 @@ router.post("/note/add",async (ctx, next) => {
     var note = ctx.request.body.note;
     var noteid = ctx.request.body.noteid;
     var uid = ctx.session.user.id;
-    // var uid = ctx.request.session.user.id;
-    //let uid = 1;
     console.log({text: note, uid: uid})
 
 
@@ -77,11 +86,7 @@ router.post("/note/add",async (ctx, next) => {
         console.log(result);
     });
 
-/**/
-
     //回调函数 查询失败后可调err，暂未试验成功
-
-
     ctx.response.body = {status: 0};
 
     /*Note.create({text: note, uid: uid}).then(function(){
@@ -109,8 +114,6 @@ router.post("/note/edit",async (ctx, next) => {
     let sql = "update notesContent set text = ? where noteid = ?";
     let [ results ] = await db.query(sql,[note,noteid])
 
-    console.log('结果：',results);
-
     ctx.response.body = {status: 0};
 
 });
@@ -124,7 +127,7 @@ router.post("/note/delete",async (ctx, next) => {
     let sql = "delete from notesContent where noteid = ?"
     let [results] = await db.query(sql,[noteid])
 
-    //这个才算有响应 不然就404啦
+    //这个才算有响应 不写就404啦
     ctx.response.body = {status: 0};
 });
 
