@@ -183,7 +183,7 @@ class Note {
         }).done(function (ret) {
             console.dir('delete done,status是：',ret);
             if (ret.status === 0) {
-                Toast('Delete Note Success');
+                Toast('Delete Note Success!');
                     self.$note.remove();
                     Event.fire('waterfall')
             } else {

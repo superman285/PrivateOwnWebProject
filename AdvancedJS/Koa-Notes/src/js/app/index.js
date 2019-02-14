@@ -6,8 +6,8 @@ require("../../sass/index.scss");
 
 import NoteManager from "../mod/note-manager.js";
 import Event from "../mod/event";
-import {Toast} from "./toast";
-import "../mod/Masonry.js";
+import {Toast} from "../mod/toast";
+import "../mod/Masonry.js";    //目前采用的瀑布流，waterfall-3party没这个好用
 
 console.log('我要开始load了');
 NoteManager.load();
