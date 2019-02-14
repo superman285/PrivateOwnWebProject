@@ -143,7 +143,7 @@ class Note {
                 if (ret.status === 0) {
                     Toast('Add Note Success!');
                 } else {
-                    self.$note.remove();
+                    //self.$note.remove();
                     Event.fire('waterfall')
                     Toast(ret.errorMsg);
                 }

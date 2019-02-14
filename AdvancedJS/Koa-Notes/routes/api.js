@@ -19,6 +19,20 @@ let db;
 const bodyParser = require('koa-bodyparser');
 app.use(bodyParser());
 
+const session = require('koa-session2');
+const SESSION_CONFIG = {
+    key: 'koa:sess',
+    maxAge: 86400000,
+    autoCommit: true,
+    overwrite: true,
+    httpOnly: true,
+    signed: true,
+    rolling: false,
+    renew: false,
+};
+
+app.use(session(SESSION_CONFIG, app));
+
 router.get("/notes",async (ctx, next) => {
     console.log('在ide控制台打出/notes');
     let sql = "select * from notesContent"
@@ -39,28 +53,26 @@ router.get("/notes",async (ctx, next) => {
 router.post("/note/add",async (ctx, next) => {
 
     console.log('/add');
-    /*if(!ctx.req.session || !ctx.req.session.user){
-        return ctx.res.send({status: 1, errorMsg: '请先登录'})
-    }*/
-    /*if (!ctx.request.body.note) {
-        return ctx.response.send({status: 2, errorMsg: '内容不能为空'});
-    }*/
-
-    if (!ctx.request.body.note) {
-        ctx.response.body={status: 2, errorMsg: '内容不能为空'};
+    if(!ctx.session || !ctx.session.user){
+        ctx.body={status: 1, errorMsg: '未登录只可使用临时便笺(刷新会清空)，请登录!'};
+        return;
     }
+
+    /*if (!ctx.request.body.note) {
+        ctx.response.body={status: 2, errorMsg: '内容不能为空'};
+    }*/
 
     console.dir(ctx);
     var note = ctx.request.body.note;
     var noteid = ctx.request.body.noteid;
-    var uid = ctx.request.body.uid;
+    var uid = ctx.session.user.id;
     // var uid = ctx.request.session.user.id;
     //let uid = 1;
     console.log({text: note, uid: uid})
 
 
     let sql = "insert into notesContent (uid,noteid,text) values (?,?,?)";
-    let [ results ] = await db.query(sql, [4,noteid,note], (err,result)=>{
+    let [ results ] = await db.query(sql, [uid,noteid,note], (err,result)=>{
         console.log('result');
         console.log(result);
     });

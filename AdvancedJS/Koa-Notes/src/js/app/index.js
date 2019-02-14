@@ -17,6 +17,7 @@ var cct = document.querySelector("#content");
 var msnry;
 
 
+//后续在这添加拦截未登录无法添加便笺功能吧，考虑用localstorage
 $('.add-note').on('click', function() {
     //var elem =
 
