@@ -13,7 +13,6 @@ class NoteManagerClass {
     constructor(){
         console.log("我是NoteManager类");
         //this.noteID = 0;
-
     }
 
     static load() {
@@ -47,18 +46,8 @@ class NoteManagerClass {
     }
 
     static recover() {
-        /*$.get('/api/notes').done(function(ret){
-                $.each(ret.data, function(idx, article) {
-                    new Note({
-                        id: article.noteid,
-                        context: article.text
-                    });
-                });
-        })*/
-
         //用note管理类 添加一个静态属性来获取note的实例合集，在note类中无法定义这个方法，然后对每个实例
         //使用note类的recover方法来回滚，
-
         NoteManagerClass.notesObjSets.forEach(item=>{
             console.log('实例对象noteobj',item);
             item.recover();

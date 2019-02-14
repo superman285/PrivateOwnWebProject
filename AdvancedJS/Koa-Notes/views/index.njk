@@ -19,6 +19,8 @@
               <li><span class="line"> | </span> </li>
               <li><a class="logout" href="/auth/logout">注销</a></li>
             {% else %}
+              <li class="guest">游客</li>
+              <li><span class="line"> | </span></li>
               <li><a class="login" title="GitHub登录" href="/auth/github"><i class="iconfont icon-social-github"></i>&nbsp;GitHub登录</a>
               </li>
             {% endif %}

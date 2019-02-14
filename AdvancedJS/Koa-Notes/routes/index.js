@@ -37,15 +37,26 @@ router.get('/', async (ctx, next) => {
             isLogin: false,
         }
     }
-
     let userstr = JSON.stringify(data);
-
     //若使用koa-views此处应使用index.njk 而非index
     await ctx.render('index', {
         isLogin: data.isLogin,
         user: data.user,
         data: userstr,
     });
+})
+
+//检查用户是否已登录的路由
+router.get('/checkLogin', async (ctx,next)=>{
+    //ide控制台看log
+    if(ctx.session.user){
+        console.log('@@@@@你已经登录了@@@@@');
+        ctx.body = {login:true};
+    }else {
+        console.log('@@@@@用户未登录@@@@@');
+        ctx.body = {login:false};
+    }
+    
 })
 
 //访问/string的返回页

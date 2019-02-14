@@ -42,10 +42,14 @@ header {
     color: mediumpurple;
     font-weight: bold;
 }
-
 .avater{
-    width: 2rem;
-    height: 2rem;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+}
+.guest {
+    font-weight: bold;
+    color: mediumseagreen;
 }
 
 .user-area i {

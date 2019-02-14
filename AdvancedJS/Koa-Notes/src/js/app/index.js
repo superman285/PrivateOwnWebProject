@@ -17,10 +17,10 @@ var cct = document.querySelector("#content");
 var msnry;
 
 
-//后续在这添加拦截未登录无法添加便笺功能吧，考虑用localstorage
+//未登录无法添加便笺的功能，可以用用/checkLogin路由来判断是否登录 通过ctx.session，
+//不过还是先别吧，让游客也爽爽
 $('.add-note').on('click', function() {
     //var elem =
-
     NoteManager.add();
     console.log('触发add');
     console.log(cct);
@@ -53,7 +53,15 @@ frame.addEventListener('click',(e)=>{
             gutter: 30
         });
         console.log('来我要回滚了');
-        NoteManager.recover();
+        
+        $.get('/checkLogin').done(ret=>{
+            if(ret.login){
+                console.log('￥￥￥您是vip，您随便改￥￥￥');
+            }else {
+                NoteManager.recover();
+            }
+        })
+
     }
 })
 
@@ -71,7 +79,6 @@ Event.on('waterfall', function(){
             gutter: 30
         });
     }
-
 })
 
 export {msnry};
