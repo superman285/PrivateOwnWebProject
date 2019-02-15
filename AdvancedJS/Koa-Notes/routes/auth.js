@@ -61,15 +61,23 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new GitHubStrategy({
     //clientID:'63d1a5ceffbca3ee0871',
     //local127
-    clientID: '1fa7f763c147263ecd61',
+    //clientID: '1fa7f763c147263ecd61',
+
+    //tencent cloud
+    clientID: '0988e44d6320bdf47741',
+
     // GITHUB_CLIENT_ID,
-    clientSecret: '506dfe7197f1916ff25a3bca4388d35c038d36ac',
+    //clientSecret: '506dfe7197f1916ff25a3bca4388d35c038d36ac',
     //local127
-    clientSecret: '19d21913223df578dd224d55c237bb7feaccd8f4',
+    //clientSecret: '19d21913223df578dd224d55c237bb7feaccd8f4',
+
+    //tencent cloud
+    clientSecret: '72dd4d7226da5853630acbd19ba5b1926d2d4cdc',
+
     // GITHUB_CLIENT_SECRET,
     //callbackURL: 'http://skrnote.iask.in/auth/github/callback',
     //local127
-    callbackURL: 'http://127.0.0.1:3000/auth/github/callback',
+    callbackURL: 'http://132.232.193.180:3000/auth/github/callback',
 },(accessToken,refreshToken,profile,done)=>{
     /*User.findOrCreate({githubId:profile.id},function(err,user){
         return done(err,user);
