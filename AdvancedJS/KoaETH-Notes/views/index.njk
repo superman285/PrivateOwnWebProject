@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>KoaETHNotes</title>
+    <link rel="stylesheet" href="./public/css/index.css"/>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1041196_1a2y21qpx5g.css"/>
+    <link rel="icon" href="../favicon.png">
+</head>
+<body>
+<header id="header">
+    <a class="add-note" title="添加笔记" href="#"><i class="iconfont icon-add"></i>&nbsp;Add Note</a>
+    <ul class="user-area">
+        {% if(isLogin) %}
+        <li><img class="avater" src="{{user.avatar}}" alt=""></li>
+        <li><span class="usname" title="{{user.username}}">{{user.username}}</span></li>
+        <li><span class="line"> | </span></li>
+        <li><a class="logout" href="/auth/logout">注销</a></li>
+        {% else %}
+        <li class="guest">游客</li>
+        <li><span class="line"> | </span></li>
+        <li><a class="login" title="GitHub登录" href="/auth/github"><i class="iconfont icon-social-github"></i>账号登录</a>
+        </li>
+        {% endif %}
+    </ul>
+</header>
+
+
+<div id="content">
+</div>
+
+<!--<div class="stars"></div>-->
+<script src="./dist/bundle.js"></script>
+
+<script>
+
+
+
+</script>
+
+
+</body>
+</html>
