@@ -15,6 +15,7 @@ NoteManager.load();
 var cct = document.querySelector("#content");
 var msnry;
 
+var siteAddr = window.location.href;
 
 //未登录无法添加便笺的功能，可以用用/checkLogin路由来判断是否登录 通过ctx.session，
 //不过还是先别吧，让游客也爽爽 新加的是可以改的，不过一刷新就没了
@@ -42,7 +43,7 @@ $('.add-note').on('click', function() {
             }
         }else {
             console.log('￥￥￥您不是vip，先登录吧￥￥￥');
-            Toast("亲，未登录无法添加便签!")
+            Toast("游客无法添加便签哦!")
         }
     })
 
@@ -90,3 +91,5 @@ Event.on('waterfall', function(){
 })
 
 export {msnry};
+
+module.exports.siteAddr = siteAddr;

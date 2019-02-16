@@ -43,9 +43,9 @@ passport.serializeUser(function(user, done) {
 
     githubData = user;
     done(null, user);
-
-    console.log('--------githubData-----------');
-    console.dir(githubData);
+    
+    // console.log('--------githubData-----------');
+    // console.dir(githubData);
 });
 
 passport.deserializeUser(function(obj, done) {
@@ -57,27 +57,60 @@ passport.deserializeUser(function(obj, done) {
 /*GitHubStrategy.prototype.userProfile = function(token, done) {
     done(null, {})
 }*/
+//let siteAddr = require('../src/js/app/index.js').siteAddr;
+//let siteAddr = window.location.href;
+/*let siteAddr = '1sfasd';
+let clientID = '',
+    clientSecret = '',
+    callbackURL = '';
+
+switch (true) {
+    case siteAddr.indexOf('skrdemo')!==-1:
+        clientID = '63d1a5ceffbca3ee0871';
+        clientSecret = '506dfe7197f1916ff25a3bca4388d35c038d36ac';
+        callbackURL = 'http://skrmemo.top/auth/github/callback';
+        break;
+    case siteAddr.indexOf('127.0.0.1')!==-1:
+        clientID = '1fa7f763c147263ecd61';
+        clientSecret = '19d21913223df578dd224d55c237bb7feaccd8f4';
+        callbackURL = 'http://127.0.0.1:3000/auth/github/callback';
+        break;
+    case siteAddr.indexOf('132.232.193.180')!==-1:
+        clientID = '0988e44d6320bdf47741';
+        clientSecret = '72dd4d7226da5853630acbd19ba5b1926d2d4cdc';
+        callbackURL = 'http://132.232.193.180:3000/auth/github/callback';
+        break;
+}*/
 
 passport.use(new GitHubStrategy({
-    //clientID:'63d1a5ceffbca3ee0871',
+    /*clientID,
+    clientSecret,
+    callbackURL*/
+
+    //skrmemo
+    clientID:'63d1a5ceffbca3ee0871',
     //local127
     //clientID: '1fa7f763c147263ecd61',
 
     //tencent cloud
-    clientID: '0988e44d6320bdf47741',
+    //clientID: '0988e44d6320bdf47741',
 
     // GITHUB_CLIENT_ID,
-    //clientSecret: '506dfe7197f1916ff25a3bca4388d35c038d36ac',
+    //skrdemo
+    clientSecret: '506dfe7197f1916ff25a3bca4388d35c038d36ac',
     //local127
     //clientSecret: '19d21913223df578dd224d55c237bb7feaccd8f4',
 
     //tencent cloud
-    clientSecret: '72dd4d7226da5853630acbd19ba5b1926d2d4cdc',
+    //clientSecret: '72dd4d7226da5853630acbd19ba5b1926d2d4cdc',
 
     // GITHUB_CLIENT_SECRET,
-    //callbackURL: 'http://skrnote.iask.in/auth/github/callback',
+    //skrmemo
+    callbackURL: 'http://skrmemo.top/auth/github/callback',
     //local127
-    callbackURL: 'http://132.232.193.180:3000/auth/github/callback',
+    //callbackURL: 'http://127.0.0.1:3000/auth/github/callback',
+    //tencent cloud
+    //callbackURL: 'http://132.232.193.180:3000/auth/github/callback',
 },(accessToken,refreshToken,profile,done)=>{
     /*User.findOrCreate({githubId:profile.id},function(err,user){
         return done(err,user);

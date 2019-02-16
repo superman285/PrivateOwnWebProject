@@ -65,7 +65,7 @@ router.post("/note/add",async (ctx, next) => {
 
     console.log('/add');
     if(!ctx.session || !ctx.session.user){
-        ctx.body={status: 1, errorMsg: '未登录只可使用临时便笺(刷新会清空)，请登录!'};
+        ctx.body={status: 1, errorMsg: '游客无法添加便签哦!'};
         return;
     }
 
@@ -115,7 +115,7 @@ router.post("/note/edit",async (ctx, next) => {
         let [ results ] = await db.query(sql,[note,noteid])
         ctx.response.body = {status: 0};
     }else {
-        ctx.response.body = {status: 1,errorMsg:'未登录用户只能看,修改无效哦!'};
+        ctx.response.body = {status: 1,errorMsg:'游客只能查看便签,无法修改哦!'};
     }
 
 
