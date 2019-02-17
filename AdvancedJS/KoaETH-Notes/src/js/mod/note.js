@@ -129,6 +129,7 @@ class Note {
 
     edit(msg) {
         var self = this;
+        console.log('前端selfid',self.id);
         $.post('/api/note/edit', {
             noteid: self.id,
             uid: userAddr,

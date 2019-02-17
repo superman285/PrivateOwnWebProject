@@ -458,35 +458,44 @@ router.post("/note/add",async (ctx, next) => {
 });
 
 router.post("/note/edit",async (ctx, next) => {
-
     /*if(!req.session || !req.session.user){
         return res.send({status: 1, errorMsg: '请先登录'})
     }*/
-
     console.log('/edit');
-
     let uid = ctx.request.body.uid,
         noteid = ctx.request.body.noteid,
         note = ctx.request.body.note;
 
-    if(ctx.session.user) {
+    console.log('后端我收到的noteid是',noteid);
+
+    /*if(ctx.session.user) {
         let sql = "update notesContent set text = ? where noteid = ?";
         let [ results ] = await db.query(sql,[note,noteid])
         ctx.response.body = {status: 0};
     }else {
         ctx.response.body = {status: 1,errorMsg:'未登录用户只能看,修改无效哦!'};
-    }
-
-
+    }*/
+    let updateRes;
     await noteContractObj.methods.updateNote(noteid,note).send({
         from: uid,
         gas: 300000
-    },(err,resule)=>{
-
+    },(err,result)=>{
+        if (err) {
+            console.log('addNoteFailed',err);
+            updateRes = {
+                success: false,
+                res: err,
+            }
+            ctx.response.body = {status: 4, result: updateRes, errorMsg: "Failed to update Note!"};
+        }else {
+            console.log('addNoteSuccess',result);
+            updateRes = {
+                success: true,
+                res: result,
+            }
+            ctx.response.body = {status: 0, result: updateRes};
+        }
     })
-
-
-
 });
 
 router.post("/note/delete",async (ctx, next) => {
@@ -518,7 +527,7 @@ router.post("/note/delete",async (ctx, next) => {
     if(deleteRes.success){
         ctx.response.body = {status: 0};
     }else {
-        ctx.response.body = {status: 4, result: deleteRes, errorMsg: "Failed to delete Note!"};
+        ctx.response.body = {status: 5, result: deleteRes, errorMsg: "Failed to delete Note!"};
     }
 
 });
