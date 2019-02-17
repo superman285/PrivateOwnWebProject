@@ -27,7 +27,7 @@ class NoteManagerClass {
                             console.log('全假帮不了你');
                         }else{
                             let noteObj = new Note({
-                                id: article[0],
+                                id: article[1],
                                 context: article[2]
                             });
                             NoteManagerClass.notesObjSets.push(noteObj);

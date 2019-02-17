@@ -448,7 +448,7 @@ router.post("/note/add",async (ctx, next) => {
         }
     });
 
-
+    //或者移出来也可以，因为前一个方法是await
     /*if(addResult.success) {
         ctx.response.body = {status: 0, result: addResult};
     }else {
@@ -477,7 +477,8 @@ router.post("/note/edit",async (ctx, next) => {
         ctx.response.body = {status: 1,errorMsg:'未登录用户只能看,修改无效哦!'};
     }
 
-    noteContractObj.methods.updateNote(noteid,note).send({
+
+    await noteContractObj.methods.updateNote(noteid,note).send({
         from: uid,
         gas: 300000
     },(err,resule)=>{
@@ -492,13 +493,34 @@ router.post("/note/delete",async (ctx, next) => {
 
     console.log('/del');
 
-    var noteid = ctx.request.body.id;
-    var note = ctx.request.body.note;
-    let sql = "delete from notesContent where noteid = ?"
-    let [results] = await db.query(sql,[noteid])
+    let uid = ctx.request.body.uid,
+        noteid = ctx.request.body.noteid;
+
+    let deleteRes;
+    await noteContractObj.methods.deleteNote(noteid).send({
+        from: uid,
+        gas: 300000,
+    },(err,result)=>{
+        if(err) {
+            deleteRes = {
+                success: false,
+                res: err,
+            }
+        }else {
+            deleteRes = {
+                success: true,
+                res: result
+            }
+        }
+    });
 
     //这个才算有响应 不写就404啦
-    ctx.response.body = {status: 0};
+    if(deleteRes.success){
+        ctx.response.body = {status: 0};
+    }else {
+        ctx.response.body = {status: 4, result: deleteRes, errorMsg: "Failed to delete Note!"};
+    }
+
 });
 
 module.exports = router;

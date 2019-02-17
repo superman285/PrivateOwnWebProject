@@ -27,9 +27,11 @@ class Note {
     initOpts(opts) {
         console.log('initOpts');
         this.opts = $.extend({}, this.defaultOpts, opts || {});
+        console.log(this.opts);
         if (this.opts.id) {
             this.id = this.opts.id;
         }
+        console.log(this.id);
     };
 
     createNote() {
@@ -128,7 +130,7 @@ class Note {
     edit(msg) {
         var self = this;
         $.post('/api/note/edit', {
-            noteid: this.id,
+            noteid: self.id,
             uid: userAddr,
             note: msg
         }).done(function (ret) {
@@ -198,12 +200,13 @@ class Note {
             url: '/checkLogin',
         });
         console.log('await result',result);
+        console.log(self.id);
 
         if(result.login) {
             $.ajax({
                 type: "POST",
                 url: '/api/note/delete',
-                data: {id: self.id}
+                data: {noteid: self.id,uid: userAddr}
             }).done(function (ret) {
                 console.dir('delete done,status是：', ret);
                 if (ret.status === 0) {
