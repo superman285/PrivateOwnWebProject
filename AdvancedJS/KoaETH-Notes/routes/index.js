@@ -22,7 +22,6 @@ app.use(session(SESSION_CONFIG, app));
 
 //是获取数据
 router.get('/', async (ctx, next) => {
-
     let data = {};
     console.log('~~~~~~~我是index的啊啊啊ctx.session~~~~~~~~','=-=-=-=-=');
     console.dir(ctx.session);
@@ -56,8 +55,8 @@ router.get('/checkLogin', async (ctx,next)=>{
         console.log('@@@@@用户未登录@@@@@');
         ctx.body = {login:false};
     }*/
+
     ctx.body = {login:true}
-    
 })
 
 //访问/string的返回页

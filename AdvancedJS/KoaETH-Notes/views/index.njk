@@ -7,25 +7,21 @@
     <title>KoaETHNotes</title>
     <link rel="stylesheet" href="../public/css/index.css"/>
     <link rel="stylesheet" href="../public/css/buttons.css">
-    <link rel="stylesheet" href="">
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_1041196_1a2y21qpx5g.css"/>
-    <link rel="icon" href="../favicon.png">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1041196_id02466l3ci.css"/>
+    <link rel="icon" href="../public/images/ethpng.png">
 </head>
 <body>
 <header id="header">
     <a class="add-note" title="添加笔记" href="#"><i class="iconfont icon-add"></i>&nbsp;Add Note</a>
     <ul class="user-area">
-        {% if(isLogin) %}
-        <li><img class="avater" src="{{user.avatar}}" alt=""></li>
-        <li><span class="usname" title="{{user.username}}">{{user.username}}</span></li>
-        <li><span class="line"> | </span></li>
+        <li><img class="avater" src="../public/images/ethpng.png" alt=""></li>
+        <li><span class="usname" title="{{user.username}}">已登录</span></li>
+        <li><span class="line l1"> | </span></li>
         <li><a class="logout" href="javascript:;">注销</a></li>
-        {% else %}
         <li class="guest">游客</li>
-        <li><span class="line"> | </span></li>
-        <li><a class="login" title="GitHub登录" href="javascript:;"><i class="iconfont icon-social-github"></i>账号登录</a>
+        <li><span class="line l2"> | </span></li>
+        <li><a class="login" title="以太登录" href="javascript:;"><i class="iconfont icon-ethereum"></i>账户登录</a>
         </li>
-        {% endif %}
 
         <div class="popModal">
             <h3>请输入账户地址</h3>
@@ -43,10 +39,40 @@
 <div id="content">
 </div>
 
-<!--<div class="stars"></div>-->
 <script src="./dist/bundle.js"></script>
-
 <script>
+
+    let avater = document.querySelector(".avater"),
+        usname = document.querySelector(".usname"),
+        line1 = document.getElementsByClassName("line")[0],
+        line2 = document.getElementsByClassName("line")[1],
+        guest = document.querySelector(".guest");
+
+    let loginLink = document.querySelector(".login"),
+        logoutLink = document.querySelector(".logout");
+
+    function show(elems) {
+        elems.forEach(elem=>{
+            elem.style = "display:block;"
+        })
+    }
+    function hide(elems) {
+        elems.forEach(elem=>{
+            elem.style = "display:none"
+        })
+    }
+
+    function loginLoad() {
+        if (localStorage.getItem('userAddr')) {
+            show([avater, usname, line1, logoutLink]);
+            hide([guest, line2, loginLink]);
+        } else {
+            hide([avater, usname, line1, logoutLink]);
+            show([guest, line2, loginLink]);
+        }
+    }
+    loginLoad();
+
 
     console.log('使用webpack的jq:',$);
     console.log('web3',Web3);
@@ -54,9 +80,7 @@
     let web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
     web3.eth.getAccounts(function (err, result) {
         console.log(`web3获取账户:${result}`);
-        console.log('来来来web3',web3);
     });
-    console.log('我是web3');
     console.log(web3);
     console.log('+++++++++++');
 
@@ -395,9 +419,6 @@
     let contractFounder = "0x2b9579b9eb65dbc6a10a3d27fc8aba8f615bb0be";
     let noteContractObj = new web3.eth.contract(abi,contractAddr);
 
-    let loginLink = document.querySelector(".login"),
-        logoutLink = document.querySelector(".logout");
-
     let popModal = document.querySelector(".popModal");
 
     loginLink.onclick = function () {
@@ -419,14 +440,23 @@
         console.log(web3.isAddress(accountAddr));
 
         if (web3.isAddress(accountAddr)) {
-            alert('登录成功');
+            Toast('登入成功!');
             popModal.classList.remove("shown");
+            localStorage.setItem('userAddr',accountAddr);
+            loginLoad();
         }else{
-            console.log('请重新输入');
-            addrInput.value = '';
+            Toast('请重新输入地址!')
         }
+        addrInput.value = '';
     };
 
+    logoutLink.onclick = ()=>{
+        if (localStorage.getItem('userAddr')) {
+            localStorage.removeItem('userAddr');
+            loginLoad();
+            Toast('登出成功!');
+        }
+    }
 
 
 </script>

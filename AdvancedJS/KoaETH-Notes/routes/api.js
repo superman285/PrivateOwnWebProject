@@ -20,7 +20,9 @@ let db;
 } )();
 
 const bodyParser = require('koa-bodyparser');
-app.use(bodyParser());
+app.use(bodyParser(),(ctx,next)=>{
+    next();
+});
 
 const session = require('koa-session2');
 const SESSION_CONFIG = {
@@ -372,6 +374,7 @@ let contractAddr = "0x47cfaeeda8c9e483c4fd87b3de4fb97b5ac2485a";
 let contractFounder = "0x2b9579b9eb65dbc6a10a3d27fc8aba8f615bb0be";
 let noteContractObj = new web3.eth.Contract(abi,contractAddr);
 
+//根据是否登录 展示不同笔记 不能用之前session的方法了
 router.get("/notes",async (ctx, next) => {
     console.log('在ide控制台打出/notes，来了，从区块链获取');
     //中心化mysql版本
@@ -385,22 +388,32 @@ router.get("/notes",async (ctx, next) => {
     }
     let [data] = await db.query(sql);*/
     //区块链版本
-    await noteContractObj.methods.getAllNotes.call({},(err,result)=>{
-        let data = result;
-        console.log('结果的类型是',typeof data);
-        console.log('data来了');
-        console.dir(data);
-        ctx.response.body = {
-            status:0,
-            data:result,
-        }
-        console.log(ctx.response.body);
-    });
-
+    console.log(ctx.query.data);
+    console.log(web3.utils.isAddress(ctx.query.data));
+    if (web3.utils.isAddress(ctx.query.data)) {
+        await noteContractObj.methods.getMyNotes.call({
+            from:ctx.query.data
+        },(err,result)=>{
+            //let data = result;
+            ctx.response.body = {
+                status:0,
+                data:result,
+                query: 'myNotes'
+            }
+        });
+    }else {
+        await noteContractObj.methods.getAllNotes.call({},(err,result)=>{
+            //let data = result;
+            ctx.response.body = {
+                status:0,
+                data:result,
+                query: 'allNotes'
+            }
+        });
+    }
     //如果koa服务器计算的结果是异步的
     //最好在 ctx 前加async ，然后在 计算方法前加await 就会等到 计算完成才将响应体传给客户端 就ok了
     //如果这儿不用await 相当于直接返回给客户端了 就404了 用了await就会等到结果返回
-
 });
 
 router.post("/note/add",async (ctx, next) => {

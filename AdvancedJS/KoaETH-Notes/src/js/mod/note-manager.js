@@ -4,7 +4,7 @@ import Note from "./note";
 import Event from "./event";
 
 //此处到时替换成登录人的地址 动态获取
-const userAddr = "0x2b9579b9eb65dbc6a10a3d27fc8aba8f615bb0be";
+//const userAddr = "0x2b9579b9eb65dbc6a10a3d27fc8aba8f615bb0be";
 let web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
 let abi = [
     {
@@ -340,9 +340,9 @@ let abi = [
 let contractAddr = "0x47cfaeeda8c9e483c4fd87b3de4fb97b5ac2485a";
 let noteContractObj = new web3.eth.Contract(abi,contractAddr);
 
+let userAddr = localStorage.userAddr;
+
 class NoteManagerClass {
-
-
     constructor(){
         console.log("我是NoteManager类");
         //this.noteID = 0;
@@ -350,13 +350,13 @@ class NoteManagerClass {
 
     static load() {
         Event.fire('waterfall');
-        $.get('/api/notes').done(function(ret){
-            if(ret.status == 0){
+
+            $.get('/api/notes',{data:userAddr}).done(function(ret){
+                if(ret.status == 0){
                     $.each(ret.data, function(idx, article) {
                         //由于solidity的delete是置初值而不是完全删除，所以
                         //此处判断当uid/noteid/note都为0或空时说明被删除 就不加载
                         //article第0项第1项第2项分别是uid，noteid，note内容
-                        console.log(typeof article[0],typeof article[1],typeof article[2]);
                         if(article[0]==0&&article[1]==0&&!article[3]){
                             console.log('这个便签是被delete过的');
                         }else{
@@ -376,6 +376,7 @@ class NoteManagerClass {
             }).fail(function(){
                 Toast('网络异常');
             });
+
     }
 
     static recover() {
