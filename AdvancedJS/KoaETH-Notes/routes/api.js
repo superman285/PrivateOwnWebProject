@@ -390,9 +390,7 @@ router.get("/notes",async (ctx, next) => {
     let data;
     console.log('***********contractObj');
     console.log(noteContractObj);
-    await noteContractObj.methods.getAllNotes.call({
-        from: contractFounder
-    },(err,result)=>{
+    await noteContractObj.methods.getAllNotes.call({},(err,result)=>{
         data = result;
         console.log('结果的类型是很好奇啊',typeof data);
         //console.log(typeof data[0]);
