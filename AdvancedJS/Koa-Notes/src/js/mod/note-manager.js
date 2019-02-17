@@ -54,6 +54,9 @@ class NoteManagerClass {
         })
     }
 
+    //要优化，应判断下，如果api add不成功 不应该new Note 改一下先是Note.add成功(用一个返回值)了在newNote
+    //要注意noteID的增加了 如果换了顺序 就应该在第一个方法中++
+
     static add(){
         new Note({
             id: ++NoteManagerClass.noteID,
