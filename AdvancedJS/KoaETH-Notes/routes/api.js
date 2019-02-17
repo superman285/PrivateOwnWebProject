@@ -478,9 +478,7 @@ router.post("/note/edit",async (ctx, next) => {
     let uid = ctx.request.body.uid,
         noteid = ctx.request.body.noteid,
         note = ctx.request.body.note;
-
-    console.log('后端我收到的noteid是',noteid);
-
+    console.log('后端我收到的noteid和uid是',noteid,uid);
     /*if(ctx.session.user) {
         let sql = "update notesContent set text = ? where noteid = ?";
         let [ results ] = await db.query(sql,[note,noteid])
@@ -489,26 +487,32 @@ router.post("/note/edit",async (ctx, next) => {
         ctx.response.body = {status: 1,errorMsg:'未登录用户只能看,修改无效哦!'};
     }*/
     let updateRes;
-    await noteContractObj.methods.updateNote(noteid,note).send({
-        from: uid,
-        gas: 300000
-    },(err,result)=>{
-        if (err) {
-            console.log('addNoteFailed',err);
-            updateRes = {
-                success: false,
-                res: err,
+    //需要判uid 否则不只是err 整个执行智能合约方法语句都报错了
+    if(uid) {
+        await noteContractObj.methods.updateNote(noteid, note).send({
+            from: uid,
+            gas: 300000
+        }, (err, result) => {
+            if (err) {
+                console.log('addNoteFailed', err);
+                updateRes = {
+                    success: false,
+                    res: err,
+                }
+                ctx.response.body = {status: 4, result: updateRes, errorMsg: "Failed to update Note!"};
+            } else {
+                console.log('addNoteSuccess', result);
+                updateRes = {
+                    success: true,
+                    res: result,
+                }
+                ctx.response.body = {status: 0, result: updateRes};
             }
-            ctx.response.body = {status: 4, result: updateRes, errorMsg: "Failed to update Note!"};
-        }else {
-            console.log('addNoteSuccess',result);
-            updateRes = {
-                success: true,
-                res: result,
-            }
-            ctx.response.body = {status: 0, result: updateRes};
-        }
-    })
+        })
+    }else {
+        console.log('uid为空，游客状态');
+        ctx.response.body = {status: 4, result: updateRes, errorMsg: "Failed to update Note!游客只可以阅览便签!"};
+    }
 });
 
 router.post("/note/delete",async (ctx, next) => {

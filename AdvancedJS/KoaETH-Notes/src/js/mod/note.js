@@ -6,7 +6,7 @@ import {msnry} from "../app";
 
 
 //此处到时替换成登录人的地址 动态获取
-const userAddr = "0x2b9579b9eb65dbc6a10a3d27fc8aba8f615bb0be";
+let userAddr = localStorage.userAddr;
 
 class Note {
 
@@ -129,7 +129,7 @@ class Note {
 
     edit(msg) {
         var self = this;
-        console.log('前端selfid',self.id);
+        userAddr = localStorage.userAddr;
         $.post('/api/note/edit', {
             noteid: self.id,
             uid: userAddr,

@@ -443,7 +443,8 @@
             Toast('登入成功!');
             popModal.classList.remove("shown");
             localStorage.setItem('userAddr',accountAddr);
-            loginLoad();
+            //loginLoad();
+            location.reload();
         }else{
             Toast('请重新输入地址!')
         }
@@ -453,7 +454,8 @@
     logoutLink.onclick = ()=>{
         if (localStorage.getItem('userAddr')) {
             localStorage.removeItem('userAddr');
-            loginLoad();
+            //loginLoad();
+            location.reload();
             Toast('登出成功!');
         }
     }
