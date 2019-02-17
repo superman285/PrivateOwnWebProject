@@ -1,11 +1,10 @@
 //const Toast = require("./toast.js").Toast; module.export方式
-import {Toast} from "./toast"; // es6 export方式
+import {Toast} from "./toast"; // es6 export way
 import Note from "./note";
 import Event from "./event";
 
-//webpack配置了全局插件jq 可以不用引入
-/*import jQuery from 'jquery';
-window.$ = window.jQuery = jQuery;*/
+//此处到时替换成登录人的地址 动态获取
+const userAddr = "0x2b9579b9eb65dbc6a10a3d27fc8aba8f615bb0be";
 
 class NoteManagerClass {
 
@@ -16,33 +15,34 @@ class NoteManagerClass {
     }
 
     static load() {
-        //var noteID = this.noteID;
         Event.fire('waterfall');
         $.get('/api/notes').done(function(ret){
-            console.log('/api/notes成功');
-            console.log(ret);
             if(ret.status == 0){
                     $.each(ret.data, function(idx, article) {
-                      let noteObj = new Note({
-                            id: article.noteid,
-                            context: article.text
-                        });
-                        NoteManagerClass.notesObjSets.push(noteObj);
-                        console.log('循环打印');
-                        console.log(NoteManagerClass.notesObjSets,NoteManagerClass.notesObjSets.length);
-                        console.log(idx,article);
-                        NoteManagerClass.noteID += 1;
+                        //由于solidity的delete是置初值而不是完全删除，所以
+                        //此处判断当uid/noteid/note都为0或空时说明被删除 就不加载
+                        //article第0项第1项第2项分别是uid，noteid，note内容
+                        console.log(typeof article[0],typeof article[1],typeof article[2]);
+                        if(article[0]==0&&article[1]==0&&!article[3]){
+                            console.log('全假帮不了你');
+                        }else{
+                            let noteObj = new Note({
+                                id: article[0],
+                                context: article[2]
+                            });
+                            NoteManagerClass.notesObjSets.push(noteObj);
+                            console.log(article[0],article[1],article[2]);
+                            NoteManagerClass.noteID += 1;
+                        }
+
                     });
-                    console.log(NoteManagerClass.noteID);
                     Event.fire('waterfall');
                 }else{
                     Toast(ret.errorMsg);
-                    console.log('没走status=0');
                 }
             }).fail(function(){
                 Toast('网络异常');
             });
-            //this.noteID = noteID;
     }
 
     static recover() {
@@ -54,18 +54,22 @@ class NoteManagerClass {
         })
     }
 
-    static add(){
-        new Note({
-            id: ++NoteManagerClass.noteID,
-        });
+    static async add(){
 
-        Note.add({
-            noteid: NoteManagerClass.noteID,
+
+        let addRes = await Note.add({
+            uid: userAddr,
             note: '',
-        })
+        });
+        console.log('addRes',addRes);
 
-        console.log('我用了notemanager的add');
-        console.log(NoteManagerClass.noteID);
+        if(addRes) {
+            new Note({
+                id: ++NoteManagerClass.noteID,
+            });
+        }else{
+            console.log('addnote api failed');
+        }
     }
 
 }
@@ -77,7 +81,7 @@ const load = NoteManagerClass.load,
       add = NoteManagerClass.add,
       recover = NoteManagerClass.recover;
 
-var NoteManager = {
+let NoteManager = {
     load,
     add,
     recover

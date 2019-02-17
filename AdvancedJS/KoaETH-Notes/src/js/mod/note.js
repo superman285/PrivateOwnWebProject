@@ -4,6 +4,10 @@ import {Toast} from "../mod/toast";
 import Event from "./event";
 import {msnry} from "../app";
 
+
+//此处到时替换成登录人的地址 动态获取
+const userAddr = "0x2b9579b9eb65dbc6a10a3d27fc8aba8f615bb0be";
+
 class Note {
 
 //暂不支持静态属性写在外面的定义方式，先写在constructor里头 用this吧
@@ -22,7 +26,6 @@ class Note {
 
     initOpts(opts) {
         console.log('initOpts');
-        console.log(opts);
         this.opts = $.extend({}, this.defaultOpts, opts || {});
         if (this.opts.id) {
             this.id = this.opts.id;
@@ -41,7 +44,6 @@ class Note {
         $('#content').append(this.$note);
         //if (!this.id) this.$note.css('bottom', '10px');
         console.log('createNote');
-        console.log(this.opts);
         var self = this;
     };
     
@@ -126,7 +128,8 @@ class Note {
     edit(msg) {
         var self = this;
         $.post('/api/note/edit', {
-            id: this.id,
+            noteid: this.id,
+            uid: userAddr,
             note: msg
         }).done(function (ret) {
             if (ret.status === 0) {
@@ -139,29 +142,41 @@ class Note {
     
     
 
-    static add(val) {
+    static async add(val) {
         console.log('static add');
         var self = this;
-        $.ajax({
+        let addRes;
+        await $.ajax({
             type: "POST",
             url: '/api/note/add',
             data: {
                 uid: val.uid,
-                noteid: val.noteid,
                 note: val.note
             },
             success: ret => {
                 if (ret.status === 0) {
                     Toast('Add Note Success!');
+                    addRes = {
+                        success: true,
+                    }
                 } else {
-                    //self.$note.remove();
                     Event.fire('waterfall')
                     Toast(ret.errorMsg);
+                    addRes = {
+                        success: false,
+                    }
                 }
             },
-        })
-        //另一种写法
-        /*$.post('/api/note/add', {note: msg})
+        });
+        if(addRes.success){
+            return true;
+        }else{
+            return false;
+        }
+
+
+        //or
+        /*$.post('/api/note/add', {uid:val.uid,noteid:val.noteid,note:val.note})
     .done(function(ret){
         if(ret.status === 0){
             Toast('Add Note Success!');

@@ -9,7 +9,6 @@ import Event from "../mod/event";
 import {Toast} from "../mod/toast";
 import "../mod/Masonry.js";    //目前采用的瀑布流，waterfall-3party没这个好用
 
-console.log('我要开始load了');
 //加载便签
 NoteManager.load();
 
@@ -20,21 +19,23 @@ var siteAddr = window.location.href;
 
 //未登录无法添加便笺的功能，可以用用/checkLogin路由来判断是否登录 通过ctx.session，
 //不过还是先别吧，让游客也爽爽 新加的是可以改的，不过一刷新就没了
-$('.add-note').on('click', function() {
+$('.add-note').on('click', function () {
 
     //如果想改为游客也可以添加，就把这个判断去掉即可
-    $.get('/checkLogin').done(ret=>{
-        if(ret.login){
+    $.get('/checkLogin').done(async ret => {
+        if (ret.login) {
             console.log('￥￥￥您是vip，您加吧￥￥￥');
-            NoteManager.add();
-            if(msnry) {
+            await NoteManager.add();
+            //如果此处不用await 由于add是异步方法，会导致先加到开头 然后点击或刷新才触发重新排布
+
+            if (msnry) {
                 msnry.layout();
-                msnry = new Masonry(cct,{
+                msnry = new Masonry(cct, {
                     itemSelector: '.note',
                     //columnWidth: 15%,
                     gutter: 30
                 });
-            }else {
+            } else {
                 msnry = new Masonry(cct, {
                     // options
                     itemSelector: '.note',
@@ -42,7 +43,8 @@ $('.add-note').on('click', function() {
                     gutter: 30
                 });
             }
-        }else {
+
+        } else {
             console.log('￥￥￥您不是vip，先登录吧￥￥￥');
             Toast("亲，未登录无法添加便签!")
         }
@@ -51,21 +53,21 @@ $('.add-note').on('click', function() {
 
 let frame = document.querySelector("#content");
 
-frame.addEventListener('click',(e)=>{
+frame.addEventListener('click', (e) => {
     if (msnry && e.target.id == "content") {
         console.dir(e.target);
         msnry.layout();
-        msnry = new Masonry(cct,{
+        msnry = new Masonry(cct, {
             itemSelector: '.note',
             //columnWidth: 15%,
             gutter: 30
         });
         console.log('来我要回滚了');
-        
-        $.get('/checkLogin').done(ret=>{
-            if(ret.login){
+
+        $.get('/checkLogin').done(ret => {
+            if (ret.login) {
                 console.log('￥￥￥您是vip，您随便改￥￥￥');
-            }else {
+            } else {
                 NoteManager.recover();
             }
         })
@@ -73,7 +75,7 @@ frame.addEventListener('click',(e)=>{
     }
 })
 
-Event.on('waterfall', function(){
+Event.on('waterfall', function () {
     console.log('触发waterfall');
     var cct = document.querySelector("#content");
 

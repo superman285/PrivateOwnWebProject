@@ -374,10 +374,7 @@ let noteContractObj = new web3.eth.Contract(abi,contractAddr);
 
 router.get("/notes",async (ctx, next) => {
     console.log('在ide控制台打出/notes，来了，从区块链获取');
-    /*web3.eth.getAccounts(function (err, result) {
-        console.log(`web3获取账户:${result}`);
-        console.log('来来来web3',web3);
-    });*/
+    //中心化mysql版本
     /*let sql = "";
     if(ctx.session.user) {
         console.log('看github用户自己的笔记');
@@ -387,16 +384,12 @@ router.get("/notes",async (ctx, next) => {
         sql = `select * from notesContent`;
     }
     let [data] = await db.query(sql);*/
-    let data;
-    console.log('***********contractObj');
-    console.log(noteContractObj);
+    //区块链版本
     await noteContractObj.methods.getAllNotes.call({},(err,result)=>{
-        data = result;
-        console.log('结果的类型是很好奇啊',typeof data);
-        //console.log(typeof data[0]);
+        let data = result;
+        console.log('结果的类型是',typeof data);
         console.log('data来了');
         console.dir(data);
-
         ctx.response.body = {
             status:0,
             data:result,
@@ -405,46 +398,62 @@ router.get("/notes",async (ctx, next) => {
     });
 
     //如果koa服务器计算的结果是异步的
-
     //最好在 ctx 前加async ，然后在 计算方法前加await 就会等到 计算完成才将响应体传给客户端 就ok了
     //如果这儿不用await 相当于直接返回给客户端了 就404了 用了await就会等到结果返回
 
 });
 
 router.post("/note/add",async (ctx, next) => {
-
-    console.log('/add');
-    if(!ctx.session || !ctx.session.user){
+    console.log('$$$$$/add$$$$$$');
+    /*if(!ctx.session || !ctx.session.user){
         ctx.body={status: 1, errorMsg: '未登录只可使用临时便笺(刷新会清空)，请登录!'};
         return;
-    }
-
+    }*/
     /*if (!ctx.request.body.note) {
         ctx.response.body={status: 2, errorMsg: '内容不能为空'};
     }*/
 
+    let note = ctx.request.body.note,
+        uid = ctx.request.body.uid;
+
     console.dir(ctx);
-    var note = ctx.request.body.note;
-    var noteid = ctx.request.body.noteid;
-    var uid = ctx.session.user.id;
-    console.log({text: note, uid: uid})
-
-
-    let sql = "insert into notesContent (uid,noteid,text) values (?,?,?)";
+    /*let sql = "insert into notesContent (uid,noteid,text) values (?,?,?)";
     let [ results ] = await db.query(sql, [uid,noteid,note], (err,result)=>{
         console.log('result');
         console.log(result);
     });
-
     //回调函数 查询失败后可调err，暂未试验成功
-    ctx.response.body = {status: 0};
+    */
 
-    /*Note.create({text: note, uid: uid}).then(function(){
-        console.log(arguments)
-        ctx.response.send({status: 0})
-    }).catch(function(){
-        ctx.response.send({ status: 1,errorMsg: '数据库异常或者你没有权限'});
-    })*/
+    let addResult;
+    await noteContractObj.methods.addNote(note).send({
+        from:uid,
+        gas: 300000,
+    },(err,result)=>{
+        if (err) {
+            console.log('addNoteFailed',err);
+            addResult = {
+                success: false,
+                res: err,
+            }
+            ctx.response.body = {status: 3, result: addResult, errorMsg: "Failed to add Note!"};
+
+        }else {
+            console.log('addNoteSuccess',result);
+            addResult = {
+                success: true,
+                res: result,
+            }
+            ctx.response.body = {status: 0, result: addResult};
+        }
+    });
+
+
+    /*if(addResult.success) {
+        ctx.response.body = {status: 0, result: addResult};
+    }else {
+        ctx.response.body = {status: 3, result: addResult, errorMsg: "Failed to add Note!"};
+    }*/
 
 });
 
@@ -456,9 +465,9 @@ router.post("/note/edit",async (ctx, next) => {
 
     console.log('/edit');
 
-    var noteid = ctx.request.body.id;
-    var note = ctx.request.body.note;
-
+    let uid = ctx.request.body.uid,
+        noteid = ctx.request.body.noteid,
+        note = ctx.request.body.note;
 
     if(ctx.session.user) {
         let sql = "update notesContent set text = ? where noteid = ?";
@@ -467,6 +476,13 @@ router.post("/note/edit",async (ctx, next) => {
     }else {
         ctx.response.body = {status: 1,errorMsg:'未登录用户只能看,修改无效哦!'};
     }
+
+    noteContractObj.methods.updateNote(noteid,note).send({
+        from: uid,
+        gas: 300000
+    },(err,resule)=>{
+
+    })
 
 
 
