@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+//const Web3 = require('web3');
 /*const fs = require('fs');
 const net = require('net');
 const tls = require('tls');
@@ -63,8 +64,10 @@ module.exports = {
     plugins: [
 
         new webpack.ProvidePlugin({
-            $: "jquery"
+            $: "jquery",
+            Web3: "web3",
         }),
+
 
     ]
 

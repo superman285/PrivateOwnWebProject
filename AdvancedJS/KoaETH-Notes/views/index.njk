@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>KoaETHNotes</title>
-    <link rel="stylesheet" href="./public/css/index.css"/>
+    <link rel="stylesheet" href="../public/css/index.css"/>
+    <link rel="stylesheet" href="../public/css/buttons.css">
+    <link rel="stylesheet" href="">
     <link rel="stylesheet" href="//at.alicdn.com/t/font_1041196_1a2y21qpx5g.css"/>
     <link rel="icon" href="../favicon.png">
 </head>
@@ -17,13 +19,23 @@
         <li><img class="avater" src="{{user.avatar}}" alt=""></li>
         <li><span class="usname" title="{{user.username}}">{{user.username}}</span></li>
         <li><span class="line"> | </span></li>
-        <li><a class="logout" href="/auth/logout">注销</a></li>
+        <li><a class="logout" href="javascript:;">注销</a></li>
         {% else %}
         <li class="guest">游客</li>
         <li><span class="line"> | </span></li>
-        <li><a class="login" title="GitHub登录" href="/auth/github"><i class="iconfont icon-social-github"></i>账号登录</a>
+        <li><a class="login" title="GitHub登录" href="javascript:;"><i class="iconfont icon-social-github"></i>账号登录</a>
         </li>
         {% endif %}
+
+        <div class="popModal">
+            <h3>请输入账户地址</h3>
+            <hr>
+            <input type="text" class="addrInput">
+            <hr>
+            <button class="ensureModal button button-primary button-rounded">确定</button>
+            <button class="unsureModal button button-rounded">取消</button>
+        </div>
+
     </ul>
 </header>
 
@@ -35,6 +47,385 @@
 <script src="./dist/bundle.js"></script>
 
 <script>
+
+    console.log('使用webpack的jq:',$);
+    console.log('web3',Web3);
+
+    let web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
+    web3.eth.getAccounts(function (err, result) {
+        console.log(`web3获取账户:${result}`);
+        console.log('来来来web3',web3);
+    });
+    console.log('我是web3');
+    console.log(web3);
+    console.log('+++++++++++');
+
+    let abi = [
+        {
+            "constant": true,
+            "inputs": [
+                {
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "name": "notesContent",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "string"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [
+                {
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "name": "notesArr",
+            "outputs": [
+                {
+                    "name": "uid",
+                    "type": "uint256"
+                },
+                {
+                    "name": "noteid",
+                    "type": "uint256"
+                },
+                {
+                    "name": "text",
+                    "type": "string"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [
+                {
+                    "name": "noteid",
+                    "type": "uint256"
+                },
+                {
+                    "name": "newtext",
+                    "type": "string"
+                }
+            ],
+            "name": "updateNote",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [],
+            "name": "founder",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [
+                {
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "name": "noteidTouid",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [],
+            "name": "noteIdx",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [],
+            "name": "getMyNotes",
+            "outputs": [
+                {
+                    "components": [
+                        {
+                            "name": "uid",
+                            "type": "uint256"
+                        },
+                        {
+                            "name": "noteid",
+                            "type": "uint256"
+                        },
+                        {
+                            "name": "text",
+                            "type": "string"
+                        }
+                    ],
+                    "name": "",
+                    "type": "tuple[]"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [
+                {
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "name": "notesMap",
+            "outputs": [
+                {
+                    "name": "uid",
+                    "type": "uint256"
+                },
+                {
+                    "name": "noteid",
+                    "type": "uint256"
+                },
+                {
+                    "name": "text",
+                    "type": "string"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [
+                {
+                    "name": "text",
+                    "type": "string"
+                }
+            ],
+            "name": "addNote",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [
+                {
+                    "name": "noteid",
+                    "type": "uint256"
+                }
+            ],
+            "name": "getNote",
+            "outputs": [
+                {
+                    "components": [
+                        {
+                            "name": "uid",
+                            "type": "uint256"
+                        },
+                        {
+                            "name": "noteid",
+                            "type": "uint256"
+                        },
+                        {
+                            "name": "text",
+                            "type": "string"
+                        }
+                    ],
+                    "name": "",
+                    "type": "tuple"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [
+                {
+                    "name": "noteid",
+                    "type": "uint256"
+                }
+            ],
+            "name": "deleteNote",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [],
+            "name": "getAllNotes",
+            "outputs": [
+                {
+                    "components": [
+                        {
+                            "name": "uid",
+                            "type": "uint256"
+                        },
+                        {
+                            "name": "noteid",
+                            "type": "uint256"
+                        },
+                        {
+                            "name": "text",
+                            "type": "string"
+                        }
+                    ],
+                    "name": "",
+                    "type": "tuple[]"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [],
+            "name": "founderID",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [
+                {
+                    "name": "",
+                    "type": "uint256"
+                },
+                {
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "name": "userNotes",
+            "outputs": [
+                {
+                    "name": "uid",
+                    "type": "uint256"
+                },
+                {
+                    "name": "noteid",
+                    "type": "uint256"
+                },
+                {
+                    "name": "text",
+                    "type": "string"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [
+                {
+                    "name": "",
+                    "type": "uint256"
+                },
+                {
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "name": "noteidToindex",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+        }
+    ];
+    let contractAddr = "0xfab5e6a306abc8b71ff98727a6f216fbd2ead4fc";
+    let contractFounder = "0x2b9579b9eb65dbc6a10a3d27fc8aba8f615bb0be";
+    let noteContractObj = new web3.eth.contract(abi,contractAddr);
+
+    let loginLink = document.querySelector(".login"),
+        logoutLink = document.querySelector(".logout");
+
+    let popModal = document.querySelector(".popModal");
+
+    loginLink.onclick = function () {
+        popModal.classList.add('shown');
+    }
+
+    let addrInput = document.querySelector(".addrInput");
+    let ensureBtn = document.querySelector(".ensureModal"),
+        unsureBtn = document.querySelector(".unsureModal");
+
+    let accountAddr = '0x0';
+
+    unsureBtn.onclick = function () {
+        popModal.classList.remove("shown");
+    }
+    ensureBtn.onclick = function () {
+        accountAddr = addrInput.value;
+        console.log(`获取的地址${accountAddr}`);
+        console.log(web3.isAddress(accountAddr));
+
+        if (web3.isAddress(accountAddr)) {
+            alert('登录成功');
+            popModal.classList.remove("shown");
+        }else{
+            console.log('请重新输入');
+            addrInput.value = '';
+        }
+    };
 
 
 

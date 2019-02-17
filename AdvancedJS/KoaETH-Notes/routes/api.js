@@ -3,7 +3,10 @@
 const Koa = require("koa");
 const app = new Koa();
 const router = require('koa-router')();
-router.prefix('/api')
+router.prefix('/api');
+const Web3 = require('web3');
+
+console.dir(Web3);
 
 
 const mysql2 = require('mysql2/promise');
@@ -33,11 +36,349 @@ const SESSION_CONFIG = {
 
 app.use(session(SESSION_CONFIG, app));
 
-router.get("/notes",async (ctx, next) => {
-    console.log('在ide控制台打出/notes');
+let web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
+let abi = [
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "notesContent",
+        "outputs": [
+            {
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "notesArr",
+        "outputs": [
+            {
+                "name": "uid",
+                "type": "uint256"
+            },
+            {
+                "name": "noteid",
+                "type": "uint256"
+            },
+            {
+                "name": "text",
+                "type": "string"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "name": "noteid",
+                "type": "uint256"
+            },
+            {
+                "name": "newtext",
+                "type": "string"
+            }
+        ],
+        "name": "updateNote",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "founder",
+        "outputs": [
+            {
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "noteidTouid",
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "noteIdx",
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "getMyNotes",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "name": "uid",
+                        "type": "uint256"
+                    },
+                    {
+                        "name": "noteid",
+                        "type": "uint256"
+                    },
+                    {
+                        "name": "text",
+                        "type": "string"
+                    }
+                ],
+                "name": "",
+                "type": "tuple[]"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "notesMap",
+        "outputs": [
+            {
+                "name": "uid",
+                "type": "uint256"
+            },
+            {
+                "name": "noteid",
+                "type": "uint256"
+            },
+            {
+                "name": "text",
+                "type": "string"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "name": "text",
+                "type": "string"
+            }
+        ],
+        "name": "addNote",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "name": "noteid",
+                "type": "uint256"
+            }
+        ],
+        "name": "getNote",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "name": "uid",
+                        "type": "uint256"
+                    },
+                    {
+                        "name": "noteid",
+                        "type": "uint256"
+                    },
+                    {
+                        "name": "text",
+                        "type": "string"
+                    }
+                ],
+                "name": "",
+                "type": "tuple"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "name": "noteid",
+                "type": "uint256"
+            }
+        ],
+        "name": "deleteNote",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "getAllNotes",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "name": "uid",
+                        "type": "uint256"
+                    },
+                    {
+                        "name": "noteid",
+                        "type": "uint256"
+                    },
+                    {
+                        "name": "text",
+                        "type": "string"
+                    }
+                ],
+                "name": "",
+                "type": "tuple[]"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "founderID",
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "name": "",
+                "type": "uint256"
+            },
+            {
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "userNotes",
+        "outputs": [
+            {
+                "name": "uid",
+                "type": "uint256"
+            },
+            {
+                "name": "noteid",
+                "type": "uint256"
+            },
+            {
+                "name": "text",
+                "type": "string"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "name": "",
+                "type": "uint256"
+            },
+            {
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "noteidToindex",
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    }
+];
+let contractAddr = "0x47cfaeeda8c9e483c4fd87b3de4fb97b5ac2485a";
+let contractFounder = "0x2b9579b9eb65dbc6a10a3d27fc8aba8f615bb0be";
+let noteContractObj = new web3.eth.Contract(abi,contractAddr);
 
-    let sql = "";
-    console.log('ctxsessionuser',ctx.session);
+router.get("/notes",async (ctx, next) => {
+    console.log('在ide控制台打出/notes，来了，从区块链获取');
+    /*web3.eth.getAccounts(function (err, result) {
+        console.log(`web3获取账户:${result}`);
+        console.log('来来来web3',web3);
+    });*/
+    /*let sql = "";
     if(ctx.session.user) {
         console.log('看github用户自己的笔记');
         sql = `select * from notesContent where uid=${ctx.session.user.id}`;
@@ -45,19 +386,30 @@ router.get("/notes",async (ctx, next) => {
         console.log('没有登录，看所有笔记');
         sql = `select * from notesContent`;
     }
+    let [data] = await db.query(sql);*/
+    let data;
+    console.log('***********contractObj');
+    console.log(noteContractObj);
+    await noteContractObj.methods.getAllNotes.call({
+        from: contractFounder
+    },(err,result)=>{
+        data = result;
+        console.log('结果的类型是很好奇啊',typeof data);
+        //console.log(typeof data[0]);
+        console.log('data来了');
+        console.dir(data);
 
+        ctx.response.body = {
+            status:0,
+            data:result,
+        }
+        console.log(ctx.response.body);
+    });
 
-    //data为数组，数组元素为笔记数据对象，对象含3个键
-    let [data] = await db.query(sql);
+    //如果koa服务器计算的结果是异步的
 
-    console.log('data来了');
-    console.dir(data);
-    ctx.body = {
-        status: 0,
-        data
-    }
-
-    //ctx.response.send({status: 0, data});
+    //最好在 ctx 前加async ，然后在 计算方法前加await 就会等到 计算完成才将响应体传给客户端 就ok了
+    //如果这儿不用await 相当于直接返回给客户端了 就404了 用了await就会等到结果返回
 
 });
 

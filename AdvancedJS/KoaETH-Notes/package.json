@@ -1,9 +1,10 @@
 {
-  "name": "Koa-Notes",
+  "name": "KoaETH-Notes",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "start": "supervisor PORT=4000 node bin/www",
+    "stop": "npm stop",
     "dev": "./node_modules/.bin/nodemon bin/www",
     "prd": "pm2 start bin/www",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -45,7 +46,8 @@
     "path": "^0.12.7",
     "pug": "^2.0.0-rc.1",
     "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.1"
+    "style-loader": "^0.23.1",
+    "web3":"^1.0.0-beta.46"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

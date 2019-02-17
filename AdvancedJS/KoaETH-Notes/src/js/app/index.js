@@ -10,6 +10,7 @@ import {Toast} from "../mod/toast";
 import "../mod/Masonry.js";    //目前采用的瀑布流，waterfall-3party没这个好用
 
 console.log('我要开始load了');
+//加载便签
 NoteManager.load();
 
 var cct = document.querySelector("#content");
@@ -46,9 +47,7 @@ $('.add-note').on('click', function() {
             Toast("亲，未登录无法添加便签!")
         }
     })
-
-
-})
+});
 
 let frame = document.querySelector("#content");
 
@@ -91,5 +90,3 @@ Event.on('waterfall', function(){
 })
 
 export {msnry};
-
-module.exports.siteAddr = siteAddr;
