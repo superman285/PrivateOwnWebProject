@@ -82,13 +82,7 @@ frame.addEventListener('click', (e) => {
         }else {
             NoteManager.recover();
         }
-        /*$.get('/checkLogin').done(ret => {
-            if (ret.login) {
-                console.log('￥￥￥您是vip，您随便改￥￥￥');
-            } else {
-                NoteManager.recover();
-            }
-        })*/
+
 
     }
 });

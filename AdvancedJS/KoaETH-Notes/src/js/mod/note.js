@@ -48,12 +48,12 @@ class Note {
         console.log('createNote');
         var self = this;
     };
-    
+
     recover() {
         if (this.$note) {
             this.$note.find('.note-ct').html(this.opts.context);
             console.log('notejs还原成功');
-        }else{
+        } else {
             console.log('notejs $note为空');
         }
     }
@@ -100,7 +100,7 @@ class Note {
 
                 //改逻辑，edit与add分开
                 self.edit($noteCt.html());
-                
+
                 /*if (self.id) {
                     console.log('触发edit');
                     self.edit($noteCt.html())
@@ -142,8 +142,7 @@ class Note {
             }
         })
     };
-    
-    
+
 
     static async add(val) {
         console.log('static add');
@@ -171,9 +170,9 @@ class Note {
                 }
             },
         });
-        if(addRes.success){
+        if (addRes.success) {
             return true;
-        }else{
+        } else {
             return false;
         }
         //or
@@ -193,31 +192,22 @@ class Note {
         var self = this;
         userAddr = localStorage.userAddr;
         msnry.layout();
-        let result = await $.ajax({
-            type: "GET",
-            url: '/checkLogin',
-        });
-        console.log('await result',result);
         console.log(self.id);
 
-        if(result.login) {
-            $.ajax({
-                type: "POST",
-                url: '/api/note/delete',
-                data: {noteid: self.id,uid: userAddr}
-            }).done(function (ret) {
-                console.dir('delete done,status是：', ret);
-                if (ret.status === 0) {
-                    Toast('Delete Note Success!');
-                    self.$note.remove();
-                    Event.fire('waterfall')
-                } else {
-                    Toast(ret.errorMsg);
-                }
-            });
-        }else {
-            Toast('亲,不能删除别人的便签哦!')
-        }
+        $.ajax({
+            type: "POST",
+            url: '/api/note/delete',
+            data: {noteid: self.id, uid: userAddr}
+        }).done(function (ret) {
+            console.dir('delete done,status是：', ret);
+            if (ret.status === 0) {
+                Toast('Delete Note Success!');
+                self.$note.remove();
+                Event.fire('waterfall')
+            } else {
+                Toast(ret.errorMsg);
+            }
+        });
     };
 }
 
