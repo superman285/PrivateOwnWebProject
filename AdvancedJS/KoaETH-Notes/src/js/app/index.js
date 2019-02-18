@@ -8,10 +8,12 @@ import NoteManager from "../mod/note-manager.js";
 import Event from "../mod/event";
 import {Toast} from "../mod/toast";
 import "../mod/Masonry.js";    //目前采用的瀑布流，waterfall-3party没这个好用
+import "../mod/note-manager.js";
+
+import {web3,abi,contractAddr,contractFounder,noteContractObj} from "../mod/contractABI";
 
 
 //加载以太账户
-let web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
 let userAddr = localStorage.userAddr;
 
 console.log(web3.utils.isAddress(userAddr));

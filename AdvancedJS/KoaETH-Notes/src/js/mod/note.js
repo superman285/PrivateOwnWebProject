@@ -176,8 +176,6 @@ class Note {
         }else{
             return false;
         }
-
-
         //or
         /*$.post('/api/note/add', {uid:val.uid,noteid:val.noteid,note:val.note})
     .done(function(ret){
@@ -191,11 +189,10 @@ class Note {
     });*/
     };
 
-    //要判是否登录，还没判
     async delete() {
         var self = this;
+        userAddr = localStorage.userAddr;
         msnry.layout();
-        
         let result = await $.ajax({
             type: "GET",
             url: '/checkLogin',
