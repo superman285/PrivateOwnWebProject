@@ -55,7 +55,7 @@ $('.add-note').on('click', function () {
         })
     }else {
         console.log('￥￥￥您不是vip，先登录吧￥￥￥');
-        Toast("亲，游客无法添加便签，请先登录!")
+        Toast("游客无法添加便签，请先登录!")
     }
 });
 

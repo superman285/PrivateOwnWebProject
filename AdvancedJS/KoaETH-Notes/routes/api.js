@@ -28,7 +28,7 @@ const SESSION_CONFIG = {
 
 app.use(session(SESSION_CONFIG, app));
 
-let web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
+/*let web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
 let abi = [
     {
         "constant": true,
@@ -362,9 +362,9 @@ let abi = [
 ];
 let contractAddr = "0x8fd9c5dd9bb93f6014e55efec937fc60897025a6";
 let contractFounder = "0x2b9579b9eb65dbc6a10a3d27fc8aba8f615bb0be";
-let noteContractObj = new web3.eth.Contract(abi,contractAddr);
+let noteContractObj = new web3.eth.Contract(abi,contractAddr);*/
 
-// require("../src/js/mod/contractABI");
+let {web3,abi,contractAddr,contractFounder,noteContractObj} =require("../src/js/mod/contractABI_backend.js");
 
 //根据是否登录 展示不同笔记 不能用之前session的方法了
 router.get("/notes",async (ctx, next) => {
@@ -536,6 +536,7 @@ router.post("/note/delete",async (ctx, next) => {
                     success: true,
                     res: result
                 }
+                ctx.body = {status:0,result:deleteRes}
             }
         });
     }else {
