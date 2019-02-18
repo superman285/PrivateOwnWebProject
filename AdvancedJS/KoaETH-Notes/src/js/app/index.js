@@ -8,14 +8,17 @@ import NoteManager from "../mod/note-manager.js";
 import Event from "../mod/event";
 import {Toast} from "../mod/toast";
 import "../mod/Masonry.js";    //目前采用的瀑布流，waterfall-3party没这个好用
-import "../mod/note-manager.js";
 
 import {web3,abi,contractAddr,contractFounder,noteContractObj} from "../mod/contractABI";
 
+console.log("@#$%^&*($%^&*(受够了");
+console.log(noteContractObj);
+
+console.log("测试下web3啊啊啊啊 啊");
+console.log(web3);
 
 //加载以太账户
 let userAddr = localStorage.userAddr;
-
 console.log(web3.utils.isAddress(userAddr));
 
 //加载便签
@@ -23,8 +26,6 @@ NoteManager.load();
 
 var cct = document.querySelector("#content");
 var msnry;
-
-var siteAddr = window.location.href;
 
 //未登录无法添加便笺的功能，可以用用/checkLogin路由来判断是否登录 通过ctx.session，
 //不过还是先别吧，让游客也爽爽 新加的是可以改的，不过一刷新就没了

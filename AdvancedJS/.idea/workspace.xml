@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4cdc32d7-bcce-44ce-8473-1b45e697a0a1" name="默认更改列表" comment="">
+    <list default="true" id="4cdc32d7-bcce-44ce-8473-1b45e697a0a1" name="默认更改列表" comment="去掉checkLogin判断&#10;update 2019.2.18">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KoaETH-Notes/dist/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/KoaETH-Notes/dist/bundle.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KoaETH-Notes/routes/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/KoaETH-Notes/routes/api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KoaETH-Notes/src/js/app/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/KoaETH-Notes/src/js/app/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KoaETH-Notes/src/js/mod/contractABI.js" beforeDir="false" afterPath="$PROJECT_DIR$/KoaETH-Notes/src/js/mod/contractABI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KoaETH-Notes/src/js/mod/note-manager.js" beforeDir="false" afterPath="$PROJECT_DIR$/KoaETH-Notes/src/js/mod/note-manager.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -38,7 +40,7 @@
           <entry key="gitignore" value="1" />
           <entry key="html" value="32" />
           <entry key="jpg" value="1" />
-          <entry key="js" value="115" />
+          <entry key="js" value="135" />
           <entry key="json" value="18" />
           <entry key="md" value="1" />
           <entry key="njk" value="9" />
@@ -54,7 +56,7 @@
           <entry key="Image" value="1" />
           <entry key="JSON" value="18" />
           <entry key="Jade" value="1" />
-          <entry key="JavaScript" value="118" />
+          <entry key="JavaScript" value="138" />
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Vue.js" value="3" />
@@ -64,11 +66,11 @@
         <counts>
           <entry key="css" value="92" />
           <entry key="html" value="10866" />
-          <entry key="js" value="10078" />
+          <entry key="js" value="10550" />
           <entry key="json" value="92" />
           <entry key="md" value="54" />
           <entry key="njk" value="1736" />
-          <entry key="txt" value="1129" />
+          <entry key="txt" value="1172" />
           <entry key="www" value="3" />
         </counts>
       </usages-collector>
@@ -77,9 +79,9 @@
           <entry key="CSS" value="92" />
           <entry key="HTML" value="12602" />
           <entry key="JSON" value="92" />
-          <entry key="JavaScript" value="10081" />
+          <entry key="JavaScript" value="10553" />
           <entry key="Markdown" value="54" />
-          <entry key="PLAIN_TEXT" value="1129" />
+          <entry key="PLAIN_TEXT" value="1172" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -94,8 +96,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/KoaETH-Notes/src/js/mod/note.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3796">
-              <caret line="202" column="26" selection-start-line="202" selection-start-column="26" selection-end-line="202" selection-end-column="26" />
+            <state relative-caret-position="4294">
+              <caret line="226" column="27" selection-start-line="226" selection-start-column="27" selection-end-line="226" selection-end-column="27" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
                 <element signature="e#67#73#0" expanded="true" />
@@ -106,24 +108,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/KoaETH-Notes/routes/api.js">
+        <entry file="file://$PROJECT_DIR$/KoaETH-Notes/src/js/mod/note-manager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="955">
-              <caret line="534" column="29" lean-forward="true" selection-start-line="534" selection-start-column="29" selection-end-line="534" selection-end-column="29" />
+            <state relative-caret-position="171">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
               <folding>
-                <element signature="e#673#8197#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/KoaETH-Notes/src/js/mod/contractABI_backend.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="337" column="72" lean-forward="true" selection-start-line="337" selection-start-column="17" selection-end-line="337" selection-end-column="72" />
-              <folding>
-                <element signature="e#90#7614#0" />
+                <element signature="e#110#136#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -132,35 +122,22 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/KoaETH-Notes/src/js/app/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+            <state relative-caret-position="228">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
               <folding>
                 <element signature="e#99#148#0" expanded="true" />
-                <element signature="e#283#315#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/KoaETH-Notes/src/js/mod/note-manager.js">
+        <entry file="file://$PROJECT_DIR$/KoaETH-Notes/src/js/mod/contractABI.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="50" column="72" selection-start-line="50" selection-start-column="72" selection-end-line="50" selection-end-column="72" />
+            <state relative-caret-position="285">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
               <folding>
-                <element signature="e#110#136#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/KoaETH-Notes/views/index.njk">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2451">
-              <caret line="458" column="27" selection-start-line="458" selection-start-column="27" selection-end-line="458" selection-end-column="27" />
-              <folding>
-                <element signature="e#2815#11659#0" />
+                <element signature="e#234#7758#0" />
               </folding>
             </state>
           </provider>
@@ -178,7 +155,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>listen</find>
       <find>err</find>
       <find>btn</find>
       <find>info</find>
@@ -193,7 +169,6 @@
       <find>parser</find>
       <find>session</find>
       <find>redirect</find>
-      <find>web3</find>
       <find>便签</find>
       <find>XMLHTTPRequest</find>
       <find>/</find>
@@ -207,6 +182,8 @@
       <find>time</find>
       <find>during</find>
       <find>abi =</find>
+      <find>checkLogin</find>
+      <find>web3</find>
       <find>noteContractObj</find>
     </findStrings>
     <replaceStrings>
@@ -260,12 +237,12 @@
         <option value="$PROJECT_DIR$/KoaETH-Notes/routes/index.js" />
         <option value="$PROJECT_DIR$/KoaETH-Notes/src/js/mod/toast.js" />
         <option value="$PROJECT_DIR$/KoaETH-Notes/public/css/index.css" />
-        <option value="$PROJECT_DIR$/KoaETH-Notes/src/js/mod/note.js" />
-        <option value="$PROJECT_DIR$/KoaETH-Notes/src/js/mod/note-manager.js" />
         <option value="$PROJECT_DIR$/KoaETH-Notes/views/index.njk" />
-        <option value="$PROJECT_DIR$/KoaETH-Notes/src/js/mod/contractABI.js" />
         <option value="$PROJECT_DIR$/KoaETH-Notes/src/js/mod/contractABI_backend.js" />
+        <option value="$PROJECT_DIR$/KoaETH-Notes/src/js/mod/note.js" />
         <option value="$PROJECT_DIR$/KoaETH-Notes/routes/api.js" />
+        <option value="$PROJECT_DIR$/KoaETH-Notes/src/js/mod/contractABI.js" />
+        <option value="$PROJECT_DIR$/KoaETH-Notes/src/js/mod/note-manager.js" />
         <option value="$PROJECT_DIR$/KoaETH-Notes/src/js/app/index.js" />
       </list>
     </option>
@@ -421,10 +398,10 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="273" />
-    <option name="y" value="142" />
-    <option name="width" value="1379" />
-    <option name="height" value="940" />
+    <option name="x" value="32" />
+    <option name="y" value="74" />
+    <option name="width" value="1630" />
+    <option name="height" value="1004" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -480,6 +457,12 @@
               <item name="AdvancedJS" type="b2602c69:ProjectViewProjectNode" />
               <item name="AdvancedJS" type="462c0819:PsiDirectoryNode" />
               <item name="KoaETH-Notes" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AdvancedJS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AdvancedJS" type="462c0819:PsiDirectoryNode" />
+              <item name="KoaETH-Notes" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -495,7 +478,14 @@
               <item name="KoaETH-Notes" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="mod" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AdvancedJS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AdvancedJS" type="462c0819:PsiDirectoryNode" />
+              <item name="KoaETH-Notes" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sass" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AdvancedJS" type="b2602c69:ProjectViewProjectNode" />
@@ -608,7 +598,7 @@
       <workItem from="1550249119537" duration="15996000" />
       <workItem from="1550333150015" duration="3669000" />
       <workItem from="1550374147067" duration="36681000" />
-      <workItem from="1550454173900" duration="9804000" />
+      <workItem from="1550454173900" duration="17268000" />
     </task>
     <task id="LOCAL-00001" summary="JS进阶班demo update on 2018.12.7">
       <created>1544196416532</created>
@@ -764,11 +754,32 @@
       <option name="project" value="LOCAL" />
       <updated>1550465031159</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="后端引入contractABI_backend版本&#10;update 2019.2.18">
+      <created>1550465679951</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1550465679951</updated>
+    </task>
+    <task id="LOCAL-00024" summary="后端引入contractABI_backend版本&#10;update 2019.2.18">
+      <created>1550465818298</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1550465818298</updated>
+    </task>
+    <task id="LOCAL-00025" summary="去掉checkLogin判断&#10;update 2019.2.18">
+      <created>1550466352878</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1550466352878</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="155365000" />
+    <option name="totallyTimeSpent" value="162829000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -780,10 +791,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="273" y="142" width="1379" height="940" extended-state="0" />
+    <frame x="-16" y="66" width="1630" height="1004" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20842572" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17581047" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -794,8 +805,8 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.4698647" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.21525215" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.4990164" visible="true" weight="0.37761378" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.37515375" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.4990164" visible="true" weight="0.30558723" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5009836" side_tool="true" weight="0.42322582" />
       <window_info anchor="bottom" id="调试" order="11" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
@@ -803,6 +814,27 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17581047" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49919742" weight="0.3725728" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.4698647" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.37515375" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4990164" visible="true" weight="0.3296433" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5009836" side_tool="true" weight="0.42322582" />
+      <window_info anchor="bottom" id="调试" order="11" />
+      <window_info anchor="bottom" id="TypeScript" order="12" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -869,16 +901,11 @@
     <MESSAGE value="koaeth-notes 终于区分开 allnotes和mynotes的获取&#10;利用get请求的querystring来处理&#10;而不是post的请求体 requestbody&#10;update 2019.2.17" />
     <MESSAGE value="修改功能改bug，下一个改delete功能&#10;尝试下将智能合约revert换if 看network可以不爆红么&#10;update 2019.2.17" />
     <MESSAGE value="基本完工，优化下，&#10;把contractABI.js引入服务器端&#10;去掉checkLogin路由&#10;update 2019.2.18" />
-    <option name="LAST_COMMIT_MESSAGE" value="基本完工，优化下，&#10;把contractABI.js引入服务器端&#10;去掉checkLogin路由&#10;update 2019.2.18" />
+    <MESSAGE value="后端引入contractABI_backend版本&#10;update 2019.2.18" />
+    <MESSAGE value="去掉checkLogin判断&#10;update 2019.2.18" />
+    <option name="LAST_COMMIT_MESSAGE" value="去掉checkLogin判断&#10;update 2019.2.18" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/QQMusic-Project/1.4/node_modules/nunjucks/src/environment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="332" column="2" selection-start-line="332" selection-start-column="2" selection-end-line="332" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Resources/FrontEnd/JS进阶课/2019-1-4-ajax/课件/music/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2793">
@@ -1014,13 +1041,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Koa-Notes/src/js/app/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="45" column="26" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Koa-Notes/routes/auth.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2489">
@@ -1059,27 +1079,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="244">
           <caret line="77" column="14" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Koa-Notes/src/js/mod/note-manager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="57" column="39" selection-start-line="57" selection-start-column="39" selection-end-line="57" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Koa-Notes/src/js/mod/note.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="155" column="24" selection-start-line="155" selection-start-column="24" selection-end-line="155" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/KoaETH-Notes/src/js/mod/toast.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-609">
-          <caret lean-forward="true" />
         </state>
       </provider>
     </entry>
@@ -1131,48 +1130,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/KoaETH-Notes/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/KoaETH-Notes/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1197">
           <caret line="63" column="14" selection-start-line="63" selection-start-column="14" selection-end-line="63" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/KoaETH-Notes/src/js/mod/note.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3796">
-          <caret line="202" column="26" selection-start-line="202" selection-start-column="26" selection-end-line="202" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-            <element signature="e#67#73#0" expanded="true" />
-            <element signature="e#73#80#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/KoaETH-Notes/src/js/mod/contractABI.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#90#7614#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/KoaETH-Notes/src/js/mod/contractABI_backend.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="337" column="72" lean-forward="true" selection-start-line="337" selection-start-column="17" selection-end-line="337" selection-end-column="72" />
-          <folding>
-            <element signature="e#90#7614#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1186,20 +1147,91 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Koa-Notes/src/js/app/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="45" column="26" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Koa-Notes/src/js/mod/note-manager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="64" column="8" selection-start-line="64" selection-start-column="8" selection-end-line="67" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Koa-Notes/src/js/mod/note.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-134">
+          <caret line="155" column="24" selection-start-line="155" selection-start-column="24" selection-end-line="155" selection-end-column="24" />
+          <folding>
+            <element signature="e#67#73#0" expanded="true" />
+            <element signature="e#73#80#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KoaETH-Notes/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-378">
+          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KoaETH-Notes/src/js/mod/contractABI_backend.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="337" column="72" selection-start-line="337" selection-start-column="17" selection-end-line="337" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/KoaETH-Notes/routes/api.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="955">
-          <caret line="534" column="29" lean-forward="true" selection-start-line="534" selection-start-column="29" selection-end-line="534" selection-end-column="29" />
+        <state relative-caret-position="570">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KoaETH-Notes/src/js/mod/waterfall-3party.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KoaETH-Notes/src/js/mod/toast.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
           <folding>
-            <element signature="e#673#8197#0" />
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KoaETH-Notes/src/js/mod/note.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4294">
+          <caret line="226" column="27" selection-start-line="226" selection-start-column="27" selection-end-line="226" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+            <element signature="e#67#73#0" expanded="true" />
+            <element signature="e#73#80#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KoaETH-Notes/src/js/mod/contractABI.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="e#234#7758#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/KoaETH-Notes/src/js/mod/note-manager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="50" column="72" selection-start-line="50" selection-start-column="72" selection-end-line="50" selection-end-column="72" />
+        <state relative-caret-position="171">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
           <folding>
             <element signature="e#110#136#0" expanded="true" />
           </folding>
@@ -1208,11 +1240,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/KoaETH-Notes/src/js/app/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+        <state relative-caret-position="228">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
           <folding>
             <element signature="e#99#148#0" expanded="true" />
-            <element signature="e#283#315#0" expanded="true" />
           </folding>
         </state>
       </provider>

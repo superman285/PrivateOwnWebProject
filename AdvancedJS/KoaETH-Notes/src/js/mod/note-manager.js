@@ -3,10 +3,10 @@ import {Toast} from "./toast"; // es6 export way
 import Note from "./note";
 import Event from "./event";
 
-//此处到时替换成登录人的地址 动态获取
-//const userAddr = "0x2b9579b9eb65dbc6a10a3d27fc8aba8f615bb0be";
+import {web3,abi,contractAddr,contractFounder,noteContractObj} from "./contractABI";
 
-import {web3,abi,contractAddr,contractFounder,noteContractObj} from "./contractABI.js";
+console.log("@#$%^&*($%^&*(受够了");
+console.log(noteContractObj);
 
 let userAddr = localStorage.userAddr;
 

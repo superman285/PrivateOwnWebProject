@@ -1,5 +1,19 @@
 
-let web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
+let web3 = {};
+/*if (typeof web3 !== 'undefined') {
+    web3 = new Web3(web3.currentProvider);
+    console.log('metamaskweb3',web3);
+} else {
+    web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
+}*/
+//最新优化版
+if (window.ethereum) {
+    web3 = new Web3(window.ethereum);
+    console.log('我用的是metamaskweb3',web3);
+} else {
+    web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
+}
+
 let abi = [
     {
         "constant": true,
