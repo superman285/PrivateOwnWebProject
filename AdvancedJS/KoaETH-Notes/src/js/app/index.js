@@ -11,6 +11,7 @@ import "../mod/Masonry.js";    //目前采用的瀑布流，waterfall-3party没�
 
 import {web3,abi,contractAddr,contractFounder,noteContractObj} from "../mod/contractABI";
 
+
 console.log("@#$%^&*($%^&*(受够了");
 console.log(noteContractObj);
 

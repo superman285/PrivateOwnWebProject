@@ -5,6 +5,7 @@ import Event from "./event";
 
 import {web3,abi,contractAddr,contractFounder,noteContractObj} from "./contractABI";
 
+
 console.log("@#$%^&*($%^&*(受够了");
 console.log(noteContractObj);
 

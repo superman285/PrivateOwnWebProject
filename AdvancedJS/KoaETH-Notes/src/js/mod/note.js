@@ -4,6 +4,7 @@ import {Toast} from "../mod/toast";
 import Event from "./event";
 import {msnry} from "../app";
 
+import {web3,abi,contractAddr,contractFounder,noteContractObj} from "./contractABI";
 
 //此处到时替换成登录人的地址 动态获取
 let userAddr = localStorage.userAddr;
@@ -127,9 +128,41 @@ class Note {
         });
     };
 
-    edit(msg) {
+    async edit(msg) {
         var self = this;
         userAddr = localStorage.userAddr;
+        //前端调合约方法，metamask需要登录
+        /*let uid = userAddr,
+            noteid = self.id,
+            note = msg;
+
+        //注意此处要转为整形
+        let noteOwner = await noteContractObj.methods.noteidTouid(noteid).call();
+
+        console.log('=前端====来对比下=====');
+
+        console.log(parseInt(uid),noteOwner,Number(uid)==noteOwner);
+        if(uid) {
+            if(Number(uid) !== Number(noteOwner)){
+                console.log("笔记所有者和笔记修改不是同一人，不允许");
+                ctx.response.body = {status: 4, result: "ownerErr", errorMsg: "无法修改他人的便签!"};
+                return;
+            }
+            await noteContractObj.methods.updateNote(noteid, note).send({
+                from: uid,
+                gas: 300000
+            }, (err, result) => {
+                if (err) {
+                    console.log('updateNoteFailed', err);
+                } else {
+                    console.log('updateNoteSuccess', result);
+                }
+            })
+        }else {
+            console.log('uid为空，游客状态');
+        }*/
+
+            //后端发请求
         $.post('/api/note/edit', {
             noteid: self.id,
             uid: userAddr,

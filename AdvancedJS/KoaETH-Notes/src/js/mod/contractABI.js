@@ -1,5 +1,5 @@
 
-let web3 = {};
+
 /*if (typeof web3 !== 'undefined') {
     web3 = new Web3(web3.currentProvider);
     console.log('metamaskweb3',web3);
@@ -8,13 +8,13 @@ let web3 = {};
 }*/
 //最新优化版
 if (window.ethereum) {
-    web3 = new Web3(window.ethereum);
+    var web3 = new Web3(window.ethereum);
     console.log('我用的是metamaskweb3',web3);
 } else {
-    web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
+    var web3 = new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/33a947db47094090b8331ea2f6f4bbd3"));
 }
 
-let abi = [
+var abi = [
     {
         "constant": true,
         "inputs": [
@@ -345,8 +345,11 @@ let abi = [
         "type": "constructor"
     }
 ];
-let contractAddr = "0x8fd9c5dd9bb93f6014e55efec937fc60897025a6";
-let contractFounder = "0x2b9579b9eb65dbc6a10a3d27fc8aba8f615bb0be";
-let noteContractObj = new web3.eth.Contract(abi,contractAddr);
+//本地私链版
+//let contractAddr = "0x8fd9c5dd9bb93f6014e55efec937fc60897025a6";
+//rinkeby测试链
+var contractAddr = "0x47cfaeeda8c9e483c4fd87b3de4fb97b5ac2485a";
+var contractFounder = "0x2b9579b9eb65dbc6a10a3d27fc8aba8f615bb0be";
+var noteContractObj = new web3.eth.Contract(abi,contractAddr);
 
 export {web3,abi,contractAddr,contractFounder,noteContractObj};
