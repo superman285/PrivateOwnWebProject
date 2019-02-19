@@ -6,13 +6,16 @@
 } else {
     web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
 }*/
-//最新优化版
-if (window.ethereum) {
+//rinkeby测试链最新优化版
+/*if (window.ethereum) {
     var web3 = new Web3(window.ethereum);
     console.log('我用的是metamaskweb3',web3);
 } else {
     var web3 = new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/33a947db47094090b8331ea2f6f4bbd3"));
-}
+}*/
+
+//本地私链版
+var web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
 
 var abi = [
     {
@@ -346,9 +349,9 @@ var abi = [
     }
 ];
 //本地私链版
-//let contractAddr = "0x8fd9c5dd9bb93f6014e55efec937fc60897025a6";
+let contractAddr = "0xfab5e6a306abc8b71ff98727a6f216fbd2ead4fc";
 //rinkeby测试链
-var contractAddr = "0x47cfaeeda8c9e483c4fd87b3de4fb97b5ac2485a";
+//let contractAddr = "0x47cfaeeda8c9e483c4fd87b3de4fb97b5ac2485a";
 var contractFounder = "0x2b9579b9eb65dbc6a10a3d27fc8aba8f615bb0be";
 var noteContractObj = new web3.eth.Contract(abi,contractAddr);
 

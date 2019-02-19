@@ -2,9 +2,10 @@ const Web3 = require("web3");
 
 
 //本地私链版
-//let web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
+let web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
 
-let web3 = new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/33a947db47094090b8331ea2f6f4bbd3"));
+//rinkeby测试链
+//let web3 = new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/33a947db47094090b8331ea2f6f4bbd3"));
 
 
 let abi = [
@@ -339,9 +340,9 @@ let abi = [
     }
 ];
 //本地私链版
-//let contractAddr = "0x8fd9c5dd9bb93f6014e55efec937fc60897025a6";
+let contractAddr = "0xfab5e6a306abc8b71ff98727a6f216fbd2ead4fc";
 //rinkeby测试链
-let contractAddr = "0x47cfaeeda8c9e483c4fd87b3de4fb97b5ac2485a";
+//let contractAddr = "0x47cfaeeda8c9e483c4fd87b3de4fb97b5ac2485a";
 let contractFounder = "0x2b9579b9eb65dbc6a10a3d27fc8aba8f615bb0be";
 let noteContractObj = new web3.eth.Contract(abi,contractAddr);
 

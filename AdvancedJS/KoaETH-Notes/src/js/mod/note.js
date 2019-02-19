@@ -266,5 +266,4 @@ Note.colors = [
     ['#BDBDBD', '#EEEEEE'],
 ];
 
-
 export default Note;

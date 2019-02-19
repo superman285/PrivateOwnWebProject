@@ -79,15 +79,15 @@
 
 
     //部署测试链版
-    if (window.ethereum) {
+    /*if (window.ethereum) {
         var web3 = new Web3(window.ethereum);
         console.log('我用的是metamaskweb3',web3);
     } else {
         var web3 = new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/33a947db47094090b8331ea2f6f4bbd3"));
-    }
+    }*/
 
     //本地私链版
-    //var web3 = new Web3(new Web3.providers.HttpProvider("https://127.0.0.1:7545"));
+    var web3 = new Web3(new Web3.providers.HttpProvider("https://127.0.0.1:7545"));
 
     web3.eth.getAccounts(function (err, result) {
         console.log(`web3获取账户:${result}`);
