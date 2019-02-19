@@ -89,9 +89,6 @@
     //本地私链版
     var web3 = new Web3(new Web3.providers.HttpProvider("https://127.0.0.1:7545"));
 
-    web3.eth.getAccounts(function (err, result) {
-        console.log(`web3获取账户:${result}`);
-    });
     console.log(web3);
     console.log('+++++++++++');
 

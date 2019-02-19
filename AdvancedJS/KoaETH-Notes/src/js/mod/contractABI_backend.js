@@ -340,7 +340,7 @@ let abi = [
     }
 ];
 //本地私链版
-let contractAddr = "0xfab5e6a306abc8b71ff98727a6f216fbd2ead4fc";
+let contractAddr = "0x47cfaeeda8c9e483c4fd87b3de4fb97b5ac2485a";
 //rinkeby测试链
 //let contractAddr = "0x47cfaeeda8c9e483c4fd87b3de4fb97b5ac2485a";
 let contractFounder = "0x2b9579b9eb65dbc6a10a3d27fc8aba8f615bb0be";
