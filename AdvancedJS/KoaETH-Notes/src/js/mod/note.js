@@ -173,6 +173,10 @@ class Note {
             } else {
                 Toast(ret.errorMsg);
             }
+        }).fail(ret=>{
+            console.log('editAjax failed');
+            this.recover();
+            Toast("网络异常")
         })
     };
 
