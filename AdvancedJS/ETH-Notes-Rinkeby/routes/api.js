@@ -5,10 +5,10 @@ const app = new Koa();
 const router = require('koa-router')();
 router.prefix('/api');
 const Web3 = require('web3');
-const Web3HDWalletProvider = require('web3-hdwallet-provider');
 
 const Tx = require('ethereumjs-tx');
 const ethABI = require('ethereumjs-abi');
+const ethers = require('ethers');
 
 const bodyParser = require('koa-bodyparser');
 app.use(bodyParser());
@@ -18,7 +18,7 @@ let {web3,abi,contractAddr,contractFounder,noteContractObj} =require("../src/js/
 let count = web3.eth.getTransactionCount(contractFounder);
 let gasLimit = 300000;
 
-let privateKey = new Buffer("93945e79d3fd4d0fdc60cb2c9031b2d8acf3c688f3185c0730ed30d85c66b77f","hex");
+let privateKey = new Buffer.from("93945e79d3fd4d0fdc60cb2c9031b2d8acf3c688f3185c0730ed30d85c66b77f","hex");
 
 
 
@@ -28,8 +28,6 @@ router.get("/notes",async (ctx, next) => {
 
     console.log('在ide控制台打出/notes，来了，从区块链获取');
     //区块链版本
-    console.log(ctx.query.data);
-    console.log(web3.utils.isAddress(ctx.query.data));
     if (web3.utils.isAddress(ctx.query.data)) {
         await noteContractObj.methods.getMyNotes.call({
             from:ctx.query.data
@@ -59,32 +57,41 @@ router.get("/notes",async (ctx, next) => {
 router.post("/note/add",async (ctx, next) => {
     console.log('$$$$$/add$$$$$$');
 
-    //console.log(HDWalletProvider);
-
-    //console.log('$$$$$$$老contract对象方法$$$$$$$$',noteContractObj.methods.addNote);
 
     var mnemonic = "gadget strike phrase coil cupboard stone whip popular cradle never aisle romance";
     var privateKey = "93945e79d3fd4d0fdc60cb2c9031b2d8acf3c688f3185c0730ed30d85c66b77f";
-    var httpProvider = new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/33a947db47094090b8331ea2f6f4bbd3");
-    //     //console.log('$$$%superProvider$%$%$%',superProvider);
-    //
-    //     var superProvider = new Web3HDWalletProvider(privateKey,httpProvider);
-    //
-    //     web3.setProvider(superProvider);
-    //
-    //     //console.log('newweb3', web3);
-    //     noteContractObj = new web3.eth.Contract(abi,contractAddr);
-    //     //console.log('$$$%noteConntractObj%$%$%',noteContractObj);
 
-    console.log('$$$$$$$$$$新新新contract对象方法$$$$$$$$$',noteContractObj.methods.addNote);
+    let etherProvider = new ethers.providers.JsonRpcProvider("https://rinkeby.infura.io/v3/33a947db47094090b8331ea2f6f4bbd3");
 
+    let wallet = new ethers.Wallet(privateKey,etherProvider);
+
+    //wallet连接了provider,实例化合约时使用wallet,或者用以下写法
+    /*
+    * var contract = new ethers.Contract(contractAddr,abi,etherProvider);
+    * var noteContractObj = contract.connect(wallet)
+    */
+    var noteContractObj = new ethers.Contract(contractAddr,abi,wallet);
 
     let note = ctx.request.body.note,
-        uid = ctx.request.body.uid;
+    uid = ctx.request.body.uid;
 
     let addResult;
-    try {
-    await noteContractObj.methods.addNote(note).send({
+
+    //如果调方法后没有回调 就在合约写个事件event 然后这儿监听下，如果变化了就给前端发东西
+
+    //let [err,result] = await noteContractObj.addNote();
+    let tx = await noteContractObj.addNote(note);
+
+    let receipt = await tx.wait(2);
+
+    if (receipt) {
+        console.log('来，打印方法receipt');
+        console.log(receipt);
+        ctx.response.body = {status: 0, result: addResult};
+
+    }
+
+    /*await noteContractObj.methods.addNote(note).send({
         from:uid,
         gas:300000,
     },(err,result)=>{
@@ -104,16 +111,16 @@ router.post("/note/add",async (ctx, next) => {
             };
             ctx.response.body = {status: 0, result: addResult};
         }
-    });
-    }catch (e) {
-        console.log(e);
-    }
-    process.on('unhandledRejection', (reason, promise) => {
+    });*/
+
+
+
+    //处理错误
+    /*process.on('unhandledRejection', (reason, promise) => {
         console.log('Unhandled Rejection:', reason)
         // 在这里处理
-    })
+    })*/
 
-    superProvider.engine.stop();
 
     //或者移出来也可以，因为前一个方法是await
     /*if(addResult.success) {
@@ -144,8 +151,8 @@ router.post("/note/edit",async (ctx, next) => {
         from: contractFounder,
         // nonce: web3.utils.toHex(count),
         nonce: web3.utils.toHex(count),
-        gasPrice: '0x77359400',
-        gasLimit: '0x295f05',
+        gasPrice: '0x97359400',
+        gasLimit: '0x495f05',
         to: contractAddr,
         value: "0x0",
         //data: "0xa4edff47"+paramsData,
@@ -171,11 +178,12 @@ router.post("/note/edit",async (ctx, next) => {
         await web3.eth.sendSignedTransaction('0x' + serializedTx.toString('hex'), (err, hash)=> {
             if (!err){
                 console.log('!@#$%^&*我的天终于成功了',hash);
+                ctx.response.body = {status: 0};
                 updateRes = {
                     success: true,
                     res: hash,
                 };
-                ctx.response.body = {status: 0, result: updateRes};
+                //ctx.response.body = {status: 0, result: updateRes};
                 console.log('来，打印出ctx.body', ctx.body);
             }else{
                 console.log(err);
