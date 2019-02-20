@@ -1,4 +1,5 @@
 const Web3 = require("web3");
+const ethers = require("ethers");
 
 //rinkeby测试链
 var web3 = new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/33a947db47094090b8331ea2f6f4bbd3"));
@@ -340,5 +341,20 @@ var contractAddr = "0x47cfaeeda8c9e483c4fd87b3de4fb97b5ac2485a";
 var contractFounder = "0x2b9579b9eb65dbc6a10a3d27fc8aba8f615bb0be";
 var noteContractObj = new web3.eth.Contract(abi,contractAddr);
 
+//可能要从前端输入
+var mnemonic = "gadget strike phrase coil cupboard stone whip popular cradle never aisle romance";
+var privateKey = "93945e79d3fd4d0fdc60cb2c9031b2d8acf3c688f3185c0730ed30d85c66b77f";
 
-module.exports = {web3,abi,contractAddr,contractFounder,noteContractObj}
+var etherProvider = new ethers.providers.JsonRpcProvider("https://rinkeby.infura.io/v3/33a947db47094090b8331ea2f6f4bbd3");
+
+var wallet = new ethers.Wallet(privateKey,etherProvider);
+
+//wallet连接了provider,实例化合约时使用wallet,或者用以下写法
+/*
+* var contract = new ethers.Contract(contractAddr,abi,etherProvider);
+* var noteContractObj = contract.connect(wallet)
+*/
+var etherContractObj = new ethers.Contract(contractAddr,abi,wallet);
+
+
+module.exports = {web3,abi,contractAddr,contractFounder,noteContractObj,wallet,etherProvider,etherContractObj}
