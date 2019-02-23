@@ -1,10 +1,4 @@
 const router = require('koa-router')()
-const Web3 = require('web3');
-
-console.dir(Web3);
-
-let web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
-console.dir(web3);
 
 router.get('/', async (ctx, next) => {
   await ctx.render('index', {
@@ -21,5 +15,7 @@ router.get('/json', async (ctx, next) => {
     title: 'koa2 json'
   }
 })
+
+
 
 module.exports = router
