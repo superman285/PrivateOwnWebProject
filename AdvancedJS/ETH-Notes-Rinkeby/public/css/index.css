@@ -98,13 +98,13 @@ header {
     outline: none;
     height: 34px;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 30px;
     padding:0 10px;
     font-size: 16px;
     box-sizing: border-box;
 }
-.popModal hr:nth-child(4) {
-    margin-top: 70px;
+.popModal hr:nth-child(5) {
+    margin-top: 40px;
 }
 .popModal button {
     float: right;

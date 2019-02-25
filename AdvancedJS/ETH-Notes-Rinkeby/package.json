@@ -8,6 +8,8 @@
     "dev": "./node_modules/.bin/nodemon bin/www",
     "prd": "pm2 start bin/www",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "babel-nonbrowser": "./node_modules/.bin/babel src/js/utils/tools.js -o dist/toolbundle.js",
+    "babel-browser": "browserify src/js/utils/tools.js -t babelify --outfile dist/toolbundle.js",
     "webpack": "webpack",
     "webpack-watch": "onchange 'src/**/*.js' 'src/sass/*.scss' 'views/*.njk' -- npm run webpack "
   },
@@ -15,11 +17,12 @@
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-es2017": "^7.0.0-beta.53",
-    "babel": "^6.23.0",
+    "bip39": "^2.5.0",
     "cardinal": "^2.1.1",
     "cookie-parser": "^1.4.4",
     "css-loader": "^2.1.0",
     "debug": "^2.6.3",
+    "ethers": "^4.0.26",
     "fs": "0.0.1-security",
     "jquery": "^3.3.1",
     "koa": "^2.2.0",
@@ -47,7 +50,7 @@
     "pug": "^2.0.0-rc.1",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
-    "web3":"^1.0.0-beta.46"
+    "web3": "^1.0.0-beta.46"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

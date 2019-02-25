@@ -9,11 +9,16 @@ const cardinal = require('cardinal');*/
 module.exports = {
     mode: 'development',
     //join中不能省__dirname
-    entry: path.join(__dirname, './src/js/app/index.js'),
+    //entry: path.join(__dirname, './src/js/app/index.js'),
+    entry: {
+        bundle: path.join(__dirname, './src/js/app/index.js'),
+        checkKey: path.join(__dirname, './src/js/utils/checkKey.js'),
+        loginVerify: path.join(__dirname, './src/js/utils/loginVerify.js')
+    },
     output: {
         //等价于path.resolve(__dirname,'dist') dirname可以省
         path: path.resolve('dist'),
-        filename: 'bundle.js',
+        filename: '[name].js',
         publicPath: '',
     },
     module: {

@@ -11,6 +11,7 @@ import {web3,abi,contractAddr,contractFounder,noteContractObj} from "./contractA
 
 //此处到时替换成登录人的地址 动态获取
 let userAddr = localStorage.userAddr;
+let keyAddr = localStorage.keyAddr;
 
 class Note {
 
@@ -131,72 +132,18 @@ class Note {
         });
     };
 
-    async edit(msg) {
-        NProgress.start();
-        var self = this;
-        userAddr = localStorage.userAddr;
-        //前端调合约方法，metamask需要登录
-        /*let uid = userAddr,
-            noteid = self.id,
-            note = msg;
-
-        //注意此处要转为整形
-        let noteOwner = await noteContractObj.methods.noteidTouid(noteid).call();
-
-        console.log('=前端====来对比下=====');
-
-        console.log(parseInt(uid),noteOwner,Number(uid)==noteOwner);
-        if(uid) {
-            if(Number(uid) !== Number(noteOwner)){
-                console.log("笔记所有者和笔记修改不是同一人，不允许");
-                ctx.response.body = {status: 4, result: "ownerErr", errorMsg: "无法修改他人的便签!"};
-                return;
-            }
-            await noteContractObj.methods.updateNote(noteid, note).send({
-                from: uid,
-                gas: 300000
-            }, (err, result) => {
-                if (err) {
-                    console.log('updateNoteFailed', err);
-                } else {
-                    console.log('updateNoteSuccess', result);
-                }
-            })
-        }else {
-            console.log('uid为空，游客状态');
-        }*/
-
-            //后端发请求
-        $.post('/api/note/edit', {
-            noteid: self.id,
-            uid: userAddr,
-            note: msg
-        }).done(function (ret) {
-            if (ret.status === 0) {
-                Toast('Update Note Success!');
-            } else {
-                Toast(ret.errorMsg);
-            }
-            NProgress.done();
-        }).fail(ret=>{
-            console.log('editAjax failed');
-            this.recover();
-            Toast("网络异常")
-            NProgress.done();
-        })
-    };
-
-
     static async add(val) {
         console.log('static add');
         var self = this;
         let addRes;
+        Toast("正在写入区块链，请稍等...",10000)
         await $.ajax({
             type: "POST",
             url: '/api/note/add',
             data: {
                 uid: val.uid,
-                note: val.note
+                note: val.note,
+                key: keyAddr,
             },
             success: ret => {
                 if (ret.status === 0) {
@@ -231,17 +178,77 @@ class Note {
     });*/
     };
 
+    async edit(msg) {
+        NProgress.start();
+        var self = this;
+        userAddr = localStorage.userAddr;
+
+        //后端调合约
+        Toast("正在写入区块链，请稍等...",10000)
+        //后端发请求
+        $.post('/api/note/edit', {
+            noteid: self.id,
+            uid: userAddr,
+            note: msg,
+            key: keyAddr,
+        }).done(function (ret) {
+            if (ret.status === 0) {
+                Toast('Update Note Success!');
+            } else {
+                Toast(ret.errorMsg);
+            }
+            NProgress.done();
+        }).fail(ret=>{
+            console.log('editAjax failed');
+            this.recover();
+            Toast("网络异常")
+            NProgress.done();
+        })
+
+        //前端调合约方法，metamask需要登录
+        /*let uid = userAddr,
+            noteid = self.id,
+            note = msg;
+        //注意此处要转为整形
+        let noteOwner = await noteContractObj.methods.noteidTouid(noteid).call();
+        console.log('=前端====来对比下=====');
+        console.log(parseInt(uid),noteOwner,Number(uid)==noteOwner);
+        if(uid) {
+            if(Number(uid) !== Number(noteOwner)){
+                console.log("笔记所有者和笔记修改不是同一人，不允许");
+                ctx.response.body = {status: 4, result: "ownerErr", errorMsg: "无法修改他人的便签!"};
+                return;
+            }
+            await noteContractObj.methods.updateNote(noteid, note).send({
+                from: uid,
+                gas: 300000
+            }, (err, result) => {
+                if (err) {
+                    console.log('updateNoteFailed', err);
+                } else {
+                    console.log('updateNoteSuccess', result);
+                }
+            })
+        }else {
+            console.log('uid为空，游客状态');
+        }*/
+    };
+
     async delete() {
         NProgress.start();
         var self = this;
         userAddr = localStorage.userAddr;
         msnry.layout();
         console.log(self.id);
-
+        Toast("正在写入区块链，请稍等...",10000)
         $.ajax({
             type: "POST",
             url: '/api/note/delete',
-            data: {noteid: self.id, uid: userAddr}
+            data: {
+                noteid: self.id,
+                uid: userAddr,
+                key: keyAddr,
+            }
         }).done(function (ret) {
             console.dir('delete done,status是：', ret);
             if (ret.status === 0) {

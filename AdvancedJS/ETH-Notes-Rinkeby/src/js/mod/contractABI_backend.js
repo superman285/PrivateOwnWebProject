@@ -4,7 +4,6 @@ const ethers = require("ethers");
 //rinkeby测试链
 var web3 = new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/33a947db47094090b8331ea2f6f4bbd3"));
 
-
 var abi = [
     {
         "constant": true,
@@ -337,7 +336,7 @@ var abi = [
     }
 ];
 //rinkeby测试链
-var contractAddr = "0x47cfaeeda8c9e483c4fd87b3de4fb97b5ac2485a";
+var contractAddr = "0x47cfaeeda8c9e483c4fd87b3de4fb97b5ac2485a";  //合约地址
 var contractFounder = "0x2b9579b9eb65dbc6a10a3d27fc8aba8f615bb0be";
 var noteContractObj = new web3.eth.Contract(abi,contractAddr);
 
@@ -348,17 +347,18 @@ var privateKey = "93945e79d3fd4d0fdc60cb2c9031b2d8acf3c688f3185c0730ed30d85c66b7
 var etherProvider = new ethers.providers.JsonRpcProvider("https://rinkeby.infura.io/v3/33a947db47094090b8331ea2f6f4bbd3");
 
 //连接了provider
-var wallet = new ethers.Wallet(privateKey,etherProvider);
+var mywallet = new ethers.Wallet(privateKey,etherProvider);
+var myetherContractObj = new ethers.Contract(contractAddr,abi,mywallet);
 
-//未连接provider
-var mnemonicWallet = ethers.Wallet.fromMnemonic(mnemonic);
-
-//wallet连接了provider,实例化合约时使用wallet,若wallet没连接provider用以下写法
 /*
+//wallet连接了provider,实例化合约时使用wallet,若wallet没连接provider用以下写法
+//未连接provider
+  var mnemonicWallet = ethers.Wallet.fromMnemonic(mnemonic);
 * var contract = new ethers.Contract(contractAddr,abi,etherProvider);
 * var etherContractObj = contract.connect(mnemonicWallet)
 */
-var etherContractObj = new ethers.Contract(contractAddr,abi,wallet);
 
 
-module.exports = {web3,abi,contractAddr,contractFounder,noteContractObj,wallet,etherProvider,etherContractObj}
+
+
+module.exports = {web3,abi,contractAddr,contractFounder,noteContractObj,mywallet,etherProvider,myetherContractObj}
