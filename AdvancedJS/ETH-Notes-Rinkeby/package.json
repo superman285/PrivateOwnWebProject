@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "supervisor PORT=4000 node bin/www",
+    "start2": "supervisor PORT=4000 node bin/www",
+    "start": "node bin/www",
     "stop": "npm stop",
     "dev": "./node_modules/.bin/nodemon bin/www",
     "prd": "pm2 start bin/www",

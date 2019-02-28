@@ -1,0 +1,72 @@
+<template>
+    <div id="myheader">
+        <div class="topbar">
+            <img src="../assets/logo.png" alt="" class="logo">
+            <v-btn color="blue-grey" class="white--text">
+                登录
+                <v-icon right dark>cloud_upload</v-icon>
+            </v-btn>
+            <v-btn color="blue-grey" class="white--text">
+                注册
+                <v-icon right dark>cloud_upload</v-icon>
+            </v-btn>
+        </div>
+        <div class="divide"></div>
+        <div class="topmenu">
+            <v-tabs
+                    color="cyan"
+                    dark
+                    slider-color="yellow"
+            >
+                <v-tab>create account</v-tab>
+                <v-tab>down keystore</v-tab>
+                <v-tab>send transaction</v-tab>
+            </v-tabs>
+        </div>
+    </div>
+</template>
+
+<script>
+
+
+
+    export default {
+        name: "myheader"
+    }
+</script>
+
+<style scoped lang="scss">
+
+    #myheader {
+        .topbar{
+            display: flex;
+            align-items: center;
+            height: 4.5rem;
+            background: linear-gradient(to right, rgba(179,220,237,1) 0%,rgba(41,184,229,1) 100%);
+            img {
+                width: 50px;
+                height: 50px;
+                margin-left: 2rem;
+            }
+            button:nth-of-type(1) {
+                margin-left: auto;
+            }
+            button:nth-of-type(2) {
+                margin-right: 2rem;
+            }
+        }
+        .divide {
+            height: 3px;
+            background: linear-gradient(to left, rgba(179,220,237,1) 0%,rgba(41,184,229,1) 100%);
+        }
+
+        .v-tabs {
+            div {
+                width: 100%;
+                justify-content: center!important;
+            }
+
+        }
+
+    }
+</style>
