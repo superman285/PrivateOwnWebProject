@@ -17,17 +17,20 @@ module.exports = {
         console.log('newAccount');
         console.log('ctx.request.body',ctx.request.body.password);
 
-        var str = String(ctx.request.body.password);
-        //create方法的参数并不是密码
-        let account = web3.eth.accounts.create(str);
+        var pwdstr = String(ctx.request.body.password);
+        //create方法的参数并不是密码,而是用于增加混乱度的熵,不过也可以与后面的密码用同一个
+        let account = web3.eth.accounts.create(pwdstr);
 
         //or 这个方法才是真的密码
         //let account = web3.eth.personal.newAccount(password)
         console.log(account);
 
-        //根据账号和密码生成keystore
-        let keystore = account.encrypt(str);
+        //根据账户和密码生成keystore account是一个对象 下面有encrypt加密方法
+        let keystore = account.encrypt(pwdstr);
+        //or web3.eth.accounts.encrypt(privatekey,pwdstr)
         console.log(keystore);
+
+        //web3.eth.accounts.decrypt(keystore,pwdstr)
 
         //将keystore保存到文件
         let keystoreStr = JSON.stringify(keystore);

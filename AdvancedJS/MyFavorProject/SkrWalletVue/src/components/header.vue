@@ -2,11 +2,11 @@
     <div id="myheader">
         <div class="topbar">
             <img src="../assets/logo.png" alt="" class="logo">
-            <v-btn color="blue-grey" class="white--text">
+            <v-btn color="blue" class="white--text">
                 登录
                 <v-icon right dark>cloud_upload</v-icon>
             </v-btn>
-            <v-btn color="blue-grey" class="white--text">
+            <v-btn color="indigo" class="white--text">
                 注册
                 <v-icon right dark>cloud_upload</v-icon>
             </v-btn>
@@ -18,9 +18,11 @@
                     dark
                     slider-color="yellow"
             >
-                <v-tab>create account</v-tab>
-                <v-tab>down keystore</v-tab>
-                <v-tab>send transaction</v-tab>
+                <router-link tag="v-tab" to="/">Home Index</router-link>
+                <router-link tag="v-tab" :to="{name:'createaccount'}">create account</router-link>
+                <router-link tag="v-tab" :to="{name:'downkeystore'}">KeyStore</router-link>
+                <router-link tag="v-tab" :to="{name:'sendtx'}">Send TX</router-link>
+                <router-link tag="v-tab" :to="{name:'querytx'}">Query TX</router-link>
             </v-tabs>
         </div>
     </div>

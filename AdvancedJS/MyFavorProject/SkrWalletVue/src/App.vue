@@ -3,15 +3,24 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
+
     </div>
+      <myheader></myheader>
     <router-view/>
+      <myfooter></myfooter>
   </div>
 </template>
 
 <script>
     import './assets/reset.css';
+    import myheader from "./components/header";
+    import myfooter from "./components/footer";
     export default {
         name: 'app',
+        components: {
+            myheader,
+            myfooter
+        }
     }
 </script>
 

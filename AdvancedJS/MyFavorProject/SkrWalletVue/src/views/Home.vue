@@ -1,45 +1,49 @@
 <template>
     <div class="home">
-        <myheader></myheader>
+        <!--<MyHeader></MyHeader>-->
         <img alt="Vue logo" src="../assets/logo.png">
         <button @click="test">点我点我</button>
-        <myfooter></myfooter>
+        <!--<MyFooter></MyFooter>-->
     </div>
 </template>
 
 <script>
     // @ is an alias to /src
     import HelloWorld from '@/components/HelloWorld.vue'
-    import myheader from "@/components/header";
-    import myfooter from "@/components/footer";
+    import MyHeader from "@/components/header";
+    import MyFooter from "@/components/footer";
 
-    import axios from "axios";
+    //加了全局webpack配置axios
+    //import axios from "axios";
 
     export default {
         name: 'home',
         components: {
             HelloWorld,
-            myheader,
-            myfooter
+            MyHeader,
+            MyFooter
         },
         methods: {
-            test() {
+           async test() {
 
 
                 let url = "http://127.0.0.1:4000/users/createaccount"
 
-                axios.post(url,{
+                /*axios.post(url,{
                     username: 'superman',
                     password: 123456,
                 }).then(res=>{
                     console.log(res);
-                })
-
-                /*let res = await axios.post("/users/createaccount",{
-                    username: "superman",
-                    password: 123456,
-                });*/
-                //console.log('axios获得res',res);
+                })*/
+                let res = await axios({
+                    method: "POST",
+                    url:url,
+                    data: {
+                        username: "superman285",
+                        password: 123456,
+                    }
+                });
+               console.log(res);
             }
         }
     }

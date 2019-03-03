@@ -40,7 +40,15 @@
 </div>
 </div>
 
+
+<script src="https://cdn.bootcss.com/crypto-js/3.1.9-1/sha256.js"></script>
+
+
 <script>
+
+    var cry = CryptoJS.SHA256('ssfas');
+    console.log(cry);
+
     let btn = $('button').eq(0);
     let card = $('.mdui-card').eq(0);
     let container = $('.container').eq(0);
