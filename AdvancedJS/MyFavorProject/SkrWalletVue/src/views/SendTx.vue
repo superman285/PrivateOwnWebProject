@@ -16,13 +16,28 @@
         </v-radio-group>
 
         <div class="unlock-keystore" v-show="this.unlockMethod=='keystore'">
-            <input type="file" @change="uploadFile($event)">上传文件
+
+            <div class="uploadElem">
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>File </span>
+                        <i class="material-icons uploadi">cloud</i>
+                        <input type="file" class="upload-input" ref="uploadInput" @change="uploadFile($event)">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text" placeholder="click or drag file here">
+                    </div>
+                </div>
+            </div>
+
+            <!--<input type="file" @change="uploadFile($event)">上传文件-->
+
             <!--<form action="http://127.0.0.1:4000/users/upload" class="dropzone">
                 <div class="fallback">
                 <input name="file" type="file" multiple @change="uploadFile($event)">
             </div>
             </form>-->
-            <v-btn @click="look" color="grey" class="white--text">
+            <v-btn @click="upToServer" color="grey" class="white--text">
                 上传
                 <v-icon right dark>cloud_upload</v-icon>
             </v-btn>
@@ -61,9 +76,12 @@
 
 <script>
 
-    import "dropzone/dist/dropzone.js";
+    /*import "dropzone/dist/dropzone.js";
     import "dropzone/dist/dropzone.css";
-    import "dropzone/dist/basic.css";
+    import "dropzone/dist/basic.css";*/
+
+    import "materialize-css/dist/js/materialize.min.js"
+    import "materialize-css/dist/css/materialize.min.css"
 
     export default {
         name: "Transfer",
@@ -107,8 +125,6 @@
                 formData.append("file",fileObj);
 
                 let url = "http://127.0.0.1:4000/users/upload"
-
-
                 try {
                     let res = await axios({
                         method: "post",
@@ -122,9 +138,23 @@
                 } catch (err) {
                     console.log('出错啦',err);
                 }
+            },
+            upToServer(){
+                //获取dom 然后读取上传的文件
+                let upFile = this.$refs.uploadInput.files[0];
+
+                var reader = new FileReader();
+                reader.readAsText(upFile);
+                reader.onload= function (){
+                    console.log(JSON.parse(this.result));
+
+                }
 
 
-
+                console.log(upFile);
+                if (upFile) {
+                    console.log('可以传给服务器了');
+                }
             }
         }
     }
@@ -133,5 +163,8 @@
 <style scoped lang="scss">
     form {
         border: 2px dashed #0087F7;
+    };
+    .uploadi {
+        vertical-align: middle;
     }
 </style>

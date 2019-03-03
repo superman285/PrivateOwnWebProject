@@ -14,7 +14,7 @@ module.exports = {
     },
 
     createAccount: ctx => {
-        console.log('newAccount');
+        console.log('newAccount212');
         console.log('ctx.request.body',ctx.request.body.password);
 
         var pwdstr = String(ctx.request.body.password);
