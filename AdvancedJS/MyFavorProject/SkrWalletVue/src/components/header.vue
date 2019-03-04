@@ -18,10 +18,10 @@
                     dark
                     slider-color="yellow"
             >
-                <router-link tag="v-tab" to="/">Home Index</router-link>
+                <router-link tag="v-tab" to="/">我的账户</router-link>
                 <router-link tag="v-tab" :to="{name:'createaccount'}">create account</router-link>
                 <router-link tag="v-tab" :to="{name:'downkeystore'}">KeyStore</router-link>
-                <router-link tag="v-tab" :to="{name:'sendtx'}">Send TX</router-link>
+                <router-link tag="v-tab" :to="{name:'sendtx'}">载入钱包</router-link>
                 <router-link tag="v-tab" :to="{name:'querytx'}">Query TX</router-link>
             </v-tabs>
         </div>

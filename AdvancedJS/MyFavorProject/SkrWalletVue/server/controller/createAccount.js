@@ -25,6 +25,7 @@ module.exports = {
         //let account = web3.eth.personal.newAccount(password)
         console.log(account);
 
+        //生成keystore才真正需要密码
         //根据账户和密码生成keystore account是一个对象 下面有encrypt加密方法
         let keystore = account.encrypt(pwdstr);
         //or web3.eth.accounts.encrypt(privatekey,pwdstr)

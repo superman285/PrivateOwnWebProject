@@ -10,9 +10,10 @@
                 :type="showpwd ? 'text' : 'password'"
                 label="input password"
                 class="input-password"
+                v-model="password"
                 @click:append="showpwd = !showpwd"
         ></v-text-field>
-        <v-btn fab dark color="indigo">
+        <v-btn fab dark color="indigo" @click="createAccount">
             <v-icon dark>add</v-icon>
         </v-btn>
         </v-layout>
@@ -26,7 +27,23 @@
         data(){
             return {
                 showpwd: true,
-                password: 'Password'
+                password: ''
+            }
+        },
+        methods: {
+            async createAccount(){
+                let url = "http://127.0.0.1:4000/users/createaccount"
+
+                let res = await axios({
+                    method: "POST",
+                    url:url,
+                    data: {
+                        username: "superman285",
+                        password: this.password,
+                    }
+                });
+                //Toast创建成功
+                console.log('createAccount',res);
             }
         }
     }
@@ -43,5 +60,8 @@
     }
     .v-btn {
         margin-top: -1px;
+    }
+    input {
+        border-bottom: none!important;
     }
 </style>
