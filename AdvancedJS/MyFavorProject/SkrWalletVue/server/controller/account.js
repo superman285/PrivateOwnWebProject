@@ -16,6 +16,7 @@ async function getAccountBalance(addr) {
 
 //真正的解锁方法 但是只用于personal创建的 而且密码只用于解锁没别的用 会直接生成keystore文件 项目中生成不知道放哪儿
 //web3.eth.personal.unlockAccount(address, password, unlockDuraction)
+// web3.eth.personal.lockAccount(address)
 
 //获取所有账户
 //web3.eth.personal.getAccounts()

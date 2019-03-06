@@ -26,6 +26,7 @@
                     label="目标地址"
                     single-line
                     box
+                    @input="changeAddr($event)"
             ></v-text-field>
 
             <v-btn
@@ -44,16 +45,37 @@
         data(){
             return {
                 tokenType: "ETH",
-                tokenAmount: ""
+                txAmount: "",
+                txToAddr: ""
             }
         },
         methods: {
             changeAmount(ev){
-                this.tokenAmount = ev.target.value;
+                console.log(ev);
+                this.txAmount = ev;
+                console.log('txamount',this.txAmount);
             },
+            changeAddr(ev){
+                console.log(ev);
+                this.txToAddr = ev;
+                console.log('txtoaddr',this.txToAddr);
+            },
+            async sendTx(){
 
+                console.log('发起来');
+                let url = "http://127.0.0.1:4000/users/sendtx";
 
-            sendTx(){
+                let res = await axios({
+                    method: "post",
+                    url,
+                    data:{
+                        privatekey: "93945e79d3fd4d0fdc60cb2c9031b2d8acf3c688f3185c0730ed30d85c66b77f",
+                        txAmount: this.txAmount,
+                        txFromAddr: "0x2B9579B9eb65DBC6A10a3d27fC8aBA8f615Bb0Be",
+                        txToAddr: this.txToAddr,
+                    }
+                });
+                console.log('sendtxresult',res);
 
             }
         }

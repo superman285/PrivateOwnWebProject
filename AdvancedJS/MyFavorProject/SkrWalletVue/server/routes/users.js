@@ -7,6 +7,7 @@ let creatAccountMethod = require("../controller/createAccount").createAccount;
 let unlockWithPrivatekey = require("../controller/account").unlockWithPrivatekey;
 let unlockWithKeystore = require("../controller/account").unlockWithKeystore;
 let getBalance = require("../controller/account").getBalance;
+let sendTx = require("../controller/transaction").sendTransaction;
 
 router.prefix('/users')
 
@@ -35,5 +36,7 @@ router.post('/unlockwithprivatekey',unlockWithPrivatekey);
 router.post('/unlockwithkeystore',unlockWithKeystore);
 
 router.get('/getbalance',getBalance);
+
+router.post('/sendtx',sendTx);
 
 module.exports = router;
