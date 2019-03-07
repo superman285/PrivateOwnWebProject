@@ -16,7 +16,7 @@
             <v-text-field
                     class="amountField"
                     label="金额"
-                    single-line
+                    suffix="ether"
                     solo
                     @input="changeAmount($event)"
             ></v-text-field>
@@ -90,5 +90,9 @@
         margin: 2rem auto;
         padding: 2rem;
         width: 60%;
+    }
+    .primary--text {
+        color: #1867c0 !important;
+        //caret-color: dodgerblue!important;
     }
 </style>
