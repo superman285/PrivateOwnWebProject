@@ -2,8 +2,14 @@
     <div id="myfooter">
         <div class="divide"></div>
         <div class="bottominfo">
-            <img src="../assets/logo.png" alt="">
+            <img src="../assets/footer-logo.png" alt="">
+            <div class="work-info">
+                <p>Made with ❤️by <span>superman285</span></p>
+                <p>Front-end framework: <span>Vue</span></p>
+                <p>Back-end framework: <span>Koa2</span></p>
+            </div>
         </div>
+
     </div>
 </template>
 
@@ -28,8 +34,20 @@
             text-align: left;
             background: #30476D;
             img {
-                width: 4rem;
-                height: 4rem;
+                margin-top: 1rem;
+                margin-left: 1rem;
+                height: 3.2rem;
+            }
+        }
+        .work-info {
+            margin-left: 1rem;
+            color: white;
+            p{
+                margin: .1rem;
+            }
+            span {
+                font-weight: bold;
+                color: #24cac1;
             }
         }
 

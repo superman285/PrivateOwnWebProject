@@ -8,7 +8,7 @@ export default new Vuex.Store({
         uploadKeystore: {
 
         },
-        accountAddr: "0x12345",
+        accountAddr: "0x00",
         accountBalance: "1"
     },
     mutations: {

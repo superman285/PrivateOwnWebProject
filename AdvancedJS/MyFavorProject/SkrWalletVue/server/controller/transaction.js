@@ -12,7 +12,7 @@ module.exports = {
 
     sendTransaction: async ctx=>{
 
-        let {privatekey,txAmount,txToAddr,txFromAddr} = ctx.request.body;
+        var {privatekey,txAmount,txToAddr,txFromAddr,txGasPrice} = ctx.request.body;
 
         /*web3.eth.sendTransaction({
             from: txFromAddr,
@@ -21,7 +21,7 @@ module.exports = {
         }).then(res=>{
             console.log('这是啥参数',res);
         });*/
-
+        //txGasPrice = txGasPrice<20? 20:txGasPrice;
 
         //返回promise 需要处理异步问题
         var nonce = await web3.eth.getTransactionCount(txFromAddr);
@@ -30,13 +30,15 @@ module.exports = {
         var amount = web3.utils.toWei(txAmount,'ether');
 
         //获取当前gas价格
-        var gasPrice = web3.utils.toHex(await web3.eth.getGasPrice());
+        //var gasPrice = web3.utils.toHex(await web3.eth.getGasPrice());
+        var gasPrice = web3.utils.toHex(txGasPrice*(10**9))
         //估算交易的gas消耗
         var gasLimit = await web3.eth.estimateGas({
             to: txToAddr,
             data: "0x00"
         });
-
+        console.log('!!!!gasPrice!!!',gasPrice);
+        
         //数值项都需要转为16进制数 用web3.utils.toHex方法
         var rawTx = {
             from: txFromAddr,
@@ -59,17 +61,26 @@ module.exports = {
         var bufferpk = new Buffer.from(privatekey,'hex');
         tx.sign(bufferpk);
         var serializedTx = tx.serialize();
-        await web3.eth.sendSignedTransaction('0x' + serializedTx.toString('hex'), (err, hash)=> {
+        /*await web3.eth.sendSignedTransaction('0x' + serializedTx.toString('hex'), (err, hash)=> {
             console.log('aaaaaaaafewa',hash);
-        })
+        })*/
 
-        ctx.body = {
-            code: 0,
-            msg: "sendTx success",
-            // res: sendtxRes
+        try {
+            let txRes = await web3.eth.sendSignedTransaction('0x'+serializedTx.toString('hex'));
+            ctx.body = {
+                code: 0,
+                msg: "sendTx success",
+                res: txRes
+            }
+        } catch (err) {
+            ctx.body = {
+                code: 200,
+                msg: "sendTx failed",
+                res: "failed"
+            }
         }
 
     }
 
 
-}
+};

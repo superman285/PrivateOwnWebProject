@@ -20,7 +20,6 @@
             >
                 <router-link tag="v-tab" to="/">我的账户</router-link>
                 <router-link tag="v-tab" :to="{name:'createaccount'}">create account</router-link>
-                <router-link tag="v-tab" :to="{name:'downkeystore'}">KeyStore</router-link>
                 <router-link tag="v-tab" :to="{name:'sendtx'}">载入钱包</router-link>
                 <router-link tag="v-tab" :to="{name:'querytx'}">Query TX</router-link>
             </v-tabs>
@@ -46,9 +45,8 @@
             height: 4.5rem;
             background: linear-gradient(to right, rgba(179,220,237,1) 0%,rgba(41,184,229,1) 100%);
             img {
-                width: 50px;
-                height: 50px;
-                margin-left: 2rem;
+                height: 3.2rem;
+                margin-left: 1rem;
             }
             button:nth-of-type(1) {
                 margin-left: auto;
