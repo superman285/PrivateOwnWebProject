@@ -35,20 +35,16 @@ module.exports = {
             console.log('pkToAcc', res);
             ctx.body = {
                 code: 0,
-                message: '私钥解锁success',
-                data: {
-                    res
-                }
+                message: '私钥解锁账户成功！',
+                info: res
             }
 
         } catch (err) {
             console.log(err);
             ctx.body = {
                 code: 100,
-                message: '私钥解锁failed',
-                data: {
-                    res:false
-                }
+                message: '私钥解锁账户失败！',
+                info: err
             }
         }
 

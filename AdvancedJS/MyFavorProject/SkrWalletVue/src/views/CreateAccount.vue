@@ -6,7 +6,7 @@
         <v-layout align-start justify-space-between>
         <v-text-field
                 outline
-                :append-icon="showpwd ? 'visibility_off' : 'visibility'"
+                :append-icon="showpwd ? 'visibility' : 'visibility_off'"
                 :type="showpwd ? 'text' : 'password'"
                 label="input password"
                 class="input-password"
@@ -18,6 +18,21 @@
         </v-btn>
         </v-layout>
 
+        <a class="downlink animated fadeInUpBig"
+           ref="downlink"
+           v-show="downable"
+           href=""
+           target="_blank"
+           download="keystore">
+            <v-btn
+                    color="blue-grey"
+                    class="white--text"
+            >
+                <v-icon>cloud_download</v-icon>
+                &nbsp;&nbsp;下载keystore
+            </v-btn>
+        </a>
+
     </div>
 </template>
 
@@ -26,30 +41,53 @@
         name: "CreateAccount",
         data(){
             return {
-                showpwd: true,
-                password: ''
+                showpwd: false,
+                password: '',
+                downUrl: "",
+                downable: false
             }
         },
         methods: {
             async createAccount(){
                 let url = "http://127.0.0.1:4000/users/createaccount"
+                try {
+                    let successInfo = await axios({
+                        method: "POST",
+                        url:url,
+                        data: {
+                            password: this.password,
+                        }
+                    });
+                    //Toast创建成功
+                    console.log('createAccountSuccess',successInfo.data.info.fileName);
+                    console.log(this.$refs.downlink);
+                    let ksfile = successInfo.data.info.fileName
+                    this.$refs.downlink.href = `keystore/${ksfile}`;
+                    this.downable = true;
 
-                let res = await axios({
-                    method: "POST",
-                    url:url,
-                    data: {
-                        username: "superman285",
-                        password: this.password,
-                    }
-                });
-                //Toast创建成功
-                console.log('createAccount',res);
+
+                } catch (err) {
+                    //Toast创建失败
+                    console.log(err);
+                }
+                
             }
         }
     }
 </script>
 
 <style scoped lang="scss">
+
+    .downlink {
+        text-decoration: none;
+        button {
+            height: 3rem;
+        }
+    }
+
+    .v-text-field {
+        font-size: 1.36rem!important;
+    }
 
     h1 {
         margin-top: 2rem;

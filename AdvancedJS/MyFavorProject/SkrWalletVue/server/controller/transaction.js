@@ -69,14 +69,14 @@ module.exports = {
             let txRes = await web3.eth.sendSignedTransaction('0x'+serializedTx.toString('hex'));
             ctx.body = {
                 code: 0,
-                msg: "sendTx success",
-                res: txRes
+                message: "转账成功！",
+                info: txRes
             }
         } catch (err) {
             ctx.body = {
                 code: 200,
-                msg: "sendTx failed",
-                res: "failed"
+                msg: "转账失败！",
+                info: err
             }
         }
 

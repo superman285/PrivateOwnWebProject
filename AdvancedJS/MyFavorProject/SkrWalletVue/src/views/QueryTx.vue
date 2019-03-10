@@ -17,6 +17,7 @@
             <v-layout justify-space-between align-center>
 
 
+
             <v-text-field
                     class="amountField"
                     label="金额"
@@ -79,6 +80,10 @@
                     type: val=>{
                         const pattern = /^[1-9]\d*$/
                         return pattern.test(val) || "请输入有效数字！"
+                    },
+                    addrFormat: val=>{
+                        const addrPattern = /^0x[0-9a-fA-F]{40}$/;
+                        return addrPattern.test(val) || "请输入正确格式的地址!"
                     }
                 }
             }

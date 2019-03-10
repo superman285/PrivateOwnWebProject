@@ -1,8 +1,5 @@
 const router = require('koa-router')()
 
-
-
-
 let creatAccountMethod = require("../controller/createAccount").createAccount;
 let unlockWithPrivatekey = require("../controller/account").unlockWithPrivatekey;
 let unlockWithKeystore = require("../controller/account").unlockWithKeystore;

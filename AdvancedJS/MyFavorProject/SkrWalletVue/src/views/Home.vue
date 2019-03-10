@@ -8,17 +8,11 @@
                 max-width="400"
         >
             <div class="addr-avatar">
-            <v-img
-                    src="https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=White&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light"
-            ></v-img>
-
+                <img src="../assets/avatar.png" alt="">
             </div>
             <h2>地址</h2>
 
             <div class="addr-text">
-                <span>
-                    {{addr}}
-                </span>
                 <p>
                     {{this.$store.state.accountAddr}}
                 </p>
@@ -32,9 +26,7 @@
                 max-width="400"
         >
             <div class="addr-avatar">
-                <v-img
-                        src="https://i.loli.net/2019/03/04/5c7cc379215cc.png"
-                ></v-img>
+                <img src="../assets/wallet.png" alt="">
 
             </div>
             <h2>余额</h2>
@@ -106,10 +98,15 @@
         padding: 2rem;
     }
     .addr-avatar {
-        width: 50px;
-        height: 50px;
-        background: #dddddd;
+        width: 5rem;
+        height: 5rem;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
     }
+
 
     h2 {
         margin-top: -2rem;

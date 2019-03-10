@@ -18,7 +18,7 @@
                     dark
                     slider-color="yellow"
             >
-                <router-link tag="v-tab" to="/">我的账户</router-link>
+                <router-link tag="v-tab" :to="{name:'home'}">我的账户</router-link>
                 <router-link tag="v-tab" :to="{name:'createaccount'}">create account</router-link>
                 <router-link tag="v-tab" :to="{name:'sendtx'}">载入钱包</router-link>
                 <router-link tag="v-tab" :to="{name:'querytx'}">Query TX</router-link>

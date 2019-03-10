@@ -9,9 +9,6 @@ var web3 = utils.getweb3();
 module.exports = {
 
 
-    createAccountPage: async ctx=>{
-
-    },
 
     createAccount: ctx => {
         console.log('newAccount212');
@@ -45,13 +42,14 @@ module.exports = {
         console.log(filePath);
 
         ctx.response.body = {
-            res:"我已收到密码",
-            data: account
+            code: 0,
+            message:"我已收到密码",
+            info: {
+                account,
+                keystore:keystoreStr,
+                fileName
+            }
         }
-
-        /*return {
-            result: ctx.response.body,
-        }*/
 
     }
 

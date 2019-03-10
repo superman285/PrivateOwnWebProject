@@ -4,7 +4,7 @@ import Home from './views/Home.vue'
 
 Vue.use(Router)
 
-export default new Router({
+let router = new Router({
     routes: [
         {
             path: '/',
@@ -39,5 +39,15 @@ export default new Router({
             name: 'querytx',
             component: ()=>import('./views/QueryTx')
         },
-    ]
-})
+    ],
+});
+
+/*router.beforeEach((to, from,next) => {
+    window.addEventListener('load',function () {
+        console.log(from.path)
+        console.log(to.path)
+        next();
+    });
+});*/
+
+export default router;

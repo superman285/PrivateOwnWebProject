@@ -1,12 +1,15 @@
 <template>
     <div id="app">
         <v-app>
-        <myheader></myheader>
-        <!--keepalive 切换前端路由保留页面上次的数据-->
-        <keep-alive>
-            <router-view/>
-        </keep-alive>
-        <myfooter></myfooter>
+
+            <myheader></myheader>
+
+            <!--keepalive 切换前端路由保留页面上次的数据-->
+            <keep-alive>
+                <router-view/>
+            </keep-alive>
+
+            <myfooter></myfooter>
         </v-app>
     </div>
 </template>
@@ -21,6 +24,9 @@
         components: {
             myheader,
             myfooter
+        },
+        created: function(){
+            this.$router.push("/");
         }
     }
 </script>
