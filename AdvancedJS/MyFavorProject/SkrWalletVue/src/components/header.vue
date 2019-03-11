@@ -2,14 +2,19 @@
     <div id="myheader">
         <div class="topbar">
             <img src="../assets/logo.png" alt="" class="logo">
-            <v-btn color="blue" class="white--text">
-                登录
-                <v-icon right dark>cloud_upload</v-icon>
-            </v-btn>
-            <v-btn color="indigo" class="white--text">
-                注册
-                <v-icon right dark>cloud_upload</v-icon>
-            </v-btn>
+
+            <div class="githublogo">
+            <v-tooltip left>
+                <template v-slot:activator="{ on }">
+                    <a target="_blank" href="https://github.com/superman285/PrivateOwnWebProject/tree/master/AdvancedJS/MyFavorProject/SkrWalletVue">
+                        <img v-on="on" src="../assets/github.png" alt="" class="githublogo">
+                    </a>
+                </template>
+                <span>View Source on GitHub!</span>
+            </v-tooltip>
+            </div>
+
+
         </div>
         <div class="divide"></div>
         <div class="topmenu">
@@ -18,10 +23,10 @@
                     dark
                     slider-color="yellow"
             >
-                <router-link tag="v-tab" :to="{name:'home'}">我的账户</router-link>
-                <router-link tag="v-tab" :to="{name:'createaccount'}">create account</router-link>
-                <router-link tag="v-tab" :to="{name:'sendtx'}">载入钱包</router-link>
-                <router-link tag="v-tab" :to="{name:'querytx'}">Query TX</router-link>
+                <router-link tag="v-tab" :to="{name:'home'}">My Account</router-link>
+                <router-link tag="v-tab" :to="{name:'createaccount'}">Create Wallet</router-link>
+                <router-link tag="v-tab" :to="{name:'accesswallet'}">Access Wallet</router-link>
+                <router-link tag="v-tab" :to="{name:'sendtx'}">Transaction</router-link>
             </v-tabs>
         </div>
     </div>
@@ -38,22 +43,31 @@
 
 <style scoped lang="scss">
 
+    .v-tabs__div {
+        font-size: 1.3rem;
+        text-transform: capitalize!important;
+    }
+    .router-link-exact-active {
+        font-weight: 700;
+    }
+
     #myheader {
+
         .topbar{
             display: flex;
             align-items: center;
             height: 4.5rem;
             background: linear-gradient(to right, rgba(179,220,237,1) 0%,rgba(41,184,229,1) 100%);
-            img {
+            .logo {
                 height: 3.2rem;
                 margin-left: 1rem;
             }
-            button:nth-of-type(1) {
+            .githublogo {
                 margin-left: auto;
+                margin-right: 1rem;
+                height: 3.3rem;
             }
-            button:nth-of-type(2) {
-                margin-right: 2rem;
-            }
+
         }
         .divide {
             height: 3px;
@@ -61,6 +75,9 @@
         }
 
         .v-tabs {
+            .v-tabs__div {
+                max-width: 480px!important;
+            }
             div {
                 width: 100%;
                 justify-content: center!important;

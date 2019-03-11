@@ -4,7 +4,7 @@
         <div class="bottominfo">
             <img src="../assets/footer-logo.png" alt="">
             <div class="work-info">
-                <p>Made with ❤️by <span>superman285</span></p>
+                <p>Made with ❤️by <a target="_blank" href="https://skr.dog"><span>superman285</span></a></p>
                 <p>Front-end framework: <span>Vue</span></p>
                 <p>Back-end framework: <span>Koa2</span></p>
             </div>
@@ -42,6 +42,9 @@
         .work-info {
             margin-left: 1rem;
             color: white;
+            a {
+                text-decoration: none;
+            }
             p{
                 margin: .1rem;
             }

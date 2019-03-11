@@ -1,222 +1,206 @@
 <template>
     <div>
-        <h1>send eth or other token</h1>
 
-        <v-radio-group column v-model="unlockMethod">
-            <v-radio
-                    label="keystore"
-                    color="blue"
-                    value="keystore"
-            ></v-radio>
-            <v-radio
-                    label="privatekey"
-                    color="green"
-                    value="privatekey"
-            ></v-radio>
-        </v-radio-group>
-
-        <div class="unlock-keystore" v-show="this.unlockMethod=='keystore'">
-
-            <v-upload></v-upload>
-            <!--<form action="http://127.0.0.1:4000/users/upload" class="dropzone">
-                <div class="fallback">
-                <input name="file" type="file" multiple @change="uploadFile($event)">
-            </div>
-            </form>-->
-
-            <br>
+        <v-card class="txcard">
 
             <v-text-field
-                    class="input-pwd"
-                    ref="inputPwd"
+                    class="tokenField"
+                    label="Token"
+                    single-line
                     solo
-                    v-model="password"
-                    prepend-inner-icon="place"
-                    :append-icon="showpwd ? 'visibility' : 'visibility_off'"
-                    :type="showpwd ? 'text' : 'password'"
-                    name="input-10-1"
-                    label="Input password"
-                    @click:append="showpwd = !showpwd"
+                    dark
+                    readonly
+                    :value="tokenType"
+                    background-color="blue darken-4"
             ></v-text-field>
 
-            <v-btn @click="upToServer" color="grey" class="white--text upbtn">
-                上传
-                <v-icon right dark>cloud_upload</v-icon>
-            </v-btn>
-        </div>
+            <v-layout justify-space-between align-center>
+                <v-text-field
+                        class="amountField"
+                        label="金额"
+                        suffix="ether"
+                        :rules="[rules.type]"
+                        @input="changeAmount($event)"
+                ></v-text-field>
 
-        <div class="unlock-privatekey" v-show="this.unlockMethod=='privatekey'">
-            <h3>输入私钥</h3>
+                <v-text-field
+                        class="gaspriceField"
+                        label="GasPrice"
+                        suffix="Gwei"
+                        v-model="txGasPrice"
+                        :rules="[rules.type,rules.counter]"
+                ></v-text-field>
+            </v-layout>
+
             <v-text-field
-                    color="pink"
-                    label="input-privatekey"
-                    @input="changeValue($event)"
+                    class="targetAddr"
+                    label="目标地址"
+                    prepend-inner-icon="near_me"
+                    single-line
+                    box
+                    clearable
+                    @input="changeAddr($event)"
             ></v-text-field>
-            <v-btn @click="unlock" color="grey" class="white--text">
-                解锁
-                <v-icon right dark>cloud_upload</v-icon>
+
+            <v-btn
+                    block
+                    color="blue lighten-2"
+                    class="white--text sendtx-btn"
+                    @click="sendTx"
+            >发送
+                <v-icon right color="white">present_to_all</v-icon>
             </v-btn>
-        </div>
+        </v-card>
+
+        <v-card class="txtip-card" v-show="txHash!=''">
+            <h5>点击可跳转查询</h5>
+            <span>交易hash:</span><br>
+            <a target="_blank" :href="`https://rinkeby.etherscan.io/tx/${txHash}`">{{txHash}}</a>
+        </v-card>
     </div>
 </template>
 
 <script>
 
-    /*
-    import "dropzone/dist/dropzone.js";
-    import "dropzone/dist/dropzone.css";
-    import "dropzone/dist/basic.css";
-    import "materialize-css/dist/js/materialize.min.js"
-    import "materialize-css/dist/css/materialize.min.css"
-    */
-
-    import uploadComponent from "@/components/v-upload";
+    import 'vuetify/dist/vuetify.min.css'
 
     export default {
-        name: "Transfer",
-        components:{
-            "v-upload":uploadComponent
-        },
-        data(){
+        name: "SendTx",
+        data() {
             return {
-                unlockMethod: "keystore",
-                pkvalue:"",
-                showpwd: false,
-                password: ""
+                tokenType: "ETH",
+                txAmount: "",
+                txToAddr: "",
+                txGasPrice: "20",
+                txHash: "",
+                rules: {
+                    counter: val => val >= 20 || "GasPrice过小可能导致交易失败！",
+                    type: val => {
+                        const pattern = /^[1-9]+.?[0-9]*$/
+                        return pattern.test(val) || "请输入有效数字！"
+                    },
+                    addrFormat: val => {
+                        const addrPattern = /^0x[0-9a-fA-F]{40}$/;
+                        return addrPattern.test(val) || "请输入正确格式的地址!"
+                    }
+                }
             }
         },
         methods: {
-            look(){
-                console.log(this.unlockMethod);
-                console.log(this.pkvalue);
+            changeAmount(ev) {
+                this.txAmount = ev;
             },
-            async uploadFile(ev){
-                console.log('dongle input');
-                let fileObj = ev.target.files[0];
-                console.dir(fileObj);
-
-                let fileTip = this.$refs.uploadTip;
-                fileTip.value = fileObj.name;
-
-                let formData = new FormData();
-                formData.append("file",fileObj);
-
-                let url = "http://127.0.0.1:4000/users/upload"
-                /*try {
-                    let res = await axios({
-                        method: "post",
-                        url,
-                        data:{
-                            username: 'iu2',
-                            formData
-                        }
-                    });
-                    console.log('file result',res);
-                } catch (err) {
-                    console.log('出错啦',err);
-                }*/
+            changeAddr(ev) {
+                this.txToAddr = ev;
             },
-            changeValue(ev){
-                this.pkvalue = ev
+            changeGasPrice(ev) {
+                this.txGasPrice = ev;
             },
-            async unlock(){
-                let url = "http://127.0.0.1:4000/users/unlockwithprivatekey"
-                try {
-                    let res = await axios({
-                        method: "post",
-                        url,
-                        data:{
-                            username: 'iu',
-                            privatekey: this.pkvalue
-                        }
-                    });
-                    console.log('result',res);
+            async sendTx() {
+                console.log('发起来');
+                if (this.txAmount && this.txToAddr && this.txGasPrice) {
 
-                    let accAddr = res.data.data.res.address;
-                        
-                    console.log('解锁成功账户',res.data.data.res.address,res.data.data.res.privateKey);
-                    this.$store.commit('setAccountAddr',accAddr);
-                    
-                    let balUrl = "http://127.0.0.1:4000/users/getbalance";
-                    
-                    let balRes = await axios({
-                        method: "GET",
-                        url: balUrl,
-                        params: {
-                            address:accAddr
-                        }
-                    })
-                    console.log("获取余额",balRes);
+                    if (Object.is(Number(this.txAmount), NaN) || Object.is(Number(this.txGasPrice), NaN)) {
+                        //toast提示 金额和gasprice必须为数字
+                        console.log('金额和gasprice必须为数字');
+                        return;
+                    }
 
-                    //1eth 10^18 wei | 10^9 Gwei
-                    let {balance} = balRes.data.data;
-                    this.$store.commit('setAccountBalance',balance);
+                    var utils = require('../../utils/myUtils');
+                    var web3 = utils.getweb3();
+                    if (!web3.utils.isAddress(this.txToAddr)) {
+                        //Toast地址应为16进制数，以0x开头
+                        console.log('地址格式错误');
+                        return;
+                    }
 
-                } catch (err) {
-                    console.log('出错啦',err);
-                }
-            },
-            upToServer(){
-                //获取dom 然后读取上传的文件
-                console.log(this.$refs);
-                let upFile = this.$store.state.uploadKeystore;
-                console.log(upFile.name);
-                let formData = new FormData();
-                formData.append("file",upFile);
+                    //正式交易前的一些判断
+                    //1.登录
+                    if (this.$store.state.accountAddr == "0x00" || this.$store.state.globalPrivatekey == "") {
+                        //Toast 账户未登录
+                        console.log('Please access your Wallet first!');
+                        return;
+                    }
+                    //2.余额足够
+                    if (this.$store.state.accountBalance <= this.txAmount) {
+                        //Toast余额不足
+                        console.log('Your wallet balance is Not Enough!');
+                        return;
+                    }
 
-                if (upFile.name) {
-                    //let ksPwd = this.$refs.inputPwd.value;
-                    let ksPwd = this.password;
-                    var reader = new FileReader();
-                    reader.readAsText(upFile);
-                    reader.onload= async function (){
-                        let parseContent = JSON.parse(this.result);
-                        console.log(parseContent);
-
-                        let url = "http://127.0.0.1:4000/users/unlockwithkeystore"
-                        try {
-                            let res = await axios({
-                                method: "post",
-                                url,
-                                data:{
-                                    password: ksPwd,
-                                    keystore: parseContent
-                                }
-                            });
-                            console.log('file result',res);
-                            if (res.code == 0) {
-                                //Toast解锁成功
-                                console.log('unlock 成功');
-                            }else{
-                                //Toast失败
-                                console.log('unlock失败');
+                    let url = "http://127.0.0.1:4000/users/sendtx";
+                    try {
+                        let result = await axios({
+                            method: "post",
+                            url,
+                            data: {
+                                privatekey: this.$store.state.globalPrivatekey,
+                                txAmount: this.txAmount,
+                                txFromAddr: this.$store.state.accountAddr,
+                                txToAddr: this.txToAddr,
+                                txGasPrice: this.txGasPrice,
                             }
-                        } catch (err) {
-                            //Toast提示
-                            console.log('出错啦',err);
-                        }
+                        });
+                        console.log('sendtxresult', result);
+                        this.txHash = result.data.info.transactionHash;
+                        console.log(this.txHash);
 
-                    };
-                    console.log('可以传给服务器了');
-                }else {
-                    //toast提示
-                    console.log('未选择文件');
+
+                        await this.$store.dispatch('refreshBalance');
+                        console.log('dispatch action refreshBalance分发完毕');
+
+                    } catch (err) {
+                        //交易失败
+                        console.log('sendtx failed,err', err);
+                    }
+
+
+                } else {
+                    //Toast 金额 gasprice 目标地址缺一不可
+                    console.log('三项都要填 金额 gasprice toaddr');
                 }
-
             }
         }
     }
 </script>
 
 <style scoped lang="scss">
-
-    .input-pwd {
-        margin-top: 3rem;
+    .tokenField {
+        font-weight: bold;
     }
 
+    .gaspriceField, .amountField {
+        flex: .49;
+    }
 
-    .upbtn {
+    .v-card {
+        margin: 4rem auto;
+        padding: 2rem;
+        width: 60%;
+    }
+
+    .txcard {
+        min-width: 480px !important;
+        max-width: 800px !important;
+    }
+
+    div.v-text-field__suffix {
+        font-weight: bold !important;
+    }
+
+    .sendtx-btn {
+        height: 3rem;
+        font-size: 1.2rem;
+    }
+
+    .targetAddr {
         margin-top: 1rem;
     }
 
+    .txtip-card {
+        background: limegreen;
+        padding: 1rem;
+        color: white;
+        width: 95%;
+    }
 </style>

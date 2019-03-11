@@ -8,11 +8,24 @@ var web3 = utils.getweb3();
 
 module.exports = {
 
+    createAccountByPrivatekey: ctx=>{
+        let privatekeyStr = ctx.request.body.privatekey;
+        let account = web3.eth.accounts.privateKeyToAccount(privatekeyStr);
+        console.log('pk创建account', account);
+        ctx.response.body = {
+            code: 0,
+            message:"privatekey创建账户成功",
+            info: {
+                createWay: "privatekey",
+                account,
+            }
+        }
 
 
-    createAccount: ctx => {
-        console.log('newAccount212');
-        console.log('ctx.request.body',ctx.request.body.password);
+    },
+
+    createAccountByKeystore: ctx => {
+        console.log('ctx.request.body',ctx.request.body);
 
         var pwdstr = String(ctx.request.body.password);
         //create方法的参数并不是密码,而是用于增加混乱度的熵,不过也可以与后面的密码用同一个
@@ -23,7 +36,7 @@ module.exports = {
         console.log(account);
 
         //生成keystore才真正需要密码
-        //根据账户和密码生成keystore account是一个对象 下面有encrypt加密方法
+        //根据账户和密码生成keystore; account是一个对象 下面有encrypt加密方法
         let keystore = account.encrypt(pwdstr);
         //or web3.eth.accounts.encrypt(privatekey,pwdstr)
         console.log(keystore);
@@ -43,8 +56,9 @@ module.exports = {
 
         ctx.response.body = {
             code: 0,
-            message:"我已收到密码",
+            message:"keystore创建账户成功",
             info: {
+                createWay: "keystore",
                 account,
                 keystore:keystoreStr,
                 fileName

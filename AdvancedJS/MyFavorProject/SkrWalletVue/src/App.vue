@@ -25,9 +25,9 @@
             myheader,
             myfooter
         },
-        created: function(){
+        /*created: function(){
             this.$router.push("/");
-        }
+        }*/
     }
 </script>
 
@@ -38,6 +38,7 @@
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
         color: #2c3e50;
+        min-width: 480px;
     }
 
     #nav {

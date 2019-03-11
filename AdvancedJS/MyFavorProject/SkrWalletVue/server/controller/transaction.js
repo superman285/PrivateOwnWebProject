@@ -58,7 +58,8 @@ module.exports = {
             data: "0x00"
         }
         var tx = new Tx(rawTx);
-        var bufferpk = new Buffer.from(privatekey,'hex');
+        //此处需要的是开头不带'0x'的字符串
+        var bufferpk = new Buffer.from(privatekey.substring(2),'hex');
         tx.sign(bufferpk);
         var serializedTx = tx.serialize();
         /*await web3.eth.sendSignedTransaction('0x' + serializedTx.toString('hex'), (err, hash)=> {
@@ -75,7 +76,7 @@ module.exports = {
         } catch (err) {
             ctx.body = {
                 code: 200,
-                msg: "转账失败！",
+                message: "转账失败！",
                 info: err
             }
         }

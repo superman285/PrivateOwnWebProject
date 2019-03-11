@@ -25,9 +25,14 @@
                 dark
                 max-width="400"
         >
+            <img src="../assets/refresh.png"
+                 alt="refresh"
+                 class="refresh-btn"
+                 v-if="$store.state.accountAddr!='0x00'"
+                 @click="refreshBalance"
+            >
             <div class="addr-avatar">
                 <img src="../assets/wallet.png" alt="">
-
             </div>
             <h2>余额</h2>
 
@@ -54,39 +59,36 @@
     //加了全局webpack配置axios
     //import axios from "axios";
 
+
     export default {
-        name: 'home',
+        name: 'Home',
         components: {
             HelloWorld,
             MyHeader,
             MyFooter
         },
-        data(){
-          return {
-              addr: localStorage.getItem('accountAddr')?localStorage.getItem('accountAddr'):"0x666"
-          }
+        data() {
+            return {
+                addr: localStorage.getItem('accountAddr') ? localStorage.getItem('accountAddr') : "0x666"
+
+            }
         },
         methods: {
-           async test() {
-
-
-                let url = "http://127.0.0.1:4000/users/createaccount"
-
-                /*axios.post(url,{
-                    username: 'superman',
-                    password: 123456,
-                }).then(res=>{
-                    console.log(res);
-                })*/
-                let res = await axios({
-                    method: "POST",
-                    url:url,
-                    data: {
-                        username: "superman285",
-                        password: 123456,
+            async refreshBalance() {
+                //将这个封装到了action中
+                /*let url = "http://127.0.0.1:4000/users/getbalance";
+                let address = this.$store.state.accountAddr;
+                let result = await axios({
+                    method: "get",
+                    url,
+                    params:{
+                        address,
                     }
                 });
-               console.log(res);
+                console.log("serverBal",result);
+                this.$store.commit("setAccountBalance",result.data.info.balance);*/
+                await this.$store.dispatch('refreshBalance');
+                console.log('dispatch action refreshBalance分发完毕');
             }
         }
     }
@@ -94,9 +96,10 @@
 
 <style scoped lang="scss">
     .addr-card {
-        margin-top: 2rem;
+        margin-top: 3rem;
         padding: 2rem;
     }
+
     .addr-avatar {
         width: 5rem;
         height: 5rem;
@@ -107,10 +110,10 @@
         }
     }
 
-
     h2 {
         margin-top: -2rem;
     }
+
     .addr-text {
         margin-top: 1.2rem;
         span {
@@ -122,9 +125,20 @@
             word-break: break-all;
         }
     }
+
     span.unit {
         font-weight: bold;
         font-size: 2rem;
         color: palevioletred;
     }
+
+    .refresh-btn {
+        position: absolute;
+        width: 2rem;
+        height: 2rem;
+        right: 1rem;
+        top: 1rem;
+        cursor: pointer;
+    }
+
 </style>

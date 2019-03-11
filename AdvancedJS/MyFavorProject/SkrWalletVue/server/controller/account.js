@@ -25,18 +25,36 @@ async function getAccountBalance(addr) {
 module.exports = {
 
 
-    unlockWithPrivatekey: ctx => {
+    unlockWithPrivatekey: async ctx => {
         //console.log("afa4q4211^^&%^#&&*#*", ctx.request.body.data);
         let privatekey = ctx.request.body.privatekey;
         //这个其实是创建账户 用create方法创建的 是否其实可以不用解锁 而用personal.newAccount创建的才需要解锁
 
         try {
-            let res = web3.eth.accounts.privateKeyToAccount(privatekey);
-            console.log('pkToAcc', res);
-            ctx.body = {
-                code: 0,
-                message: '私钥解锁账户成功！',
-                info: res
+            let account = web3.eth.accounts.privateKeyToAccount(privatekey);
+            console.log('pkToAcc', account);
+
+            try {
+                let balance = await web3.eth.getBalance(account.address);
+                console.log('pkToAcc=>balance',balance);
+                ctx.body = {
+                    code: 0,
+                    message: '私钥解锁账户成功！',
+                    info: {
+                        account,
+                        balance
+                    }
+                }
+            } catch (err) {
+                console.log('getBalanceErr',err);
+                ctx.body = {
+                    code: 300,
+                    message: "获取余额失败！",
+                    info: {
+                        account,
+                        err
+                    }
+                }
             }
 
         } catch (err) {
@@ -51,22 +69,36 @@ module.exports = {
 
     },
 
-    unlockWithKeystore: ctx => {
+    unlockWithKeystore: async ctx => {
         //web3.eth.accounts.decrypt(keystore,pwdstr)
-
         let {keystore,password} = ctx.request.body;
         console.log('{keystore,password',keystore,password);
-
-
 
         try {
             let account = web3.eth.accounts.decrypt(keystore,password);
             console.log(account);
-            ctx.body = {
-                code: 0,
-                message: "keystore解锁success",
-                data: {
-                    res:account
+
+
+            try {
+                let balance = await web3.eth.getBalance(account.address);
+                console.log('pkToAcc=>balance',balance);
+                ctx.body = {
+                    code: 0,
+                    message: 'keystore解锁账户成功！',
+                    info: {
+                        account,
+                        balance
+                    }
+                }
+            } catch (err) {
+                console.log('getBalanceErr',err);
+                ctx.body = {
+                    code: 300,
+                    message: "获取余额失败！",
+                    info: {
+                        account,
+                        err
+                    }
                 }
             }
         } catch (err) {
@@ -74,9 +106,7 @@ module.exports = {
             ctx.body = {
                 code: 200,
                 message: "keystore解锁failed",
-                data: {
-                    res: false
-                }
+                info: err
             }
         }
 
@@ -84,9 +114,9 @@ module.exports = {
 
     getBalance: async ctx => {
 
+        console.log('queryshi ', ctx.query);
         let addr = ctx.query.address;
         //let addr = ctx.request.body.account.address;
-        console.log(addr);
 
         //要不要加await
         let balance = await web3.eth.getBalance(addr);
@@ -97,7 +127,7 @@ module.exports = {
         ctx.body = {
             code: 0,
             message: "getBalance success",
-            data: {
+            info: {
                 balance
             }
         }

@@ -1,6 +1,7 @@
 const router = require('koa-router')()
 
-let creatAccountMethod = require("../controller/createAccount").createAccount;
+let createAccByKs = require("../controller/createAccount").createAccountByKeystore;
+let createAccByPk = require("../controller/createAccount").createAccountByPrivatekey;
 let unlockWithPrivatekey = require("../controller/account").unlockWithPrivatekey;
 let unlockWithKeystore = require("../controller/account").unlockWithKeystore;
 let getBalance = require("../controller/account").getBalance;
@@ -26,10 +27,11 @@ router.post('/upload',ctx=>{
     }
 })
 
-router.post('/createaccount',creatAccountMethod);
+router.post('/createaccountbyks',createAccByKs);
+router.post('/createaccountbypk',createAccByPk);
+
 
 router.post('/unlockwithprivatekey',unlockWithPrivatekey);
-
 router.post('/unlockwithkeystore',unlockWithKeystore);
 
 router.get('/getbalance',getBalance);

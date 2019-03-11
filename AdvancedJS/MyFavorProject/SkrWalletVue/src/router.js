@@ -20,24 +20,19 @@ let router = new Router({
             component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
         },
         {
-            path: '/keystore',
-            name: 'keystore',
-            component: ()=>import('./views/Keystore'),
-        },
-        {
             path: '/createaccount',
             name: 'createaccount',
             component: ()=>import('./views/CreateAccount')
         },
         {
+            path: '/accesswallet',
+            name: 'accesswallet',
+            component: ()=>import('./views/AccessWallet')
+        },
+        {
             path: '/sendtx',
             name: 'sendtx',
             component: ()=>import('./views/SendTx')
-        },
-        {
-            path: '/querytx',
-            name: 'querytx',
-            component: ()=>import('./views/QueryTx')
         },
     ],
 });

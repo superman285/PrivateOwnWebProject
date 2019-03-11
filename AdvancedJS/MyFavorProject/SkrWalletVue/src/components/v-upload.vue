@@ -1,7 +1,7 @@
 <template>
     <div class="upload-field">
         <input type="file" class="upload-input" ref="uploadInput" @change="uploadFile">
-        <v-btn class="uploadBtn">
+        <v-btn class="uploadBtn" color="#6EC3A8">
             <span>File&nbsp;&nbsp;</span>
             <i class="material-icons upico">backup</i>
         </v-btn>
@@ -21,7 +21,7 @@
                 console.log(this.$refs);
                 let upFileObj = this.$refs.uploadInput.files[0];
 
-                this.$store.state.uploadKeystore = upFileObj;
+                this.$store.state.globalKeystore = upFileObj;
 
                 let upFileTip = this.$refs.uploadTip;
                 upFileTip.value = upFileObj.name;
@@ -34,6 +34,7 @@
 
     .upload-field{
         position: relative;
+        cursor: pointer;
     }
     .upload-input {
         outline: none;
@@ -56,6 +57,8 @@
         margin: 0;
         height: 3rem;
         width: 8rem;
+        cursor: pointer;
+        color: white;
     }
     .upload-filetip {
         position: absolute;
@@ -65,7 +68,9 @@
         line-height: 3rem;
         font-size: 1.1rem;
         outline: none;
-        cursor: default;
+        cursor: pointer;
+        color: #3f51b5;
+        font-weight: 400;
         &::placeholder {
             font-size: 1.4rem;
             font-weight: bold
