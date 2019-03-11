@@ -28,6 +28,7 @@
             <img src="../assets/refresh.png"
                  alt="refresh"
                  class="refresh-btn"
+                 ref="refreshBtn"
                  v-if="$store.state.accountAddr!='0x00'"
                  @click="refreshBalance"
             >
@@ -87,8 +88,15 @@
                 });
                 console.log("serverBal",result);
                 this.$store.commit("setAccountBalance",result.data.info.balance);*/
+                console.log(this.$refs);
+                this.$refs.refreshBtn.classList.remove('refresh-pause');
+                this.$refs.refreshBtn.classList.add('refresh-play');
                 await this.$store.dispatch('refreshBalance');
                 console.log('dispatch action refreshBalance分发完毕');
+                //await等到结果之后还会转2s再停
+                setTimeout(()=>{
+                    this.$refs.refreshBtn.classList.add('refresh-pause');
+                },2000);
             }
         }
     }
@@ -139,6 +147,25 @@
         right: 1rem;
         top: 1rem;
         cursor: pointer;
+    }
+    .refresh-play {
+        animation: refresh-rotate 2s infinite ease-in-out;
+    }
+    .refresh-pause {
+        animation-play-state: paused;
+    }
+    .refresh-run {
+        animation-play-state: running;
+
+    }
+    //refresh动画
+    @keyframes refresh-rotate {
+        from {
+            transform: rotate(0);
+        }
+        to {
+            transform: rotate(360deg);
+        }
     }
 
 </style>
