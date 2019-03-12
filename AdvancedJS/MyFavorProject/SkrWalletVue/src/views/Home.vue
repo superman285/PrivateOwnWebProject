@@ -10,7 +10,7 @@
             <div class="addr-avatar">
                 <img src="../assets/avatar.png" alt="">
             </div>
-            <h2>地址</h2>
+            <h2>Address</h2>
 
             <div class="addr-text">
                 <p>
@@ -35,10 +35,9 @@
             <div class="addr-avatar">
                 <img src="../assets/wallet.png" alt="">
             </div>
-            <h2>余额</h2>
+            <h2>Balance</h2>
 
             <div class="addr-text">
-
                 <span>
                     {{this.$store.state.accountBalance}}
                 </span>
@@ -59,6 +58,7 @@
 
     //加了全局webpack配置axios
     //import axios from "axios";
+
 
 
     export default {
@@ -106,6 +106,9 @@
     .addr-card {
         margin-top: 3rem;
         padding: 2rem;
+        &:nth-of-type(1){
+            padding-bottom: .25rem;
+        }
     }
 
     .addr-avatar {

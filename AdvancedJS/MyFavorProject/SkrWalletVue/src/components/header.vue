@@ -1,4 +1,4 @@
-<template>
+<template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
     <div id="myheader">
         <div class="topbar">
             <img src="../assets/logo.png" alt="" class="logo">
@@ -23,10 +23,10 @@
                     dark
                     slider-color="yellow"
             >
-                <router-link tag="v-tab" :to="{name:'home'}">My Account</router-link>
-                <router-link tag="v-tab" :to="{name:'createaccount'}">Create Wallet</router-link>
-                <router-link tag="v-tab" :to="{name:'accesswallet'}">Access Wallet</router-link>
-                <router-link tag="v-tab" :to="{name:'sendtx'}">Transaction</router-link>
+                <router-link tag="v-tab" ref="tab1" :to="{name:'home'}">My Account</router-link>
+                <router-link tag="v-tab" ref="tab2" :to="{name:'createaccount'}">Create Wallet</router-link>
+                <router-link tag="v-tab" ref="tab3" :to="{name:'accesswallet'}">Access Wallet</router-link>
+                <router-link tag="v-tab" ref="tab4" :to="{name:'sendtx'}">Transaction</router-link>
             </v-tabs>
         </div>
     </div>

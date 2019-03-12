@@ -19,15 +19,31 @@
     import myheader from "./components/header";
     import myfooter from "./components/footer";
 
+    import iziToast from "izitoast/dist/js/iziToast.min.js";
+    import "izitoast/dist/css/iziToast.min.css";
+
+
+
+
     export default {
         name: 'app',
         components: {
             myheader,
             myfooter
         },
-        /*created: function(){
+        created: function(){
             this.$router.push("/");
-        }*/
+            if (this.$store.state.accountAddr=="0x00") {
+                iziToast.show({
+                    title: 'Tips',
+                    titleColor: "#26c6da",
+                    message: '请先创建或载入钱包 !',
+                    messageColor: "#fff",
+                    theme: 'dark',
+                    timeout: 7500,
+                });
+            }
+        }
     }
 </script>
 
