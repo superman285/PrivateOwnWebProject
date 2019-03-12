@@ -51,14 +51,14 @@
                href=""
                target="_blank"
                download="keystore">
-                <v-btn
+                <!--<v-btn
                         color="blue-grey"
-                        class="white--text"
+                        class="white&#45;&#45;text"
                         ref="downbtn"
                 >
                     <v-icon>cloud_download</v-icon>
                     &nbsp;&nbsp;下载keystore
-                </v-btn>
+                </v-btn>-->
             </a>
 
             <div class="backbtn">
@@ -186,8 +186,8 @@
                     title: 'Caution',
                     message: '请妥善保存好私钥 !',
                     displayMode: 2,
-                    timeout: 1000,
-                    position: ""
+                    timeout: 1500,
+                    position: "bottomCenter"
                 });
 
             },
@@ -229,6 +229,32 @@
                     let ksfile = result.data.info.fileName
                     this.$refs.downlink.href = `keystore/${ksfile}`;
                     this.downable = true;
+                    let downLink = this.$refs.downlink;
+                    //生成下载按钮
+                    iziToast.warning({
+                        // message: "下载并保存好keystore ! ",
+                        timeout: 10000,
+                        position: "center",
+                        image: "https://i.loli.net/2019/03/13/5c87e0e3dc02c.png",
+                        imageWidth: 55,
+                        displayMode: 2,
+                        resetOnHover: true,
+                        progressBarColor: 'rgb(0, 255, 184)',
+                        transitionIn: 'flipInX',
+                        transitionOut: 'flipOutX',
+                        color: 'grey',
+                        theme: "dark",
+                        buttons: [
+                            ['<button><b>下载KeyStore</b></button>', ()=> {
+                                downLink.click();
+                            }]
+                        ],
+                        //此处要用箭头函数 this才能正确指向vue实例
+                        onClosing: ()=>{
+                            downLink.click();
+                        }
+                    })
+
 
                     //创建完顺便帮你加载好钱包
                     let accAddr = result.data.info.account.address;
@@ -239,10 +265,11 @@
                     console.log('全局私钥', this.$store.state.globalPrivatekey);
 
                     //Toast 加载钱包成功 然后提供个链接点击跳到首页
-                    setTimeout(()=>{
+                    //不跳了 多给点时间下载keystore
+                    /*setTimeout(()=>{
                         iziToast.show({
-                            message: "即将自动跳转到首页 !",
-                            timeout: 4000,
+                            message: "稍后自动跳转到首页,请下载保管好keystore ! ",
+                            timeout: 30000,
                             position: "bottomCenter",
                             buttons: [
                                 ['<button><b>点击跳转</b></button>', function (instance, toast) {
@@ -258,7 +285,7 @@
                                 headerTabs[0].click();
                             }
                         })
-                    },1000)
+                    },1000)*/
 
 
                 } catch (err) {
@@ -302,14 +329,15 @@
                     //Toast 加载钱包成功 然后提供个链接点击跳到首页
                     setTimeout(()=>{
                         iziToast.show({
-                            message: "即将自动跳转到首页 !",
-                            timeout: 4000,
+                            message: "稍后自动跳转至首页,请尽快保存私钥 !",
+                            timeout: 20000,
                             position: "bottomCenter",
                             buttons: [
                                 ['<button><b>点击跳转</b></button>', function (instance, toast) {
                                     instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
                                 }]
                             ],
+                            displayMode:2,
                             theme: "dark",
                             //此处要用箭头函数 this才能正确指向vue实例
                             onClosing: ()=>{

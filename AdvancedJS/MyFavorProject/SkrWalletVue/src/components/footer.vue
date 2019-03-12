@@ -33,10 +33,16 @@
                     progressBarColor: 'rgb(0, 255, 184)',
                     transitionIn: 'flipInX',
                     transitionOut: 'flipOutX',
-                    layout:2,
-                    onClosed: ()=>{
+                    layout:1,
+                    overlay: true,
+                    /*onClosed: ()=>{
                         this.goBlog();
-                    },
+                    },*/
+                    buttons: [
+                        ['<button style="border-radius:15px"><b>GO</b></button>',()=> {
+                            this.goBlog();
+                        }]
+                    ],
                 })
             },
             goBlog(){
