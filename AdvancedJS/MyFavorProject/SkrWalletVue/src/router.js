@@ -9,7 +9,10 @@ let router = new Router({
         {
             path: '/',
             name: 'home',
-            component: Home
+            component: Home,
+            meta: {
+                keepAlive: true // 需要缓存
+            }
         },
         {
             path: '/about',
@@ -22,17 +25,26 @@ let router = new Router({
         {
             path: '/createaccount',
             name: 'createaccount',
-            component: ()=>import('./views/CreateAccount')
+            component: ()=>import('./views/CreateAccount'),
+            meta: {
+                keepAlive: false // 不需要缓存
+            }
         },
         {
             path: '/accesswallet',
             name: 'accesswallet',
-            component: ()=>import('./views/AccessWallet')
+            component: ()=>import('./views/AccessWallet'),
+            meta: {
+                keepAlive: false // 不需要缓存
+            }
         },
         {
             path: '/sendtx',
             name: 'sendtx',
-            component: ()=>import('./views/SendTx')
+            component: ()=>import('./views/SendTx'),
+            meta: {
+                keepAlive: true // 需要缓存
+            }
         },
     ],
 });

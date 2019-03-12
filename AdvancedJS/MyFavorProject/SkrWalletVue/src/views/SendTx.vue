@@ -17,7 +17,7 @@
             <v-layout justify-space-between align-center>
                 <v-text-field
                         class="amountField"
-                        label="金额"
+                        label="转账金额"
                         suffix="ether"
                         :rules="[rules.type]"
                         @input="changeAmount($event)"
@@ -62,7 +62,8 @@
 
 <script>
 
-
+    import iziToast from "izitoast/dist/js/iziToast.min.js";
+    import "izitoast/dist/css/iziToast.min.css";
 
     export default {
         name: "SendTx",
@@ -102,6 +103,12 @@
 
                     if (Object.is(Number(this.txAmount), NaN) || Object.is(Number(this.txGasPrice), NaN)) {
                         //toast提示 金额和gasprice必须为数字
+                        iziToast.warning({
+                            title:"Warning",
+                            message: "转账金额和GasPrice输入有误 !",
+                            color: "red",
+                            timeout: 2000
+                        });
                         console.log('金额和gasprice必须为数字');
                         return;
                     }
@@ -111,6 +118,12 @@
                     if (!web3.utils.isAddress(this.txToAddr)) {
                         //Toast地址应为16进制数，以0x开头
                         console.log('地址格式错误');
+                        iziToast.warning({
+                            title:"Error",
+                            message: "地址格式错误 !",
+                            color: "red",
+                            timeout: 2000
+                        });
                         return;
                     }
 
@@ -119,12 +132,22 @@
                     if (this.$store.state.accountAddr == "0x00" || this.$store.state.globalPrivatekey == "") {
                         //Toast 账户未登录
                         console.log('Please access your Wallet first!');
+                        iziToast.warning({
+                            message: "请先创建或加载钱包 !",
+                            color: "red",
+                            timeout: 2000
+                        });
                         return;
                     }
                     //2.余额足够
                     if (this.$store.state.accountBalance <= this.txAmount) {
                         //Toast余额不足
                         console.log('Your wallet balance is Not Enough!');
+                        iziToast.error({
+                            title:"Error",
+                            message: "钱包余额不足 !",
+                            timeout: 2000
+                        });
                         return;
                     }
 
@@ -145,19 +168,29 @@
                         this.txHash = result.data.info.transactionHash;
                         console.log(this.txHash);
 
-
                         await this.$store.dispatch('refreshBalance');
                         console.log('dispatch action refreshBalance分发完毕');
 
                     } catch (err) {
                         //交易失败
                         console.log('sendtx failed,err', err);
+                        iziToast.info({
+                            title:"Error",
+                            message: "很遗憾,交易失败 !",
+                            color: "red",
+                            timeout: 2000
+                        });
                     }
 
 
                 } else {
                     //Toast 金额 gasprice 目标地址缺一不可
                     console.log('三项都要填 金额 gasprice toaddr');
+                    iziToast.warning({
+                        message: "请正确输入转账金额、目标地址和GasPrice !",
+                        timeout: 2000,
+                        color: "red"
+                    });
                 }
             }
         }

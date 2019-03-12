@@ -85,13 +85,8 @@
 
 <script>
 
-    /*
-    import "dropzone/dist/dropzone.js";
-    import "dropzone/dist/dropzone.css";
-    import "dropzone/dist/basic.css";
-    import "materialize-css/dist/js/materialize.min.js"
-    import "materialize-css/dist/css/materialize.min.css"
-    */
+    import iziToast from "izitoast/dist/js/iziToast.min.js";
+    import "izitoast/dist/css/iziToast.min.css";
 
     import uploadComponent from "@/components/v-upload";
 
@@ -147,9 +142,15 @@
             async unlockWithPk(){
                 var utils = require('../../utils/myUtils');
                 var web3 = utils.getweb3();
-                if (!web3.utils.isHexStrict(this.privatekey)) {
+                if (!web3.utils.isHexStrict(this.privatekey)||this.privatekey.length!=66) {
                     //Toast私钥应为16进制数，以0x开头
                     console.log('私钥格式错误');
+                    iziToast.warning({
+                        title:"Error",
+                        message: "私钥格式错误 !",
+                        color: "red",
+                        timeout: 2000
+                    });
                     return;
                 }
                 console.log(this.privatekey);
@@ -167,6 +168,12 @@
                     if (result.data.code == 0) {
                         //Toast解锁成功
                         console.log('unlock 成功');
+                        iziToast.success({
+                            title: "OK",
+                            message: "钱包载入成功 !",
+                            timeout: 1000,
+                            position: "bottomCenter"
+                        });
                         let accAddr = result.data.info.account.address;
                         this.$store.commit('setAccountAddr',accAddr);
                         let accPrivatekey = result.data.info.account.privateKey;
@@ -177,19 +184,51 @@
                         this.$store.commit('setAccountBalance',accBalance);
                         console.log('accBalance',accBalance);
                         //Toast 加载钱包成功 然后提供个链接点击跳到首页
+                        setTimeout(()=>{
+                            iziToast.show({
+                                message: "即将自动跳转到首页 !",
+                                timeout: 4000,
+                                position: "bottomCenter",
+                                buttons: [
+                                    ['<button><b>点击跳转</b></button>', function (instance, toast) {
+                                        instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+                                    }]
+                                ],
+                                theme: "dark",
+                                //此处要用箭头函数 this才能正确指向vue实例
+                                onClosing: ()=>{
+                                    console.log('this指向',this);
+                                    let headerTabs = this.$store.state.headerTabs;
+                                    console.log(headerTabs);
+                                    headerTabs[0].click();
+                                }
+                            })
+                        },1000)
+
                     }else if(result.data.code == 300){
                         //Toast 获取余额失败
                         console.log('getBalance failed');
                     }else {
                         //Toast 加载钱包失败
                         console.log('load wallet failed');
+                        iziToast.info({
+                            title:"Error",
+                            message: "钱包载入失败 !",
+                            color: "red",
+                            timeout: 2000
+                        })
                     }
                 }catch (err) {
                     //Toast加载钱包失败
                     console.log('打印出错啦',err);
+                    iziToast.info({
+                        title:"Error",
+                        message: "钱包载入失败 !",
+                        color: "red",
+                        timeout: 2000
+                    })
                 }
                     /*let balUrl = "http://127.0.0.1:4000/users/getbalance";
-                    
                     let balRes = await axios({
                         method: "GET",
                         url: balUrl,
@@ -201,9 +240,7 @@
                     //1eth 10^18 wei | 10^9 Gwei
                     let {balance} = balRes.data.data;
                     this.$store.commit('setAccountBalance',balance);*/
-
             },
-
             //通过keystore解锁
             unlockWithKs(){
                 //后面要用，先将vue实例的this赋值，否则等下this就不是vue实例
@@ -222,6 +259,10 @@
                     if (ksPwd==="") {
                         //Toast提示输入密码
                         console.log('请输入ks的密码');
+                        iziToast.warning({
+                            message: "请输入keystore密码 !",
+                            timeout: 2000
+                        });
                         return;
                     }
 
@@ -246,6 +287,12 @@
                             if (result.data.code == 0) {
                                 //Toast解锁成功
                                 console.log('unlock 成功');
+                                iziToast.success({
+                                    title: "OK",
+                                    message: "钱包载入成功 !",
+                                    timeout: 1000,
+                                    position: "bottomCenter"
+                                });
                                 let accAddr = result.data.info.account.address;
                                 _vuethis.$store.commit('setAccountAddr',accAddr);
                                 let accPrivatekey = result.data.info.account.privateKey;
@@ -256,16 +303,48 @@
                                 _vuethis.$store.commit('setAccountBalance',accBalance);
                                 console.log('accBalance',accBalance);
                                 //Toast 加载钱包成功 然后提供个链接点击跳到首页
+                                setTimeout(()=>{
+                                    iziToast.show({
+                                        message: "即将自动跳转到首页 !",
+                                        timeout: 4000,
+                                        position: "bottomCenter",
+                                        buttons: [
+                                            ['<button><b>点击跳转</b></button>', function (instance, toast) {
+                                                instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+                                            }]
+                                        ],
+                                        theme: "dark",
+                                        //此处要用箭头函数 this才能正确指向vue实例
+                                        onClosing: ()=>{
+                                            console.log('this指向',this);
+                                            let headerTabs = this.$store.state.headerTabs;
+                                            console.log(headerTabs);
+                                            headerTabs[0].click();
+                                        }
+                                    })
+                                },1000)
                             }else if(result.data.code == 300){
                                 //Toast 获取余额失败
                                 console.log('getBalance failed');
                             }else {
                                 //Toast 加载钱包失败
                                 console.log('load wallet failed');
+                                iziToast.info({
+                                    title:"Error",
+                                    message: "钱包载入失败 !",
+                                    color: "red",
+                                    timeout: 2000
+                                })
                             }
                         } catch (err) {
                             //Toast提示
                             console.log('出错啦',err);
+                            iziToast.info({
+                                title:"Error",
+                                message: "钱包载入失败 !",
+                                color: "red",
+                                timeout: 2000
+                            })
                         }
 
                     };
@@ -273,11 +352,15 @@
                 }else {
                     //toast提示
                     console.log('未选择文件');
+                    iziToast.warning({
+                        message: "未选择keystore文件 !",
+                        timeout: 2000
+                    });
                 }
 
             },
 
-            //上传文件另一种方式，暂时不用
+            //上传文件另一种方式formData，暂时不用
             async uploadFile(ev){
                 console.log('dongle input');
                 let fileObj = ev.target.files[0];

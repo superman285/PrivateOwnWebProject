@@ -4,7 +4,7 @@
         <div class="bottominfo">
             <img src="../assets/footer-logo.png" alt="">
             <div class="work-info">
-                <p>Made with ❤️by <a target="_blank" href="https://skr.dog"><span>superman285</span></a></p>
+                <p>Made with ❤️by <a target="_blank" href="https://skr.dog" @mouseover="toastMe"><span>superman285</span></a></p>
                 <p>Front-end framework: <span>Vue</span></p>
                 <p>Back-end framework: <span>Koa2</span></p>
             </div>
@@ -14,8 +14,25 @@
 </template>
 
 <script>
+
+    import iziToast from "izitoast/dist/js/iziToast.min.js";
+    import "izitoast/dist/css/iziToast.min.css";
+
     export default {
-        name: "myfooter"
+        name: "myfooter",
+        methods:{
+            toastMe(){
+                iziToast.show({
+                    iconUrl: "https://i.loli.net/2019/03/12/5c87d1b29f3f4.jpg",
+                    imageWidth: 100,
+                    displayMode: 1,
+                    message: "Welcome to My GitHub !",
+                    theme: "dark",
+                    timeout: 4000,
+                    position: "bottomLeft"
+                })
+            }
+        }
     }
 </script>
 

@@ -17,11 +17,12 @@
 
         </div>
         <div class="divide"></div>
-        <div class="topmenu">
+        <div class="topmenu" @click="showev($event)">
             <v-tabs
                     color="cyan"
                     dark
                     slider-color="yellow"
+
             >
                 <router-link tag="v-tab" ref="tab1" :to="{name:'home'}">My Account</router-link>
                 <router-link tag="v-tab" ref="tab2" :to="{name:'createaccount'}">Create Wallet</router-link>
@@ -33,11 +34,23 @@
 </template>
 
 <script>
-
-
-
     export default {
-        name: "myheader"
+        name: "myheader",
+        mounted: function(){
+            console.log('header创建');
+            console.dir(this.$refs.tab2);
+            let headerTabs = document.querySelectorAll(".v-tabs__item");
+            this.$store.state.headerTabs = headerTabs;
+
+
+
+        },
+        methods: {
+            showev(ev){
+                console.log('点击了');
+                console.log(ev.target);
+            }
+        }
     }
 </script>
 

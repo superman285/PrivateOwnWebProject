@@ -186,6 +186,8 @@
                     title: 'Caution',
                     message: '请妥善保存好私钥 !',
                     displayMode: 2,
+                    timeout: 1000,
+                    position: ""
                 });
 
             },
@@ -218,9 +220,9 @@
                     iziToast.success({
                         title: "OK",
                         message: "钱包创建成功 !",
-                        timeout: 3000,
+                        timeout: 1000,
                         position: "bottomCenter"
-                    })
+                    });
                     console.log('createAccountSuccess', result.data.info.fileName);
                     console.log(result);
                     console.log(this.$refs.downlink);
@@ -237,26 +239,37 @@
                     console.log('全局私钥', this.$store.state.globalPrivatekey);
 
                     //Toast 加载钱包成功 然后提供个链接点击跳到首页
-                    iziToast.show({
-                        
-                        message: "自动跳转到首页 !",
-                        timeout: 5000,
-                        position: "bottomCenter",
-                        buttons: [
-                            ['<button><b>点击跳转</b></button>', function (instance, toast) {
-                                instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
-                            }]
+                    setTimeout(()=>{
+                        iziToast.show({
+                            message: "即将自动跳转到首页 !",
+                            timeout: 4000,
+                            position: "bottomCenter",
+                            buttons: [
+                                ['<button><b>点击跳转</b></button>', function (instance, toast) {
+                                    instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+                                }]
                             ],
-                        theme: "dark",
-                        onClosing: ()=>{
-                            console.log('结束this',this);
-                            this.$router.push("/");
-                        }
-                    })
+                            theme: "dark",
+                            //此处要用箭头函数 this才能正确指向vue实例
+                            onClosing: ()=>{
+                                console.log('this指向',this);
+                                let headerTabs = this.$store.state.headerTabs;
+                                console.log(headerTabs);
+                                headerTabs[0].click();
+                            }
+                        })
+                    },1000)
+
 
                 } catch (err) {
                     //Toast创建失败
                     console.log(err);
+                    iziToast.info({
+                        title:"Error",
+                        message: "钱包创建失败 !",
+                        color: "red",
+                        timeout: 2000
+                    })
                 }
             },
 
@@ -272,6 +285,12 @@
                     });
                     //Toast创建成功 用第三方库
                     console.log('createAccountSuccess', result.data.info);
+                    iziToast.success({
+                        title: "OK",
+                        message: "钱包创建成功 !",
+                        timeout: 1000,
+                        position: "bottomCenter"
+                    });
 
                     //创建完顺便帮你加载好钱包
                     let accAddr = result.data.info.account.address;
@@ -281,10 +300,36 @@
                     this.$store.state.globalPrivatekey = accPrivatekey;
                     console.log('全局私钥', this.$store.state.globalPrivatekey);
                     //Toast 加载钱包成功 然后提供个链接点击跳到首页
+                    setTimeout(()=>{
+                        iziToast.show({
+                            message: "即将自动跳转到首页 !",
+                            timeout: 4000,
+                            position: "bottomCenter",
+                            buttons: [
+                                ['<button><b>点击跳转</b></button>', function (instance, toast) {
+                                    instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+                                }]
+                            ],
+                            theme: "dark",
+                            //此处要用箭头函数 this才能正确指向vue实例
+                            onClosing: ()=>{
+                                console.log('this指向',this);
+                                let headerTabs = this.$store.state.headerTabs;
+                                console.log(headerTabs);
+                                headerTabs[0].click();
+                            }
+                        })
+                    },1000)
 
                 } catch (err) {
                     //Toast创建失败
                     console.log(err);
+                    iziToast.info({
+                        title:"Error",
+                        message: "钱包创建失败 !",
+                        color: "red",
+                        timeout: 2000
+                    })
                 }
             }
         }

@@ -10,7 +10,8 @@ export default new Vuex.Store({
         },
         globalPrivatekey: "",
         accountAddr: "0x00",
-        accountBalance: "0"
+        accountBalance: "0.00",
+        headerTabs: {}
     },
     mutations: {
         setAccountAddr(state,payload){
