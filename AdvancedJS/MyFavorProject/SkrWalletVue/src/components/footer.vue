@@ -4,7 +4,7 @@
         <div class="bottominfo">
             <img src="../assets/footer-logo.png" alt="">
             <div class="work-info">
-                <p>Made with ❤️by <a target="_blank" href="https://skr.dog" @mouseover="toastMe"><span>superman285</span></a></p>
+                <p>Made with ❤️by <a target="_blank" @click="goBlog" @mouseover="toastMe"><span>superman285</span></a></p>
                 <p>Front-end framework: <span>Vue</span></p>
                 <p>Back-end framework: <span>Koa2</span></p>
             </div>
@@ -23,14 +23,24 @@
         methods:{
             toastMe(){
                 iziToast.show({
-                    iconUrl: "https://i.loli.net/2019/03/12/5c87d1b29f3f4.jpg",
-                    imageWidth: 100,
+                    image: "https://i.loli.net/2019/03/12/5c87d728dc685.png",
                     displayMode: 1,
+                    imageWidth: 55,
                     message: "Welcome to My GitHub !",
                     theme: "dark",
-                    timeout: 4000,
-                    position: "bottomLeft"
+                    timeout: 3000,
+                    position: "bottomCenter",
+                    progressBarColor: 'rgb(0, 255, 184)',
+                    transitionIn: 'flipInX',
+                    transitionOut: 'flipOutX',
+                    layout:2,
+                    onClosed: ()=>{
+                        this.goBlog();
+                    },
                 })
+            },
+            goBlog(){
+                window.open("https://skr.dog");
             }
         }
     }
