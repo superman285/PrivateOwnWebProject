@@ -263,6 +263,7 @@
                     let accPrivatekey = result.data.info.account.privateKey;
                     this.$store.state.globalPrivatekey = accPrivatekey;
                     console.log('全局私钥', this.$store.state.globalPrivatekey);
+                    this.$store.state.accountBalance = "0.00";
 
                     //Toast 加载钱包成功 然后提供个链接点击跳到首页
                     //不跳了 多给点时间下载keystore
@@ -326,6 +327,7 @@
                     let accPrivatekey = result.data.info.account.privateKey;
                     this.$store.state.globalPrivatekey = accPrivatekey;
                     console.log('全局私钥', this.$store.state.globalPrivatekey);
+                    this.$store.state.accountBalance = "0.00";
                     //Toast 加载钱包成功 然后提供个链接点击跳到首页
                     setTimeout(()=>{
                         iziToast.show({

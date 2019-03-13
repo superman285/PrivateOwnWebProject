@@ -61,9 +61,10 @@
                     <a target="_blank"
                        :href="`https://rinkeby.etherscan.io/tx/${txHash}`"
                        v-on="on"
+                       ref="txlink"
                     >{{txHash}}</a>
                 </template>
-                <span>点击跳转查看交易详情!</span>
+                <span>查看交易详情</span>
             </v-tooltip>
         </div>
     </div>
@@ -138,7 +139,7 @@
                     }
 
                     //正式交易前的一些判断
-                    //1.登录
+                    //1.需登录钱包
                     if (this.$store.state.accountAddr == "0x00" || this.$store.state.globalPrivatekey == "") {
                         //Toast 账户未登录
                         console.log('Please access your Wallet first!');
@@ -149,7 +150,7 @@
                         });
                         return;
                     }
-                    //2.余额足够
+                    //2.需余额足够
                     if (this.$store.state.accountBalance <= this.txAmount) {
                         //Toast余额不足
                         console.log('Your wallet balance is Not Enough!');
@@ -183,6 +184,10 @@
                             timeout: 1000,
                             position: "bottomCenter"
                         });
+                        
+                        let txlink = this.$refs.txlink;
+                        console.log('link是啥',txlink);
+                        txlink.style.visibility="visible";
 
                         //交易详情跳转链接
                         iziToast.success({
@@ -206,6 +211,7 @@
                             //此处要用箭头函数 this才能正确指向vue实例
                             onClosing:()=>{
                                 //隐藏掉a标签
+                                txlink.style.visibility="hidden";
                             }
                         })
 
@@ -253,7 +259,7 @@
     }
 
     .v-card {
-        margin: 4rem auto;
+        margin: 4rem auto 2rem;
         padding: 2rem;
         width: 60%;
     }

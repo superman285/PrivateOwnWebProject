@@ -7,6 +7,13 @@
                 dark
                 max-width="400"
         >
+            <img src="../assets/pkpng.png"
+                 alt="privatekey"
+                 class="showpk-btn"
+                 ref="showpkBtn"
+                 v-if="$store.state.accountAddr!='0x00'"
+                 @click="showPrivatekey"
+            >
             <div class="addr-avatar">
                 <img src="../assets/avatar.png" alt="">
             </div>
@@ -59,6 +66,8 @@
     //加了全局webpack配置axios
     //import axios from "axios";
 
+    import iziToast from "izitoast/dist/js/iziToast.min.js";
+    import "izitoast/dist/css/iziToast.min.css";
 
 
     export default {
@@ -70,11 +79,30 @@
         },
         data() {
             return {
-                addr: localStorage.getItem('accountAddr') ? localStorage.getItem('accountAddr') : "0x666"
-
+                addr: localStorage.getItem('accountAddr') ? localStorage.getItem('accountAddr') : "0x00"
             }
         },
         methods: {
+
+            showPrivatekey(){
+                let a = this.$store.state.globalPrivatekey;
+                iziToast.info({
+                    timeout: 20000,
+                    overlay: true,
+                    displayMode: 'once',
+                    title: '私钥',
+                    //message: 'Examples',
+                    position: 'center',
+                    layout: 2,
+                    drag: false,
+                    inputs: [
+                        ['<input type="text" value=`${a}` >', 'keyup', function (instance, toast, input, e) {
+                            console.info(input.value);
+                        }, true],
+                    ]
+                });
+            },
+
             async refreshBalance() {
                 //将这个封装到了action中
                 /*let url = "http://127.0.0.1:4000/users/getbalance";
@@ -114,7 +142,6 @@
     .addr-avatar {
         width: 5rem;
         height: 5rem;
-
         img {
             width: 100%;
             height: 100%;
@@ -141,6 +168,15 @@
         font-weight: bold;
         font-size: 2rem;
         color: palevioletred;
+    }
+
+    .showpk-btn {
+        position: absolute;
+        width: 2rem;
+        height: 2rem;
+        right: 1rem;
+        top: 1rem;
+        cursor: pointer;
     }
 
     .refresh-btn {
