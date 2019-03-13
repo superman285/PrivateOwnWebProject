@@ -25,7 +25,7 @@
 
             >
                 <router-link tag="v-tab" ref="tab1" :to="{name:'home'}">My Account</router-link>
-                <router-link tag="v-tab" ref="tab2" :to="{name:'createaccount'}">Create Wallet</router-link>
+                <router-link tag="v-tab" ref="tab2" :to="{name:'createwallet'}">Create Wallet</router-link>
                 <router-link tag="v-tab" ref="tab3" :to="{name:'accesswallet'}">Access Wallet</router-link>
                 <router-link tag="v-tab" ref="tab4" :to="{name:'sendtx'}">Transaction</router-link>
             </v-tabs>

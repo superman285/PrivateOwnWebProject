@@ -42,6 +42,7 @@
                     titleColor: "#26c6da",
                     message: '请先创建或载入钱包 !',
                     messageColor: "#fff",
+                    progressBarColor: "#26c6da",
                     theme: 'dark',
                     timeout: 3000,
                 });

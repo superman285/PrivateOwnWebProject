@@ -23,8 +23,8 @@ let router = new Router({
             component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
         },
         {
-            path: '/createaccount',
-            name: 'createaccount',
+            path: '/createwallet',
+            name: 'createwallet',
             component: ()=>import('./views/CreateAccount'),
             meta: {
                 keepAlive: false // 不需要缓存
