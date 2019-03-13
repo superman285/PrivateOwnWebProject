@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
 
         <h1>{{accesstitle}}</h1>
 
@@ -392,6 +392,10 @@
 </script>
 
 <style scoped lang="scss">
+
+    .container {
+        min-width: 600px;
+    }
 
     h1 {
         margin-top: 3rem;

@@ -1,5 +1,5 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
-    <div>
+    <div class="container">
 
         <v-card class="txcard">
 
@@ -239,6 +239,11 @@
 </script>
 
 <style scoped lang="scss">
+
+    .container {
+        padding:0 2rem;
+    }
+
     .tokenField {
         font-weight: bold;
     }

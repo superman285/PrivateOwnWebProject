@@ -1,5 +1,5 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
-    <div>
+    <div class="container">
 
         <h1>{{createtitle}}</h1>
 
@@ -366,6 +366,10 @@
 
 <style scoped lang="scss">
 
+
+    .container {
+        min-width: 600px;
+    }
 
     .dice {
         width: 5rem;

@@ -88,6 +88,7 @@
         }
 
         .v-tabs {
+            min-width: 600px;
             .v-tabs__div {
                 max-width: 480px!important;
             }
