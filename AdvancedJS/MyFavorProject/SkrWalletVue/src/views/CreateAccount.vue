@@ -78,7 +78,6 @@
                 <span>Click to throw the Dice!</span>
             </v-tooltip>
 
-
             <v-layout align-start justify-space-between>
                 <v-text-field
                         outline
@@ -107,6 +106,8 @@
 
             </v-layout>
 
+
+
             <div class="backbtn">
                 <v-btn outline fab color="indigo" @click="back">
                     <v-icon>arrow_back</v-icon>
@@ -126,6 +127,7 @@
     import iziToast from "izitoast/dist/js/iziToast.min.js";
     import "izitoast/dist/css/iziToast.min.css";
 
+
     export default {
         name: "CreateAccount",
         data() {
@@ -140,6 +142,14 @@
                 pklayout: false,
                 kslayout: false,
                 createtitle: "Create A New Wallet"
+            }
+        },
+        computed: {
+            progress () {
+                return Math.min(100, this.value.length * 10)
+            },
+            color () {
+                return ['error', 'warning', 'success'][Math.floor(this.progress / 40)]
             }
         },
         methods: {
@@ -171,11 +181,14 @@
             },
 
             randompk() {
+                console.log(window);
+                console.log(Pace);
                 console.dir(this.$refs.ani);
                 this.$refs.ani.classList.add('animated', 'wobble')
                 setTimeout(() => {
                     this.$refs.ani.classList.remove('animated', 'wobble')
                 }, 2000);
+
 
                 var utils = require('../../utils/myUtils');
                 var web3 = utils.getweb3();
@@ -367,6 +380,9 @@
 </script>
 
 <style scoped lang="scss">
+
+
+
 
 
     .container {

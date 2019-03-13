@@ -1,6 +1,7 @@
 <template>
     <div id="myfooter">
-        <div class="divide"></div>
+        <!--<div class="divide"></div>-->
+        <v-progress-linear class="bottomProgress" :indeterminate="true" color="rgb(0, 255, 255)"></v-progress-linear>
         <div class="bottominfo">
             <img src="../assets/footer-logo.png" alt="">
             <div class="work-info">
@@ -61,6 +62,11 @@
         .divide {
             height: 4px;
             background: dodgerblue;
+        }
+        .bottomProgress {
+            margin: 0;
+            background: rgb(105, 255, 255);
+            height: 6px!important;
         }
         .bottominfo {
             height: 10rem;

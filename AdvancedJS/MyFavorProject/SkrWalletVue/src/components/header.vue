@@ -16,7 +16,8 @@
 
 
         </div>
-        <div class="divide"></div>
+        <!--<div class="divide"></div>-->
+        <v-progress-linear class="topProgress" :indeterminate="true" color="rgb(0, 255, 184)"></v-progress-linear>
         <div class="topmenu" @click="showev($event)">
             <v-tabs
                     color="cyan"
@@ -34,6 +35,8 @@
 </template>
 
 <script>
+
+
     export default {
         name: "myheader",
         mounted: function(){
@@ -85,6 +88,11 @@
         .divide {
             height: 3px;
             background: linear-gradient(to left, rgba(179,220,237,1) 0%,rgba(41,184,229,1) 100%);
+        }
+        .topProgress {
+            margin: 0;
+            background: rgb(0, 255, 134);
+            height: 4px!important;
         }
 
         .v-tabs {

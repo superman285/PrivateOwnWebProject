@@ -6,11 +6,14 @@ import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 import '@mdi/font/css/materialdesignicons.css'
-
+import 'pace-progressbar';
+import 'pace-progressbar/themes/pink/pace-theme-minimal.css';
 
 Vue.use(Vuetify);
 
 Vue.config.productionTip = false
+
+
 
 new Vue({
   router,

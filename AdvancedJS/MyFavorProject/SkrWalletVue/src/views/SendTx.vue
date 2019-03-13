@@ -8,13 +8,13 @@
                     label="Token"
                     single-line
                     solo
-                    dark
+                    light
                     readonly
                     :value="tokenType"
-                    background-color="blue darken-4"
+                    background-color = "#E1F9EC"
             ></v-text-field>
 
-            <v-layout justify-space-between align-center>
+            <v-layout justify-space-between align-center class="main">
                 <v-text-field
                         class="amountField"
                         label="转账金额"
@@ -44,13 +44,16 @@
 
             <v-btn
                     block
-                    color="blue lighten-2"
+                    color="#55A47E"
                     class="white--text sendtx-btn"
                     @click="sendTx"
             >发送
                 <v-icon right color="white">present_to_all</v-icon>
             </v-btn>
+
+            <v-progress-linear class="txProgress" :indeterminate="txSending" color="rgb(0,255,184)" background-color="#E1F9EC"></v-progress-linear>
         </v-card>
+
 
         <div class="txtip-card" v-show="txHash!=''">
             <!--<h5>点击可跳转查询</h5>
@@ -67,6 +70,7 @@
                 <span>查看交易详情</span>
             </v-tooltip>
         </div>
+
     </div>
 </template>
 
@@ -74,6 +78,8 @@
 
     import iziToast from "izitoast/dist/js/iziToast.min.js";
     import "izitoast/dist/css/iziToast.min.css";
+
+
 
     export default {
         name: "SendTx",
@@ -84,6 +90,7 @@
                 txToAddr: "",
                 txGasPrice: "20",
                 txHash: "",
+                txSending: false,
                 rules: {
                     counter: val => val >= 20 || "GasPrice过小可能导致交易失败！",
                     type: val => {
@@ -109,6 +116,7 @@
                 this.txGasPrice = ev;
             },
             async sendTx() {
+
                 console.log('发起来');
                 if (this.txAmount && this.txToAddr && this.txGasPrice) {
 
@@ -151,8 +159,17 @@
                         return;
                     }
                     //2.需余额足够
-                    if (this.$store.state.accountBalance <= this.txAmount) {
+                    let accountBalance = Number(this.$store.state.accountBalance);
+                    let txAmount = Number(this.txAmount);
+                    if (accountBalance <= txAmount) {
                         //Toast余额不足
+
+                        console.log('balance');
+                        console.log(accountBalance);
+
+                        console.log('txAmount');
+                        console.log(txAmount);
+                        
                         console.log('Your wallet balance is Not Enough!');
                         iziToast.error({
                             title:"Error",
@@ -161,6 +178,9 @@
                         });
                         return;
                     }
+
+                    //满足条件 正式发起交易
+                    this.txSending = true;
 
                     let url = "http://127.0.0.1:4000/users/sendtx";
                     try {
@@ -178,10 +198,14 @@
                         console.log('sendtxresult', result);
                         this.txHash = result.data.info.transactionHash;
                         console.log(this.txHash);
+
+                        //停下滚动条
+                        this.txSending = false;
+
                         iziToast.success({
-                            title: "OK",
+                            title: "SUCCESS",
                             message: "转账成功 !",
-                            timeout: 1000,
+                            timeout: 2000,
                             position: "bottomCenter"
                         });
                         
@@ -220,6 +244,7 @@
 
                     } catch (err) {
                         //交易失败
+                        this.txSending = false;
                         console.log('sendtx failed,err', err);
                         iziToast.info({
                             title:"Error",
@@ -228,8 +253,6 @@
                             timeout: 2000
                         });
                     }
-
-
                 } else {
                     //Toast 金额 gasprice 目标地址缺一不可
                     console.log('三项都要填 金额 gasprice toaddr');
@@ -246,12 +269,27 @@
 
 <style scoped lang="scss">
 
+
+
+
+
+    /**/
+
+
     .container {
         padding:0 2rem;
     }
 
     .tokenField {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
         font-weight: bold;
+    }
+
+    .main {
+        margin-top: 4rem;
     }
 
     .gaspriceField, .amountField {
@@ -260,7 +298,7 @@
 
     .v-card {
         margin: 4rem auto 2rem;
-        padding: 2rem;
+        padding: 2rem 2rem 3.5rem;
         width: 60%;
     }
 
@@ -296,7 +334,13 @@
             color: white;
             text-decoration: none;
         }
+    }
 
+    .txProgress {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: -.97rem;
     }
     
 </style>

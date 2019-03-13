@@ -147,7 +147,7 @@
                     console.log('私钥格式错误');
                     iziToast.warning({
                         title:"Error",
-                        message: "私钥格式错误 !",
+                        message: "私钥格式错误 !(别忘了以Ox开头)",
                         color: "red",
                         timeout: 2000
                     });
