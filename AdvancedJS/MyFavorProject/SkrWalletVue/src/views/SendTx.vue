@@ -1,4 +1,4 @@
-<template>
+<template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
     <div>
 
         <v-card class="txcard">
@@ -52,11 +52,20 @@
             </v-btn>
         </v-card>
 
-        <v-card class="txtip-card" v-show="txHash!=''">
-            <h5>点击可跳转查询</h5>
-            <span>交易hash:</span><br>
-            <a target="_blank" :href="`https://rinkeby.etherscan.io/tx/${txHash}`">{{txHash}}</a>
-        </v-card>
+        <div class="txtip-card" v-show="txHash!=''">
+            <!--<h5>点击可跳转查询</h5>
+            <span>交易hash:</span><br>-->
+            <v-tooltip bottom dark color="rgb(0, 255, 184)" content-class="black--text"
+            >
+                <template v-slot:activator="{ on }">
+                    <a target="_blank"
+                       :href="`https://rinkeby.etherscan.io/tx/${txHash}`"
+                       v-on="on"
+                    >{{txHash}}</a>
+                </template>
+                <span>点击跳转查看交易详情!</span>
+            </v-tooltip>
+        </div>
     </div>
 </template>
 
@@ -77,8 +86,9 @@
                 rules: {
                     counter: val => val >= 20 || "GasPrice过小可能导致交易失败！",
                     type: val => {
-                        const pattern = /^[1-9]+.?[0-9]*$/
-                        return pattern.test(val) || "请输入有效数字！"
+                        const pattern = /^[1-9]+\.?[0-9]*$/
+                        const pattern2 = /^(([1-9]+\.?)|([1-9]*0\.))[0-9]*$/
+                        return pattern2.test(val) || "请输入有效数字！"
                     },
                     addrFormat: val => {
                         const addrPattern = /^0x[0-9a-fA-F]{40}$/;
@@ -167,6 +177,37 @@
                         console.log('sendtxresult', result);
                         this.txHash = result.data.info.transactionHash;
                         console.log(this.txHash);
+                        iziToast.success({
+                            title: "OK",
+                            message: "转账成功 !",
+                            timeout: 1000,
+                            position: "bottomCenter"
+                        });
+
+                        //交易详情跳转链接
+                        iziToast.success({
+                            // message: "下载并保存好keystore ! ",
+                            message: "交易Hash",
+                            messageColor: "rgb(0, 255, 184)",
+                            timeout: 20000,
+                            displayMode: 2,
+                            resetOnHover: true,
+                            target: ".txtip-card",
+                            progressBarColor: 'rgb(0, 255, 184)',
+                            transitionIn: 'flipInX',
+                            transitionOut: 'flipOutX',
+                            color: 'grey',
+                            theme: "dark",
+                            /*buttons: [
+                                ['<button><b>str</b></button>', ()=> {
+
+                                }]
+                            ],*/
+                            //此处要用箭头函数 this才能正确指向vue实例
+                            onClosing:()=>{
+                                //隐藏掉a标签
+                            }
+                        })
 
                         await this.$store.dispatch('refreshBalance');
                         console.log('dispatch action refreshBalance分发完毕');
@@ -231,9 +272,20 @@
     }
 
     .txtip-card {
-        background: limegreen;
-        padding: 1rem;
+        //background: limegreen;
+        //padding: 1rem;
+        position: relative;
         color: white;
-        width: 95%;
+        width: 90%;
+        min-width: 650px;
+        a{
+            position: absolute;
+            top: 22px;
+            left: 115px;
+            color: white;
+            text-decoration: none;
+        }
+
     }
+    
 </style>
