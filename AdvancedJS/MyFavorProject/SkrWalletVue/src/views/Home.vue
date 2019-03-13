@@ -85,19 +85,18 @@
         methods: {
 
             showPrivatekey(){
-                let a = this.$store.state.globalPrivatekey;
-                iziToast.info({
-                    timeout: 20000,
+                let privatekey = this.$store.state.globalPrivatekey;
+                iziToast.warning({
+                    timeout: 10000,
                     overlay: true,
                     displayMode: 'once',
-                    title: '私钥',
+                    title: 'PrivateKey',
                     //message: 'Examples',
                     position: 'center',
-                    layout: 2,
+                    layout: 1,
                     drag: false,
                     inputs: [
-                        ['<input type="text" value=`${a}` >', 'keyup', function (instance, toast, input, e) {
-                            console.info(input.value);
+                        [`<input type="text" value=${privatekey} readonly style="border:none!important;outline:none;">`, function (instance, toast, input, e) {
                         }, true],
                     ]
                 });
