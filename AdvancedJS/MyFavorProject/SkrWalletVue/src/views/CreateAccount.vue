@@ -19,6 +19,8 @@
 
         <div class="kslayout" v-if="kslayout">
             <v-layout align-start justify-space-between>
+
+                <div class="ksWrap">
                 <v-text-field
                         outline
                         single-line
@@ -30,6 +32,9 @@
                         v-model="password"
                         @click:append="showpwd = !showpwd"
                 ></v-text-field>
+                <v-progress-linear ref="cksProgress" class="cksProgress" :indeterminate="progressRunning" :color="cksProgressColor" background-color="indigo"></v-progress-linear>
+                </div>
+
 
                 <v-tooltip bottom dark color="indigo">
                     <template v-slot:activator="{ on }">
@@ -79,6 +84,7 @@
             </v-tooltip>
 
             <v-layout align-start justify-space-between>
+                <div class="pkWrap">
                 <v-text-field
                         outline
                         single-line
@@ -88,7 +94,10 @@
                         readonly
                         v-model="privatekey"
                         @click:append="showpwd = !showpwd"
-                ></v-text-field>
+                >
+                </v-text-field>
+                    <v-progress-linear ref="cpkProgress" class="cpkProgress" :indeterminate="progressRunning" :color="cpkProgressColor" background-color="indigo"></v-progress-linear>
+                </div>
 
 
                 <v-tooltip bottom dark color="indigo">
@@ -141,6 +150,9 @@
                 kscard: true,
                 pklayout: false,
                 kslayout: false,
+                progressRunning: false,
+                cpkProgressColor: "rgb(0,255,255)",
+                cksProgressColor: "rgb(0,255,184)",
                 createtitle: "Create A New Wallet"
             }
         },
@@ -178,6 +190,7 @@
                 this.pklayout = false;
                 this.kslayout = false;
                 this.downable = false;
+                this.progressRunning = false;
             },
 
             randompk() {
@@ -193,20 +206,29 @@
                 var utils = require('../../utils/myUtils');
                 var web3 = utils.getweb3();
                 let rand_privatekey = web3.utils.randomHex(32);
-                this.privatekey = rand_privatekey;
-                //Toast 妥善保存好私钥！
-                iziToast.warning({
-                    title: 'Caution',
-                    message: '请妥善保存好私钥 !',
-                    displayMode: 2,
-                    timeout: 1500,
-                    position: "bottomCenter"
-                });
+
+                this.cpkProgressColor = "rgb(0,255,255)"
+                this.progressRunning = true;
+
+                setTimeout(()=>{
+                    this.progressRunning = false;
+                    this.privatekey = rand_privatekey;
+                    //Toast 妥善保存好私钥！
+                    iziToast.warning({
+                        title: 'Caution',
+                        message: '请妥善保存好私钥 !',
+                        displayMode: 2,
+                        timeout: 1500,
+                        position: "bottomCenter"
+                    });
+                },1000)
+
+
 
             },
 
             async createAccountByKeystore() {
-
+                let _vuethis = this;
                 if (this.password === "") {
                     //Toast请输入密码
                     iziToast.info({
@@ -220,6 +242,7 @@
                     return;
                 }
 
+                this.progressRunning = true;
                 let url = "http://127.0.0.1:4000/users/createaccountbyks"
                 try {
                     let result = await axios({
@@ -229,55 +252,64 @@
                             password: this.password,
                         }
                     });
-                    //Toast创建成功 iziToast
-                    iziToast.success({
-                        title: "OK",
-                        message: "钱包创建成功 !",
-                        timeout: 1000,
-                        position: "bottomCenter"
-                    });
-                    console.log('createAccountSuccess', result.data.info.fileName);
-                    console.log(result);
-                    console.log(this.$refs.downlink);
-                    let ksfile = result.data.info.fileName
-                    this.$refs.downlink.href = `keystore/${ksfile}`;
-                    this.downable = true;
-                    let downLink = this.$refs.downlink;
-                    //生成下载按钮
-                    iziToast.warning({
-                        // message: "下载并保存好keystore ! ",
-                        timeout: 10000,
-                        position: "center",
-                        image: "https://i.loli.net/2019/03/13/5c87e0e3dc02c.png",
-                        imageWidth: 55,
-                        displayMode: 2,
-                        resetOnHover: true,
-                        progressBarColor: 'rgb(0, 255, 184)',
-                        transitionIn: 'flipInX',
-                        transitionOut: 'flipOutX',
-                        color: 'grey',
-                        theme: "dark",
-                        buttons: [
-                            ['<button><b>下载KeyStore</b></button>', ()=> {
+
+                    setTimeout(()=>{
+                        ksCreateSuccess();
+                    },2000)
+
+
+                    function ksCreateSuccess() {
+                        _vuethis.progressRunning = false;
+                        //Toast创建成功 iziToast
+                        iziToast.success({
+                            title: "OK",
+                            message: "钱包创建成功 !",
+                            timeout: 2000,
+                            position: "bottomCenter"
+                        });
+                        console.log('createAccountSuccess', result.data.info.fileName);
+                        console.log(result);
+                        console.log(_vuethis.$refs.downlink);
+                        let ksfile = result.data.info.fileName
+                        _vuethis.$refs.downlink.href = `keystore/${ksfile}`;
+                        _vuethis.downable = true;
+                        let downLink = _vuethis.$refs.downlink;
+                        //生成下载按钮
+                        iziToast.warning({
+                            // message: "下载并保存好keystore ! ",
+                            timeout: 10000,
+                            position: "center",
+                            image: "https://i.loli.net/2019/03/13/5c87e0e3dc02c.png",
+                            imageWidth: 55,
+                            displayMode: 2,
+                            resetOnHover: true,
+                            progressBarColor: 'rgb(0, 255, 184)',
+                            transitionIn: 'flipInX',
+                            transitionOut: 'flipOutX',
+                            color: 'grey',
+                            theme: "dark",
+                            buttons: [
+                                ['<button><b>下载KeyStore</b></button>', (instance,toast) => {
+                                    //downLink.click();
+                                    instance.hide({},toast);
+                                }]
+                            ],
+                            //此处要用箭头函数 this才能正确指向vue实例
+                            onClosing: () => {
                                 downLink.click();
-                            }]
-                        ],
-                        //此处要用箭头函数 this才能正确指向vue实例
-                        onClosing: ()=>{
-                            downLink.click();
-                        }
-                    })
+                            }
+                        })
 
+                        //创建完顺便帮你加载好钱包
+                        let accAddr = result.data.info.account.address;
+                        _vuethis.$store.commit('setAccountAddr', accAddr);
 
-                    //创建完顺便帮你加载好钱包
-                    let accAddr = result.data.info.account.address;
-                    this.$store.commit('setAccountAddr', accAddr);
+                        let accPrivatekey = result.data.info.account.privateKey;
+                        _vuethis.$store.state.globalPrivatekey = accPrivatekey;
+                        console.log('全局私钥', _vuethis.$store.state.globalPrivatekey);
+                        _vuethis.$store.state.accountBalance = "0.00";
 
-                    let accPrivatekey = result.data.info.account.privateKey;
-                    this.$store.state.globalPrivatekey = accPrivatekey;
-                    console.log('全局私钥', this.$store.state.globalPrivatekey);
-                    this.$store.state.accountBalance = "0.00";
-
+                    }
                     //Toast 加载钱包成功 然后提供个链接点击跳到首页
                     //不跳了 多给点时间下载keystore
                     /*setTimeout(()=>{
@@ -315,6 +347,17 @@
             },
 
             async createAccountByPrivatekey() {
+
+                if(this.privatekey==""){
+                    iziToast.warning({
+                        message: "请先生成私钥 !",
+                        timeout: 1500
+                    })
+                    return;
+                }
+
+                this.cpkProgressColor = "rgb(0,255,184)"
+                this.progressRunning = true;
                 let url = "http://127.0.0.1:4000/users/createaccountbypk"
                 try {
                     let result = await axios({
@@ -326,12 +369,17 @@
                     });
                     //Toast创建成功 用第三方库
                     console.log('createAccountSuccess', result.data.info);
-                    iziToast.success({
-                        title: "OK",
-                        message: "钱包创建成功 !",
-                        timeout: 1000,
-                        position: "bottomCenter"
-                    });
+                    setTimeout(()=>{
+                        this.progressRunning = false;
+                        iziToast.success({
+                            title: "OK",
+                            message: "钱包创建成功 !",
+                            timeout: 1250,
+                            position: "bottomCenter"
+                        });
+
+                    },2000)
+
 
                     //创建完顺便帮你加载好钱包
                     let accAddr = result.data.info.account.address;
@@ -362,11 +410,12 @@
                                 headerTabs[0].click();
                             }
                         })
-                    },1000)
+                    },3000)
 
                 } catch (err) {
                     //Toast创建失败
                     console.log(err);
+                    this.progressRunning = false;
                     iziToast.info({
                         title:"Error",
                         message: "钱包创建失败 !",
@@ -440,6 +489,32 @@
     .v-text-field {
         font-size: 1.4rem !important;
     }
+    .pkWrap {
+        position: relative;
+        width: 90%;
+        .cpkProgress {
+            position: absolute;
+            width: 99.5%;
+            height: 4px!important;
+            left: 2px;
+            bottom: 1.1rem;
+            border-radius: 2px;
+        }
+    }
+    .ksWrap {
+        position: relative;
+        width: 90%;
+        .cksProgress {
+            position: absolute;
+            width: 99.5%;
+            height: 4px!important;
+            left: 2px;
+            bottom: 1.1rem;
+            border-radius: 2px;
+        }
+    }
+
+
 
     .ibig {
         font-size: 2.5rem;
