@@ -24,7 +24,7 @@ app.use(bodyparser({
 }))
 app.use(json())
 app.use(logger())
-app.use(require('koa-static')(path.resolve(__dirname,'../public')));
+app.use(require('koa-static')(path.resolve(__dirname,'../dist')));
 
 /*app.use( koaStaticCache({
     // prefix: '/public',

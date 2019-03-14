@@ -17,7 +17,7 @@
 
         </div>
         <!--<div class="divide"></div>-->
-        <v-progress-linear class="topProgress" :indeterminate="true" color="rgb(0, 255, 184)"></v-progress-linear>
+        <v-progress-linear class="topProgress" :indeterminate="true" color="rgb(0, 255, 200)"></v-progress-linear>
         <div class="topmenu" @click="showev($event)">
             <v-tabs
                     color="cyan"
@@ -91,7 +91,7 @@
         }
         .topProgress {
             margin: 0;
-            background: rgb(0, 255, 134);
+            background: rgb(0, 255, 100);
             height: 4px!important;
         }
 
