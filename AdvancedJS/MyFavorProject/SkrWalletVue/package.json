@@ -1,6 +1,6 @@
 {
-  "name": "SkrWalletVue",
-  "version": "0.1.0",
+  "name": "SkrWallet",
+  "version": "0.9.0",
   "private": true,
   "scripts": {
     "start": "vue-cli-service serve",
@@ -35,6 +35,7 @@
     "pace-progressbar": "^1.0.8",
     "path": "^0.12.7",
     "truffle-hdwallet-provider": "^1.0.5",
+    "uglifyjs-webpack-plugin": "^2.1.2",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1",
     "vuetify": "^1.5.3",
@@ -48,10 +49,13 @@
     "@vue/test-utils": "^1.0.0-beta.20",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "forever": "^0.15.3",
     "node-sass": "^4.9.0",
     "nodemon": "^1.8.1",
     "sass-loader": "^7.1.0",
-    "vue-template-compiler": "^2.5.21"
+    "uglifyjs-webpack-plugin": "^2.1.2",
+    "vue-template-compiler": "^2.5.21",
+    "webpack-bundle-analyzer": "^3.1.0"
   }
 }

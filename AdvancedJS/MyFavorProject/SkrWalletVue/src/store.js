@@ -3,6 +3,11 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+//本地测试
+//let url = "http://127.0.0.1:4000";
+//云服务器
+let url = "http://154.8.215.126:4000";
+
 export default new Vuex.Store({
     state: {
         globalKeystore: {
@@ -23,7 +28,7 @@ export default new Vuex.Store({
     },
     actions: {
         async refreshBalance() {
-            let url = "http://127.0.0.1:4000/users/getbalance";
+            url = url + "/users/getbalance";
             let address = this.state.accountAddr;
             console.log("actionaddress",address);
             let result = await axios({

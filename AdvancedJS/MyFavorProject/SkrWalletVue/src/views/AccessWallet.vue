@@ -98,6 +98,11 @@
 
     import uploadComponent from "@/components/v-upload";
 
+    //本地测试
+    //let url = "http://127.0.0.1:4000";
+    //云服务器
+    let url = "http://154.8.215.126:4000";
+
     export default {
         name: "AccessWallet",
         components: {
@@ -174,7 +179,7 @@
                 }
                 console.log(this.privatekey);
                 this.progressRunning = true;
-                let url = "http://127.0.0.1:4000/users/unlockwithprivatekey"
+                url = url + "/users/unlockwithprivatekey"
                 try {
                     let result = await axios({
                         method: "post",
@@ -255,7 +260,7 @@
                         timeout: 2000
                     })
                 }
-                /*let balUrl = "http://127.0.0.1:4000/users/getbalance";
+                /*let balUrl = url + "/users/getbalance";
                 let balRes = await axios({
                     method: "GET",
                     url: balUrl,
@@ -316,7 +321,7 @@
                         }
 
                         _vuethis.progressRunning = true;
-                        let url = "http://127.0.0.1:4000/users/unlockwithkeystore"
+                        url = url + "/users/unlockwithkeystore"
                         try {
                             let result = await axios({
                                 method: "post",
@@ -424,7 +429,7 @@
                 let formData = new FormData();
                 formData.append("file", fileObj);
 
-                let url = "http://127.0.0.1:4000/users/upload"
+                url = url + "/users/upload"
                 /*try {
                     let res = await axios({
                         method: "post",

@@ -79,7 +79,10 @@
     import iziToast from "izitoast/dist/js/iziToast.min.js";
     import "izitoast/dist/css/iziToast.min.css";
 
-
+    //本地测试
+    //let url = "http://127.0.0.1:4000";
+    //云服务器
+    let url = "http://154.8.215.126:4000";
 
     export default {
         name: "SendTx",
@@ -182,7 +185,7 @@
                     //满足条件 正式发起交易
                     this.txSending = true;
 
-                    let url = "http://127.0.0.1:4000/users/sendtx";
+                    url = url + "/users/sendtx";
                     try {
                         let result = await axios({
                             method: "post",

@@ -136,6 +136,10 @@
     import iziToast from "izitoast/dist/js/iziToast.min.js";
     import "izitoast/dist/css/iziToast.min.css";
 
+    //本地测试
+    //let url = "http://127.0.0.1:4000";
+    //云服务器
+    let url = "http://154.8.215.126:4000";
 
     export default {
         name: "CreateAccount",
@@ -243,7 +247,7 @@
                 }
 
                 this.progressRunning = true;
-                let url = "http://127.0.0.1:4000/users/createaccountbyks"
+                url = url + "/users/createaccountbyks"
                 try {
                     let result = await axios({
                         method: "POST",
@@ -358,7 +362,7 @@
 
                 this.cpkProgressColor = "rgb(0,255,184)"
                 this.progressRunning = true;
-                let url = "http://127.0.0.1:4000/users/createaccountbypk"
+                url = url + "/users/createaccountbypk"
                 try {
                     let result = await axios({
                         method: "POST",
