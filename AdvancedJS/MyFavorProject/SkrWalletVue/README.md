@@ -2,7 +2,7 @@
 
 ## Project setup
 ```
-npm install
+npm install or cnpm install
 ```
 
 ### Compiles and hot-reloads for development
@@ -10,24 +10,14 @@ npm install
 npm run serve
 ```
 
+### Access Project on Web
+```
+after npm run serve,then link http://127.0.0.1:3000 to access the project
+```
+
 ### Compiles and minifies for production
 ```
 npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Run your unit tests
-```
-npm run test:unit
 ```
 
 ### Customize configuration
