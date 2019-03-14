@@ -51,6 +51,9 @@
                 <v-icon right color="white">present_to_all</v-icon>
             </v-btn>
 
+            <!--来个小人加提示动画-->
+            <!--<div class="wait" v-show="txSending">请稍后🏄‍</div>-->
+
             <v-progress-linear class="txProgress" :indeterminate="txSending" color="rgb(0,255,184)" background-color="#E1F9EC"></v-progress-linear>
         </v-card>
 
@@ -82,7 +85,7 @@
     //本地测试
     //let url = "http://127.0.0.1:4000";
     //云服务器
-    let url = "http://154.8.215.126:4000";
+    let cloudurl = "http://154.8.215.126:4000";
 
     export default {
         name: "SendTx",
@@ -120,6 +123,7 @@
             },
             async sendTx() {
 
+                this.txSending = !this.txSending;
                 console.log('发起来');
                 if (this.txAmount && this.txToAddr && this.txGasPrice) {
 
@@ -185,7 +189,7 @@
                     //满足条件 正式发起交易
                     this.txSending = true;
 
-                    url = url + "/users/sendtx";
+                    let url = `${cloudurl}/users/sendtx`;
                     try {
                         let result = await axios({
                             method: "post",
@@ -242,8 +246,15 @@
                             }
                         })
 
-                        await this.$store.dispatch('refreshBalance');
-                        console.log('dispatch action refreshBalance分发完毕');
+                        //考虑加个try 不然会报交易失败。
+                        
+                        try {
+                            await this.$store.dispatch('refreshBalance');
+                            console.log('dispatch action refreshBalance分发完毕');
+                        } catch (err) {
+                            console.log('获取余额failed',err);
+                        }
+
 
                     } catch (err) {
                         //交易失败
@@ -337,6 +348,22 @@
             color: white;
             text-decoration: none;
         }
+    }
+
+    @keyframes running {
+        from{
+            left:0;
+        }
+        to {
+            left: 90%;
+        }
+    }
+
+    .wait {
+        bottom: 0.25rem;
+        font-size: 1.6rem;
+        position: absolute;
+        animation: running .8s linear infinite;
     }
 
     .txProgress {

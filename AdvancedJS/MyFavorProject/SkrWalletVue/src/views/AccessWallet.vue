@@ -101,7 +101,7 @@
     //本地测试
     //let url = "http://127.0.0.1:4000";
     //云服务器
-    let url = "http://154.8.215.126:4000";
+    let cloudurl = "http://154.8.215.126:4000";
 
     export default {
         name: "AccessWallet",
@@ -179,7 +179,7 @@
                 }
                 console.log(this.privatekey);
                 this.progressRunning = true;
-                url = url + "/users/unlockwithprivatekey"
+                let url = `${cloudurl}/users/unlockwithprivatekey`;
                 try {
                     let result = await axios({
                         method: "post",
@@ -260,7 +260,7 @@
                         timeout: 2000
                     })
                 }
-                /*let balUrl = url + "/users/getbalance";
+                /*let balUrl = `${cloudurl}/users/getbalance`;
                 let balRes = await axios({
                     method: "GET",
                     url: balUrl,
@@ -321,7 +321,7 @@
                         }
 
                         _vuethis.progressRunning = true;
-                        url = url + "/users/unlockwithkeystore"
+                        let url = `${cloudurl}/users/unlockwithkeystore`;
                         try {
                             let result = await axios({
                                 method: "post",
@@ -429,7 +429,7 @@
                 let formData = new FormData();
                 formData.append("file", fileObj);
 
-                url = url + "/users/upload"
+                let url =  `${cloudurl}/users/upload`;
                 /*try {
                     let res = await axios({
                         method: "post",

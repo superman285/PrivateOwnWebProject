@@ -9,7 +9,7 @@ Vue.use(Vuex)
 //本地测试
 //let url = "http://127.0.0.1:4000";
 //云服务器
-let url = "http://154.8.215.126:4000";
+let cloudurl = "http://154.8.215.126:4000";
 
 export default new Vuex.Store({
     state: {
@@ -31,7 +31,7 @@ export default new Vuex.Store({
     },
     actions: {
         async refreshBalance() {
-            url = url + "/users/getbalance";
+            let url = `${cloudurl}/users/getbalance`;
             let address = this.state.accountAddr;
             console.log("actionaddress",address);
             let result = await axios({
