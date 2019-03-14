@@ -50,7 +50,9 @@ module.exports = {
 
         let fileName = `UTC--${time}--${account.address}`;
         console.log(fileName);
-        let filePath = path.join(__dirname,"../../public/keystore",fileName);
+        //注意此处，需要配合 后端koa-static的静态目录一起看 防止出错 为了给打包目录让路 所以防在dist
+        //或者改koa-static 然后项目访问dist keystore访问public
+        let filePath = path.join(__dirname,"../../dist/keystore",fileName);
         fs.writeFileSync(filePath,keystoreStr);
         console.log(filePath);
 

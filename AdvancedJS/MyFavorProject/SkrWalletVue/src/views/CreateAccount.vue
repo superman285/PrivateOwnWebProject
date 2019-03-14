@@ -275,6 +275,8 @@
                         console.log(result);
                         console.log(_vuethis.$refs.downlink);
                         let ksfile = result.data.info.fileName
+
+                        //注意此处想下载 需要后端的koa-static目录配置配合 由于配置成了dist 所以public下的keystore无法下载，需要改动下生成keystore放到dist，或者改koa-static到更大的目录 但是访问的域名可能会受影响
                         _vuethis.$refs.downlink.href = `keystore/${ksfile}`;
                         _vuethis.downable = true;
                         let downLink = _vuethis.$refs.downlink;
