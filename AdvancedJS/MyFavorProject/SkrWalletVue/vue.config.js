@@ -1,7 +1,8 @@
 const webpack = require('webpack');
-//const UglifyPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 //const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const CompressionPlugin = require("compression-webpack-plugin");
 
@@ -51,6 +52,19 @@ module.exports = {
 
         optimization: {
             minimize: true,
+            minimizer: [
+                new TerserPlugin({
+                    terserOptions: {
+                        compress: {
+                            warnings: false,
+                            drop_debugger: true,
+                            drop_console: true
+                        },
+                    }
+                })
+            ],
+        },
+
             /*minimizer: [
                 new UglifyPlugin({
                     uglifyOptions: {
@@ -76,25 +90,16 @@ module.exports = {
                     }
                 }
             }*/
-        },
+
         module: {
             rules:[
-                /*{
-                    test: /\.css$/,
-                    exclude: /node_modules/,
-                    use: ExtractTextPlugin.extract({
-                        fallback: "style-loader",
-                        use: [{
-                            loader: "css-loader",
-                            options: {
-                                importLoaders: 1,
-                                modules: true,
-                                localIdentName: '[name]__[local]__[hash:base64:5]'
-                            }
-                        }],
-                        publicPath: "../"
-                    })
-                }*/
+                {
+                    /*test: /\.js$/,
+                    use:[{
+                        loader: 'babel-loader',
+                        exclude: /node_modules/,
+                    }],*/
+                }
             ]
         },
         plugins: [
@@ -105,6 +110,12 @@ module.exports = {
             }),
 
             new CompressionPlugin(),
+
+
+            /*new CleanWebpackPlugin({
+                dry: true //false即先删除dist目录再打包
+            }),*///实例化，参数为目录
+
             //new BundleAnalyzerPlugin(),
 
             /*new webpack.DefinePlugin({
