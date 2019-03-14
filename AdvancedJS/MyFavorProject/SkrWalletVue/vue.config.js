@@ -1,7 +1,9 @@
 const webpack = require('webpack');
-const UglifyPlugin = require('uglifyjs-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+//const UglifyPlugin = require('uglifyjs-webpack-plugin');
+//const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+const CompressionPlugin = require("compression-webpack-plugin");
 
 //const axios = require("axios");
 
@@ -10,7 +12,9 @@ module.exports = {
 
     devServer: {
         port: 3000,
+        compress: true // 服务器返回浏览器的时候是否启动gzip压缩
     },
+
     productionSourceMap: false,
     css: {
         extract: true, // 是否使用css分离插件 ExtractTextPlugin
@@ -36,6 +40,15 @@ module.exports = {
         }*/
 
         mode: 'production', //config.mode = "production"
+
+        externals: {
+            Vue: "Vue",
+            Vuex: "Vuex",
+            VueRouter: "VueRouter",
+            Vuetify: "Vuetify",
+        },
+
+
         optimization: {
             minimize: true,
             /*minimizer: [
@@ -91,7 +104,8 @@ module.exports = {
                 axios: "axios",
             }),
 
-            new BundleAnalyzerPlugin(),
+            new CompressionPlugin(),
+            //new BundleAnalyzerPlugin(),
 
             /*new webpack.DefinePlugin({
                 'process.env': {

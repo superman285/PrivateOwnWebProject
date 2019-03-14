@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+//const Vue = require("Vue");
+//const Vuex = require("Vuex");
+
 Vue.use(Vuex)
 
 //本地测试

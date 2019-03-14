@@ -1,5 +1,7 @@
 import Vue from 'vue'
+//const Vue = require("Vue");
 import Router from 'vue-router'
+//const Router = require("VueRouter");
 import Home from './views/Home.vue'
 
 Vue.use(Router)
