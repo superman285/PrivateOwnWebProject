@@ -8,6 +8,7 @@
                 <p>Made with ❤️by <a target="_blank" @click="goBlog" @mouseover="toastMe"><span>superman285</span></a></p>
                 <p>Front-end framework: <span>Vue</span></p>
                 <p>Back-end framework: <span>Koa2</span></p>
+                <p>ICP: <span>粤ICP备19022229号</span></p>
             </div>
         </div>
 
@@ -69,11 +70,12 @@
             height: 6px!important;
         }
         .bottominfo {
-            height: 10rem;
+            //height: 12rem;
+            padding: 1rem 0 0.5rem;
             text-align: left;
             background: #30476D;
             img {
-                margin-top: 1rem;
+                //margin-top: 1rem;
                 margin-left: 1rem;
                 height: 3.2rem;
             }

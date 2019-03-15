@@ -454,10 +454,6 @@
         min-width: 600px;
     }
 
-    h1 {
-        margin-top: 3rem;
-    }
-
     .layout {
         margin: 2rem auto;
         width: 80%;

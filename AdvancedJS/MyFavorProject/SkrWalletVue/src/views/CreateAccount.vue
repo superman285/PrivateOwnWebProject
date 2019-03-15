@@ -449,6 +449,8 @@
         height: 5rem;
     }
 
+
+
     .kscard, .pkcard {
         flex: .4;
         max-width: 380px;
@@ -526,9 +528,7 @@
         font-size: 2.5rem;
     }
 
-    h1 {
-        margin-top: 3rem;
-    }
+
 
     .layout {
         margin: 2rem auto;
