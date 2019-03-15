@@ -6,7 +6,9 @@ const tls = require('tls');
 const cardinal = require('cardinal');*/
 
 module.exports = {
-    mode: 'development',
+    //mode: 'development',
+    mode: 'production',
+    devTool: false,
     //join中不能省__dirname
     entry: path.join(__dirname, './src/js/app/index.js'),
     output: {
@@ -47,17 +49,7 @@ module.exports = {
         ]
     },
 
-    /*resolve: {
-        alias: {
 
-        }
-    }*/
-
-    //target: "node",
-
-    /*externals: {
-        fs: 'empty'
-    },*/
 
     //省去了每个模块require引入jquery的步骤 舒服
     plugins: [
