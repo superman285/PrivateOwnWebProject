@@ -112,9 +112,9 @@ module.exports = {
             new CompressionPlugin(),
 
 
-            /*new CleanWebpackPlugin({
-                dry: true //false即先删除dist目录再打包
-            }),*///实例化，参数为目录
+            new CleanWebpackPlugin({
+                dry: false //false即先删除dist目录再打包
+            }),//实例化，参数为目录
 
             //new BundleAnalyzerPlugin(),
 

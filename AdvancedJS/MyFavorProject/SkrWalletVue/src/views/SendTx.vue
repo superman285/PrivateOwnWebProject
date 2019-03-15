@@ -122,16 +122,26 @@
                 this.txGasPrice = ev;
             },
             async sendTx() {
-
-                this.txSending = !this.txSending;
                 console.log('发起来');
                 if (this.txAmount && this.txToAddr && this.txGasPrice) {
 
-                    if (Object.is(Number(this.txAmount), NaN) || Object.is(Number(this.txGasPrice), NaN)) {
+                    if (Object.is(Number(this.txAmount), NaN)||Number(this.txAmount)<=0) {
                         //toast提示 金额和gasprice必须为数字
                         iziToast.warning({
                             title:"Warning",
-                            message: "转账金额和GasPrice输入有误 !",
+                            message: "转账金额输入有误 !",
+                            color: "red",
+                            timeout: 2000
+                        });
+                        console.log('金额和gasprice必须为数字');
+                        return;
+                    }
+
+                    if (Object.is(Number(this.txGasPrice), NaN)) {
+                        //toast提示 金额和gasprice必须为数字
+                        iziToast.warning({
+                            title:"Warning",
+                            message: "GasPrice输入有误 !",
                             color: "red",
                             timeout: 2000
                         });
