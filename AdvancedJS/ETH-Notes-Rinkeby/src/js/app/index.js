@@ -72,12 +72,12 @@ frame.addEventListener('click', (e) => {
             //columnWidth: 15%,
             gutter: 30
         });
-        console.log('我要回滚了');
+        console.log('点击了空白处');
 
 
         if(userAddr) {
             if (!web3.utils.isAddress(userAddr)) {
-                Toast('index入口账号有误，请重新登录!');
+                Toast('账户地址有误，请重新登录!');
                 return;
             }
             console.log('￥￥￥您是vip，您随便改￥￥￥');

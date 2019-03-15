@@ -147,7 +147,7 @@ class Note {
             },
             success: ret => {
                 if (ret.status === 0) {
-                    Toast('Add Note Success!');
+                    Toast('Add Note Success!',2500);
                     addRes = {
                         success: true,
                     }
@@ -178,11 +178,19 @@ class Note {
     });*/
     };
 
+    //前端加判未登录情况 因为特殊原因服务器后端无法正常拿undefined数据了
     async edit(msg) {
-        NProgress.start();
+
         var self = this;
         userAddr = localStorage.userAddr;
 
+        if (!userAddr) {
+            this.recover();
+            Toast("游客只可以阅览便签!请先登录!");
+            return;
+        }
+
+        NProgress.start();
         //后端调合约
         Toast("正在写入区块链，请稍等...",10000)
         //后端发请求
@@ -193,7 +201,7 @@ class Note {
             key: keyAddr,
         }).done(function (ret) {
             if (ret.status === 0) {
-                Toast('Update Note Success!');
+                Toast('Update Note Success!',2500);
             } else {
                 Toast(ret.errorMsg);
             }
@@ -234,10 +242,17 @@ class Note {
         }*/
     };
 
+    //加判未登录情况
     async delete() {
-        NProgress.start();
+
         var self = this;
         userAddr = localStorage.userAddr;
+        if (!userAddr) {
+            this.recover();
+            Toast("游客无法进行删除操作!");
+            return;
+        }
+        NProgress.start();
         msnry.layout();
         console.log(self.id);
         Toast("正在写入区块链，请稍等...",10000)
@@ -252,7 +267,7 @@ class Note {
         }).done(function (ret) {
             console.dir('delete done,status是：', ret);
             if (ret.status === 0) {
-                Toast('Delete Note Success!');
+                Toast('Delete Note Success!',2500);
                 self.$note.remove();
                 Event.fire('waterfall')
             } else {
