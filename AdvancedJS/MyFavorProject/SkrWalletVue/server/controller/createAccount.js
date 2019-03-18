@@ -5,6 +5,7 @@ let path = require('path');
 
 var utils = require('../../utils/myUtils');
 var web3 = utils.getweb3();
+var axios = require("axios");
 
 module.exports = {
 
@@ -12,6 +13,7 @@ module.exports = {
         let privatekeyStr = ctx.request.body.privatekey;
         let account = web3.eth.accounts.privateKeyToAccount(privatekeyStr);
         console.log('pk创建account', account);
+
         ctx.response.body = {
             code: 0,
             message:"privatekey创建账户成功",

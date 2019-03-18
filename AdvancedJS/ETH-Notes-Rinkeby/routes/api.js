@@ -19,6 +19,7 @@ let {web3, abi, contractAddr, contractFounder, noteContractObj, mywallet, etherP
 router.get("/notes", async (ctx, next) => {
 
     console.log('在ide控制台打出/notes，来了，从区块链获取');
+    console.log("!@#$%^&*打个实例",noteContractObj);
     //区块链版本
     if (web3.utils.isAddress(ctx.query.data)) {
         await noteContractObj.methods.getMyNotes.call({
