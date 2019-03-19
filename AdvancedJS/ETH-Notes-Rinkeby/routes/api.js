@@ -128,12 +128,12 @@ router.post("/note/edit", async (ctx, next) => {
 
     //ethereumjs-tx 原生写法,失败,废弃,转投ether.js怀抱
     /*
-    var nonce = Number(web3.eth.getTransactionCount(contractFounder));
+    var nonce = Number(await(web3.eth.getTransactionCount(contractFounder)));
     var paramsData = ethABI.rawEncode(["uint","string"], [noteid,note]).toString('hex');
     var rawTx = {
         from: contractFounder,
-        // nonce: web3.utils.toHex(count),
-        nonce: web3.utils.toHex(count),
+        nonce: nonce
+        //nonce: web3.utils.toHex(nonce),
         gasPrice: '0x97359400',
         gasLimit: '0x495f05',
         to: contractAddr,
@@ -167,7 +167,9 @@ router.post("/note/delete", async (ctx, next) => {
         gasLimit: '0x495f05',
         value: "0x0",
         chainId: 4
-    };*/
+    };
+    etherContractObj.deleteNote(noteid,overrides)
+    */
 
     if (uid) {
         if (Number(uid) !== Number(noteOwner)) {

@@ -7,6 +7,7 @@ var utils = require('../../utils/myUtils');
 //var {web3,provider} = utils.getTruffleweb3();
 
 var web3 = utils.getweb3();
+const ethABI = require('ethereumjs-abi');
 
 module.exports = {
 
@@ -31,6 +32,8 @@ module.exports = {
 
         //获取当前gas价格
         //var gasPrice = web3.utils.toHex(await web3.eth.getGasPrice());
+
+        //直接前端获取，界面上的单位是Gwei,所以✖️10^9
         var gasPrice = web3.utils.toHex(txGasPrice*(10**9))
         //估算交易的gas消耗
         var gasLimit = await web3.eth.estimateGas({
@@ -65,7 +68,6 @@ module.exports = {
         /*await web3.eth.sendSignedTransaction('0x' + serializedTx.toString('hex'), (err, hash)=> {
             console.log('aaaaaaaafewa',hash);
         })*/
-
         try {
             let txRes = await web3.eth.sendSignedTransaction('0x'+serializedTx.toString('hex'));
             ctx.body = {
@@ -80,8 +82,69 @@ module.exports = {
                 info: err
             }
         }
+    },
 
-    }
+    sendERC20Transaction: async ctx=>{
+
+        var {privatekey,txAmount,txToAddr,txFromAddr,txGasPrice,contractABI,contractAddr} = ctx.request.body;
+        console.log('abi,addr',contractABI,contractAddr);
+        let contractObj = new web3.eth.Contract(JSON.parse(contractABI),contractAddr);
+
+        var paramsData = ethABI.rawEncode(["address","uint256"], [txToAddr,txAmount]).toString('hex');
+        var gasLimit = await web3.eth.estimateGas({
+            from: txFromAddr,
+            to: contractAddr,
+            data: "0xa9059cbb"+paramsData,
+        });
+        var gasPrice = web3.utils.toHex(txGasPrice*(10**9))
+
+        var count = Number(await web3.eth.getTransactionCount(txFromAddr));
+        console.log('count是',count);
+
+        var rawTx = {
+            from: txFromAddr,
+            // nonce: web3.utils.toHex(count),
+            //nonce: web3.utils.toHex(count),
+            nonce: count,
+            gasPrice: gasPrice,
+            gasLimit: gasLimit,
+            to: contractAddr,
+            data: "0xa9059cbb"+paramsData,
+        };
+        console.log('nonce是',rawTx.nonce);
+        //必须把私钥处理为Buffer
+        var bufferPrivatekey = new Buffer.from(privatekey.substring(2),'hex');
+        var tx = new Tx(rawTx);
+        tx.sign(bufferPrivatekey);
+        var serializedTx = tx.serialize();
+
+        try {
+            let txRes = await web3.eth.sendSignedTransaction('0x' + serializedTx.toString('hex'));
+            ctx.body = {
+                code: 0,
+                message: "转账成功！",
+                info: txRes
+            },
+            console.log('成了！',txRes);
+        } catch (err) {
+            console.log('转账失败',err);
+            ctx.body = {
+                code: 200,
+                message: "转账失败！",
+                info: err
+            }
+        }
+
+        /*不能用这种方法，infura没持有你的私钥，不支持这种方式调用方法
+            let txRes = await contractObj.methods.transfer(txToAddr,txAmount).send({
+                from: txFromAddr,
+                gas: gasLimit,
+                gasPrice
+            });
+
+        }*/
+
+    },
 
 
 };

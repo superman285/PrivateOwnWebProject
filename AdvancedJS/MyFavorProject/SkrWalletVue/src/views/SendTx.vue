@@ -83,7 +83,7 @@
     import "izitoast/dist/css/iziToast.min.css";
 
     //本地测试
-    //let localurl = "http://127.0.0.1:4000";
+    let localurl = "http://127.0.0.1:4000";
     //云服务器
     let cloudurl = "http://154.8.215.126:4000";
 
@@ -208,19 +208,40 @@
                     //满足条件 正式发起交易
                     this.txSending = true;
 
+                    //ETH发起交易
                     let url = `${cloudurl}/users/sendtx`;
+                    let ercurl = `${localurl}/users/senderc20tx`;
                     try {
-                        let result = await axios({
-                            method: "post",
-                            url,
-                            data: {
-                                privatekey: this.$store.state.globalPrivatekey,
-                                txAmount: this.txAmount,
-                                txFromAddr: this.$store.state.accountAddr,
-                                txToAddr: this.txToAddr,
-                                txGasPrice: this.txGasPrice,
-                            }
-                        });
+                        if (this.$store.state.tokenType=="ETH") {
+                           //ETH发起交易
+                            var result = await axios({
+                                method: "post",
+                                url,
+                                data: {
+                                    privatekey: this.$store.state.globalPrivatekey,
+                                    txAmount: this.txAmount,
+                                    txFromAddr: this.$store.state.accountAddr,
+                                    txToAddr: this.txToAddr,
+                                    txGasPrice: this.txGasPrice,
+                                }
+                            });
+                        }else {
+                            //ERC20 token 发起交易
+                            var result = await axios({
+                                method: "post",
+                                url:ercurl,
+                                data: {
+                                    privatekey: this.$store.state.globalPrivatekey,
+                                    txAmount: this.txAmount,
+                                    txFromAddr: this.$store.state.accountAddr,
+                                    txToAddr: this.txToAddr,
+                                    txGasPrice: this.txGasPrice,
+                                    contractABI: this.$store.state.tokenContractABI,
+                                    contractAddr: this.$store.state.tokenContractAddr
+                                }
+                            });
+                        }
+
                         console.log('sendtxresult', result);
                         this.txHash = result.data.info.transactionHash;
                         console.log(this.txHash);
@@ -266,10 +287,15 @@
                         })
 
                         //考虑加个try 不然会报交易失败。
-                        
+
                         try {
-                            await this.$store.dispatch('refreshBalance');
-                            console.log('dispatch action refreshBalance分发完毕');
+                            if (this.$store.state.tokenType=="ETH"){
+                                await this.$store.dispatch('refreshBalance');
+                                console.log('dispatch action refreshBalance分发完毕');
+                            }else{
+                                await this.$store.dispatch('refreshERC20Balance');
+                                console.log('dispatch action refreshERC20Balance分发完毕');
+                            }
                         } catch (err) {
                             console.log('获取余额failed',err);
                         }

@@ -53,9 +53,8 @@
 
 
             <transition name="fade">
-                <div class="tokeninput-wrap" v-show="start">
+                <div class="tokeninput-wrap" v-show="tokeninputShow">
                     <v-text-field
-                            v-show="start"
                             class="tokeninput"
                             solo
                             label="输入erc20合约地址"
@@ -118,7 +117,7 @@
         data() {
             return {
                 addr: localStorage.getItem('accountAddr') ? localStorage.getItem('accountAddr') : "0x00",
-                start: false,
+                tokeninputShow: false,
                 tokenAddr: "",
                 tokenLoading: false,
             }
@@ -190,10 +189,12 @@
             async loadToken() {
                 console.log('加载token');
                 if (this.$store.state.tokenType == "ETH") {
-                    this.start = !this.start;
+                    this.tokeninputShow = !this.tokeninputShow;
                 } else {
                     await this.$store.dispatch('refreshBalance');
                     this.$store.state.tokenType = "ETH";
+                    this.$store.state.tokenABI = "";
+                    this.$store.state.tokenContractAddr = "";
                 }
             },
 
@@ -227,8 +228,6 @@
                     }
                 });
                 let contractABI = abiRes.data.result;
-                console.log("先拿abi",contractABI);
-
                 //向后端发请求
                 let url = `${localurl}/users/getsymbol`;
 
@@ -246,8 +245,11 @@
                 await this.$store.dispatch('refreshERC20Balance');
                 this.$store.state.tokenType = String(symbolRes.data.info.symbol);
 
+                this.$store.state.tokenContractABI = contractABI;
+                this.$store.state.tokenContractAddr = contractAddr;
+
                 setTimeout(()=>{
-                    this.start = false;
+                    this.tokeninputShow = false;
                     this.tokenAddr="";
                 },500);
 
