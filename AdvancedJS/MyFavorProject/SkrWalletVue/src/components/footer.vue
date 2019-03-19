@@ -8,7 +8,7 @@
                 <p>Made with ❤️by <a target="_blank" @click="goBlog" @mouseover="toastMe"><span>superman285</span></a></p>
                 <p>Front-end framework: <span>Vue</span></p>
                 <p>Back-end framework: <span>Koa2</span></p>
-                <p>ICP: <span>粤ICP备19022229号</span></p>
+                <!--<p>ICP: <span>粤ICP备19022229号</span></p>-->
             </div>
         </div>
 
