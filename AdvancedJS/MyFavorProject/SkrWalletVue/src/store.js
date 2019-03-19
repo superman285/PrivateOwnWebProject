@@ -21,7 +21,7 @@ export default new Vuex.Store({
         accountAddr: "0x00",
         accountBalance: "0.00",
         headerTabs: {},
-        tokenType: "eth"
+        tokenType: "ETH"
     },
     mutations: {
         setAccountAddr(state,payload){

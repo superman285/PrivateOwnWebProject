@@ -15,7 +15,7 @@
                  @click="showPrivatekey"
             >
             <div class="addr-avatar">
-                <img src="../assets/avatar.png" alt="" @click="etherscan">
+                <img src="../assets/avatar.png" alt="">
             </div>
             <h2>Address</h2>
 
@@ -40,11 +40,10 @@
                  @click="refreshBalance"
             >
 
-            <v-tooltip right dark color="primary">
-                <template v-slot:activator="{ on }" v-if="$store.state.accountAddr!='0x00'">
+            <v-tooltip right dark color="primary" v-if="$store.state.accountAddr!='0x00'">
+                <template v-slot:activator="{ on }">
                     <img src="../assets/loadtoken.png" alt="loadtoken"
                          class="loadtoken-btn" ref="loadtokenBtn"
-
                          v-on:click="loadToken"
                          v-on="on"
                     >
@@ -61,7 +60,6 @@
                             solo
                             label="输入erc20合约地址"
                             ref="tokeninput"
-                            @input="tokenInput"
                             v-model="tokenAddr"
                             append-icon="send"
                             @click:append="sendTokenAddr"
@@ -127,10 +125,10 @@
         },
         computed: {
             loadTokenDesc() {
-                if (this.$store.state.tokenType == "eth") {
+                if (this.$store.state.tokenType == "ETH") {
                     return "加载ERC20Token"
                 } else {
-                    return "加载ETH"
+                    return "加载"
                 }
             }
         },
@@ -177,7 +175,7 @@
                 this.$refs.refreshBtn.classList.remove('refresh-pause');
                 this.$refs.refreshBtn.classList.add('refresh-play');
                 //判token类型调不同的获取余额方法
-                if (this.$store.state.tokenType == "eth") {
+                if (this.$store.state.tokenType == "ETH") {
                     await this.$store.dispatch('refreshBalance');
                 } else {
                     await this.$store.dispatch('refreshERC20Balance');
@@ -191,11 +189,11 @@
 
             async loadToken() {
                 console.log('加载token');
-                if (this.$store.state.tokenType == "eth") {
+                if (this.$store.state.tokenType == "ETH") {
                     this.start = !this.start;
                 } else {
                     await this.$store.dispatch('refreshBalance');
-                    this.$store.state.tokenType = "eth";
+                    this.$store.state.tokenType = "ETH";
                 }
             },
 

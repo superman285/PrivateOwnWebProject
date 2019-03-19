@@ -10,7 +10,7 @@
                     solo
                     light
                     readonly
-                    :value="tokenType"
+                    :value="$store.state.tokenType"
                     background-color = "#E1F9EC"
             ></v-text-field>
 
@@ -18,7 +18,7 @@
                 <v-text-field
                         class="amountField"
                         label="转账金额"
-                        suffix="ether"
+                        :suffix= "$store.state.tokenType=='ETH'?'ether':$store.state.tokenType.toLowerCase()"
                         :rules="[rules.type]"
                         @input="changeAmount($event)"
                 ></v-text-field>
@@ -91,7 +91,7 @@
         name: "SendTx",
         data() {
             return {
-                tokenType: "ETH",
+                // tokenType: "ETH",
                 txAmount: "",
                 txToAddr: "",
                 txGasPrice: "20",
@@ -108,6 +108,15 @@
                         const addrPattern = /^0x[0-9a-fA-F]{40}$/;
                         return addrPattern.test(val) || "请输入正确格式的地址!"
                     }
+                }
+            }
+        },
+        computed: {
+            tokenCoin: function(){
+                if (this.$store.state.tokenType=="ETH") {
+                    return "ether"
+                }else {
+                    return this.$store.state.tokenType.toLowerCase();
                 }
             }
         },
@@ -310,6 +319,10 @@
         left: 0;
         top: 0;
         font-weight: bold;
+        input {
+            text-transform: uppercase!important;
+
+        }
     }
 
     .main {
