@@ -1,4 +1,4 @@
-<template>
+<template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
     <div class="home">
 
         <v-card
@@ -41,10 +41,10 @@
             >
 
             <v-tooltip right dark color="primary">
-                <template v-slot:activator="{ on }">
+                <template v-slot:activator="{ on }" v-if="$store.state.accountAddr!='0x00'">
                     <img src="../assets/loadtoken.png" alt="loadtoken"
                          class="loadtoken-btn" ref="loadtokenBtn"
-                         v-if="$store.state.accountAddr=='0x00'"
+
                          v-on:click="loadToken"
                          v-on="on"
                     >
@@ -54,20 +54,24 @@
 
 
             <transition name="fade">
-            <div class="tokeninput-wrap" v-show="start">
-                <v-text-field
-                        v-show="start"
-                        class="tokeninput"
-                        solo
-                        label="输入erc20合约地址"
-                        ref="tokeninput"
-                        @input="tokenInput"
-                        append-icon="send"
-                        @click:append="tokenInput($event)"
-                >
-                </v-text-field>
-            </div>
+                <div class="tokeninput-wrap" v-show="start">
+                    <v-text-field
+                            v-show="start"
+                            class="tokeninput"
+                            solo
+                            label="输入erc20合约地址"
+                            ref="tokeninput"
+                            @input="tokenInput"
+                            v-model="tokenAddr"
+                            append-icon="send"
+                            @click:append="sendTokenAddr"
+                    >
+                    </v-text-field>
+                    <v-progress-linear class="tokenProgress" :indeterminate="tokenLoading" color="indigo" background-color="white"></v-progress-linear>
+                </div>
             </transition>
+
+
 
 
             <div class="addr-avatar">
@@ -101,6 +105,10 @@
     import iziToast from "izitoast/dist/js/iziToast.min.js";
     import "izitoast/dist/css/iziToast.min.css";
 
+    //本地测试
+    let localurl = "http://127.0.0.1:4000";
+    //云服务器
+    let cloudurl = "http://154.8.215.126:4000";
 
     export default {
         name: 'Home',
@@ -113,13 +121,15 @@
             return {
                 addr: localStorage.getItem('accountAddr') ? localStorage.getItem('accountAddr') : "0x00",
                 start: false,
+                tokenAddr: "",
+                tokenLoading: false,
             }
         },
         computed: {
-            loadTokenDesc(){
-                if (this.$store.state.tokenType=="eth") {
+            loadTokenDesc() {
+                if (this.$store.state.tokenType == "eth") {
                     return "加载ERC20Token"
-                }else {
+                } else {
                     return "加载ETH"
                 }
             }
@@ -167,9 +177,9 @@
                 this.$refs.refreshBtn.classList.remove('refresh-pause');
                 this.$refs.refreshBtn.classList.add('refresh-play');
                 //判token类型调不同的获取余额方法
-                if (this.$store.state.tokenType=="eth") {
+                if (this.$store.state.tokenType == "eth") {
                     await this.$store.dispatch('refreshBalance');
-                }else{
+                } else {
                     await this.$store.dispatch('refreshERC20Balance');
                 }
                 console.log('dispatch action refreshBalance分发完毕');
@@ -179,33 +189,76 @@
                 }, 2000);
             },
 
-            async loadToken(){
+            async loadToken() {
                 console.log('加载token');
-                if (this.$store.state.tokenType=="eth") {
+                if (this.$store.state.tokenType == "eth") {
                     this.start = !this.start;
-                }else{
+                } else {
+                    await this.$store.dispatch('refreshBalance');
                     this.$store.state.tokenType = "eth";
-                    this.$store.dispatch('refreshBalance');
-                    console.log('不加await');
                 }
             },
 
-            tokenInput(ev){
-
-                console.log(ev);
-                /*var utils = require('../../utils/myUtils');
+            async sendTokenAddr() {
+                console.log('sendTokenAddr');
+                var utils = require('../../utils/myUtils');
                 var web3 = utils.getweb3();
-                if (!web3.utils.isAddress(this.txToAddr)) {
+                if (!web3.utils.isAddress(this.tokenAddr)) {
                     //Toast地址应为16进制数，以0x开头
                     console.log('地址格式错误');
                     iziToast.warning({
-                        title:"Error",
-                        message: "地址格式错误 !",
+                        title: "Error",
+                        message: "合约地址格式错误 !",
                         color: "red",
                         timeout: 2000
                     });
                     return;
-                }*/
+                }
+                //开始调前端的etherscan api
+                this.tokenLoading = true;
+                let contractAddr = this.tokenAddr;
+                let abiRes = await axios({
+                    method: "GET",
+                    url: "//api-rinkeby.etherscan.io/api",
+                    params: {
+                        module: "contract",
+                        action: "getabi",
+                        //需要etherscan验证过的token
+                        address: contractAddr,
+                        apikey: "H4EVJDWHGN1QMWR7VTYVVXA1542VE4FJXE"
+                    }
+                });
+                let contractABI = abiRes.data.result;
+                console.log("先拿abi",contractABI);
+
+                //向后端发请求
+                let url = `${localurl}/users/getsymbol`;
+
+                let symbolRes = await axios({
+                    method: "GET",
+                    url,
+                    params: {
+                        contractABI,
+                        contractAddr
+                    }
+                });
+
+                console.log('拿到symbol了',symbolRes);
+                this.tokenLoading = false;
+                await this.$store.dispatch('refreshERC20Balance');
+                this.$store.state.tokenType = String(symbolRes.data.info.symbol);
+
+                setTimeout(()=>{
+                    this.start = false;
+                    this.tokenAddr="";
+                },500);
+
+            },
+
+            tokenInput(ev) {
+
+                console.log(ev);
+
             }
 
         }
@@ -233,9 +286,9 @@
             text-transform: uppercase;
             font-weight: 700;
             color: lightskyblue;
-            font-size: 1.2rem;
-            font-family: Georgia,'New Century Schoolbook',Times, TimesNR,
-             'New York', serif;
+            font-size: 1.5rem;
+            font-family: Georgia, 'New Century Schoolbook', Times, TimesNR,
+            'New York', serif;
 
         }
     }
@@ -261,6 +314,7 @@
         font-size: 1.8rem;
         text-transform: lowercase;
         color: palevioletred;
+        margin-top: .1rem;
     }
 
     .showpk-btn {
@@ -293,12 +347,15 @@
     .refresh-play {
         animation: refresh-rotate 2s infinite ease-in-out;
     }
+
     .refresh-pause {
         animation-play-state: paused;
     }
+
     .refresh-run {
         animation-play-state: running;
     }
+
     //refresh动画
     @keyframes refresh-rotate {
         from {
@@ -314,21 +371,21 @@
         position: absolute;
         right: 0;
         bottom: -4rem;
-
-        /*.v-input__slot {
-            padding: 2rem;
-        }*/
-
-
+        width: 100%;
     }
-
+    .tokenProgress {
+        position: absolute;
+        bottom: -.9rem;
+        left: 0;
+    }
 
 
 
     //过渡动画
     .fade-enter-active, .fade-leave-active {
-        transition: opacity 1s;
+        transition: opacity .75s;
     }
+
     .fade-enter, .fade-leave-to {
         opacity: 0;
     }

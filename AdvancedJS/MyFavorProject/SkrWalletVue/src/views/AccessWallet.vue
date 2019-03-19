@@ -99,7 +99,7 @@
     import uploadComponent from "@/components/v-upload";
 
     //本地测试
-    //let url = "http://127.0.0.1:4000";
+    //let localurl = "http://127.0.0.1:4000";
     //云服务器
     let cloudurl = "http://154.8.215.126:4000";
 

@@ -5,11 +5,6 @@ let path = require('path');
 var utils = require('../../utils/myUtils');
 var web3 = utils.getweb3();
 
-async function getAccountBalance(addr) {
-    let balance = await web3.eth.getBalance(addr);
-    return balance;
-}
-
 
 //用密码创建账户的方法
 //web3.eth.personal.newAccount(password)
@@ -23,6 +18,7 @@ async function getAccountBalance(addr) {
 
 
 module.exports = {
+
 
 
     unlockWithPrivatekey: async ctx => {
@@ -131,8 +127,35 @@ module.exports = {
                 balance
             }
         }
+    },
+
+    getSymbol: async ctx => {
+        console.log("getSymbol",ctx.query);
+        let {contractAddr,contractABI} = ctx.query;
+
+        let contractObj = new web3.eth.Contract(JSON.parse(contractABI),contractAddr);
+
+        try {
+            let symbol = await contractObj.methods.symbol.call();
+            ctx.body = {
+                code: 0,
+                message: "Get Symbol success!",
+                info: {
+                    symbol
+                }
+            }
+        } catch (err) {
+            console.log(err);
+            ctx.body = {
+                code: 0,
+                message: "Get Symbol failed!",
+                info: err
+            }
+        }
 
     }
+
+
 
 
 }
