@@ -210,7 +210,7 @@
 
                     //ETH发起交易
                     let url = `${cloudurl}/users/sendtx`;
-                    let ercurl = `${localurl}/users/senderc20tx`;
+                    let ercurl = `${cloudurl}/users/senderc20tx`;
                     try {
                         if (this.$store.state.tokenType=="ETH") {
                            //ETH发起交易

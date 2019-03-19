@@ -229,7 +229,7 @@
                 });
                 let contractABI = abiRes.data.result;
                 //向后端发请求
-                let url = `${localurl}/users/getsymbol`;
+                let url = `${cloudurl}/users/getsymbol`;
 
                 let symbolRes = await axios({
                     method: "GET",
