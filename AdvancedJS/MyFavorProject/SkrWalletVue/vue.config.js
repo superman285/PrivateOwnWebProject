@@ -3,7 +3,6 @@ const TerserPlugin = require('terser-webpack-plugin');
 //const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-
 const CompressionPlugin = require("compression-webpack-plugin");
 
 //const axios = require("axios");

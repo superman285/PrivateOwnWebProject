@@ -1,9 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
-/*const fs = require('fs');
-const net = require('net');
-const tls = require('tls');
-const cardinal = require('cardinal');*/
+
+//优化
+const TerserPlugin = require('terser-webpack-plugin');
+const CompressionPlugin = require("compression-webpack-plugin");
 
 module.exports = {
     //mode: 'development',
@@ -48,8 +48,27 @@ module.exports = {
             }*/
         ]
     },
-
-
+    devServer: {
+        compress: true
+    },
+    optimization: {
+        minimize: true,
+        minimizer: [
+            new TerserPlugin({
+                terserOptions: {
+                    output: {
+                        beautify: false, //不需要格式化
+                        comments: false //不保留注释
+                    },
+                    compress: {
+                        warnings: false,    //删除没用到代码时不警告
+                        drop_debugger: true, //去掉debug信息
+                        drop_console: true  //去掉控制台信息
+                    },
+                }
+            })
+        ],
+    },
 
     //省去了每个模块require引入jquery的步骤 舒服
     plugins: [
@@ -57,6 +76,7 @@ module.exports = {
         new webpack.ProvidePlugin({
             $: "jquery"
         }),
+        new CompressionPlugin(),
 
     ]
 
