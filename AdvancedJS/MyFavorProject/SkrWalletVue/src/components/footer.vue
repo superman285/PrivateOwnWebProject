@@ -68,8 +68,8 @@
     }
 
     #myfooter {
-        position: fixed;
-        bottom: 0;
+        /*position: fixed;
+        bottom: 0;*/
         width: 100%;
         .divide {
             height: 4px;
@@ -77,14 +77,14 @@
         }
         .bottomProgress {
             margin: 0;
-            background: rgb(105, 255, 255);
+            background: rgb(105, 255, 155);
             height: 6px!important;
         }
         .bottominfo {
             //height: 12rem;
             padding: 1rem 0 0.5rem;
             text-align: left;
-            background: #30476D;
+            //background: #30476D;
             img {
                 //margin-top: 1rem;
                 margin-left: 1rem;
@@ -93,7 +93,8 @@
         }
         .work-info {
             margin-left: 1rem;
-            color: white;
+            //color: white;
+            color: darkblue;
             a {
                 text-decoration: none;
             }

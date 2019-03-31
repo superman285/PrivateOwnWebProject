@@ -1,5 +1,5 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
-    <div class="home">
+    <div class="container">
 
         <v-card
                 class="mx-auto addr-card"
@@ -266,6 +266,11 @@
 </script>
 
 <style scoped lang="scss">
+
+    .container {
+        min-width: 600px;
+    }
+
     .addr-card {
         margin-top: 3rem;
         padding: 2rem;

@@ -389,7 +389,7 @@
         position: relative;
         color: white;
         width: 90%;
-        min-width: 650px;
+        min-width: 600px;
         a{
             position: absolute;
             top: 22px;

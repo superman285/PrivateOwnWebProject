@@ -21,3 +21,12 @@ ul, ol, dl {
     src: url(./modak.woff2) format('woff2');
 }
 
+@media screen and (max-width: 420px) {
+    .iziToast-wrapper-bottomCenter,.iziToast-wrapper-bottomRight {
+        transform: translateY(-120%)!important;
+        bottom:unset!important;
+    }
+}
+
+
+
