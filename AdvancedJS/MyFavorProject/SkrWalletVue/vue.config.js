@@ -5,11 +5,9 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CompressionPlugin = require("compression-webpack-plugin");
 
-//const axios = require("axios");
 
 module.exports = {
     publicPath: './',
-
     devServer: {
         port: 3000,
         compress: true // 服务器返回浏览器的时候是否启动gzip压缩
@@ -40,15 +38,12 @@ module.exports = {
         }*/
 
         mode: 'production', //config.mode = "production"
-
         externals: {
             Vue: "Vue",
             Vuex: "Vuex",
             VueRouter: "VueRouter",
             Vuetify: "Vuetify",
         },
-
-
         optimization: {
             minimize: true,
             minimizer: [
@@ -63,7 +58,7 @@ module.exports = {
                 })
             ],
         },
-
+        //不支持es6语法，报错，废弃
             /*minimizer: [
                 new UglifyPlugin({
                     uglifyOptions: {
@@ -136,4 +131,4 @@ module.exports = {
         ]
 
     }
-}
+};
