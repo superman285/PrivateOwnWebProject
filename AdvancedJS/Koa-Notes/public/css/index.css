@@ -1,8 +1,29 @@
+
+html {
+    font-size: 100%;
+}
+
+@media screen and (max-width: 420px) {
+    header a {
+        font-size: 90%;
+    }
+}
+@media screen and (max-width: 360px) {
+    header a   {
+        font-size: 80%;
+    }
+}
+@media screen and (max-width: 320px) {
+    header a  {
+        font-size: 70%;
+    }
+}
+
 body {
     font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
     background: linear-gradient(135deg, #9236ff 0%,#f763c6 33%,#ff9292 66%,#fff7e1 100%);
             /*linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));*/
-    min-width: 360px;
+    min-width: 300px;
 }
 
 a {
@@ -21,9 +42,9 @@ header {
     border-radius: 5px;
     height: 60px;
 }
+
 .add-note {
     margin-left: 1rem;
-
 }
 
 .add-note i {
