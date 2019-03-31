@@ -14,4 +14,10 @@ ul, ol, dl {
     padding: 0 !important;
 }
 
+@font-face {
+    font-family: 'modak';
+    font-style: normal;
+    font-weight: 400;
+    src: url(./modak.woff2) format('woff2');
+}
 

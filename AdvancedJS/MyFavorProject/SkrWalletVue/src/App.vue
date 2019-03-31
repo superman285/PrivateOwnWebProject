@@ -43,7 +43,7 @@
                     messageColor: "#fff",
                     progressBarColor: "#26c6da",
                     theme: 'dark',
-                    timeout: 3000,
+                    timeout: 10000,
                 });
             }
         }

@@ -3,7 +3,8 @@
         <!--<div class="divide"></div>-->
         <v-progress-linear class="bottomProgress" :indeterminate="true" color="rgb(0, 255, 255)"></v-progress-linear>
         <div class="bottominfo">
-            <img src="../assets/footer-logo.png" alt="">
+            <!--<img src="../assets/footer-logo.png" alt="">-->
+            <a href="#top" class="footerlogo">SKR</a>
             <div class="work-info">
                 <p>Made with ❤️by <a target="_blank" @click="goBlog" @mouseover="toastMe"><span>superman285</span></a></p>
                 <p>Front-end framework: <span>Vue</span></p>
@@ -55,7 +56,17 @@
 </script>
 
 <style scoped lang="scss">
-    
+
+    .footerlogo {
+        text-decoration: none;
+        color: white;
+        margin-left: 1rem;
+        font-weight: 100;
+        font-size: 3rem;
+        font-family: Modak, sans-serif;
+        text-shadow: 2px 2px 4px mediumspringgreen, -2px 2px 4px mediumspringgreen, 2px -2px 4px mediumspringgreen, -2px -2px 4px mediumspringgreen, 0 0.5rem 1.5rem mediumspringgreen
+    }
+
     #myfooter {
         position: fixed;
         bottom: 0;
