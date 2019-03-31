@@ -8,7 +8,7 @@ const CompressionPlugin = require("compression-webpack-plugin");
 module.exports = {
     //mode: 'development',
     mode: 'production',
-    devTool: false,
+    devtool: false,
     //join中不能省__dirname
     entry: path.join(__dirname, './src/js/app/index.js'),
     output: {

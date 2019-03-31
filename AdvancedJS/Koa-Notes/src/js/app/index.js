@@ -92,4 +92,4 @@ Event.on('waterfall', function(){
 
 export {msnry};
 
-module.exports.siteAddr = siteAddr;
+//module.exports.siteAddr = siteAddr;
