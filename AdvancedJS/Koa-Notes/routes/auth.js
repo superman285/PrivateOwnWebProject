@@ -110,7 +110,7 @@ passport.use(new GitHubStrategy({
     //local127
     //callbackURL: 'http://127.0.0.1:3000/auth/github/callback',
     //tencent cloud
-    callbackURL: 'http://superskr.fun/auth/github/callback',
+    callbackURL: 'http://superskr.fun:4002/auth/github/callback',
 },(accessToken,refreshToken,profile,done)=>{
     /*User.findOrCreate({githubId:profile.id},function(err,user){
         return done(err,user);
