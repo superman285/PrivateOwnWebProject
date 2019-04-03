@@ -29,7 +29,6 @@ $time:0.6s;
 
 html,body {
   height: 100%;
-  font-size: 85%;
 }
 
 body {
@@ -77,7 +76,7 @@ a{color:$linkColor; text-decoration:none;}
   .icon-Male {
     color: dodgerblue;
   }
-  //@include breakpoint(brother-bear) { width: 100%; }
+  @include breakpoint(brother-bear) { width: 100%; }
   .name-wrapper {
     float:left;
     width:60%;
@@ -93,10 +92,10 @@ a{color:$linkColor; text-decoration:none;}
     @include breakpoint(mama-bear) {
       //padding-top:20px;
     }
-    /*@include breakpoint(baby-bear) {
+    @include breakpoint(baby-bear) {
       font-size:1.8em;
       padding-top:20px;
-    }*/
+    }
   }
   h3,h4 {
     margin: 0;
@@ -114,9 +113,9 @@ a{color:$linkColor; text-decoration:none;}
     width:40%;
     display:block;
     float:left;
-    /*@include breakpoint(mama-bear) {
+    @include breakpoint(mama-bear) {
       width:100%;
-    }*/
+    }
   }
   .picture-resume {
     width:220px;
@@ -138,15 +137,15 @@ a{color:$linkColor; text-decoration:none;}
     img {
       border-radius:50%;
       width:130px;
-      /*@include breakpoint(papa-bear) {
+      @include breakpoint(papa-bear) {
         width:80px;
       }
       @include breakpoint(mama-bear) {
         width:120px;
         height:120px;
-      }*/
+      }
     }
-    /*@include breakpoint(papa-bear) {
+    @include breakpoint(papa-bear) {
       width:150px;
       height:150px;
     }
@@ -154,13 +153,13 @@ a{color:$linkColor; text-decoration:none;}
       width:200px;
       height:200px;
     }
-    @include breakpoint(baby-bear) { width:180px;height:180px; }*/
+    @include breakpoint(baby-bear) { width:180px;height:180px; }
   }
   .contact-info{
     margin-top:20px;
     font-weight:300;
-    //@include breakpoint(mama-bear) {margin-top:14px; }
-    //@include breakpoint(baby-bear) { margin-top:10px; }
+    @include breakpoint(mama-bear) {margin-top:14px; }
+    @include breakpoint(baby-bear) { margin-top:10px; }
   }
   .list-titles {
     float:left;
@@ -180,8 +179,8 @@ a{color:$linkColor; text-decoration:none;}
     font-weight:300;
     margin-top:0;
     margin-bottom:50px;
-    //@include breakpoint(mama-bear) {margin-top:0;margin-bottom:40px;}
-    //@include breakpoint(brother-bear) {margin-top:0;margin-bottom:30px;}
+    @include breakpoint(mama-bear) {margin-top:0;margin-bottom:40px;}
+    @include breakpoint(brother-bear) {margin-top:0;margin-bottom:30px;}
     p {
       font-weight: 400;
       margin: 10px 0;
@@ -211,23 +210,18 @@ a{color:$linkColor; text-decoration:none;}
 }
 .experience {
   background:$skillsBg;
-  //height: 200vh;
   width:65%;
   float:left;
   position:relative;
   color:$skillsColor;
   font-weight:300;
   min-height:100%;
-  min-height:200vh;
+  min-height:100vh;
   ul {
     list-style: none;
     padding: 0;
   }
-  .preview {
-    color: #9099a0;
-    font-size: .3rem!important;
-  }
-  //@include breakpoint(brother-bear) { width: 100%; }
+  @include breakpoint(brother-bear) { width: 100%; }
   h3.experience-title {
     color:$linkColor;
     text-align:left;
@@ -246,13 +240,12 @@ a{color:$linkColor; text-decoration:none;}
     text-align:left;
     padding-right:5%;
     //margin-bottom:60px;
-    //@include breakpoint(baby-bear) {width:100%; margin-bottom:10px;}
+    @include breakpoint(baby-bear) {width:100%; margin-bottom:10px;}
     img {
       width: 100%;
     }
     .experience-title {
       font-weight: 700;
-      color:white;
     }
     a{
       font-size: 1rem;
@@ -267,7 +260,7 @@ a{color:$linkColor; text-decoration:none;}
     //margin-bottom:60px;
     font-weight: 300;
     font-size: .95rem;
-    //@include breakpoint(baby-bear) {width:100%;margin-bottom:20px;}
+    @include breakpoint(baby-bear) {width:100%;margin-bottom:20px;}
     span.mvp,a.mvp{
       color: $linkColor;
       font-weight: 500;
@@ -278,19 +271,17 @@ a{color:$linkColor; text-decoration:none;}
         width: 25%;
       }
     }
-    .experience-title {
-      color:white;
-      margin-bottom:15px;
-      font-size: .75rem;
-    }
   }
-
+  .experience-title {
+    color:white;
+    margin-bottom:15px;
+  }
 }
 
 .section-padding {
   padding:0 0 40px 20px;
-  //@include breakpoint(brother-bear) { padding:0 15% 40px 10%; }
-  //@include breakpoint(baby-bear) { padding:0 10% 20px 5%; }
+  @include breakpoint(brother-bear) { padding:0 0% 40px 5%; }
+  @include breakpoint(baby-bear) { padding:0 10% 20px 5%; }
 }
 
 .section-wrapper {
@@ -300,7 +291,7 @@ a{color:$linkColor; text-decoration:none;}
   color:$skillsColor;
   font-weight:300;
   margin-bottom:20px;
-  //@include breakpoint(baby-bear) {width:100%;}
+  @include breakpoint(baby-bear) {width:100%;}
   &:nth-child(3){
     padding-right:8%;
   }
