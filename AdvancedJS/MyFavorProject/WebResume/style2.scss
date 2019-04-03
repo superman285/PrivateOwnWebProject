@@ -76,7 +76,8 @@ a{color:$linkColor; text-decoration:none;}
   .icon-Male {
     color: dodgerblue;
   }
-  @include breakpoint(brother-bear) { width: 100%; }
+  @include breakpoint(brother-bear) { width: 100%;height:auto; }
+  @include breakpoint(baby-bear) { height:auto; }
   .name-wrapper {
     float:left;
     width:60%;
@@ -352,6 +353,10 @@ a{color:$linkColor; text-decoration:none;}
   @include breakpoint(brother-bear) { display:block!important; }
   @include breakpoint(baby-bear) { display:block!important; }
 
+}
+.footerself {
+  @include breakpoint(brother-bear) { display:none!important; }
+  @include breakpoint(baby-bear) { display:none!important; }
 }
 
 

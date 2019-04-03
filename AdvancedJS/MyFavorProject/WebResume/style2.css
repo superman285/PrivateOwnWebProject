@@ -21,7 +21,8 @@ a { color: #66cc99; text-decoration: none; }
 .profile li { font-weight: 400; }
 .profile i { font-size: 1.1rem; }
 .profile .icon-Male { color: dodgerblue; }
-@media (max-width: 850px) { .profile { width: 100%; } }
+@media (max-width: 850px) { .profile { width: 100%; height: auto; } }
+@media (max-width: 450px) { .profile { height: auto; } }
 .profile .name-wrapper { float: left; width: 60%; }
 .profile h1 { font-size: 2.5em; text-align: left; font-family: 'Varela Round', sans-serif; color: #4a4e51; text-transform: uppercase; }
 @media (max-width: 450px) { .profile h1 { font-size: 1.8em; padding-top: 20px; } }
@@ -94,6 +95,9 @@ a { color: #66cc99; text-decoration: none; }
 
 @media (max-width: 850px) { .self { display: block !important; } }
 @media (max-width: 450px) { .self { display: block !important; } }
+
+@media (max-width: 850px) { .footerself { display: none !important; } }
+@media (max-width: 450px) { .footerself { display: none !important; } }
 
 @keyframes skill_1 { from { width: 0%; }
   to { width: 80%; } }
