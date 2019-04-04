@@ -266,7 +266,7 @@ a{color:$linkColor; text-decoration:none;}
     //padding-right:5%;
     //margin-bottom:60px;
     font-weight: 300;
-    font-size: .95rem;
+    font-size: .75rem;
     //@include breakpoint(baby-bear) {width:100%;margin-bottom:20px;}
     span.mvp,a.mvp{
       color: $linkColor;
@@ -281,10 +281,15 @@ a{color:$linkColor; text-decoration:none;}
     .experience-title {
       color:white;
       margin-bottom:15px;
-      font-size: .75rem;
+      font-size: .95rem;
+      font-weight: 300;
     }
   }
+}
 
+.work {
+  margin-bottom: 0px!important;
+  margin-top: 15px;
 }
 
 .section-padding {

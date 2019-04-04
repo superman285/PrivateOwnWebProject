@@ -58,11 +58,13 @@ a { color: #66cc99; text-decoration: none; }
 .experience .company-wrapper img { width: 100%; }
 .experience .company-wrapper .experience-title { font-weight: 700; color: white; }
 .experience .company-wrapper a { font-size: 1rem; }
-.experience .job-wrapper { width: 70%; float: left; text-align: left; font-weight: 300; font-size: .95rem; }
+.experience .job-wrapper { width: 70%; float: left; text-align: left; font-weight: 300; font-size: .75rem; }
 .experience .job-wrapper span.mvp, .experience .job-wrapper a.mvp { color: #66cc99; font-weight: 500; }
 .experience .job-wrapper .company-description img { width: 25%; }
 .experience .job-wrapper .company-description img.wal { width: 25%; }
-.experience .job-wrapper .experience-title { color: white; margin-bottom: 15px; font-size: .75rem; }
+.experience .job-wrapper .experience-title { color: white; margin-bottom: 15px; font-size: .95rem; font-weight: 300; }
+
+.work { margin-bottom: 0px !important; margin-top: 15px; }
 
 .section-padding { padding: 0 0 40px 20px; }
 
