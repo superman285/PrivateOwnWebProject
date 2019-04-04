@@ -84,6 +84,10 @@ a { color: #66cc99; text-decoration: none; }
 .hobby-wrap div { margin-right: auto; padding: 15px; width: 25%; height: 8.5vw; border: 1px solid #66cc99; border-radius: 50%; }
 .hobby-wrap div img { width: 100%; height: 100%; }
 
+.QR { position: absolute; top: 0; right: 0; width: 100px; background: white; }
+.QR img { width: 100px; height: 100px; }
+.QR span { position: absolute; bottom: -3px; left: 25px; font-size: .5rem; }
+
 @keyframes skill_1 { from { width: 0%; }
   to { width: 80%; } }
 @keyframes skill_2 { from { width: 0%; }

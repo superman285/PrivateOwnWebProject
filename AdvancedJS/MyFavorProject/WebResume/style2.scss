@@ -359,6 +359,23 @@ a{color:$linkColor; text-decoration:none;}
   @include breakpoint(baby-bear) { display:none!important; }
 }
 
+.QR {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  background: white;
+  img {
+    width: 100px;
+    height: 100px;
+  }
+  span {
+    position: absolute;
+    bottom: -3px;
+    left: 25px;
+    font-size: .5rem;
+  }
+}
 
 @keyframes skill_1 {from {width:0%;}to {width:80%;}}
 @keyframes skill_2 {from {width:0%;}to {width:90%;}}

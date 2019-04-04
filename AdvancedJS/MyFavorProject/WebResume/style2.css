@@ -99,6 +99,10 @@ a { color: #66cc99; text-decoration: none; }
 @media (max-width: 850px) { .footerself { display: none !important; } }
 @media (max-width: 450px) { .footerself { display: none !important; } }
 
+.QR { position: absolute; top: 0; right: 0; width: 100px; background: white; }
+.QR img { width: 100px; height: 100px; }
+.QR span { position: absolute; bottom: -3px; left: 25px; font-size: .5rem; }
+
 @keyframes skill_1 { from { width: 0%; }
   to { width: 80%; } }
 @keyframes skill_2 { from { width: 0%; }
