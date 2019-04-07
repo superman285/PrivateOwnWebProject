@@ -90,6 +90,7 @@ module.exports = {
         console.log('abi,addr',contractABI,contractAddr);
         let contractObj = new web3.eth.Contract(JSON.parse(contractABI),contractAddr);
 
+        //'0xa9059cbb'是从remix看到的 对应transfer方法
         var paramsData = ethABI.rawEncode(["address","uint256"], [txToAddr,txAmount]).toString('hex');
         var gasLimit = await web3.eth.estimateGas({
             from: txFromAddr,
