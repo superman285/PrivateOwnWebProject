@@ -3,7 +3,7 @@ const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
     publicPath: './',
-    configureWebpack: config=>{
+    /*configureWebpack: config=>{
         if (process.env.NODE_ENV === 'production') {
             config.mode = "production";
             config.optimization.minimize = true;
@@ -19,5 +19,5 @@ module.exports = {
                 })
             ];
         }
-    },
+    },*/
 };
