@@ -7,7 +7,7 @@ module.exports = {
         if (process.env.NODE_ENV === 'production') {
             config.mode = "production";
             config.optimization.minimize = true;
-            /*config.optimization.minimizer = [
+            config.optimization.minimizer = [
                 new TerserPlugin({
                     terserOptions: {
                         compress: {
@@ -17,7 +17,7 @@ module.exports = {
                         }
                     }
                 })
-            ];*/
+            ];
         }
     },
 };
