@@ -36,6 +36,8 @@
         //console.log(data.q);
         //console.log(data.s);
         //此处为展示搜索结果逻辑
+        //把函数参数打印出来 就是jsonp了
+
         resultBox.innerHTML = '<a href="#!" class="collection-item active">result</a>';
         /*data.s.forEach(val=>{
             let aLink = document.createElement("a");
@@ -64,6 +66,7 @@
         }
     }
 
+    //回调函数cb 是 search 刚声明的获得参数的那个函数 则打开api 看到的函数名就是search(参数)
     let jsonpAPI = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?json=1&p=3&cb=search&wd=";
 
 
@@ -72,7 +75,7 @@
         /*let loadScript = document.createElement("script");
         loadScript.src = `${jsonpAPI}${this.value}`;
         document.body.appendChild(loadScript);*/
-        //以上三步相当于下面的引入一个script标签并把api填入src的操作，等价
+        //以上三步相当于下面的引入一个script标签并把api填入src的操作，等价，加载这个脚本相当于执行 这个API所对应的函数，就可以拿到函数参数了
 
         //此处ajax发请求 相当于jsonp方式加载脚本，和以上三步等价
         $.ajax({
