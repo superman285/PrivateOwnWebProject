@@ -20,7 +20,7 @@
     "css-loader": "^2.1.0",
     "debug": "^2.6.3",
     "fs": "0.0.1-security",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "koa": "^2.2.0",
     "koa-bodyparser": "^3.2.0",
     "koa-convert": "^1.2.0",
